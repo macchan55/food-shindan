@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
+import Image from "next/image";
 import { IndustryFitBadge } from "@/components/IndustryFitBadge";
 import { ScoreBars } from "@/components/ScoreBars";
 import { RankingList } from "@/components/RankingList";
@@ -18,6 +19,7 @@ type TypeSummary = {
   suitedJobs: string[];
   suitedFormats: string[];
   suitedRoles: string[];
+  imageUrl: string | null;
 };
 
 type ResultData = {
@@ -84,6 +86,18 @@ export default function DiagnosisResultPage() {
     <main className="mx-auto flex w-full max-w-xl flex-1 flex-col gap-8 px-6 py-10">
       {/* First view */}
       <section className="space-y-3 text-center">
+        {type.imageUrl && (
+          <div className="mx-auto h-48 w-48 overflow-hidden rounded-full border-4 border-brand-soft bg-brand-soft shadow-lg">
+            <Image
+              src={type.imageUrl}
+              alt={type.name}
+              width={192}
+              height={192}
+              className="h-full w-full object-cover"
+              priority
+            />
+          </div>
+        )}
         <p className="text-sm font-medium text-brand-dark">{type.family}</p>
         <h1 className="text-3xl font-bold">{type.name}</h1>
         <p className="text-lg text-foreground/80">{type.catchcopy}</p>
@@ -145,12 +159,25 @@ export default function DiagnosisResultPage() {
 
       {/* Block 6: hidden type */}
       {data.hiddenType && (
-        <section className="space-y-2 rounded-2xl border border-dashed border-brand/40 bg-brand-soft/40 p-4">
-          <p className="text-xs font-semibold uppercase tracking-wide text-brand-dark">
-            隠れタイプ
-          </p>
-          <p className="font-bold">{data.hiddenType.name}</p>
-          <p className="text-sm text-foreground/70">{data.hiddenType.catchcopy}</p>
+        <section className="flex items-center gap-4 rounded-2xl border border-dashed border-brand/40 bg-brand-soft/40 p-4">
+          {data.hiddenType.imageUrl && (
+            <div className="h-16 w-16 shrink-0 overflow-hidden rounded-full border-2 border-brand-soft bg-surface">
+              <Image
+                src={data.hiddenType.imageUrl}
+                alt={data.hiddenType.name}
+                width={64}
+                height={64}
+                className="h-full w-full object-cover"
+              />
+            </div>
+          )}
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wide text-brand-dark">
+              隠れタイプ
+            </p>
+            <p className="font-bold">{data.hiddenType.name}</p>
+            <p className="text-sm text-foreground/70">{data.hiddenType.catchcopy}</p>
+          </div>
         </section>
       )}
 

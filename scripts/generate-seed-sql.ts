@@ -91,7 +91,7 @@ lines.push("-- Diagnosis types (64)");
 for (const t of types) {
   const typeId = idFor("type", t.typeId);
   lines.push(
-    `insert into diagnosis_types (id, type_code, name, catchcopy, description, family, primary_archetype, strengths, weaknesses, suited_jobs, suited_formats, suited_roles, tag_axis1, tag_axis2, tag_axis3, tag_axis4, tag_axis5, tag_axis6) values (${sqlStr(
+    `insert into diagnosis_types (id, type_code, name, catchcopy, description, family, primary_archetype, strengths, weaknesses, suited_jobs, suited_formats, suited_roles, tag_axis1, tag_axis2, tag_axis3, tag_axis4, tag_axis5, tag_axis6, image_url) values (${sqlStr(
       typeId
     )}, ${sqlStr(t.typeId)}, ${sqlStr(t.name)}, ${sqlStr(t.catchcopy)}, ${sqlStr(
       t.description
@@ -103,7 +103,7 @@ for (const t of types) {
       t.tags.axis2
     )}, ${sqlStr(t.tags.axis3)}, ${sqlStr(t.tags.axis4)}, ${sqlStr(t.tags.axis5)}, ${sqlStr(
       t.tags.axis6
-    )});`
+    )}, ${sqlStr(`/characters/${t.typeId}.webp`)});`
   );
 }
 lines.push("");

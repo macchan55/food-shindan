@@ -53,6 +53,7 @@ export type DiagnosisTypeRow = {
   tag_axis4: string;
   tag_axis5: string;
   tag_axis6: string;
+  image_url: string | null;
 };
 
 export type JobFormatRoleMasterRow = {

@@ -8,6 +8,7 @@ function typeSummary(t: DiagnosisResultView["primaryType"]) {
     description: t.description,
     family: t.family,
     primaryArchetype: t.primary_archetype,
+    imageUrl: t.image_url,
     strengths: t.strengths,
     weaknesses: t.weaknesses,
     suitedJobs: t.suited_jobs,
