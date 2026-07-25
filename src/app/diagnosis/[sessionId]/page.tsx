@@ -2,8 +2,13 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
+import Image from "next/image";
 import { ProgressBar } from "@/components/ProgressBar";
 import type { QuestionForClient } from "@/lib/diagnosis/repository";
+
+function sceneImagePath(sceneId: number): string {
+  return `/scenes/scene-${String(sceneId).padStart(2, "0")}.webp`;
+}
 
 const CHOICE_LABELS = ["A", "B", "C", "D"];
 
@@ -145,13 +150,25 @@ export default function DiagnosisFlowPage() {
         <ProgressBar current={currentIndex + 1} total={questions.length} />
       </div>
 
-      <div className="rounded-2xl border border-border bg-brand-soft/60 px-4 py-3">
-        <p className="text-xs font-medium uppercase tracking-wide text-brand-dark">
-          {question.sceneTitle}
-        </p>
-        {question.visualBrief && (
-          <p className="mt-1 text-sm italic text-foreground/60">{question.visualBrief}</p>
-        )}
+      <div className="overflow-hidden rounded-2xl border border-border bg-brand-soft/60">
+        <div className="relative aspect-[3/2] w-full">
+          <Image
+            key={question.sceneId}
+            src={sceneImagePath(question.sceneId)}
+            alt={question.sceneTitle}
+            fill
+            className="object-cover"
+            priority={currentIndex === 0}
+          />
+        </div>
+        <div className="px-4 py-3">
+          <p className="text-xs font-medium uppercase tracking-wide text-brand-dark">
+            {question.sceneTitle}
+          </p>
+          {question.visualBrief && (
+            <p className="mt-1 text-sm italic text-foreground/60">{question.visualBrief}</p>
+          )}
+        </div>
       </div>
 
       <h1 className="text-xl font-bold leading-relaxed">{question.text}</h1>
