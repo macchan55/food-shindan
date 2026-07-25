@@ -1,0 +1,2420 @@
+[
+  {
+    "typeId": "T01",
+    "name": "銀座のおもてなし職人",
+    "catchcopy": "気づかれないほど自然な気配りが、最高のサービス。",
+    "description": "相手の表情や間の変化を読み、頼まれる前に必要なことを整える上質サービス型。目立つより、体験全体を滑らかにすることに喜びを感じる。",
+    "family": "Hospitality Stars",
+    "primaryArchetype": "H01 銀座の黒子",
+    "strengths": [
+      "先読み",
+      "落ち着き",
+      "高い接客基準"
+    ],
+    "weaknesses": [
+      "自己犠牲になりやすい",
+      "成果が見えにくい"
+    ],
+    "suitedJobs": [
+      "高級店サービス",
+      "ホテルサービス",
+      "コンシェルジュ"
+    ],
+    "suitedFormats": [
+      "鮨",
+      "割烹",
+      "フレンチ",
+      "会員制"
+    ],
+    "suitedRoles": [
+      "シニアサービス",
+      "副支配人候補"
+    ],
+    "tags": {
+      "axis1": "Guest",
+      "axis2": "Craft",
+      "axis3": "High-end",
+      "axis4": "Specialist",
+      "axis5": "Arrange",
+      "axis6": "Intuitive"
+    }
+  },
+  {
+    "typeId": "T02",
+    "name": "サービス分析官",
+    "catchcopy": "おもてなしを、感覚だけで終わらせない。",
+    "description": "顧客満足や導線を観察・分析し、再現性のあるサービスへ落とし込む改善型。",
+    "family": "Hospitality Stars",
+    "primaryArchetype": "H01 銀座の黒子",
+    "strengths": [
+      "観察力",
+      "改善力",
+      "再現性"
+    ],
+    "weaknesses": [
+      "数字に寄りすぎる",
+      "現場の温度感を失いやすい"
+    ],
+    "suitedJobs": [
+      "CX改善",
+      "サービス品質管理",
+      "研修企画"
+    ],
+    "suitedFormats": [
+      "ホテル",
+      "高級レストラン",
+      "大型店"
+    ],
+    "suitedRoles": [
+      "サービス企画",
+      "品質責任者"
+    ],
+    "tags": {
+      "axis1": "Guest",
+      "axis2": "Craft",
+      "axis3": "High-end",
+      "axis4": "Specialist",
+      "axis5": "Arrange",
+      "axis6": "Data"
+    }
+  },
+  {
+    "typeId": "T03",
+    "name": "接客革命家",
+    "catchcopy": "『普通の接客』を、もっと面白く。",
+    "description": "既存の接客常識にとらわれず、会話・演出・デジタルを使って新しい顧客体験を生み出す。",
+    "family": "Hospitality Stars",
+    "primaryArchetype": "H03 空気の演出家",
+    "strengths": [
+      "発想力",
+      "行動力",
+      "顧客理解"
+    ],
+    "weaknesses": [
+      "やりすぎて好みが分かれる",
+      "標準化が弱い"
+    ],
+    "suitedJobs": [
+      "体験企画",
+      "イベント接客",
+      "SNS連動企画"
+    ],
+    "suitedFormats": [
+      "エンタメレストラン",
+      "カフェ",
+      "バー"
+    ],
+    "suitedRoles": [
+      "CX企画",
+      "新店立ち上げ"
+    ],
+    "tags": {
+      "axis1": "Guest",
+      "axis2": "Craft",
+      "axis3": "High-end",
+      "axis4": "Specialist",
+      "axis5": "Venture",
+      "axis6": "Intuitive"
+    }
+  },
+  {
+    "typeId": "T04",
+    "name": "CXストラテジスト",
+    "catchcopy": "顧客体験を、事業の成長エンジンに。",
+    "description": "来店前から退店後までの体験を設計し、ブランド価値と収益へつなげる戦略型。",
+    "family": "Hospitality Stars",
+    "primaryArchetype": "B01 ブランド創造者",
+    "strengths": [
+      "顧客設計",
+      "ブランド視点",
+      "分析力"
+    ],
+    "weaknesses": [
+      "現場負荷を見落としやすい",
+      "設計が複雑化しやすい"
+    ],
+    "suitedJobs": [
+      "CX責任者",
+      "ブランド企画",
+      "CRM"
+    ],
+    "suitedFormats": [
+      "高級業態",
+      "ホテル",
+      "複合施設"
+    ],
+    "suitedRoles": [
+      "CX責任者",
+      "事業企画"
+    ],
+    "tags": {
+      "axis1": "Guest",
+      "axis2": "Craft",
+      "axis3": "High-end",
+      "axis4": "Specialist",
+      "axis5": "Venture",
+      "axis6": "Data"
+    }
+  },
+  {
+    "typeId": "T05",
+    "name": "銀座支配人",
+    "catchcopy": "一人のお客様と、店全体を同時に見る。",
+    "description": "上質な接客を自ら体現しながら、サービスチーム全体を統率する現場リーダー。",
+    "family": "Hospitality Stars",
+    "primaryArchetype": "L01 現場司令官",
+    "strengths": [
+      "統率力",
+      "顧客対応",
+      "危機管理"
+    ],
+    "weaknesses": [
+      "抱え込みやすい",
+      "部下に高基準を求めすぎる"
+    ],
+    "suitedJobs": [
+      "支配人",
+      "サービスマネージャー"
+    ],
+    "suitedFormats": [
+      "高級店",
+      "ホテル",
+      "会員制"
+    ],
+    "suitedRoles": [
+      "支配人",
+      "店舗責任者"
+    ],
+    "tags": {
+      "axis1": "Guest",
+      "axis2": "Craft",
+      "axis3": "High-end",
+      "axis4": "Leader",
+      "axis5": "Arrange",
+      "axis6": "Intuitive"
+    }
+  },
+  {
+    "typeId": "T06",
+    "name": "ラグジュアリー統括官",
+    "catchcopy": "上質さを、複数店舗で再現する。",
+    "description": "一店舗の成功を基準・教育・監査へ落とし込み、複数店のサービス品質を統括する。",
+    "family": "Hospitality Stars",
+    "primaryArchetype": "L04 改善プロデューサー",
+    "strengths": [
+      "標準化",
+      "教育",
+      "多店舗管理"
+    ],
+    "weaknesses": [
+      "現場との距離が開きやすい",
+      "ルール過多になりやすい"
+    ],
+    "suitedJobs": [
+      "サービス統括",
+      "教育責任者",
+      "SV"
+    ],
+    "suitedFormats": [
+      "ホテル",
+      "高級チェーン",
+      "百貨店"
+    ],
+    "suitedRoles": [
+      "統括責任者",
+      "SV"
+    ],
+    "tags": {
+      "axis1": "Guest",
+      "axis2": "Craft",
+      "axis3": "High-end",
+      "axis4": "Leader",
+      "axis5": "Arrange",
+      "axis6": "Data"
+    }
+  },
+  {
+    "typeId": "T07",
+    "name": "ホスピタリティ開拓者",
+    "catchcopy": "まだない『喜ばせ方』をつくる。",
+    "description": "新しい土地・業態・顧客層でも、人を喜ばせる方法を探し、現場から体験を開拓する。",
+    "family": "Hospitality Stars",
+    "primaryArchetype": "G01 挑戦者",
+    "strengths": [
+      "適応力",
+      "共感力",
+      "挑戦心"
+    ],
+    "weaknesses": [
+      "準備不足",
+      "再現性が弱い"
+    ],
+    "suitedJobs": [
+      "新店立ち上げ",
+      "海外店",
+      "イベント"
+    ],
+    "suitedFormats": [
+      "新業態",
+      "観光地",
+      "海外"
+    ],
+    "suitedRoles": [
+      "立ち上げメンバー",
+      "サービス責任者"
+    ],
+    "tags": {
+      "axis1": "Guest",
+      "axis2": "Craft",
+      "axis3": "High-end",
+      "axis4": "Leader",
+      "axis5": "Venture",
+      "axis6": "Intuitive"
+    }
+  },
+  {
+    "typeId": "T08",
+    "name": "ホスピタリティCEO",
+    "catchcopy": "人を喜ばせる文化を、会社の競争力に。",
+    "description": "顧客・従業員・ブランドを一体で捉え、ホスピタリティを企業文化と収益へ変える経営型。",
+    "family": "Hospitality Stars",
+    "primaryArchetype": "B05 食文化プロデューサー",
+    "strengths": [
+      "経営視点",
+      "文化づくり",
+      "長期設計"
+    ],
+    "weaknesses": [
+      "理想が大きくなりやすい",
+      "現場の細部を見失いやすい"
+    ],
+    "suitedJobs": [
+      "経営者",
+      "ブランドCEO",
+      "事業責任者"
+    ],
+    "suitedFormats": [
+      "高級グループ",
+      "ホテル",
+      "複数ブランド"
+    ],
+    "suitedRoles": [
+      "CEO",
+      "事業本部長"
+    ],
+    "tags": {
+      "axis1": "Guest",
+      "axis2": "Craft",
+      "axis3": "High-end",
+      "axis4": "Leader",
+      "axis5": "Venture",
+      "axis6": "Data"
+    }
+  },
+  {
+    "typeId": "T09",
+    "name": "愛されホールスタッフ",
+    "catchcopy": "名前を覚えられるより、相手を覚えている。",
+    "description": "親しみやすさと気配りで、お客様がまた会いに来たくなる関係をつくる。",
+    "family": "Community Hosts",
+    "primaryArchetype": "H05 常連メーカー",
+    "strengths": [
+      "親近感",
+      "関係構築",
+      "会話力"
+    ],
+    "weaknesses": [
+      "常連を優先しすぎる",
+      "距離が近くなりすぎる"
+    ],
+    "suitedJobs": [
+      "ホール",
+      "カフェスタッフ",
+      "居酒屋接客"
+    ],
+    "suitedFormats": [
+      "居酒屋",
+      "カフェ",
+      "地域店"
+    ],
+    "suitedRoles": [
+      "ホールリーダー"
+    ],
+    "tags": {
+      "axis1": "Guest",
+      "axis2": "Craft",
+      "axis3": "Mass",
+      "axis4": "Specialist",
+      "axis5": "Arrange",
+      "axis6": "Intuitive"
+    }
+  },
+  {
+    "typeId": "T10",
+    "name": "接客オペレーター",
+    "catchcopy": "忙しくても、誰にでも心地よい接客を。",
+    "description": "スピードと親しみを両立し、誰が担当しても一定品質の接客を実現する。",
+    "family": "Community Hosts",
+    "primaryArchetype": "C04 再現の達人",
+    "strengths": [
+      "安定運営",
+      "効率",
+      "接客基準"
+    ],
+    "weaknesses": [
+      "個別対応が弱くなりやすい",
+      "柔軟性不足"
+    ],
+    "suitedJobs": [
+      "接客トレーナー",
+      "オペレーション"
+    ],
+    "suitedFormats": [
+      "ファミレス",
+      "フードコート",
+      "チェーン"
+    ],
+    "suitedRoles": [
+      "トレーナー",
+      "時間帯責任者"
+    ],
+    "tags": {
+      "axis1": "Guest",
+      "axis2": "Craft",
+      "axis3": "Mass",
+      "axis4": "Specialist",
+      "axis5": "Arrange",
+      "axis6": "Data"
+    }
+  },
+  {
+    "typeId": "T11",
+    "name": "地域の人気者",
+    "catchcopy": "店を、街の居場所に変える。",
+    "description": "地域の人との関係を育て、店を日常的に集まるコミュニティへ変える。",
+    "family": "Community Hosts",
+    "primaryArchetype": "H05 常連メーカー",
+    "strengths": [
+      "人脈",
+      "親しみ",
+      "発信力"
+    ],
+    "weaknesses": [
+      "内輪感が出やすい",
+      "採算管理が甘くなりやすい"
+    ],
+    "suitedJobs": [
+      "地域店スタッフ",
+      "コミュニティ運営"
+    ],
+    "suitedFormats": [
+      "町中華",
+      "カフェ",
+      "居酒屋"
+    ],
+    "suitedRoles": [
+      "店長候補",
+      "コミュニティ担当"
+    ],
+    "tags": {
+      "axis1": "Guest",
+      "axis2": "Craft",
+      "axis3": "Mass",
+      "axis4": "Specialist",
+      "axis5": "Venture",
+      "axis6": "Intuitive"
+    }
+  },
+  {
+    "typeId": "T12",
+    "name": "繁盛店マーケター",
+    "catchcopy": "『また来たい』を、数字で増やす。",
+    "description": "現場の反応とデータを結び、集客・リピート・客単価を改善する。",
+    "family": "Community Hosts",
+    "primaryArchetype": "B04 数字の戦略家",
+    "strengths": [
+      "分析力",
+      "販促",
+      "顧客理解"
+    ],
+    "weaknesses": [
+      "短期施策に偏りやすい",
+      "現場負荷を増やしやすい"
+    ],
+    "suitedJobs": [
+      "店舗マーケティング",
+      "CRM",
+      "販促"
+    ],
+    "suitedFormats": [
+      "大衆店",
+      "チェーン",
+      "カフェ"
+    ],
+    "suitedRoles": [
+      "販促責任者",
+      "マーケ担当"
+    ],
+    "tags": {
+      "axis1": "Guest",
+      "axis2": "Craft",
+      "axis3": "Mass",
+      "axis4": "Specialist",
+      "axis5": "Venture",
+      "axis6": "Data"
+    }
+  },
+  {
+    "typeId": "T13",
+    "name": "愛され店長",
+    "catchcopy": "スタッフにもお客様にも、会いに来てもらえる店長。",
+    "description": "親しみやすさと調整力で、人が定着し、お客様にも愛される店舗をつくる。",
+    "family": "Community Hosts",
+    "primaryArchetype": "L03 チームビルダー",
+    "strengths": [
+      "信頼構築",
+      "育成",
+      "接客"
+    ],
+    "weaknesses": [
+      "厳しい判断を避けやすい",
+      "人に頼られすぎる"
+    ],
+    "suitedJobs": [
+      "店長",
+      "カフェマネージャー",
+      "居酒屋店長"
+    ],
+    "suitedFormats": [
+      "地域店",
+      "カフェ",
+      "居酒屋"
+    ],
+    "suitedRoles": [
+      "店長",
+      "エリア店長候補"
+    ],
+    "tags": {
+      "axis1": "Guest",
+      "axis2": "Craft",
+      "axis3": "Mass",
+      "axis4": "Leader",
+      "axis5": "Arrange",
+      "axis6": "Intuitive"
+    }
+  },
+  {
+    "typeId": "T14",
+    "name": "繁盛店司令官",
+    "catchcopy": "ピークの混乱を、売上に変える。",
+    "description": "高回転の現場で人・席・商品を動かし、活気と効率を両立する。",
+    "family": "Community Hosts",
+    "primaryArchetype": "L01 現場司令官",
+    "strengths": [
+      "即断力",
+      "配置力",
+      "現場統率"
+    ],
+    "weaknesses": [
+      "指示が強くなりやすい",
+      "長期育成が後回し"
+    ],
+    "suitedJobs": [
+      "店長",
+      "大型店責任者"
+    ],
+    "suitedFormats": [
+      "居酒屋",
+      "焼肉",
+      "繁盛大衆店"
+    ],
+    "suitedRoles": [
+      "店長",
+      "SV候補"
+    ],
+    "tags": {
+      "axis1": "Guest",
+      "axis2": "Craft",
+      "axis3": "Mass",
+      "axis4": "Leader",
+      "axis5": "Arrange",
+      "axis6": "Data"
+    }
+  },
+  {
+    "typeId": "T15",
+    "name": "コミュニティ創業者",
+    "catchcopy": "好きな人が集まる場所を、自分でつくる。",
+    "description": "地域・趣味・食のつながりを店にし、濃いファンを育てる独立型。",
+    "family": "Community Hosts",
+    "primaryArchetype": "B02 未来のオーナー",
+    "strengths": [
+      "コミュニティ",
+      "独立心",
+      "発信力"
+    ],
+    "weaknesses": [
+      "内輪化",
+      "事業規模を広げにくい"
+    ],
+    "suitedJobs": [
+      "独立店主",
+      "コミュニティカフェ"
+    ],
+    "suitedFormats": [
+      "カフェ",
+      "バー",
+      "地域店"
+    ],
+    "suitedRoles": [
+      "オーナー",
+      "ブランド発起人"
+    ],
+    "tags": {
+      "axis1": "Guest",
+      "axis2": "Craft",
+      "axis3": "Mass",
+      "axis4": "Leader",
+      "axis5": "Venture",
+      "axis6": "Intuitive"
+    }
+  },
+  {
+    "typeId": "T16",
+    "name": "大衆店プロデューサー",
+    "catchcopy": "親しみやすさを、強い業態にする。",
+    "description": "日常的に選ばれる商品・価格・接客を設計し、多店舗展開できる大衆ブランドをつくる。",
+    "family": "Community Hosts",
+    "primaryArchetype": "L05 繁盛店メーカー",
+    "strengths": [
+      "業態設計",
+      "収益力",
+      "現場理解"
+    ],
+    "weaknesses": [
+      "効率優先になりやすい",
+      "個性が薄くなりやすい"
+    ],
+    "suitedJobs": [
+      "業態開発",
+      "事業責任者",
+      "FC本部"
+    ],
+    "suitedFormats": [
+      "大衆業態",
+      "チェーン"
+    ],
+    "suitedRoles": [
+      "事業責任者",
+      "ブランド統括"
+    ],
+    "tags": {
+      "axis1": "Guest",
+      "axis2": "Craft",
+      "axis3": "Mass",
+      "axis4": "Leader",
+      "axis5": "Venture",
+      "axis6": "Data"
+    }
+  },
+  {
+    "typeId": "T17",
+    "name": "高級店セールス職人",
+    "catchcopy": "売るのではなく、価値を理解して選んでもらう。",
+    "description": "専門知識と顧客理解を使い、高価格の商品や体験を自然に提案する。",
+    "family": "Luxury Leaders",
+    "primaryArchetype": "H04 ワインの語り部",
+    "strengths": [
+      "提案力",
+      "専門知識",
+      "信頼構築"
+    ],
+    "weaknesses": [
+      "説明過多",
+      "数字目標で接客が硬くなる"
+    ],
+    "suitedJobs": [
+      "ソムリエ",
+      "高級販売",
+      "予約担当"
+    ],
+    "suitedFormats": [
+      "高級鮨",
+      "ワインバー",
+      "ホテル"
+    ],
+    "suitedRoles": [
+      "シニアサービス",
+      "セールス担当"
+    ],
+    "tags": {
+      "axis1": "Guest",
+      "axis2": "Business",
+      "axis3": "High-end",
+      "axis4": "Specialist",
+      "axis5": "Arrange",
+      "axis6": "Intuitive"
+    }
+  },
+  {
+    "typeId": "T18",
+    "name": "ラグジュアリー収益分析官",
+    "catchcopy": "上質さを守りながら、利益を残す。",
+    "description": "客単価、稼働率、原価、予約構成を分析し、高級店の収益を改善する。",
+    "family": "Luxury Leaders",
+    "primaryArchetype": "B04 数字の戦略家",
+    "strengths": [
+      "収益分析",
+      "価格設計",
+      "計画性"
+    ],
+    "weaknesses": [
+      "現場感を失いやすい",
+      "ブランド価値を数字化しすぎる"
+    ],
+    "suitedJobs": [
+      "収益管理",
+      "レベニューマネジメント"
+    ],
+    "suitedFormats": [
+      "ホテル",
+      "高級店"
+    ],
+    "suitedRoles": [
+      "収益責任者",
+      "管理責任者"
+    ],
+    "tags": {
+      "axis1": "Guest",
+      "axis2": "Business",
+      "axis3": "High-end",
+      "axis4": "Specialist",
+      "axis5": "Arrange",
+      "axis6": "Data"
+    }
+  },
+  {
+    "typeId": "T19",
+    "name": "高級ブランド仕掛け人",
+    "catchcopy": "憧れられる店には、理由がある。",
+    "description": "料理・空間・物語・PRを結び、指名される高級ブランドをつくる。",
+    "family": "Luxury Leaders",
+    "primaryArchetype": "B01 ブランド創造者",
+    "strengths": [
+      "ブランド設計",
+      "美意識",
+      "発信力"
+    ],
+    "weaknesses": [
+      "現場との乖離",
+      "外見優先になりやすい"
+    ],
+    "suitedJobs": [
+      "ブランド企画",
+      "PR",
+      "クリエイティブ"
+    ],
+    "suitedFormats": [
+      "高級店",
+      "ホテル",
+      "会員制"
+    ],
+    "suitedRoles": [
+      "ブランドマネージャー"
+    ],
+    "tags": {
+      "axis1": "Guest",
+      "axis2": "Business",
+      "axis3": "High-end",
+      "axis4": "Specialist",
+      "axis5": "Venture",
+      "axis6": "Intuitive"
+    }
+  },
+  {
+    "typeId": "T20",
+    "name": "ラグジュアリー戦略家",
+    "catchcopy": "一店舗の名声を、持続する事業へ。",
+    "description": "ブランド資産、市場、顧客データを読み、高級事業の成長戦略を描く。",
+    "family": "Luxury Leaders",
+    "primaryArchetype": "B01 ブランド創造者",
+    "strengths": [
+      "戦略設計",
+      "市場分析",
+      "長期視点"
+    ],
+    "weaknesses": [
+      "現場実装が遅い",
+      "理論先行"
+    ],
+    "suitedJobs": [
+      "経営企画",
+      "ブランド戦略",
+      "投資企画"
+    ],
+    "suitedFormats": [
+      "高級グループ",
+      "ホテル"
+    ],
+    "suitedRoles": [
+      "戦略責任者",
+      "経営企画"
+    ],
+    "tags": {
+      "axis1": "Guest",
+      "axis2": "Business",
+      "axis3": "High-end",
+      "axis4": "Specialist",
+      "axis5": "Venture",
+      "axis6": "Data"
+    }
+  },
+  {
+    "typeId": "T21",
+    "name": "ブランド支配人",
+    "catchcopy": "店の世界観を、人と現場で守り抜く。",
+    "description": "高級ブランドの基準を理解し、顧客対応と組織運営を同時に担う。",
+    "family": "Luxury Leaders",
+    "primaryArchetype": "L01 現場司令官",
+    "strengths": [
+      "ブランド理解",
+      "統率",
+      "顧客対応"
+    ],
+    "weaknesses": [
+      "基準が厳しくなりすぎる",
+      "現場負担増"
+    ],
+    "suitedJobs": [
+      "支配人",
+      "GM"
+    ],
+    "suitedFormats": [
+      "高級レストラン",
+      "ホテル"
+    ],
+    "suitedRoles": [
+      "支配人",
+      "GM"
+    ],
+    "tags": {
+      "axis1": "Guest",
+      "axis2": "Business",
+      "axis3": "High-end",
+      "axis4": "Leader",
+      "axis5": "Arrange",
+      "axis6": "Intuitive"
+    }
+  },
+  {
+    "typeId": "T22",
+    "name": "高級業態COO",
+    "catchcopy": "ブランドの輝きを、強い運営に変える。",
+    "description": "高級店の品質を守りながら、組織・数値・出店を管理する執行型。",
+    "family": "Luxury Leaders",
+    "primaryArchetype": "L05 繁盛店メーカー",
+    "strengths": [
+      "事業運営",
+      "組織統括",
+      "品質管理"
+    ],
+    "weaknesses": [
+      "管理過多",
+      "現場との距離"
+    ],
+    "suitedJobs": [
+      "COO",
+      "事業部長",
+      "統括"
+    ],
+    "suitedFormats": [
+      "高級多店舗",
+      "ホテル"
+    ],
+    "suitedRoles": [
+      "COO",
+      "事業本部長"
+    ],
+    "tags": {
+      "axis1": "Guest",
+      "axis2": "Business",
+      "axis3": "High-end",
+      "axis4": "Leader",
+      "axis5": "Arrange",
+      "axis6": "Data"
+    }
+  },
+  {
+    "typeId": "T23",
+    "name": "ラグジュアリー起業家",
+    "catchcopy": "自分の美学を、選ばれるブランドに。",
+    "description": "強い世界観と顧客理解をもとに、高付加価値の店を立ち上げる。",
+    "family": "Luxury Leaders",
+    "primaryArchetype": "B02 未来のオーナー",
+    "strengths": [
+      "独立心",
+      "審美眼",
+      "顧客設計"
+    ],
+    "weaknesses": [
+      "初期投資が大きい",
+      "自分の感性へ依存"
+    ],
+    "suitedJobs": [
+      "高級店オーナー",
+      "ブランド創業者"
+    ],
+    "suitedFormats": [
+      "鮨",
+      "割烹",
+      "会員制"
+    ],
+    "suitedRoles": [
+      "創業者",
+      "オーナーシェフ"
+    ],
+    "tags": {
+      "axis1": "Guest",
+      "axis2": "Business",
+      "axis3": "High-end",
+      "axis4": "Leader",
+      "axis5": "Venture",
+      "axis6": "Intuitive"
+    }
+  },
+  {
+    "typeId": "T24",
+    "name": "高級外食CEO",
+    "catchcopy": "食の憧れを、企業価値へ。",
+    "description": "高級ブランド群を育て、資本・人材・海外展開まで統合する経営型。",
+    "family": "Luxury Leaders",
+    "primaryArchetype": "B05 食文化プロデューサー",
+    "strengths": [
+      "経営力",
+      "ブランド群管理",
+      "長期成長"
+    ],
+    "weaknesses": [
+      "現場解像度の低下",
+      "拡大優先"
+    ],
+    "suitedJobs": [
+      "CEO",
+      "投資責任者",
+      "グループ経営"
+    ],
+    "suitedFormats": [
+      "高級ブランド群"
+    ],
+    "suitedRoles": [
+      "CEO",
+      "代表取締役"
+    ],
+    "tags": {
+      "axis1": "Guest",
+      "axis2": "Business",
+      "axis3": "High-end",
+      "axis4": "Leader",
+      "axis5": "Venture",
+      "axis6": "Data"
+    }
+  },
+  {
+    "typeId": "T25",
+    "name": "売上アップ職人",
+    "catchcopy": "現場の小さな工夫で、数字を動かす。",
+    "description": "商品配置、声かけ、導線など、現場で実行できる改善を積み重ねる。",
+    "family": "Scale Builders",
+    "primaryArchetype": "L04 改善プロデューサー",
+    "strengths": [
+      "改善力",
+      "実行力",
+      "売上感覚"
+    ],
+    "weaknesses": [
+      "局所最適",
+      "施策疲れ"
+    ],
+    "suitedJobs": [
+      "店舗改善",
+      "販促",
+      "店長補佐"
+    ],
+    "suitedFormats": [
+      "チェーン",
+      "大衆店"
+    ],
+    "suitedRoles": [
+      "改善担当",
+      "副店長"
+    ],
+    "tags": {
+      "axis1": "Guest",
+      "axis2": "Business",
+      "axis3": "Mass",
+      "axis4": "Specialist",
+      "axis5": "Arrange",
+      "axis6": "Intuitive"
+    }
+  },
+  {
+    "typeId": "T26",
+    "name": "店舗利益分析官",
+    "catchcopy": "店の数字から、ムダと伸びしろを見つける。",
+    "description": "原価、人件費、商品別利益を分析し、店舗利益を改善する。",
+    "family": "Scale Builders",
+    "primaryArchetype": "B04 数字の戦略家",
+    "strengths": [
+      "分析力",
+      "利益管理",
+      "計画性"
+    ],
+    "weaknesses": [
+      "現場の納得感不足",
+      "短期数字偏重"
+    ],
+    "suitedJobs": [
+      "管理会計",
+      "店舗分析",
+      "SV支援"
+    ],
+    "suitedFormats": [
+      "チェーン",
+      "多店舗"
+    ],
+    "suitedRoles": [
+      "分析担当",
+      "管理責任者"
+    ],
+    "tags": {
+      "axis1": "Guest",
+      "axis2": "Business",
+      "axis3": "Mass",
+      "axis4": "Specialist",
+      "axis5": "Arrange",
+      "axis6": "Data"
+    }
+  },
+  {
+    "typeId": "T27",
+    "name": "ヒット業態ハンター",
+    "catchcopy": "次に伸びる店の型を、誰より早く見つける。",
+    "description": "トレンドと顧客ニーズを察知し、売れる業態を素早く試す。",
+    "family": "Scale Builders",
+    "primaryArchetype": "B03 新業態クリエイター",
+    "strengths": [
+      "市場感覚",
+      "企画力",
+      "スピード"
+    ],
+    "weaknesses": [
+      "流行追随",
+      "検証不足"
+    ],
+    "suitedJobs": [
+      "業態開発",
+      "市場調査",
+      "新店企画"
+    ],
+    "suitedFormats": [
+      "新業態",
+      "ポップアップ"
+    ],
+    "suitedRoles": [
+      "企画担当",
+      "開発責任者"
+    ],
+    "tags": {
+      "axis1": "Guest",
+      "axis2": "Business",
+      "axis3": "Mass",
+      "axis4": "Specialist",
+      "axis5": "Venture",
+      "axis6": "Intuitive"
+    }
+  },
+  {
+    "typeId": "T28",
+    "name": "フードテック戦略家",
+    "catchcopy": "テクノロジーで、店舗経営を軽く強く。",
+    "description": "データ、AI、モバイルオーダーなどを使い、収益性と顧客体験を改善する。",
+    "family": "Scale Builders",
+    "primaryArchetype": "G04 変革者",
+    "strengths": [
+      "DX",
+      "戦略",
+      "分析力"
+    ],
+    "weaknesses": [
+      "現場適合不足",
+      "ツール先行"
+    ],
+    "suitedJobs": [
+      "DX企画",
+      "プロダクト企画"
+    ],
+    "suitedFormats": [
+      "チェーン",
+      "デリバリー"
+    ],
+    "suitedRoles": [
+      "DX責任者",
+      "企画責任者"
+    ],
+    "tags": {
+      "axis1": "Guest",
+      "axis2": "Business",
+      "axis3": "Mass",
+      "axis4": "Specialist",
+      "axis5": "Venture",
+      "axis6": "Data"
+    }
+  },
+  {
+    "typeId": "T29",
+    "name": "現場司令官",
+    "catchcopy": "ピークの5分で、店の実力が出る。",
+    "description": "繁忙時に全体を見て、配置・優先順位・声かけを即断する。",
+    "family": "Scale Builders",
+    "primaryArchetype": "L01 現場司令官",
+    "strengths": [
+      "即断力",
+      "統率",
+      "危機対応"
+    ],
+    "weaknesses": [
+      "指示過多",
+      "長期改善が後回し"
+    ],
+    "suitedJobs": [
+      "店長",
+      "時間帯責任者"
+    ],
+    "suitedFormats": [
+      "繁盛店",
+      "大型店"
+    ],
+    "suitedRoles": [
+      "店長",
+      "店舗責任者"
+    ],
+    "tags": {
+      "axis1": "Guest",
+      "axis2": "Business",
+      "axis3": "Mass",
+      "axis4": "Leader",
+      "axis5": "Arrange",
+      "axis6": "Intuitive"
+    }
+  },
+  {
+    "typeId": "T30",
+    "name": "チェーン統括官",
+    "catchcopy": "一店舗の成功を、百店舗の標準へ。",
+    "description": "優れた運営をマニュアル、教育、数値管理へ落とし込み、多店舗で再現する。",
+    "family": "Scale Builders",
+    "primaryArchetype": "C04 再現の達人",
+    "strengths": [
+      "標準化",
+      "多店舗管理",
+      "教育"
+    ],
+    "weaknesses": [
+      "硬直化",
+      "個店の個性を失う"
+    ],
+    "suitedJobs": [
+      "SV",
+      "運営統括",
+      "教育責任者"
+    ],
+    "suitedFormats": [
+      "チェーン"
+    ],
+    "suitedRoles": [
+      "統括部長",
+      "SV"
+    ],
+    "tags": {
+      "axis1": "Guest",
+      "axis2": "Business",
+      "axis3": "Mass",
+      "axis4": "Leader",
+      "axis5": "Arrange",
+      "axis6": "Data"
+    }
+  },
+  {
+    "typeId": "T31",
+    "name": "FC帝王",
+    "catchcopy": "勝てる店の型を、オーナーと全国へ。",
+    "description": "強い業態モデルを構築し、加盟店支援と出店拡大を進める。",
+    "family": "Scale Builders",
+    "primaryArchetype": "B02 未来のオーナー",
+    "strengths": [
+      "事業拡大",
+      "オーナー支援",
+      "交渉力"
+    ],
+    "weaknesses": [
+      "拡大優先",
+      "加盟店との摩擦"
+    ],
+    "suitedJobs": [
+      "FC本部",
+      "加盟開発"
+    ],
+    "suitedFormats": [
+      "FC業態"
+    ],
+    "suitedRoles": [
+      "FC責任者",
+      "事業責任者"
+    ],
+    "tags": {
+      "axis1": "Guest",
+      "axis2": "Business",
+      "axis3": "Mass",
+      "axis4": "Leader",
+      "axis5": "Venture",
+      "axis6": "Intuitive"
+    }
+  },
+  {
+    "typeId": "T32",
+    "name": "多店舗展開の覇者",
+    "catchcopy": "店を増やしても、利益と品質を落とさない。",
+    "description": "出店戦略、人材、資金、KPIを統合し、店舗網を成長させる。",
+    "family": "Scale Builders",
+    "primaryArchetype": "L05 繁盛店メーカー",
+    "strengths": [
+      "拡大力",
+      "組織設計",
+      "収益管理"
+    ],
+    "weaknesses": [
+      "現場の疲弊",
+      "成長速度の過信"
+    ],
+    "suitedJobs": [
+      "事業部長",
+      "COO",
+      "出店責任者"
+    ],
+    "suitedFormats": [
+      "チェーン",
+      "複数ブランド"
+    ],
+    "suitedRoles": [
+      "COO",
+      "事業本部長"
+    ],
+    "tags": {
+      "axis1": "Guest",
+      "axis2": "Business",
+      "axis3": "Mass",
+      "axis4": "Leader",
+      "axis5": "Venture",
+      "axis6": "Data"
+    }
+  },
+  {
+    "typeId": "T33",
+    "name": "火入れの魔術師",
+    "catchcopy": "一秒、一度の差で、完成を決める。",
+    "description": "加熱・温度・タイミングに高い感覚を持ち、難しい素材ほど実力を発揮する。",
+    "family": "Culinary Artists",
+    "primaryArchetype": "C01 火入れの魔術師",
+    "strengths": [
+      "技術精度",
+      "集中力",
+      "感覚"
+    ],
+    "weaknesses": [
+      "感覚依存",
+      "他者への共有が難しい"
+    ],
+    "suitedJobs": [
+      "焼き手",
+      "肉料理人",
+      "鉄板焼"
+    ],
+    "suitedFormats": [
+      "焼鳥",
+      "焼肉",
+      "フレンチ"
+    ],
+    "suitedRoles": [
+      "スペシャリスト",
+      "料理長候補"
+    ],
+    "tags": {
+      "axis1": "Product",
+      "axis2": "Craft",
+      "axis3": "High-end",
+      "axis4": "Specialist",
+      "axis5": "Arrange",
+      "axis6": "Intuitive"
+    }
+  },
+  {
+    "typeId": "T34",
+    "name": "料理研究者",
+    "catchcopy": "おいしさを、理論と検証で解き明かす。",
+    "description": "試作・計測・比較を繰り返し、味を再現可能な知識にする。",
+    "family": "Culinary Artists",
+    "primaryArchetype": "C02 味覚の探究者",
+    "strengths": [
+      "研究力",
+      "分析",
+      "改善"
+    ],
+    "weaknesses": [
+      "完成が遅い",
+      "顧客ニーズとのずれ"
+    ],
+    "suitedJobs": [
+      "R&D",
+      "商品開発",
+      "品質管理"
+    ],
+    "suitedFormats": [
+      "メーカー",
+      "ラボ",
+      "高級店"
+    ],
+    "suitedRoles": [
+      "研究担当",
+      "開発責任者"
+    ],
+    "tags": {
+      "axis1": "Product",
+      "axis2": "Craft",
+      "axis3": "High-end",
+      "axis4": "Specialist",
+      "axis5": "Arrange",
+      "axis6": "Data"
+    }
+  },
+  {
+    "typeId": "T35",
+    "name": "孤高の革新シェフ",
+    "catchcopy": "常識の外側に、次の一皿がある。",
+    "description": "独自の感性で既存の料理を再解釈し、新しい表現へ挑む。",
+    "family": "Culinary Artists",
+    "primaryArchetype": "C03 一皿の芸術家",
+    "strengths": [
+      "独創性",
+      "表現力",
+      "挑戦"
+    ],
+    "weaknesses": [
+      "独善的になりやすい",
+      "再現性不足"
+    ],
+    "suitedJobs": [
+      "シェフ",
+      "クリエイター"
+    ],
+    "suitedFormats": [
+      "ガストロノミー",
+      "創作料理"
+    ],
+    "suitedRoles": [
+      "料理長",
+      "オーナーシェフ候補"
+    ],
+    "tags": {
+      "axis1": "Product",
+      "axis2": "Craft",
+      "axis3": "High-end",
+      "axis4": "Specialist",
+      "axis5": "Venture",
+      "axis6": "Intuitive"
+    }
+  },
+  {
+    "typeId": "T36",
+    "name": "ガストロノミー開発者",
+    "catchcopy": "感性と科学を、忘れられない体験に。",
+    "description": "調理科学、データ、素材研究を組み合わせ、高度な食体験を設計する。",
+    "family": "Culinary Artists",
+    "primaryArchetype": "C02 味覚の探究者",
+    "strengths": [
+      "科学的思考",
+      "創造性",
+      "精密さ"
+    ],
+    "weaknesses": [
+      "設備・コスト負担",
+      "難解になりやすい"
+    ],
+    "suitedJobs": [
+      "研究シェフ",
+      "商品開発"
+    ],
+    "suitedFormats": [
+      "ガストロノミー",
+      "高級ホテル"
+    ],
+    "suitedRoles": [
+      "開発シェフ",
+      "R&D責任者"
+    ],
+    "tags": {
+      "axis1": "Product",
+      "axis2": "Craft",
+      "axis3": "High-end",
+      "axis4": "Specialist",
+      "axis5": "Venture",
+      "axis6": "Data"
+    }
+  },
+  {
+    "typeId": "T37",
+    "name": "伝説の料理長",
+    "catchcopy": "腕だけでなく、人と厨房を育てる。",
+    "description": "卓越した技術を持ちながら、基準・文化・人材を厨房全体へ広げる。",
+    "family": "Culinary Artists",
+    "primaryArchetype": "L02 育成マイスター",
+    "strengths": [
+      "技術",
+      "育成",
+      "統率"
+    ],
+    "weaknesses": [
+      "高基準の圧力",
+      "後継育成に時間"
+    ],
+    "suitedJobs": [
+      "料理長",
+      "総料理長"
+    ],
+    "suitedFormats": [
+      "高級店",
+      "ホテル"
+    ],
+    "suitedRoles": [
+      "料理長",
+      "総料理長"
+    ],
+    "tags": {
+      "axis1": "Product",
+      "axis2": "Craft",
+      "axis3": "High-end",
+      "axis4": "Leader",
+      "axis5": "Arrange",
+      "axis6": "Intuitive"
+    }
+  },
+  {
+    "typeId": "T38",
+    "name": "厨房品質統括官",
+    "catchcopy": "名店の味を、どの店舗でも。",
+    "description": "レシピ、工程、教育、監査で、高い料理品質を複数拠点へ展開する。",
+    "family": "Culinary Artists",
+    "primaryArchetype": "C04 再現の達人",
+    "strengths": [
+      "品質管理",
+      "標準化",
+      "教育"
+    ],
+    "weaknesses": [
+      "創造性を抑えやすい",
+      "現場反発"
+    ],
+    "suitedJobs": [
+      "品質統括",
+      "セントラルキッチン責任者"
+    ],
+    "suitedFormats": [
+      "高級チェーン",
+      "ホテル"
+    ],
+    "suitedRoles": [
+      "品質責任者",
+      "統括料理長"
+    ],
+    "tags": {
+      "axis1": "Product",
+      "axis2": "Craft",
+      "axis3": "High-end",
+      "axis4": "Leader",
+      "axis5": "Arrange",
+      "axis6": "Data"
+    }
+  },
+  {
+    "typeId": "T39",
+    "name": "料理界の開拓者",
+    "catchcopy": "知らない土地で、新しい食の旗を立てる。",
+    "description": "海外や新市場で、料理技術を適応させながらブランドを立ち上げる。",
+    "family": "Culinary Artists",
+    "primaryArchetype": "G02 世界への挑戦者",
+    "strengths": [
+      "越境力",
+      "技術",
+      "適応"
+    ],
+    "weaknesses": [
+      "文化理解不足",
+      "運営基盤の弱さ"
+    ],
+    "suitedJobs": [
+      "海外シェフ",
+      "新店立ち上げ"
+    ],
+    "suitedFormats": [
+      "海外店",
+      "新業態"
+    ],
+    "suitedRoles": [
+      "立ち上げ料理長",
+      "ブランドシェフ"
+    ],
+    "tags": {
+      "axis1": "Product",
+      "axis2": "Craft",
+      "axis3": "High-end",
+      "axis4": "Leader",
+      "axis5": "Venture",
+      "axis6": "Intuitive"
+    }
+  },
+  {
+    "typeId": "T40",
+    "name": "シェフプロデューサー",
+    "catchcopy": "一皿から、ブランドと事業を生み出す。",
+    "description": "料理の魅力を商品、空間、発信、複数店舗へ広げる経営型シェフ。",
+    "family": "Culinary Artists",
+    "primaryArchetype": "B01 ブランド創造者",
+    "strengths": [
+      "ブランド力",
+      "経営視点",
+      "創造性"
+    ],
+    "weaknesses": [
+      "現場時間の減少",
+      "個人依存"
+    ],
+    "suitedJobs": [
+      "シェフプロデューサー",
+      "ブランド監修"
+    ],
+    "suitedFormats": [
+      "高級ブランド",
+      "複数業態"
+    ],
+    "suitedRoles": [
+      "代表シェフ",
+      "プロデューサー"
+    ],
+    "tags": {
+      "axis1": "Product",
+      "axis2": "Craft",
+      "axis3": "High-end",
+      "axis4": "Leader",
+      "axis5": "Venture",
+      "axis6": "Data"
+    }
+  },
+  {
+    "typeId": "T41",
+    "name": "町中華の職人",
+    "catchcopy": "毎日食べたい味を、今日も強く出す。",
+    "description": "スピード、火力、量、安定感を兼ね備え、日常の満足を支える現場職人。",
+    "family": "Food Craftsmen",
+    "primaryArchetype": "C01 火入れの魔術師",
+    "strengths": [
+      "スピード",
+      "安定品質",
+      "体力"
+    ],
+    "weaknesses": [
+      "属人化",
+      "改善時間不足"
+    ],
+    "suitedJobs": [
+      "中華料理人",
+      "大衆調理"
+    ],
+    "suitedFormats": [
+      "町中華",
+      "食堂"
+    ],
+    "suitedRoles": [
+      "調理リーダー"
+    ],
+    "tags": {
+      "axis1": "Product",
+      "axis2": "Craft",
+      "axis3": "Mass",
+      "axis4": "Specialist",
+      "axis5": "Arrange",
+      "axis6": "Intuitive"
+    }
+  },
+  {
+    "typeId": "T42",
+    "name": "調理オペレーション研究者",
+    "catchcopy": "速さと品質は、両立できる。",
+    "description": "工程、配置、仕込みを分析し、大量調理でも品質を落とさない方法を設計する。",
+    "family": "Food Craftsmen",
+    "primaryArchetype": "C04 再現の達人",
+    "strengths": [
+      "工程設計",
+      "分析",
+      "再現性"
+    ],
+    "weaknesses": [
+      "現場の創意を抑える",
+      "最適化過多"
+    ],
+    "suitedJobs": [
+      "生産管理",
+      "オペレーション開発"
+    ],
+    "suitedFormats": [
+      "給食",
+      "セントラルキッチン",
+      "チェーン"
+    ],
+    "suitedRoles": [
+      "工程責任者",
+      "生産管理"
+    ],
+    "tags": {
+      "axis1": "Product",
+      "axis2": "Craft",
+      "axis3": "Mass",
+      "axis4": "Specialist",
+      "axis5": "Arrange",
+      "axis6": "Data"
+    }
+  },
+  {
+    "typeId": "T43",
+    "name": "屋台の発明家",
+    "catchcopy": "小さな場所から、大きな話題を。",
+    "description": "限られた設備や予算でも、アイデアと勢いで売れる商品を生み出す。",
+    "family": "Food Craftsmen",
+    "primaryArchetype": "C03 一皿の芸術家",
+    "strengths": [
+      "発想力",
+      "行動力",
+      "現場対応"
+    ],
+    "weaknesses": [
+      "安定性不足",
+      "衛生・運営負荷"
+    ],
+    "suitedJobs": [
+      "屋台",
+      "キッチンカー",
+      "ポップアップ"
+    ],
+    "suitedFormats": [
+      "ストリートフード",
+      "イベント"
+    ],
+    "suitedRoles": [
+      "商品開発",
+      "独立候補"
+    ],
+    "tags": {
+      "axis1": "Product",
+      "axis2": "Craft",
+      "axis3": "Mass",
+      "axis4": "Specialist",
+      "axis5": "Venture",
+      "axis6": "Intuitive"
+    }
+  },
+  {
+    "typeId": "T44",
+    "name": "大衆商品開発者",
+    "catchcopy": "みんなが好きで、ちゃんと売れる味を。",
+    "description": "嗜好データ、原価、製造性を組み合わせ、大衆向けヒット商品を設計する。",
+    "family": "Food Craftsmen",
+    "primaryArchetype": "B03 新業態クリエイター",
+    "strengths": [
+      "商品企画",
+      "市場理解",
+      "収益性"
+    ],
+    "weaknesses": [
+      "無難になりやすい",
+      "品質妥協"
+    ],
+    "suitedJobs": [
+      "商品開発",
+      "メーカー企画"
+    ],
+    "suitedFormats": [
+      "チェーン",
+      "食品メーカー"
+    ],
+    "suitedRoles": [
+      "商品開発責任者"
+    ],
+    "tags": {
+      "axis1": "Product",
+      "axis2": "Craft",
+      "axis3": "Mass",
+      "axis4": "Specialist",
+      "axis5": "Venture",
+      "axis6": "Data"
+    }
+  },
+  {
+    "typeId": "T45",
+    "name": "ピークタイムの神",
+    "catchcopy": "一番忙しい時間に、一番頼られる。",
+    "description": "大量の注文を見ながら優先順位を即断し、現場を止めずに回す。",
+    "family": "Food Craftsmen",
+    "primaryArchetype": "L01 現場司令官",
+    "strengths": [
+      "瞬発力",
+      "判断力",
+      "体力"
+    ],
+    "weaknesses": [
+      "平常時の改善を後回し",
+      "燃え尽き"
+    ],
+    "suitedJobs": [
+      "厨房リーダー",
+      "時間帯責任者"
+    ],
+    "suitedFormats": [
+      "繁盛大衆店",
+      "居酒屋"
+    ],
+    "suitedRoles": [
+      "調理責任者",
+      "店長候補"
+    ],
+    "tags": {
+      "axis1": "Product",
+      "axis2": "Craft",
+      "axis3": "Mass",
+      "axis4": "Leader",
+      "axis5": "Arrange",
+      "axis6": "Intuitive"
+    }
+  },
+  {
+    "typeId": "T46",
+    "name": "大量調理司令官",
+    "catchcopy": "千食でも、同じ安全とおいしさを。",
+    "description": "人員・工程・衛生・品質を統括し、大量調理を安定運営する。",
+    "family": "Food Craftsmen",
+    "primaryArchetype": "C04 再現の達人",
+    "strengths": [
+      "統率",
+      "衛生管理",
+      "標準化"
+    ],
+    "weaknesses": [
+      "柔軟性不足",
+      "管理負荷"
+    ],
+    "suitedJobs": [
+      "工場長",
+      "給食責任者",
+      "CK責任者"
+    ],
+    "suitedFormats": [
+      "給食",
+      "食品工場",
+      "CK"
+    ],
+    "suitedRoles": [
+      "現場責任者",
+      "工場長"
+    ],
+    "tags": {
+      "axis1": "Product",
+      "axis2": "Craft",
+      "axis3": "Mass",
+      "axis4": "Leader",
+      "axis5": "Arrange",
+      "axis6": "Data"
+    }
+  },
+  {
+    "typeId": "T47",
+    "name": "大衆料理ブランド創業者",
+    "catchcopy": "日常の味を、全国の定番へ。",
+    "description": "親しみやすい商品と強い現場力を武器に、ブランドを立ち上げる。",
+    "family": "Food Craftsmen",
+    "primaryArchetype": "B02 未来のオーナー",
+    "strengths": [
+      "商品力",
+      "独立心",
+      "現場感"
+    ],
+    "weaknesses": [
+      "拡大時の品質低下",
+      "属人化"
+    ],
+    "suitedJobs": [
+      "創業者",
+      "FCオーナー"
+    ],
+    "suitedFormats": [
+      "ラーメン",
+      "中華",
+      "定食"
+    ],
+    "suitedRoles": [
+      "オーナー",
+      "ブランド代表"
+    ],
+    "tags": {
+      "axis1": "Product",
+      "axis2": "Craft",
+      "axis3": "Mass",
+      "axis4": "Leader",
+      "axis5": "Venture",
+      "axis6": "Intuitive"
+    }
+  },
+  {
+    "typeId": "T48",
+    "name": "食の製造業リーダー",
+    "catchcopy": "料理を、強い生産システムに。",
+    "description": "食品製造、物流、品質、コストを統合し、大規模供給を実現する。",
+    "family": "Food Craftsmen",
+    "primaryArchetype": "L05 繁盛店メーカー",
+    "strengths": [
+      "生産管理",
+      "収益管理",
+      "組織力"
+    ],
+    "weaknesses": [
+      "現場の創造性低下",
+      "品質とコストの葛藤"
+    ],
+    "suitedJobs": [
+      "工場長",
+      "製造責任者",
+      "SCM"
+    ],
+    "suitedFormats": [
+      "食品工場",
+      "CK"
+    ],
+    "suitedRoles": [
+      "事業責任者",
+      "製造本部長"
+    ],
+    "tags": {
+      "axis1": "Product",
+      "axis2": "Craft",
+      "axis3": "Mass",
+      "axis4": "Leader",
+      "axis5": "Venture",
+      "axis6": "Data"
+    }
+  },
+  {
+    "typeId": "T49",
+    "name": "高級商品プロデューサー",
+    "catchcopy": "素材と物語を、選ばれる商品へ。",
+    "description": "優れた素材・職人技・ストーリーを編集し、高付加価値商品をつくる。",
+    "family": "Premium Producers",
+    "primaryArchetype": "C05 食材の目利き",
+    "strengths": [
+      "目利き",
+      "企画",
+      "物語化"
+    ],
+    "weaknesses": [
+      "原価高",
+      "市場が狭い"
+    ],
+    "suitedJobs": [
+      "商品プロデューサー",
+      "バイヤー"
+    ],
+    "suitedFormats": [
+      "高級惣菜",
+      "菓子",
+      "ギフト"
+    ],
+    "suitedRoles": [
+      "商品責任者"
+    ],
+    "tags": {
+      "axis1": "Product",
+      "axis2": "Business",
+      "axis3": "High-end",
+      "axis4": "Specialist",
+      "axis5": "Arrange",
+      "axis6": "Intuitive"
+    }
+  },
+  {
+    "typeId": "T50",
+    "name": "プレミアム原価設計士",
+    "catchcopy": "高品質を守りながら、利益も守る。",
+    "description": "高価な素材や複雑な工程を分析し、価値と採算の最適点を設計する。",
+    "family": "Premium Producers",
+    "primaryArchetype": "B04 数字の戦略家",
+    "strengths": [
+      "原価管理",
+      "価格設計",
+      "分析"
+    ],
+    "weaknesses": [
+      "数字偏重",
+      "現場の感性を抑える"
+    ],
+    "suitedJobs": [
+      "原価管理",
+      "商品収益管理"
+    ],
+    "suitedFormats": [
+      "高級食品",
+      "ホテル"
+    ],
+    "suitedRoles": [
+      "収益担当",
+      "管理責任者"
+    ],
+    "tags": {
+      "axis1": "Product",
+      "axis2": "Business",
+      "axis3": "High-end",
+      "axis4": "Specialist",
+      "axis5": "Arrange",
+      "axis6": "Data"
+    }
+  },
+  {
+    "typeId": "T51",
+    "name": "ブランドクリエイター",
+    "catchcopy": "商品を、持ちたくなる物語に。",
+    "description": "ネーミング、デザイン、世界観を統合し、食の商品をブランドへ育てる。",
+    "family": "Premium Producers",
+    "primaryArchetype": "B01 ブランド創造者",
+    "strengths": [
+      "世界観",
+      "企画",
+      "発信力"
+    ],
+    "weaknesses": [
+      "見た目先行",
+      "現場との乖離"
+    ],
+    "suitedJobs": [
+      "ブランド企画",
+      "クリエイティブ"
+    ],
+    "suitedFormats": [
+      "菓子",
+      "酒",
+      "高級食品"
+    ],
+    "suitedRoles": [
+      "ブランドマネージャー"
+    ],
+    "tags": {
+      "axis1": "Product",
+      "axis2": "Business",
+      "axis3": "High-end",
+      "axis4": "Specialist",
+      "axis5": "Venture",
+      "axis6": "Intuitive"
+    }
+  },
+  {
+    "typeId": "T52",
+    "name": "プレミアム事業開発者",
+    "catchcopy": "高い価値を、新しい市場へ届ける。",
+    "description": "市場データと顧客洞察を使い、高付加価値商品の新チャネル・新事業を設計する。",
+    "family": "Premium Producers",
+    "primaryArchetype": "B03 新業態クリエイター",
+    "strengths": [
+      "事業開発",
+      "市場分析",
+      "収益設計"
+    ],
+    "weaknesses": [
+      "分析過多",
+      "ブランド毀損リスク"
+    ],
+    "suitedJobs": [
+      "事業開発",
+      "アライアンス"
+    ],
+    "suitedFormats": [
+      "EC",
+      "百貨店",
+      "海外"
+    ],
+    "suitedRoles": [
+      "事業開発責任者"
+    ],
+    "tags": {
+      "axis1": "Product",
+      "axis2": "Business",
+      "axis3": "High-end",
+      "axis4": "Specialist",
+      "axis5": "Venture",
+      "axis6": "Data"
+    }
+  },
+  {
+    "typeId": "T53",
+    "name": "ブランド統括プロデューサー",
+    "catchcopy": "複数の商品を、一つの憧れにまとめる。",
+    "description": "商品、店舗、広告、コラボを統括し、ブランド全体の価値を高める。",
+    "family": "Premium Producers",
+    "primaryArchetype": "B01 ブランド創造者",
+    "strengths": [
+      "統合力",
+      "審美眼",
+      "統率"
+    ],
+    "weaknesses": [
+      "現場負荷",
+      "個別商品の弱体化"
+    ],
+    "suitedJobs": [
+      "ブランド統括",
+      "クリエイティブ責任者"
+    ],
+    "suitedFormats": [
+      "高級食品",
+      "複数ブランド"
+    ],
+    "suitedRoles": [
+      "ブランドディレクター"
+    ],
+    "tags": {
+      "axis1": "Product",
+      "axis2": "Business",
+      "axis3": "High-end",
+      "axis4": "Leader",
+      "axis5": "Arrange",
+      "axis6": "Intuitive"
+    }
+  },
+  {
+    "typeId": "T54",
+    "name": "プレミアム事業COO",
+    "catchcopy": "高付加価値を、強い供給体制に。",
+    "description": "品質、製造、販売、組織を統合し、プレミアム事業を安定成長させる。",
+    "family": "Premium Producers",
+    "primaryArchetype": "L05 繁盛店メーカー",
+    "strengths": [
+      "事業運営",
+      "品質管理",
+      "収益力"
+    ],
+    "weaknesses": [
+      "管理過多",
+      "ブランドの硬直化"
+    ],
+    "suitedJobs": [
+      "COO",
+      "事業部長"
+    ],
+    "suitedFormats": [
+      "高級食品",
+      "D2C"
+    ],
+    "suitedRoles": [
+      "COO",
+      "事業本部長"
+    ],
+    "tags": {
+      "axis1": "Product",
+      "axis2": "Business",
+      "axis3": "High-end",
+      "axis4": "Leader",
+      "axis5": "Arrange",
+      "axis6": "Data"
+    }
+  },
+  {
+    "typeId": "T55",
+    "name": "食のラグジュアリー起業家",
+    "catchcopy": "最高の素材と美学で、新しいブランドを。",
+    "description": "独自の審美眼と顧客理解で、高級食品・飲料ブランドを立ち上げる。",
+    "family": "Premium Producers",
+    "primaryArchetype": "B02 未来のオーナー",
+    "strengths": [
+      "独立心",
+      "目利き",
+      "ブランド力"
+    ],
+    "weaknesses": [
+      "投資負担",
+      "小規模市場"
+    ],
+    "suitedJobs": [
+      "創業者",
+      "ブランドオーナー"
+    ],
+    "suitedFormats": [
+      "酒",
+      "菓子",
+      "調味料"
+    ],
+    "suitedRoles": [
+      "創業者",
+      "CEO"
+    ],
+    "tags": {
+      "axis1": "Product",
+      "axis2": "Business",
+      "axis3": "High-end",
+      "axis4": "Leader",
+      "axis5": "Venture",
+      "axis6": "Intuitive"
+    }
+  },
+  {
+    "typeId": "T56",
+    "name": "プレミアムブランドCEO",
+    "catchcopy": "食の価値を、世界で愛される企業へ。",
+    "description": "ブランドポートフォリオ、資本、海外販売を統合し、高付加価値事業を経営する。",
+    "family": "Premium Producers",
+    "primaryArchetype": "B05 食文化プロデューサー",
+    "strengths": [
+      "経営力",
+      "海外戦略",
+      "ブランド群管理"
+    ],
+    "weaknesses": [
+      "拡大による希薄化",
+      "現場距離"
+    ],
+    "suitedJobs": [
+      "CEO",
+      "グループ経営"
+    ],
+    "suitedFormats": [
+      "高級食品群",
+      "海外"
+    ],
+    "suitedRoles": [
+      "CEO",
+      "代表取締役"
+    ],
+    "tags": {
+      "axis1": "Product",
+      "axis2": "Business",
+      "axis3": "High-end",
+      "axis4": "Leader",
+      "axis5": "Venture",
+      "axis6": "Data"
+    }
+  },
+  {
+    "typeId": "T57",
+    "name": "売れる味の目利き",
+    "catchcopy": "『おいしい』と『売れる』の交差点を見抜く。",
+    "description": "感覚と市場理解を使い、ヒットする味・商品を素早く見極める。",
+    "family": "Food Business Innovators",
+    "primaryArchetype": "C05 食材の目利き",
+    "strengths": [
+      "目利き",
+      "市場感覚",
+      "判断力"
+    ],
+    "weaknesses": [
+      "勘への依存",
+      "長期ブランド軽視"
+    ],
+    "suitedJobs": [
+      "バイヤー",
+      "商品選定",
+      "MD"
+    ],
+    "suitedFormats": [
+      "小売",
+      "中食",
+      "EC"
+    ],
+    "suitedRoles": [
+      "MD",
+      "商品担当"
+    ],
+    "tags": {
+      "axis1": "Product",
+      "axis2": "Business",
+      "axis3": "Mass",
+      "axis4": "Specialist",
+      "axis5": "Arrange",
+      "axis6": "Intuitive"
+    }
+  },
+  {
+    "typeId": "T58",
+    "name": "フードデータ研究者",
+    "catchcopy": "食の好みを、データから読み解く。",
+    "description": "購買、口コミ、嗜好データを分析し、商品や市場の可能性を発見する。",
+    "family": "Food Business Innovators",
+    "primaryArchetype": "C02 味覚の探究者",
+    "strengths": [
+      "分析",
+      "仮説検証",
+      "洞察"
+    ],
+    "weaknesses": [
+      "現場感不足",
+      "データ偏重"
+    ],
+    "suitedJobs": [
+      "データ分析",
+      "リサーチ"
+    ],
+    "suitedFormats": [
+      "フードテック",
+      "メーカー"
+    ],
+    "suitedRoles": [
+      "アナリスト",
+      "研究担当"
+    ],
+    "tags": {
+      "axis1": "Product",
+      "axis2": "Business",
+      "axis3": "Mass",
+      "axis4": "Specialist",
+      "axis5": "Arrange",
+      "axis6": "Data"
+    }
+  },
+  {
+    "typeId": "T59",
+    "name": "メニュー革命家",
+    "catchcopy": "定番の中に、次のヒットを仕込む。",
+    "description": "既存メニューの常識を崩し、新しい組み合わせや提供方法を試す。",
+    "family": "Food Business Innovators",
+    "primaryArchetype": "B03 新業態クリエイター",
+    "strengths": [
+      "企画力",
+      "発想",
+      "スピード"
+    ],
+    "weaknesses": [
+      "奇抜さ優先",
+      "原価・運営軽視"
+    ],
+    "suitedJobs": [
+      "メニュー開発",
+      "クリエイター"
+    ],
+    "suitedFormats": [
+      "チェーン",
+      "中食",
+      "デリバリー"
+    ],
+    "suitedRoles": [
+      "商品企画",
+      "開発担当"
+    ],
+    "tags": {
+      "axis1": "Product",
+      "axis2": "Business",
+      "axis3": "Mass",
+      "axis4": "Specialist",
+      "axis5": "Venture",
+      "axis6": "Intuitive"
+    }
+  },
+  {
+    "typeId": "T60",
+    "name": "フードテック開発者",
+    "catchcopy": "食の不便を、プロダクトで解決する。",
+    "description": "飲食現場の課題をテクノロジーとデータで解決するサービス開発型。",
+    "family": "Food Business Innovators",
+    "primaryArchetype": "G04 変革者",
+    "strengths": [
+      "課題発見",
+      "技術理解",
+      "事業性"
+    ],
+    "weaknesses": [
+      "現場適合不足",
+      "開発優先"
+    ],
+    "suitedJobs": [
+      "PdM",
+      "フードテック企画",
+      "DX"
+    ],
+    "suitedFormats": [
+      "SaaS",
+      "デリバリー",
+      "ロボティクス"
+    ],
+    "suitedRoles": [
+      "PdM",
+      "事業開発"
+    ],
+    "tags": {
+      "axis1": "Product",
+      "axis2": "Business",
+      "axis3": "Mass",
+      "axis4": "Specialist",
+      "axis5": "Venture",
+      "axis6": "Data"
+    }
+  },
+  {
+    "typeId": "T61",
+    "name": "商品開発リーダー",
+    "catchcopy": "アイデアを、売場に並ぶ商品へ。",
+    "description": "企画、試作、製造、販売をまとめ、商品を発売まで導く。",
+    "family": "Food Business Innovators",
+    "primaryArchetype": "L04 改善プロデューサー",
+    "strengths": [
+      "推進力",
+      "調整力",
+      "商品理解"
+    ],
+    "weaknesses": [
+      "調整負荷",
+      "妥協が増える"
+    ],
+    "suitedJobs": [
+      "商品開発リーダー",
+      "PM"
+    ],
+    "suitedFormats": [
+      "メーカー",
+      "チェーン"
+    ],
+    "suitedRoles": [
+      "開発責任者",
+      "PM"
+    ],
+    "tags": {
+      "axis1": "Product",
+      "axis2": "Business",
+      "axis3": "Mass",
+      "axis4": "Leader",
+      "axis5": "Arrange",
+      "axis6": "Intuitive"
+    }
+  },
+  {
+    "typeId": "T62",
+    "name": "食品事業統括官",
+    "catchcopy": "商品・工場・営業を、一つの事業に。",
+    "description": "商品開発、製造、物流、営業、利益を統括し、食品事業を成長させる。",
+    "family": "Food Business Innovators",
+    "primaryArchetype": "L05 繁盛店メーカー",
+    "strengths": [
+      "事業運営",
+      "統率",
+      "収益管理"
+    ],
+    "weaknesses": [
+      "部門間調整過多",
+      "現場距離"
+    ],
+    "suitedJobs": [
+      "事業部長",
+      "本部長"
+    ],
+    "suitedFormats": [
+      "食品メーカー",
+      "中食"
+    ],
+    "suitedRoles": [
+      "事業部長",
+      "COO"
+    ],
+    "tags": {
+      "axis1": "Product",
+      "axis2": "Business",
+      "axis3": "Mass",
+      "axis4": "Leader",
+      "axis5": "Arrange",
+      "axis6": "Data"
+    }
+  },
+  {
+    "typeId": "T63",
+    "name": "飲食スタートアップ創業者",
+    "catchcopy": "食の大きな課題を、小さく速く解く。",
+    "description": "現場課題とテクノロジーを結び、新しい飲食サービスを立ち上げる。",
+    "family": "Food Business Innovators",
+    "primaryArchetype": "B02 未来のオーナー",
+    "strengths": [
+      "起業力",
+      "仮説検証",
+      "行動力"
+    ],
+    "weaknesses": [
+      "資金不足",
+      "運営の複雑さ"
+    ],
+    "suitedJobs": [
+      "起業家",
+      "新規事業"
+    ],
+    "suitedFormats": [
+      "フードテック",
+      "D2C",
+      "新業態"
+    ],
+    "suitedRoles": [
+      "創業者",
+      "CEO"
+    ],
+    "tags": {
+      "axis1": "Product",
+      "axis2": "Business",
+      "axis3": "Mass",
+      "axis4": "Leader",
+      "axis5": "Venture",
+      "axis6": "Intuitive"
+    }
+  },
+  {
+    "typeId": "T64",
+    "name": "食の革命家",
+    "catchcopy": "食の当たり前を変え、巨大な市場をつくる。",
+    "description": "テクノロジー、資本、データを使い、飲食・食品産業の構造そのものを変える経営型。",
+    "family": "Food Business Innovators",
+    "primaryArchetype": "G04 変革者",
+    "strengths": [
+      "変革力",
+      "経営力",
+      "市場創造"
+    ],
+    "weaknesses": [
+      "構想過大",
+      "現場解像度低下"
+    ],
+    "suitedJobs": [
+      "CEO",
+      "事業創造",
+      "投資責任者"
+    ],
+    "suitedFormats": [
+      "フードテック",
+      "プラットフォーム"
+    ],
+    "suitedRoles": [
+      "CEO",
+      "代表取締役"
+    ],
+    "tags": {
+      "axis1": "Product",
+      "axis2": "Business",
+      "axis3": "Mass",
+      "axis4": "Leader",
+      "axis5": "Venture",
+      "axis6": "Data"
+    }
+  }
+]

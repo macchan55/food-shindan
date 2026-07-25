@@ -1,0 +1,1617 @@
+[
+  {
+    "id": "JOB-001",
+    "category": "job",
+    "name": "ホールサービス",
+    "vector": {
+      "HOS": 90,
+      "CRA": 45,
+      "TEA": 80,
+      "LEA": 35,
+      "BUS": 30,
+      "CRE": 40,
+      "GRO": 55,
+      "STA": 60,
+      "CHA": 35,
+      "OWN": 55
+    }
+  },
+  {
+    "id": "JOB-002",
+    "category": "job",
+    "name": "店長",
+    "vector": {
+      "HOS": 70,
+      "CRA": 45,
+      "TEA": 75,
+      "LEA": 85,
+      "BUS": 75,
+      "CRE": 50,
+      "GRO": 60,
+      "STA": 65,
+      "CHA": 55,
+      "OWN": 85
+    }
+  },
+  {
+    "id": "JOB-003",
+    "category": "job",
+    "name": "副店長",
+    "vector": {
+      "HOS": 65,
+      "CRA": 45,
+      "TEA": 80,
+      "LEA": 70,
+      "BUS": 60,
+      "CRE": 45,
+      "GRO": 60,
+      "STA": 65,
+      "CHA": 45,
+      "OWN": 70
+    }
+  },
+  {
+    "id": "JOB-004",
+    "category": "job",
+    "name": "支配人",
+    "vector": {
+      "HOS": 85,
+      "CRA": 55,
+      "TEA": 65,
+      "LEA": 80,
+      "BUS": 65,
+      "CRE": 45,
+      "GRO": 55,
+      "STA": 70,
+      "CHA": 45,
+      "OWN": 80
+    }
+  },
+  {
+    "id": "JOB-005",
+    "category": "job",
+    "name": "ソムリエ",
+    "vector": {
+      "HOS": 80,
+      "CRA": 85,
+      "TEA": 50,
+      "LEA": 40,
+      "BUS": 45,
+      "CRE": 55,
+      "GRO": 70,
+      "STA": 55,
+      "CHA": 45,
+      "OWN": 55
+    }
+  },
+  {
+    "id": "JOB-006",
+    "category": "job",
+    "name": "バリスタ",
+    "vector": {
+      "HOS": 75,
+      "CRA": 80,
+      "TEA": 55,
+      "LEA": 35,
+      "BUS": 35,
+      "CRE": 60,
+      "GRO": 60,
+      "STA": 55,
+      "CHA": 40,
+      "OWN": 50
+    }
+  },
+  {
+    "id": "JOB-007",
+    "category": "job",
+    "name": "寿司職人",
+    "vector": {
+      "HOS": 55,
+      "CRA": 95,
+      "TEA": 45,
+      "LEA": 40,
+      "BUS": 35,
+      "CRE": 50,
+      "GRO": 65,
+      "STA": 80,
+      "CHA": 40,
+      "OWN": 60
+    }
+  },
+  {
+    "id": "JOB-008",
+    "category": "job",
+    "name": "焼鳥職人",
+    "vector": {
+      "HOS": 55,
+      "CRA": 88,
+      "TEA": 50,
+      "LEA": 35,
+      "BUS": 35,
+      "CRE": 45,
+      "GRO": 55,
+      "STA": 75,
+      "CHA": 40,
+      "OWN": 55
+    }
+  },
+  {
+    "id": "JOB-009",
+    "category": "job",
+    "name": "料理長",
+    "vector": {
+      "HOS": 50,
+      "CRA": 90,
+      "TEA": 65,
+      "LEA": 75,
+      "BUS": 55,
+      "CRE": 65,
+      "GRO": 60,
+      "STA": 65,
+      "CHA": 45,
+      "OWN": 80
+    }
+  },
+  {
+    "id": "JOB-010",
+    "category": "job",
+    "name": "パティシエ",
+    "vector": {
+      "HOS": 50,
+      "CRA": 90,
+      "TEA": 50,
+      "LEA": 35,
+      "BUS": 35,
+      "CRE": 75,
+      "GRO": 65,
+      "STA": 70,
+      "CHA": 40,
+      "OWN": 55
+    }
+  },
+  {
+    "id": "JOB-011",
+    "category": "job",
+    "name": "ブーランジェ",
+    "vector": {
+      "HOS": 45,
+      "CRA": 88,
+      "TEA": 50,
+      "LEA": 35,
+      "BUS": 35,
+      "CRE": 60,
+      "GRO": 60,
+      "STA": 80,
+      "CHA": 35,
+      "OWN": 55
+    }
+  },
+  {
+    "id": "JOB-012",
+    "category": "job",
+    "name": "商品開発",
+    "vector": {
+      "HOS": 45,
+      "CRA": 70,
+      "TEA": 55,
+      "LEA": 45,
+      "BUS": 60,
+      "CRE": 90,
+      "GRO": 70,
+      "STA": 45,
+      "CHA": 65,
+      "OWN": 65
+    }
+  },
+  {
+    "id": "JOB-013",
+    "category": "job",
+    "name": "品質管理",
+    "vector": {
+      "HOS": 35,
+      "CRA": 75,
+      "TEA": 55,
+      "LEA": 45,
+      "BUS": 50,
+      "CRE": 30,
+      "GRO": 55,
+      "STA": 92,
+      "CHA": 30,
+      "OWN": 75
+    }
+  },
+  {
+    "id": "JOB-014",
+    "category": "job",
+    "name": "SV",
+    "vector": {
+      "HOS": 55,
+      "CRA": 50,
+      "TEA": 70,
+      "LEA": 80,
+      "BUS": 65,
+      "CRE": 40,
+      "GRO": 60,
+      "STA": 70,
+      "CHA": 45,
+      "OWN": 75
+    }
+  },
+  {
+    "id": "JOB-015",
+    "category": "job",
+    "name": "エリアマネージャー",
+    "vector": {
+      "HOS": 45,
+      "CRA": 40,
+      "TEA": 60,
+      "LEA": 85,
+      "BUS": 80,
+      "CRE": 40,
+      "GRO": 60,
+      "STA": 70,
+      "CHA": 50,
+      "OWN": 80
+    }
+  },
+  {
+    "id": "JOB-016",
+    "category": "job",
+    "name": "教育担当",
+    "vector": {
+      "HOS": 60,
+      "CRA": 55,
+      "TEA": 75,
+      "LEA": 65,
+      "BUS": 35,
+      "CRE": 45,
+      "GRO": 85,
+      "STA": 60,
+      "CHA": 35,
+      "OWN": 65
+    }
+  },
+  {
+    "id": "JOB-017",
+    "category": "job",
+    "name": "人事",
+    "vector": {
+      "HOS": 50,
+      "CRA": 30,
+      "TEA": 65,
+      "LEA": 55,
+      "BUS": 55,
+      "CRE": 35,
+      "GRO": 60,
+      "STA": 70,
+      "CHA": 35,
+      "OWN": 65
+    }
+  },
+  {
+    "id": "JOB-018",
+    "category": "job",
+    "name": "採用",
+    "vector": {
+      "HOS": 55,
+      "CRA": 30,
+      "TEA": 60,
+      "LEA": 50,
+      "BUS": 55,
+      "CRE": 45,
+      "GRO": 55,
+      "STA": 55,
+      "CHA": 45,
+      "OWN": 60
+    }
+  },
+  {
+    "id": "JOB-019",
+    "category": "job",
+    "name": "マーケティング",
+    "vector": {
+      "HOS": 45,
+      "CRA": 35,
+      "TEA": 50,
+      "LEA": 50,
+      "BUS": 75,
+      "CRE": 80,
+      "GRO": 65,
+      "STA": 40,
+      "CHA": 55,
+      "OWN": 60
+    }
+  },
+  {
+    "id": "JOB-020",
+    "category": "job",
+    "name": "CRM",
+    "vector": {
+      "HOS": 60,
+      "CRA": 35,
+      "TEA": 50,
+      "LEA": 45,
+      "BUS": 70,
+      "CRE": 45,
+      "GRO": 55,
+      "STA": 60,
+      "CHA": 35,
+      "OWN": 60
+    }
+  },
+  {
+    "id": "JOB-021",
+    "category": "job",
+    "name": "ブランドMgr",
+    "vector": {
+      "HOS": 50,
+      "CRA": 45,
+      "TEA": 55,
+      "LEA": 60,
+      "BUS": 65,
+      "CRE": 75,
+      "GRO": 55,
+      "STA": 45,
+      "CHA": 55,
+      "OWN": 70
+    }
+  },
+  {
+    "id": "JOB-022",
+    "category": "job",
+    "name": "新規事業",
+    "vector": {
+      "HOS": 35,
+      "CRA": 35,
+      "TEA": 45,
+      "LEA": 60,
+      "BUS": 75,
+      "CRE": 80,
+      "GRO": 65,
+      "STA": 30,
+      "CHA": 90,
+      "OWN": 75
+    }
+  },
+  {
+    "id": "JOB-023",
+    "category": "job",
+    "name": "経営企画",
+    "vector": {
+      "HOS": 30,
+      "CRA": 35,
+      "TEA": 50,
+      "LEA": 65,
+      "BUS": 90,
+      "CRE": 55,
+      "GRO": 65,
+      "STA": 70,
+      "CHA": 55,
+      "OWN": 75
+    }
+  },
+  {
+    "id": "JOB-024",
+    "category": "job",
+    "name": "COO",
+    "vector": {
+      "HOS": 35,
+      "CRA": 35,
+      "TEA": 60,
+      "LEA": 90,
+      "BUS": 85,
+      "CRE": 45,
+      "GRO": 60,
+      "STA": 75,
+      "CHA": 50,
+      "OWN": 90
+    }
+  },
+  {
+    "id": "JOB-025",
+    "category": "job",
+    "name": "CEO",
+    "vector": {
+      "HOS": 40,
+      "CRA": 35,
+      "TEA": 55,
+      "LEA": 90,
+      "BUS": 90,
+      "CRE": 60,
+      "GRO": 65,
+      "STA": 50,
+      "CHA": 80,
+      "OWN": 90
+    }
+  },
+  {
+    "id": "JOB-026",
+    "category": "job",
+    "name": "オーナー",
+    "vector": {
+      "HOS": 45,
+      "CRA": 45,
+      "TEA": 50,
+      "LEA": 75,
+      "BUS": 80,
+      "CRE": 55,
+      "GRO": 55,
+      "STA": 50,
+      "CHA": 80,
+      "OWN": 90
+    }
+  },
+  {
+    "id": "JOB-027",
+    "category": "job",
+    "name": "FC開発",
+    "vector": {
+      "HOS": 35,
+      "CRA": 30,
+      "TEA": 50,
+      "LEA": 60,
+      "BUS": 85,
+      "CRE": 45,
+      "GRO": 55,
+      "STA": 65,
+      "CHA": 55,
+      "OWN": 70
+    }
+  },
+  {
+    "id": "JOB-028",
+    "category": "job",
+    "name": "デリバリーMgr",
+    "vector": {
+      "HOS": 45,
+      "CRA": 35,
+      "TEA": 55,
+      "LEA": 60,
+      "BUS": 70,
+      "CRE": 40,
+      "GRO": 50,
+      "STA": 65,
+      "CHA": 45,
+      "OWN": 65
+    }
+  },
+  {
+    "id": "JOB-029",
+    "category": "job",
+    "name": "キッチンMgr",
+    "vector": {
+      "HOS": 40,
+      "CRA": 75,
+      "TEA": 65,
+      "LEA": 70,
+      "BUS": 50,
+      "CRE": 45,
+      "GRO": 55,
+      "STA": 75,
+      "CHA": 35,
+      "OWN": 75
+    }
+  },
+  {
+    "id": "JOB-030",
+    "category": "job",
+    "name": "レセプション",
+    "vector": {
+      "HOS": 85,
+      "CRA": 40,
+      "TEA": 55,
+      "LEA": 35,
+      "BUS": 35,
+      "CRE": 35,
+      "GRO": 50,
+      "STA": 65,
+      "CHA": 30,
+      "OWN": 50
+    }
+  },
+  {
+    "id": "JOB-031",
+    "category": "job",
+    "name": "ホテルサービス",
+    "vector": {
+      "HOS": 90,
+      "CRA": 55,
+      "TEA": 60,
+      "LEA": 40,
+      "BUS": 35,
+      "CRE": 35,
+      "GRO": 55,
+      "STA": 75,
+      "CHA": 30,
+      "OWN": 55
+    }
+  },
+  {
+    "id": "JOB-032",
+    "category": "job",
+    "name": "ワインバイヤー",
+    "vector": {
+      "HOS": 45,
+      "CRA": 80,
+      "TEA": 40,
+      "LEA": 40,
+      "BUS": 65,
+      "CRE": 55,
+      "GRO": 65,
+      "STA": 50,
+      "CHA": 45,
+      "OWN": 60
+    }
+  },
+  {
+    "id": "JOB-033",
+    "category": "job",
+    "name": "店舗開発",
+    "vector": {
+      "HOS": 30,
+      "CRA": 35,
+      "TEA": 50,
+      "LEA": 60,
+      "BUS": 80,
+      "CRE": 50,
+      "GRO": 55,
+      "STA": 60,
+      "CHA": 60,
+      "OWN": 70
+    }
+  },
+  {
+    "id": "JOB-034",
+    "category": "job",
+    "name": "海外事業",
+    "vector": {
+      "HOS": 40,
+      "CRA": 35,
+      "TEA": 50,
+      "LEA": 65,
+      "BUS": 75,
+      "CRE": 50,
+      "GRO": 70,
+      "STA": 45,
+      "CHA": 85,
+      "OWN": 75
+    }
+  },
+  {
+    "id": "JOB-035",
+    "category": "job",
+    "name": "DX責任者",
+    "vector": {
+      "HOS": 30,
+      "CRA": 45,
+      "TEA": 50,
+      "LEA": 65,
+      "BUS": 65,
+      "CRE": 65,
+      "GRO": 70,
+      "STA": 55,
+      "CHA": 60,
+      "OWN": 70
+    }
+  },
+  {
+    "id": "JOB-036",
+    "category": "job",
+    "name": "食品工場長",
+    "vector": {
+      "HOS": 25,
+      "CRA": 60,
+      "TEA": 60,
+      "LEA": 70,
+      "BUS": 55,
+      "CRE": 35,
+      "GRO": 50,
+      "STA": 90,
+      "CHA": 30,
+      "OWN": 80
+    }
+  },
+  {
+    "id": "JOB-037",
+    "category": "job",
+    "name": "購買",
+    "vector": {
+      "HOS": 30,
+      "CRA": 45,
+      "TEA": 45,
+      "LEA": 45,
+      "BUS": 80,
+      "CRE": 35,
+      "GRO": 50,
+      "STA": 70,
+      "CHA": 35,
+      "OWN": 65
+    }
+  },
+  {
+    "id": "JOB-038",
+    "category": "job",
+    "name": "MD",
+    "vector": {
+      "HOS": 40,
+      "CRA": 50,
+      "TEA": 45,
+      "LEA": 50,
+      "BUS": 75,
+      "CRE": 65,
+      "GRO": 55,
+      "STA": 55,
+      "CHA": 50,
+      "OWN": 60
+    }
+  },
+  {
+    "id": "JOB-039",
+    "category": "job",
+    "name": "広報",
+    "vector": {
+      "HOS": 50,
+      "CRA": 30,
+      "TEA": 55,
+      "LEA": 45,
+      "BUS": 55,
+      "CRE": 70,
+      "GRO": 55,
+      "STA": 40,
+      "CHA": 55,
+      "OWN": 55
+    }
+  },
+  {
+    "id": "JOB-040",
+    "category": "job",
+    "name": "CS責任者",
+    "vector": {
+      "HOS": 75,
+      "CRA": 35,
+      "TEA": 60,
+      "LEA": 65,
+      "BUS": 60,
+      "CRE": 40,
+      "GRO": 55,
+      "STA": 65,
+      "CHA": 40,
+      "OWN": 70
+    }
+  },
+  {
+    "id": "GEN-041",
+    "category": "format",
+    "name": "寿司",
+    "vector": {
+      "HOS": 60,
+      "CRA": 90,
+      "TEA": 45,
+      "LEA": 40,
+      "BUS": 45,
+      "CRE": 45,
+      "GRO": 60,
+      "STA": 75,
+      "CHA": 40,
+      "OWN": 60
+    }
+  },
+  {
+    "id": "GEN-042",
+    "category": "format",
+    "name": "割烹",
+    "vector": {
+      "HOS": 65,
+      "CRA": 88,
+      "TEA": 45,
+      "LEA": 40,
+      "BUS": 40,
+      "CRE": 55,
+      "GRO": 65,
+      "STA": 65,
+      "CHA": 40,
+      "OWN": 60
+    }
+  },
+  {
+    "id": "GEN-043",
+    "category": "format",
+    "name": "フレンチ",
+    "vector": {
+      "HOS": 60,
+      "CRA": 85,
+      "TEA": 50,
+      "LEA": 45,
+      "BUS": 45,
+      "CRE": 70,
+      "GRO": 65,
+      "STA": 55,
+      "CHA": 45,
+      "OWN": 60
+    }
+  },
+  {
+    "id": "GEN-044",
+    "category": "format",
+    "name": "イタリアン",
+    "vector": {
+      "HOS": 65,
+      "CRA": 75,
+      "TEA": 60,
+      "LEA": 40,
+      "BUS": 45,
+      "CRE": 60,
+      "GRO": 55,
+      "STA": 50,
+      "CHA": 45,
+      "OWN": 55
+    }
+  },
+  {
+    "id": "GEN-045",
+    "category": "format",
+    "name": "鉄板焼",
+    "vector": {
+      "HOS": 70,
+      "CRA": 80,
+      "TEA": 50,
+      "LEA": 40,
+      "BUS": 45,
+      "CRE": 45,
+      "GRO": 55,
+      "STA": 60,
+      "CHA": 35,
+      "OWN": 55
+    }
+  },
+  {
+    "id": "GEN-046",
+    "category": "format",
+    "name": "焼鳥",
+    "vector": {
+      "HOS": 55,
+      "CRA": 80,
+      "TEA": 55,
+      "LEA": 35,
+      "BUS": 40,
+      "CRE": 35,
+      "GRO": 50,
+      "STA": 70,
+      "CHA": 35,
+      "OWN": 50
+    }
+  },
+  {
+    "id": "GEN-047",
+    "category": "format",
+    "name": "焼肉",
+    "vector": {
+      "HOS": 55,
+      "CRA": 65,
+      "TEA": 60,
+      "LEA": 40,
+      "BUS": 50,
+      "CRE": 35,
+      "GRO": 45,
+      "STA": 55,
+      "CHA": 35,
+      "OWN": 50
+    }
+  },
+  {
+    "id": "GEN-048",
+    "category": "format",
+    "name": "居酒屋",
+    "vector": {
+      "HOS": 65,
+      "CRA": 50,
+      "TEA": 70,
+      "LEA": 45,
+      "BUS": 50,
+      "CRE": 45,
+      "GRO": 50,
+      "STA": 50,
+      "CHA": 45,
+      "OWN": 55
+    }
+  },
+  {
+    "id": "GEN-049",
+    "category": "format",
+    "name": "ラーメン",
+    "vector": {
+      "HOS": 40,
+      "CRA": 80,
+      "TEA": 45,
+      "LEA": 35,
+      "BUS": 50,
+      "CRE": 45,
+      "GRO": 55,
+      "STA": 70,
+      "CHA": 45,
+      "OWN": 60
+    }
+  },
+  {
+    "id": "GEN-050",
+    "category": "format",
+    "name": "中華",
+    "vector": {
+      "HOS": 55,
+      "CRA": 75,
+      "TEA": 55,
+      "LEA": 40,
+      "BUS": 45,
+      "CRE": 50,
+      "GRO": 55,
+      "STA": 60,
+      "CHA": 35,
+      "OWN": 50
+    }
+  },
+  {
+    "id": "GEN-051",
+    "category": "format",
+    "name": "カフェ",
+    "vector": {
+      "HOS": 65,
+      "CRA": 55,
+      "TEA": 55,
+      "LEA": 35,
+      "BUS": 45,
+      "CRE": 60,
+      "GRO": 50,
+      "STA": 50,
+      "CHA": 40,
+      "OWN": 50
+    }
+  },
+  {
+    "id": "GEN-052",
+    "category": "format",
+    "name": "ベーカリー",
+    "vector": {
+      "HOS": 45,
+      "CRA": 80,
+      "TEA": 50,
+      "LEA": 35,
+      "BUS": 45,
+      "CRE": 60,
+      "GRO": 55,
+      "STA": 75,
+      "CHA": 35,
+      "OWN": 55
+    }
+  },
+  {
+    "id": "GEN-053",
+    "category": "format",
+    "name": "ビストロ",
+    "vector": {
+      "HOS": 70,
+      "CRA": 70,
+      "TEA": 60,
+      "LEA": 45,
+      "BUS": 50,
+      "CRE": 60,
+      "GRO": 55,
+      "STA": 45,
+      "CHA": 50,
+      "OWN": 55
+    }
+  },
+  {
+    "id": "GEN-054",
+    "category": "format",
+    "name": "ホテル",
+    "vector": {
+      "HOS": 85,
+      "CRA": 60,
+      "TEA": 65,
+      "LEA": 55,
+      "BUS": 55,
+      "CRE": 40,
+      "GRO": 55,
+      "STA": 75,
+      "CHA": 30,
+      "OWN": 55
+    }
+  },
+  {
+    "id": "GEN-055",
+    "category": "format",
+    "name": "会員制",
+    "vector": {
+      "HOS": 80,
+      "CRA": 65,
+      "TEA": 50,
+      "LEA": 50,
+      "BUS": 60,
+      "CRE": 45,
+      "GRO": 50,
+      "STA": 65,
+      "CHA": 35,
+      "OWN": 55
+    }
+  },
+  {
+    "id": "GEN-056",
+    "category": "format",
+    "name": "ファミレス",
+    "vector": {
+      "HOS": 55,
+      "CRA": 35,
+      "TEA": 70,
+      "LEA": 40,
+      "BUS": 55,
+      "CRE": 30,
+      "GRO": 45,
+      "STA": 80,
+      "CHA": 30,
+      "OWN": 50
+    }
+  },
+  {
+    "id": "GEN-057",
+    "category": "format",
+    "name": "ファストフード",
+    "vector": {
+      "HOS": 45,
+      "CRA": 30,
+      "TEA": 65,
+      "LEA": 35,
+      "BUS": 55,
+      "CRE": 30,
+      "GRO": 40,
+      "STA": 85,
+      "CHA": 30,
+      "OWN": 45
+    }
+  },
+  {
+    "id": "GEN-058",
+    "category": "format",
+    "name": "フードコート",
+    "vector": {
+      "HOS": 40,
+      "CRA": 35,
+      "TEA": 60,
+      "LEA": 35,
+      "BUS": 55,
+      "CRE": 30,
+      "GRO": 40,
+      "STA": 75,
+      "CHA": 30,
+      "OWN": 45
+    }
+  },
+  {
+    "id": "GEN-059",
+    "category": "format",
+    "name": "デリ",
+    "vector": {
+      "HOS": 35,
+      "CRA": 55,
+      "TEA": 50,
+      "LEA": 35,
+      "BUS": 55,
+      "CRE": 45,
+      "GRO": 45,
+      "STA": 70,
+      "CHA": 35,
+      "OWN": 50
+    }
+  },
+  {
+    "id": "GEN-060",
+    "category": "format",
+    "name": "セントラルキッチン",
+    "vector": {
+      "HOS": 20,
+      "CRA": 60,
+      "TEA": 55,
+      "LEA": 45,
+      "BUS": 50,
+      "CRE": 30,
+      "GRO": 45,
+      "STA": 90,
+      "CHA": 25,
+      "OWN": 60
+    }
+  },
+  {
+    "id": "GEN-061",
+    "category": "format",
+    "name": "食品メーカー",
+    "vector": {
+      "HOS": 25,
+      "CRA": 60,
+      "TEA": 55,
+      "LEA": 50,
+      "BUS": 65,
+      "CRE": 45,
+      "GRO": 55,
+      "STA": 80,
+      "CHA": 35,
+      "OWN": 60
+    }
+  },
+  {
+    "id": "GEN-062",
+    "category": "format",
+    "name": "D2C",
+    "vector": {
+      "HOS": 35,
+      "CRA": 50,
+      "TEA": 45,
+      "LEA": 45,
+      "BUS": 70,
+      "CRE": 75,
+      "GRO": 60,
+      "STA": 45,
+      "CHA": 70,
+      "OWN": 65
+    }
+  },
+  {
+    "id": "GEN-063",
+    "category": "format",
+    "name": "ゴーストレストラン",
+    "vector": {
+      "HOS": 20,
+      "CRA": 55,
+      "TEA": 40,
+      "LEA": 40,
+      "BUS": 65,
+      "CRE": 55,
+      "GRO": 55,
+      "STA": 60,
+      "CHA": 60,
+      "OWN": 60
+    }
+  },
+  {
+    "id": "GEN-064",
+    "category": "format",
+    "name": "キッチンカー",
+    "vector": {
+      "HOS": 45,
+      "CRA": 55,
+      "TEA": 45,
+      "LEA": 45,
+      "BUS": 60,
+      "CRE": 55,
+      "GRO": 50,
+      "STA": 45,
+      "CHA": 75,
+      "OWN": 70
+    }
+  },
+  {
+    "id": "GEN-065",
+    "category": "format",
+    "name": "海外店舗",
+    "vector": {
+      "HOS": 50,
+      "CRA": 55,
+      "TEA": 55,
+      "LEA": 55,
+      "BUS": 60,
+      "CRE": 50,
+      "GRO": 65,
+      "STA": 50,
+      "CHA": 85,
+      "OWN": 65
+    }
+  },
+  {
+    "id": "GEN-066",
+    "category": "format",
+    "name": "バー",
+    "vector": {
+      "HOS": 70,
+      "CRA": 65,
+      "TEA": 45,
+      "LEA": 40,
+      "BUS": 45,
+      "CRE": 55,
+      "GRO": 55,
+      "STA": 45,
+      "CHA": 45,
+      "OWN": 55
+    }
+  },
+  {
+    "id": "GEN-067",
+    "category": "format",
+    "name": "スイーツ",
+    "vector": {
+      "HOS": 45,
+      "CRA": 80,
+      "TEA": 45,
+      "LEA": 30,
+      "BUS": 40,
+      "CRE": 75,
+      "GRO": 55,
+      "STA": 60,
+      "CHA": 40,
+      "OWN": 50
+    }
+  },
+  {
+    "id": "GEN-068",
+    "category": "format",
+    "name": "惣菜",
+    "vector": {
+      "HOS": 30,
+      "CRA": 60,
+      "TEA": 55,
+      "LEA": 35,
+      "BUS": 50,
+      "CRE": 35,
+      "GRO": 45,
+      "STA": 80,
+      "CHA": 30,
+      "OWN": 50
+    }
+  },
+  {
+    "id": "GEN-069",
+    "category": "format",
+    "name": "社員食堂",
+    "vector": {
+      "HOS": 45,
+      "CRA": 45,
+      "TEA": 60,
+      "LEA": 40,
+      "BUS": 35,
+      "CRE": 30,
+      "GRO": 40,
+      "STA": 85,
+      "CHA": 25,
+      "OWN": 50
+    }
+  },
+  {
+    "id": "GEN-070",
+    "category": "format",
+    "name": "給食",
+    "vector": {
+      "HOS": 35,
+      "CRA": 45,
+      "TEA": 60,
+      "LEA": 40,
+      "BUS": 30,
+      "CRE": 25,
+      "GRO": 35,
+      "STA": 90,
+      "CHA": 20,
+      "OWN": 50
+    }
+  },
+  {
+    "id": "GEN-071",
+    "category": "format",
+    "name": "高級和食",
+    "vector": {
+      "HOS": 70,
+      "CRA": 90,
+      "TEA": 45,
+      "LEA": 45,
+      "BUS": 50,
+      "CRE": 50,
+      "GRO": 60,
+      "STA": 65,
+      "CHA": 40,
+      "OWN": 65
+    }
+  },
+  {
+    "id": "GEN-072",
+    "category": "format",
+    "name": "オーベルジュ",
+    "vector": {
+      "HOS": 70,
+      "CRA": 80,
+      "TEA": 55,
+      "LEA": 50,
+      "BUS": 50,
+      "CRE": 60,
+      "GRO": 60,
+      "STA": 55,
+      "CHA": 50,
+      "OWN": 65
+    }
+  },
+  {
+    "id": "GEN-073",
+    "category": "format",
+    "name": "ヴィーガン",
+    "vector": {
+      "HOS": 45,
+      "CRA": 60,
+      "TEA": 45,
+      "LEA": 35,
+      "BUS": 45,
+      "CRE": 70,
+      "GRO": 60,
+      "STA": 45,
+      "CHA": 60,
+      "OWN": 55
+    }
+  },
+  {
+    "id": "GEN-074",
+    "category": "format",
+    "name": "デリバリー",
+    "vector": {
+      "HOS": 35,
+      "CRA": 35,
+      "TEA": 45,
+      "LEA": 35,
+      "BUS": 65,
+      "CRE": 35,
+      "GRO": 45,
+      "STA": 65,
+      "CHA": 45,
+      "OWN": 50
+    }
+  },
+  {
+    "id": "GEN-075",
+    "category": "format",
+    "name": "フードテック",
+    "vector": {
+      "HOS": 25,
+      "CRA": 35,
+      "TEA": 45,
+      "LEA": 45,
+      "BUS": 65,
+      "CRE": 70,
+      "GRO": 65,
+      "STA": 45,
+      "CHA": 75,
+      "OWN": 60
+    }
+  },
+  {
+    "id": "ROL-076",
+    "category": "role",
+    "name": "一般",
+    "vector": {
+      "HOS": 60,
+      "CRA": 50,
+      "TEA": 65,
+      "LEA": 30,
+      "BUS": 30,
+      "CRE": 40,
+      "GRO": 55,
+      "STA": 55,
+      "CHA": 35,
+      "OWN": 40
+    }
+  },
+  {
+    "id": "ROL-077",
+    "category": "role",
+    "name": "リーダー",
+    "vector": {
+      "HOS": 55,
+      "CRA": 50,
+      "TEA": 70,
+      "LEA": 60,
+      "BUS": 40,
+      "CRE": 40,
+      "GRO": 60,
+      "STA": 60,
+      "CHA": 40,
+      "OWN": 60
+    }
+  },
+  {
+    "id": "ROL-078",
+    "category": "role",
+    "name": "副店長",
+    "vector": {
+      "HOS": 60,
+      "CRA": 48,
+      "TEA": 75,
+      "LEA": 68,
+      "BUS": 55,
+      "CRE": 42,
+      "GRO": 58,
+      "STA": 62,
+      "CHA": 42,
+      "OWN": 68
+    }
+  },
+  {
+    "id": "ROL-079",
+    "category": "role",
+    "name": "店長",
+    "vector": {
+      "HOS": 65,
+      "CRA": 45,
+      "TEA": 72,
+      "LEA": 80,
+      "BUS": 70,
+      "CRE": 45,
+      "GRO": 60,
+      "STA": 62,
+      "CHA": 50,
+      "OWN": 82
+    }
+  },
+  {
+    "id": "ROL-080",
+    "category": "role",
+    "name": "料理長",
+    "vector": {
+      "HOS": 45,
+      "CRA": 88,
+      "TEA": 60,
+      "LEA": 72,
+      "BUS": 50,
+      "CRE": 60,
+      "GRO": 58,
+      "STA": 62,
+      "CHA": 40,
+      "OWN": 78
+    }
+  },
+  {
+    "id": "ROL-081",
+    "category": "role",
+    "name": "支配人",
+    "vector": {
+      "HOS": 80,
+      "CRA": 55,
+      "TEA": 62,
+      "LEA": 78,
+      "BUS": 60,
+      "CRE": 42,
+      "GRO": 52,
+      "STA": 68,
+      "CHA": 42,
+      "OWN": 78
+    }
+  },
+  {
+    "id": "ROL-082",
+    "category": "role",
+    "name": "SV",
+    "vector": {
+      "HOS": 50,
+      "CRA": 48,
+      "TEA": 68,
+      "LEA": 78,
+      "BUS": 62,
+      "CRE": 38,
+      "GRO": 58,
+      "STA": 68,
+      "CHA": 42,
+      "OWN": 72
+    }
+  },
+  {
+    "id": "ROL-083",
+    "category": "role",
+    "name": "AM",
+    "vector": {
+      "HOS": 42,
+      "CRA": 38,
+      "TEA": 58,
+      "LEA": 82,
+      "BUS": 78,
+      "CRE": 38,
+      "GRO": 58,
+      "STA": 68,
+      "CHA": 48,
+      "OWN": 78
+    }
+  },
+  {
+    "id": "ROL-084",
+    "category": "role",
+    "name": "教育責任者",
+    "vector": {
+      "HOS": 58,
+      "CRA": 52,
+      "TEA": 72,
+      "LEA": 68,
+      "BUS": 38,
+      "CRE": 45,
+      "GRO": 85,
+      "STA": 58,
+      "CHA": 35,
+      "OWN": 65
+    }
+  },
+  {
+    "id": "ROL-085",
+    "category": "role",
+    "name": "商品開発責任者",
+    "vector": {
+      "HOS": 40,
+      "CRA": 70,
+      "TEA": 52,
+      "LEA": 55,
+      "BUS": 58,
+      "CRE": 88,
+      "GRO": 68,
+      "STA": 42,
+      "CHA": 62,
+      "OWN": 68
+    }
+  },
+  {
+    "id": "ROL-086",
+    "category": "role",
+    "name": "ブランド責任者",
+    "vector": {
+      "HOS": 48,
+      "CRA": 42,
+      "TEA": 52,
+      "LEA": 62,
+      "BUS": 65,
+      "CRE": 78,
+      "GRO": 55,
+      "STA": 42,
+      "CHA": 55,
+      "OWN": 70
+    }
+  },
+  {
+    "id": "ROL-087",
+    "category": "role",
+    "name": "事業責任者",
+    "vector": {
+      "HOS": 35,
+      "CRA": 38,
+      "TEA": 55,
+      "LEA": 80,
+      "BUS": 85,
+      "CRE": 50,
+      "GRO": 60,
+      "STA": 60,
+      "CHA": 58,
+      "OWN": 85
+    }
+  },
+  {
+    "id": "ROL-088",
+    "category": "role",
+    "name": "COO",
+    "vector": {
+      "HOS": 32,
+      "CRA": 35,
+      "TEA": 58,
+      "LEA": 88,
+      "BUS": 82,
+      "CRE": 42,
+      "GRO": 58,
+      "STA": 72,
+      "CHA": 48,
+      "OWN": 88
+    }
+  },
+  {
+    "id": "ROL-089",
+    "category": "role",
+    "name": "CEO",
+    "vector": {
+      "HOS": 38,
+      "CRA": 32,
+      "TEA": 55,
+      "LEA": 88,
+      "BUS": 88,
+      "CRE": 58,
+      "GRO": 62,
+      "STA": 48,
+      "CHA": 78,
+      "OWN": 90
+    }
+  },
+  {
+    "id": "ROL-090",
+    "category": "role",
+    "name": "オーナー",
+    "vector": {
+      "HOS": 45,
+      "CRA": 45,
+      "TEA": 48,
+      "LEA": 75,
+      "BUS": 78,
+      "CRE": 55,
+      "GRO": 52,
+      "STA": 48,
+      "CHA": 78,
+      "OWN": 88
+    }
+  },
+  {
+    "id": "ROL-091",
+    "category": "role",
+    "name": "本部長",
+    "vector": {
+      "HOS": 35,
+      "CRA": 35,
+      "TEA": 58,
+      "LEA": 82,
+      "BUS": 78,
+      "CRE": 45,
+      "GRO": 58,
+      "STA": 70,
+      "CHA": 52,
+      "OWN": 82
+    }
+  },
+  {
+    "id": "ROL-092",
+    "category": "role",
+    "name": "統括料理長",
+    "vector": {
+      "HOS": 50,
+      "CRA": 85,
+      "TEA": 62,
+      "LEA": 78,
+      "BUS": 55,
+      "CRE": 58,
+      "GRO": 62,
+      "STA": 65,
+      "CHA": 42,
+      "OWN": 82
+    }
+  },
+  {
+    "id": "ROL-093",
+    "category": "role",
+    "name": "統括支配人",
+    "vector": {
+      "HOS": 75,
+      "CRA": 52,
+      "TEA": 62,
+      "LEA": 82,
+      "BUS": 65,
+      "CRE": 42,
+      "GRO": 55,
+      "STA": 70,
+      "CHA": 42,
+      "OWN": 82
+    }
+  },
+  {
+    "id": "ROL-094",
+    "category": "role",
+    "name": "PM",
+    "vector": {
+      "HOS": 38,
+      "CRA": 42,
+      "TEA": 65,
+      "LEA": 72,
+      "BUS": 60,
+      "CRE": 48,
+      "GRO": 60,
+      "STA": 68,
+      "CHA": 48,
+      "OWN": 72
+    }
+  },
+  {
+    "id": "ROL-095",
+    "category": "role",
+    "name": "執行役員",
+    "vector": {
+      "HOS": 35,
+      "CRA": 35,
+      "TEA": 58,
+      "LEA": 85,
+      "BUS": 85,
+      "CRE": 48,
+      "GRO": 58,
+      "STA": 62,
+      "CHA": 55,
+      "OWN": 85
+    }
+  }
+]

@@ -1,54 +1,130 @@
-# Restaurant DNA - 仕様ドキュメント一式
+# Restaurant DNA
 
-飲食業界で働く人・働きたい人向けの適職診断サービス「Restaurant DNA」の仕様書。
-社内から共有された5つの元資料（.docx）をもとに、実装前に見つかった不整合を修正して
-Markdown化したもの。
+飲食業界で働く人・働きたい人向けのエンタメ型キャリア診断サービス。仕様の詳細は
+[`docs/spec/`](./docs/spec/)（`README.md` から参照）を参照。本READMEはアプリの実装・
+セットアップ手順。
 
-## ファイル一覧
+## 現在のスコープ（Sprint 1）
 
-| ファイル | 内容 | 元資料 |
-|---|---|---|
-| `00-axes.md` | 診断エンジンで使う軸の正式定義（10コア軸＋4補助軸＋64タイプ判定用6メタ軸） | 複数資料の軸定義を統合・新規補完 |
-| `01-64-types.md` | 64タイプの名称・説明・強み弱み・適職・判定タグ | `Restaurant_DNA_64タイプ正式版_Ver1.0.docx` |
-| `02-job-format-role-master.md` | 職種(40)・業態(35)・役職(20)のマッチング用マスターデータ | `Restaurant_DNA_職種業態役職マスターデータ_Ver1.0.docx` |
-| `03-mvp-overview.md` | サービス概要・MVP開発仕様まとめ | `Restaurant_DNA_サービス概要MVP開発仕様まとめ_Ver2.0.docx` |
-| `04-64-questions-scoring.md` | 正式診断64問＋完全配点表 | `Restaurant_DNA_64問_完全配点表_Ver2.0.docx` |
-| `05-question-bank-200.md` | Question Bank 200問（将来の入替候補プール／未確定） | `Restaurant_DNA_Question_Bank_200問_Ver1.1.docx` |
+`docs/spec/03-mvp-overview.md` セクション34「AI開発への指示」の Sprint 1 を実装済み。
 
-> 元資料の `04` と `05` にあたる2ファイルは、どちらもファイル名に「64」を含みながら
-> 中身が「64タイプ定義」と「64問の質問＋配点」という全く別物だったため、内容が一目で
-> わかる名前にリネームしている。
+- Next.jsプロジェクト作成
+- DB作成（Supabaseマイグレーション）
+- 匿名診断セッション
+- 質問表示（64問・20シーン）
+- 回答保存（1問ごとに即保存、途中離脱しても再開可能）
+- スコア計算（ルールベース、10コア軸＋4補助軸）
+- 診断結果表示（64タイプ判定・飲食業界適性・能力スコア・適職/業態/役職ランキング・
+  隠れタイプ・フィードバック収集）
 
-## 今回修正した点
+Sprint 2以降（SNSシェア画像生成、会員登録、管理画面、履歴書・職務経歴書、転職意向、
+分析ダッシュボードなど）は未実装。結果画面にはそれらへの導線をプレースホルダーとして
+置いている。
 
-1. **64タイプの判定タグ重複を解消**（`01-64-types.md`）
-   元資料は64通りのはずの判定タグ（6つの二択軸の組み合わせ）が実際には33通りしかユニークで
-   なく、最大3タイプが同じタグを共有していた。ファミリー(8つ)を axis1〜3 の固定値、ファミリー内
-   の8タイプを axis4〜6 の可変値で表す構造に再設計し、64通り全てが一意になるよう修正した。
-   タイプ名・説明文・強み弱み・適職などの内容は一切変更していない。
+## 技術構成
 
-2. **軸の並び順・補助軸の数を統一**（`00-axes.md`）
-   MVP概要書と正式配点表(Ver.2.0)で10軸の並び順が異なり、補助軸の数も7軸と4軸で食い違って
-   いた。配点が実際に確定しているVer.2.0の定義（10コア軸＋4補助軸）を正式版として統一した。
+`03-mvp-overview.md` セクション29の「最速案」に準拠。
 
-3. **64タイプ判定用の6メタ軸の算出方法を新規定義**（`00-axes.md`）
-   64タイプの判定に使う6つの二択軸（Guest/Product等）を、10+4軸のスコアからどう算出するかが
-   元資料のどこにも定義されていなかった。診断エンジンが動くよう、暫定の算出ロジックを新規に
-   設計した。要企画レビュー。
+- Next.js (App Router) + TypeScript + Tailwind CSS
+- Supabase（PostgreSQL）。アプリからは Route Handler 経由でのみアクセスし、
+  service role key はサーバー側にのみ置く（ブラウザに公開する Supabase キーは今のところ無い）
+- 診断スコアの算出は全てルールベース（`src/lib/scoring/`）。LLMは未使用（AI文章生成は
+  Sprint 3以降の履歴書機能で使用予定）
 
-4. **職種・業態・役職マスターのベクトルを再設計**（`02-job-format-role-master.md`）
-   元資料は10軸ベクトルの並び順が一切明記されておらず、値も職務実態と噛み合わない箇所が
-   複数あった（例:「店長」のBusinessが低すぎる等）。`00-axes.md` の軸順に統一した上で、
-   全95件を職務内容に沿って再設計した。
+## ディレクトリ構成
 
-5. **ドキュメント間の矛盾注記を整理**（`03-mvp-overview.md`）
-   MVP概要書の「未確定要素」リストが、既に確定済みの64タイプ・軸定義と矛盾していたため、
-   編集メモを追記して `01-64-types.md` / `00-axes.md` を正とする旨を明記した。
+```
+docs/spec/            元の仕様書一式（README含む）
+scripts/               仕様Markdown→DBシード変換スクリプト、動作確認スクリプト
+  seed-data/           parseスクリプトの出力（JSON、gitignore対象外でコミット済み）
+supabase/
+  migrations/          スキーマ定義SQL
+  seed.sql             64問・64タイプ・95件の職種/業態/役職マスターの投入SQL（自動生成）
+src/
+  app/                 ページ & Route Handler (App Router)
+    diagnosis/         診断説明→診断フロー→結果画面
+    api/diagnosis/     診断セッションAPI
+  components/          結果画面・診断フローの表示コンポーネント
+  lib/
+    axes.ts            10+4軸の定義（DBシード・スコアリング・画面表示で共通）
+    scoring/            採点エンジン（純粋関数、DBに依存しない）
+    supabase/           Supabase service role クライアント・行の型
+    diagnosis/           Supabaseアクセス層（repository）・診断フローのビジネスロジック（service）
+```
 
-## 未解決・要レビューの点
+## セットアップ
 
-- `00-axes.md` の6メタ軸算出ロジックは今回新規設計したものなので、企画側でのレビューを推奨。
-- `02-job-format-role-master.md` のベクトル値は暫定の初期仮説（元資料も同様の位置づけだった）。
-  実利用データで校正する前提。
-- `05-question-bank-200.md` は `Detail` `Service Mind` など正式4補助軸に含まれない軸コードを
-  使用している設問が残っている。将来正式ローテーションへ昇格させる際にマッピングし直す必要がある。
+### 1. Supabaseプロジェクトを用意する
+
+1. https://supabase.com でプロジェクトを作成
+2. `supabase/migrations/0001_init.sql` を SQL Editor で実行（またはSupabase CLIで
+   `supabase db push` — マイグレーションはこのプロジェクト用にSupabase CLI設定は同梱していないため、
+   SQL Editorへの貼り付けが最短）
+3. 続けて `supabase/seed.sql` を実行し、64問・64タイプ・95件の職種/業態/役職マスターを投入する
+4. Project Settings → API から `Project URL` と `service_role` キーを控える
+
+### 2. 環境変数
+
+```bash
+cp .env.example .env.local
+# .env.local に SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY を設定
+```
+
+### 3. 依存関係のインストール & 起動
+
+```bash
+npm install
+npm run dev
+```
+
+http://localhost:3000 でトップページ、`/diagnosis` から診断を開始できる。
+
+## シードデータの再生成
+
+仕様Markdown（`docs/spec/04-64-questions-scoring.md` / `01-64-types.md` /
+`02-job-format-role-master.md`）を修正した場合は、以下の順で再生成する。
+
+```bash
+npm run seed
+# 内訳: npm run seed:parse (questions/types/master を再パース)
+#       npm run seed:generate (supabase/seed.sql を再生成)
+```
+
+各parseスクリプトは件数・配点合計・タグの一意性などを検証し、想定外の形式があれば
+例外で落ちる（例: 質問が64件でない、選択肢の配点合計が4点でない、64タイプの判定タグが
+重複している、など）。`supabase/seed.sql` はUUIDを決定論的に生成しているため、同じ入力
+からは常に同じSQLが出力される。
+
+## 動作確認スクリプト
+
+```bash
+# スコアリングエンジン単体の健全性チェック（DB不要、seed-data/*.json を直接使用）
+npm run verify:scoring
+
+# 実際のPostgresに対する統合テスト（マイグレーション+シード適用済みのDBが必要）
+DATABASE_URL=postgres://user:pass@localhost:5432/dbname npm run verify:integration
+```
+
+`integration-test.ts` はセッション作成→64問回答→スコア計算→結果保存→読み出しまでを
+実DBに対して一通り実行する。Supabase実体（PostgREST）を経由しない分、本番のRoute
+Handlerとは経路が異なる点に注意（スキーマとスコアリングロジックの結合確認が目的）。
+
+## 診断ロジックについて（既知の簡略化・要レビュー事項）
+
+`docs/spec/README.md` および `docs/spec/00-axes.md` で明記されている通り、以下は元資料
+に定義がなかったため今回新規設計、またはSprint 1向けに意図的に簡略化している。
+
+- **64タイプ判定用の6メタ軸の算出方法**（`src/lib/scoring/meta-axes.ts`）: 元資料に定義が
+  無かったため `00-axes.md` の新規ロジックをそのまま実装。特に High-end/Mass 軸の算出は
+  他の解釈もあり得るため企画レビュー推奨。
+- **隠れタイプ（第2候補）の判定**: 64タイプごとの14軸基準ベクトルが元資料に存在しないため、
+  「6メタ軸のうち最も僅差だった軸を反転させたタイプ」を第2候補として採用。差が3点未満の
+  場合のみ表示する仕様(`04-64-questions-scoring.md`)は反映済み。
+- **補強質問（0〜8問）は未実装**: 判定が拮抗した場合の補強質問プールが `05-question-bank-200.md`
+  に存在するが、正式4補助軸に含まれない軸コードを使う設問が残っており「要マッピング」と
+  明記されている。Sprint 1では正式64問のみで確定判定する。
+- **飲食業界適性の重み付け**: `03-mvp-overview.md` セクション12は「接客職はHospitality重視、
+  調理職はCraft/Ownership重視」と職種による重み調整を求めているが、これには職歴データ
+  （Sprint 3以降）が必要なため、Sprint 1では対象7軸の単純平均を使用。
+- **適職/業態/役職ランキング**: `02-job-format-role-master.md` の10軸ベクトルとユーザーの
+  正規化スコアのコサイン類似度で算出（元資料にアルゴリズムの指定なし）。

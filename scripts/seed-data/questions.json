@@ -1,0 +1,4718 @@
+[
+  {
+    "questionId": "Q01",
+    "sceneId": 1,
+    "sceneTitle": "開店前、ちょっとザワつく店内",
+    "visualBrief": "シャッター半開き。スタッフは小走り、店長は時計を二度見。",
+    "displayOrder": 1,
+    "text": "開店5分前。『あれ、まだ準備終わってない…！』という空気です。一番ソワソワするのは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "お客様を気持ちよく迎えられるかな…",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 3
+          },
+          {
+            "axis": "CUS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "バタついて料理や商品の質が落ちないかな…",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 3
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "みんな焦って空気悪くならないかな…",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 3
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "今日の営業、最初から流れ崩れないかな…",
+        "scores": [
+          {
+            "axis": "LEA",
+            "value": 3
+          },
+          {
+            "axis": "STA",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q02",
+    "sceneId": 1,
+    "sceneTitle": "開店前、ちょっとザワつく店内",
+    "visualBrief": "シャッター半開き。スタッフは小走り、店長は時計を二度見。",
+    "displayOrder": 2,
+    "text": "今日から新メニュー登場。ちょっとワクワク、ちょっと不安。最初に気になるのは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "お客様に「それ気になる！」と思ってもらえるかな",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 2
+          },
+          {
+            "axis": "CRE",
+            "value": 1
+          },
+          {
+            "axis": "CUS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "味や仕上がり、ちゃんとキマってるかな",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 3
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "現場のみんながスムーズに出せるかな",
+        "scores": [
+          {
+            "axis": "STA",
+            "value": 3
+          },
+          {
+            "axis": "TEA",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "これ、ちゃんと売れるかな",
+        "scores": [
+          {
+            "axis": "BUS",
+            "value": 3
+          },
+          {
+            "axis": "DAT",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q03",
+    "sceneId": 1,
+    "sceneTitle": "開店前、ちょっとザワつく店内",
+    "visualBrief": "シャッター半開き。スタッフは小走り、店長は時計を二度見。",
+    "displayOrder": 3,
+    "text": "開店前に3分だけ余裕ができました。さて、何する？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "客席や入口を見て「居心地」を整える",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 3
+          },
+          {
+            "axis": "CUS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "自分の持ち場をもう一回細かくチェックする",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 3
+          },
+          {
+            "axis": "STA",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "周りで困ってる人がいないか見る",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 3
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "今日の営業の流れを頭の中でシミュレーションする",
+        "scores": [
+          {
+            "axis": "LEA",
+            "value": 2
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          },
+          {
+            "axis": "STA",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q04",
+    "sceneId": 1,
+    "sceneTitle": "開店前、ちょっとザワつく店内",
+    "visualBrief": "シャッター半開き。スタッフは小走り、店長は時計を二度見。",
+    "displayOrder": 4,
+    "text": "あなたにとって理想の開店前ってどんな状態？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "「ようこそ！」の空気が店にちゃんとある",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 3
+          },
+          {
+            "axis": "CUS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "細かいところまで完璧に整ってる",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 2
+          },
+          {
+            "axis": "STA",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "チーム全員のテンションがそろってる",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 3
+          },
+          {
+            "axis": "LEA",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "誰が何するか明確で、営業の勝ち筋が見えてる",
+        "scores": [
+          {
+            "axis": "LEA",
+            "value": 2
+          },
+          {
+            "axis": "BUS",
+            "value": 1
+          },
+          {
+            "axis": "STA",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q05",
+    "sceneId": 2,
+    "sceneTitle": "最初のお客様がやってきた",
+    "visualBrief": "ドアが開き、初来店らしいお客様が少し緊張した表情。",
+    "displayOrder": 5,
+    "text": "初来店っぽいお客様が、少し緊張した様子で入ってきました。一番意識するのは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "まず安心してもらうこと",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 3
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "店の良さをしっかり感じてもらうこと",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 2
+          },
+          {
+            "axis": "CUS",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "ミスなく気持ちよく案内すること",
+        "scores": [
+          {
+            "axis": "STA",
+            "value": 3
+          },
+          {
+            "axis": "HOS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "この方が何を求めてるか早くつかむこと",
+        "scores": [
+          {
+            "axis": "CUS",
+            "value": 3
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q06",
+    "sceneId": 2,
+    "sceneTitle": "最初のお客様がやってきた",
+    "visualBrief": "ドアが開き、初来店らしいお客様が少し緊張した表情。",
+    "displayOrder": 6,
+    "text": "『おすすめってどれですか？』あなたならどう考える？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "その人に合いそうなものを一緒に探したい",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 3
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "うちの“本気の一品”を推したい",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 3
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "失敗しにくい人気商品を勧めたい",
+        "scores": [
+          {
+            "axis": "STA",
+            "value": 2
+          },
+          {
+            "axis": "DAT",
+            "value": 1
+          },
+          {
+            "axis": "CUS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "ちょっと意外性のある一品で驚かせたい",
+        "scores": [
+          {
+            "axis": "CRE",
+            "value": 3
+          },
+          {
+            "axis": "CHA",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q07",
+    "sceneId": 2,
+    "sceneTitle": "最初のお客様がやってきた",
+    "visualBrief": "ドアが開き、初来店らしいお客様が少し緊張した表情。",
+    "displayOrder": 7,
+    "text": "お客様が笑顔になった瞬間。実は一番うれしいのはどれ？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "「ちゃんと気持ち伝わったな」と感じるとき",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 3
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "「この料理・商品、刺さった！」と感じるとき",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 3
+          },
+          {
+            "axis": "CUS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "「チームでいい空気つくれたな」と感じるとき",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 3
+          },
+          {
+            "axis": "HOS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "「期待をちょっと超えられたな」と感じるとき",
+        "scores": [
+          {
+            "axis": "CRE",
+            "value": 2
+          },
+          {
+            "axis": "CHA",
+            "value": 1
+          },
+          {
+            "axis": "HOS",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q08",
+    "sceneId": 2,
+    "sceneTitle": "最初のお客様がやってきた",
+    "visualBrief": "ドアが開き、初来店らしいお客様が少し緊張した表情。",
+    "displayOrder": 8,
+    "text": "あなたにとって“いいサービス”って一言でいうと？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "相手の気持ちをちゃんと読めてること",
+        "scores": [
+          {
+            "axis": "EMP",
+            "value": 3
+          },
+          {
+            "axis": "HOS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "高いクオリティを安定して出せること",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 2
+          },
+          {
+            "axis": "STA",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "店全体で心地よい時間をつくれること",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 2
+          },
+          {
+            "axis": "HOS",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "「おっ」と思わせる体験を届けること",
+        "scores": [
+          {
+            "axis": "CRE",
+            "value": 3
+          },
+          {
+            "axis": "CHA",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q09",
+    "sceneId": 3,
+    "sceneTitle": "ランチピーク、きたきたきた",
+    "visualBrief": "満席、オーダー連打、厨房から『3番いけます！』。",
+    "displayOrder": 9,
+    "text": "一気に混み始めました。この瞬間、一番大事にしたいのは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "忙しくてもお客様を雑にしないこと",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 3
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "どれだけ混んでも品質を崩さないこと",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 3
+          },
+          {
+            "axis": "RES",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "チームの連携がバラバラにならないこと",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 3
+          },
+          {
+            "axis": "LEA",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "店全体の回り方を止めないこと",
+        "scores": [
+          {
+            "axis": "LEA",
+            "value": 2
+          },
+          {
+            "axis": "STA",
+            "value": 1
+          },
+          {
+            "axis": "BUS",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q10",
+    "sceneId": 3,
+    "sceneTitle": "ランチピーク、きたきたきた",
+    "visualBrief": "満席、オーダー連打、厨房から『3番いけます！』。",
+    "displayOrder": 10,
+    "text": "自分の仕事が予定どおり進んでません。このとき一番近い動きは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "優先順位をすぐ組み替える",
+        "scores": [
+          {
+            "axis": "LEA",
+            "value": 2
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          },
+          {
+            "axis": "RES",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "とにかく精度は落とさずやる",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 3
+          },
+          {
+            "axis": "RES",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "周りに助けを求めて全体で回す",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 3
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "やり方ごと変えて突破する",
+        "scores": [
+          {
+            "axis": "CHA",
+            "value": 2
+          },
+          {
+            "axis": "CRE",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q11",
+    "sceneId": 3,
+    "sceneTitle": "ランチピーク、きたきたきた",
+    "visualBrief": "満席、オーダー連打、厨房から『3番いけます！』。",
+    "displayOrder": 11,
+    "text": "ピークタイムで「この人いると助かる！」って思うのは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "お客様の変化にパッと気づく人",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 2
+          },
+          {
+            "axis": "CUS",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "どれだけ忙しくてもブレない人",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 2
+          },
+          {
+            "axis": "RES",
+            "value": 1
+          },
+          {
+            "axis": "STA",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "周りに声をかけて空気を整える人",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 2
+          },
+          {
+            "axis": "LEA",
+            "value": 1
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "全体見て判断が早い人",
+        "scores": [
+          {
+            "axis": "LEA",
+            "value": 3
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q12",
+    "sceneId": 3,
+    "sceneTitle": "ランチピーク、きたきたきた",
+    "visualBrief": "満席、オーダー連打、厨房から『3番いけます！』。",
+    "displayOrder": 12,
+    "text": "ピークを乗り切ったあと、最初に思うのは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "お客様、ちゃんと満足してくれたかな",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 3
+          },
+          {
+            "axis": "CUS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "もっといい仕事できたんじゃないかな",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 2
+          },
+          {
+            "axis": "GRO",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "みんな無理しすぎてないかな",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 2
+          },
+          {
+            "axis": "EMP",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "次はもっと効率よく回せるな",
+        "scores": [
+          {
+            "axis": "STA",
+            "value": 2
+          },
+          {
+            "axis": "BUS",
+            "value": 1
+          },
+          {
+            "axis": "GRO",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q13",
+    "sceneId": 4,
+    "sceneTitle": "あ、トラブルです",
+    "visualBrief": "伝票を見直すスタッフ。厨房の空気が一瞬止まる。",
+    "displayOrder": 13,
+    "text": "注文ミス発覚。まず一番大事だと思うのは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "お客様の気持ちを落ち着かせること",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 3
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "正しいものをベストな状態で出すこと",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 3
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "誰かを責めずにチームで立て直すこと",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 3
+          },
+          {
+            "axis": "LEA",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "何が原因かを特定して再発防止すること",
+        "scores": [
+          {
+            "axis": "STA",
+            "value": 2
+          },
+          {
+            "axis": "DAT",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q14",
+    "sceneId": 4,
+    "sceneTitle": "あ、トラブルです",
+    "visualBrief": "伝票を見直すスタッフ。厨房の空気が一瞬止まる。",
+    "displayOrder": 14,
+    "text": "機械トラブルでいつも通りいきません。あなたの考えに近いのは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "まずお客様への影響を減らしたい",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 2
+          },
+          {
+            "axis": "CUS",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "品質を守れないなら無理に出したくない",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 3
+          },
+          {
+            "axis": "STA",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "みんなで代替手段を考えたい",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 3
+          },
+          {
+            "axis": "CRE",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "状況に合わせて営業のやり方を変えたい",
+        "scores": [
+          {
+            "axis": "CHA",
+            "value": 2
+          },
+          {
+            "axis": "LEA",
+            "value": 1
+          },
+          {
+            "axis": "CRE",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q15",
+    "sceneId": 4,
+    "sceneTitle": "あ、トラブルです",
+    "visualBrief": "伝票を見直すスタッフ。厨房の空気が一瞬止まる。",
+    "displayOrder": 15,
+    "text": "急な欠員発生。自然にやりがちな行動は？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "大変そうな人をまず助ける",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 2
+          },
+          {
+            "axis": "EMP",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "自分の担当を絶対に崩さない",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 2
+          },
+          {
+            "axis": "STA",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "全体の役割を調整する",
+        "scores": [
+          {
+            "axis": "LEA",
+            "value": 3
+          },
+          {
+            "axis": "TEA",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "いつもと違う回し方をその場で作る",
+        "scores": [
+          {
+            "axis": "CRE",
+            "value": 2
+          },
+          {
+            "axis": "CHA",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q16",
+    "sceneId": 4,
+    "sceneTitle": "あ、トラブルです",
+    "visualBrief": "伝票を見直すスタッフ。厨房の空気が一瞬止まる。",
+    "displayOrder": 16,
+    "text": "トラブル後の振り返り。一番気になるのは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "お客様、どう感じたかな",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 2
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          },
+          {
+            "axis": "CUS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "品質にどれくらい影響出たかな",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 3
+          },
+          {
+            "axis": "DAT",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "チーム連携のどこが弱かったかな",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 2
+          },
+          {
+            "axis": "LEA",
+            "value": 1
+          },
+          {
+            "axis": "GRO",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "次から仕組みとしてどう防ぐか",
+        "scores": [
+          {
+            "axis": "STA",
+            "value": 2
+          },
+          {
+            "axis": "DAT",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q17",
+    "sceneId": 5,
+    "sceneTitle": "クレーム、きました",
+    "visualBrief": "真顔のお客様。周囲も少しピリついている。",
+    "displayOrder": 17,
+    "text": "お客様から強めの不満。最初に一番意識するのは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "まず最後までちゃんと聞く",
+        "scores": [
+          {
+            "axis": "EMP",
+            "value": 3
+          },
+          {
+            "axis": "HOS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "何が事実か正確に確認する",
+        "scores": [
+          {
+            "axis": "DAT",
+            "value": 2
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          },
+          {
+            "axis": "STA",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "店としてブレない対応をする",
+        "scores": [
+          {
+            "axis": "STA",
+            "value": 2
+          },
+          {
+            "axis": "LEA",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "解決策を早く出す",
+        "scores": [
+          {
+            "axis": "OWN",
+            "value": 2
+          },
+          {
+            "axis": "LEA",
+            "value": 1
+          },
+          {
+            "axis": "RES",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q18",
+    "sceneId": 5,
+    "sceneTitle": "クレーム、きました",
+    "visualBrief": "真顔のお客様。周囲も少しピリついている。",
+    "displayOrder": 18,
+    "text": "自分が直接の原因じゃないクレーム。それでも一番近い気持ちは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "原因はともかく、気持ちは受け止めたい",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 2
+          },
+          {
+            "axis": "EMP",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "責任の範囲は明確にしたい",
+        "scores": [
+          {
+            "axis": "DAT",
+            "value": 2
+          },
+          {
+            "axis": "STA",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "店全体の問題として協力したい",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 3
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "次から起きない方法を考えたい",
+        "scores": [
+          {
+            "axis": "STA",
+            "value": 2
+          },
+          {
+            "axis": "GRO",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q19",
+    "sceneId": 5,
+    "sceneTitle": "クレーム、きました",
+    "visualBrief": "真顔のお客様。周囲も少しピリついている。",
+    "displayOrder": 19,
+    "text": "期待に応えられないとき、一番大事なのは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "気持ちに寄り添うこと",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 2
+          },
+          {
+            "axis": "EMP",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "できる・できないを正確に伝えること",
+        "scores": [
+          {
+            "axis": "STA",
+            "value": 2
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          },
+          {
+            "axis": "DAT",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "代わりの案を用意すること",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 1
+          },
+          {
+            "axis": "CRE",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "別の形で期待を超えにいくこと",
+        "scores": [
+          {
+            "axis": "CRE",
+            "value": 3
+          },
+          {
+            "axis": "CHA",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q20",
+    "sceneId": 5,
+    "sceneTitle": "クレーム、きました",
+    "visualBrief": "真顔のお客様。周囲も少しピリついている。",
+    "displayOrder": 20,
+    "text": "クレーム対応後、頭に残りやすいのは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "あの方、本当に納得してくれたかな",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 2
+          },
+          {
+            "axis": "EMP",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "自分の対応、正しかったかな",
+        "scores": [
+          {
+            "axis": "OWN",
+            "value": 2
+          },
+          {
+            "axis": "GRO",
+            "value": 1
+          },
+          {
+            "axis": "DAT",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "周りのメンバーも大丈夫だったかな",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 2
+          },
+          {
+            "axis": "EMP",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "この経験、改善に変えなきゃな",
+        "scores": [
+          {
+            "axis": "GRO",
+            "value": 2
+          },
+          {
+            "axis": "STA",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q21",
+    "sceneId": 6,
+    "sceneTitle": "新人がやってきた",
+    "visualBrief": "名札がピカピカの新人。緊張で動きがカチカチ。",
+    "displayOrder": 21,
+    "text": "新人に最初に伝えたいのは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "お客様を大切にする気持ち",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 3
+          },
+          {
+            "axis": "CUS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "まずは基準と基本を守ること",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 2
+          },
+          {
+            "axis": "STA",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "困ったら一人で抱えないこと",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 3
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "この仕事の面白さや意味",
+        "scores": [
+          {
+            "axis": "LEA",
+            "value": 2
+          },
+          {
+            "axis": "GRO",
+            "value": 1
+          },
+          {
+            "axis": "CHA",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q22",
+    "sceneId": 6,
+    "sceneTitle": "新人がやってきた",
+    "visualBrief": "名札がピカピカの新人。緊張で動きがカチカチ。",
+    "displayOrder": 22,
+    "text": "新人が同じミスを繰り返してます。あなたなら何を重視する？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "萎縮させずに理由を聞く",
+        "scores": [
+          {
+            "axis": "EMP",
+            "value": 3
+          },
+          {
+            "axis": "HOS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "正しいやり方をもう一回見せる",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 2
+          },
+          {
+            "axis": "STA",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "周囲も含めて支え方を考える",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 3
+          },
+          {
+            "axis": "LEA",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "その人に合う教え方へ変える",
+        "scores": [
+          {
+            "axis": "LEA",
+            "value": 2
+          },
+          {
+            "axis": "CRE",
+            "value": 1
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q23",
+    "sceneId": 6,
+    "sceneTitle": "新人がやってきた",
+    "visualBrief": "名札がピカピカの新人。緊張で動きがカチカチ。",
+    "displayOrder": 23,
+    "text": "人を育てるうえで一番大事なのは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "その人の個性や気持ちを理解すること",
+        "scores": [
+          {
+            "axis": "EMP",
+            "value": 3
+          },
+          {
+            "axis": "HOS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "正しい基準を身につけてもらうこと",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 2
+          },
+          {
+            "axis": "STA",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "チームの一員として自信を持たせること",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 2
+          },
+          {
+            "axis": "LEA",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "自分で考えられる状態にすること",
+        "scores": [
+          {
+            "axis": "LEA",
+            "value": 2
+          },
+          {
+            "axis": "GRO",
+            "value": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q24",
+    "sceneId": 6,
+    "sceneTitle": "新人がやってきた",
+    "visualBrief": "名札がピカピカの新人。緊張で動きがカチカチ。",
+    "displayOrder": 24,
+    "text": "新人がグングン成長している。そのとき一番近い気持ちは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "素直にうれしいし応援したくなる",
+        "scores": [
+          {
+            "axis": "EMP",
+            "value": 2
+          },
+          {
+            "axis": "HOS",
+            "value": 1
+          },
+          {
+            "axis": "TEA",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "自分も負けてられないと思う",
+        "scores": [
+          {
+            "axis": "GRO",
+            "value": 2
+          },
+          {
+            "axis": "CHA",
+            "value": 1
+          },
+          {
+            "axis": "CRA",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "チーム全体が強くなってうれしい",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 3
+          },
+          {
+            "axis": "LEA",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "もっと大きい役割を任せたくなる",
+        "scores": [
+          {
+            "axis": "LEA",
+            "value": 3
+          },
+          {
+            "axis": "GRO",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q25",
+    "sceneId": 7,
+    "sceneTitle": "常連さんって、ありがたい",
+    "visualBrief": "『いつものね』で通じる、店とお客様の温かい空気。",
+    "displayOrder": 25,
+    "text": "常連さんに対して一番大事にしたいことは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "好みや空気感を覚えておくこと",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 2
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          },
+          {
+            "axis": "CUS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "いつ来ても品質がブレないこと",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 2
+          },
+          {
+            "axis": "STA",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "店全体で情報共有できてること",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 2
+          },
+          {
+            "axis": "STA",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "たまに新しい楽しさも届けること",
+        "scores": [
+          {
+            "axis": "CRE",
+            "value": 2
+          },
+          {
+            "axis": "HOS",
+            "value": 1
+          },
+          {
+            "axis": "CHA",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q26",
+    "sceneId": 7,
+    "sceneTitle": "常連さんって、ありがたい",
+    "visualBrief": "『いつものね』で通じる、店とお客様の温かい空気。",
+    "displayOrder": 26,
+    "text": "「いつもの」で通じたとき、何が一番うれしい？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "信頼されてる感じ",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 2
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          },
+          {
+            "axis": "CUS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "期待どおりを出せる感じ",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 2
+          },
+          {
+            "axis": "STA",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "店として関係が育ってる感じ",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 2
+          },
+          {
+            "axis": "HOS",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "その上でちょっと驚かせられそうな感じ",
+        "scores": [
+          {
+            "axis": "CRE",
+            "value": 2
+          },
+          {
+            "axis": "CHA",
+            "value": 1
+          },
+          {
+            "axis": "HOS",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q27",
+    "sceneId": 7,
+    "sceneTitle": "常連さんって、ありがたい",
+    "visualBrief": "『いつものね』で通じる、店とお客様の温かい空気。",
+    "displayOrder": 27,
+    "text": "長く愛されるお客様関係に必要なのは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "ちゃんと相手に関心を持つこと",
+        "scores": [
+          {
+            "axis": "EMP",
+            "value": 2
+          },
+          {
+            "axis": "HOS",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "毎回高い品質を出すこと",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 2
+          },
+          {
+            "axis": "STA",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "誰が対応しても安心なこと",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 1
+          },
+          {
+            "axis": "STA",
+            "value": 2
+          },
+          {
+            "axis": "HOS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "来るたびに何か発見があること",
+        "scores": [
+          {
+            "axis": "CRE",
+            "value": 3
+          },
+          {
+            "axis": "CHA",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q28",
+    "sceneId": 7,
+    "sceneTitle": "常連さんって、ありがたい",
+    "visualBrief": "『いつものね』で通じる、店とお客様の温かい空気。",
+    "displayOrder": 28,
+    "text": "お客様に個人的に感謝されたとき、一番近い気持ちは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "喜んでもらえて本当にうれしい",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 3
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "自分の仕事が認められてうれしい",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 2
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          },
+          {
+            "axis": "GRO",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "チームみんなのおかげだと思う",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 3
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "もっとすごい体験を届けたくなる",
+        "scores": [
+          {
+            "axis": "CRE",
+            "value": 2
+          },
+          {
+            "axis": "CHA",
+            "value": 1
+          },
+          {
+            "axis": "HOS",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q29",
+    "sceneId": 8,
+    "sceneTitle": "新メニュー会議、始まります",
+    "visualBrief": "試作品とメモが並び、全員が一口食べて真剣な顔。",
+    "displayOrder": 29,
+    "text": "新商品を考えるとき、最初に重視したいのは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "お客様が「これ好き！」ってなるか",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 2
+          },
+          {
+            "axis": "CUS",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "素材や技術をちゃんと活かせるか",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 3
+          },
+          {
+            "axis": "CRE",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "現場で無理なく回せるか",
+        "scores": [
+          {
+            "axis": "STA",
+            "value": 2
+          },
+          {
+            "axis": "TEA",
+            "value": 1
+          },
+          {
+            "axis": "BUS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "新しさや話題性があるか",
+        "scores": [
+          {
+            "axis": "CRE",
+            "value": 3
+          },
+          {
+            "axis": "CHA",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q30",
+    "sceneId": 8,
+    "sceneTitle": "新メニュー会議、始まります",
+    "visualBrief": "試作品とメモが並び、全員が一口食べて真剣な顔。",
+    "displayOrder": 30,
+    "text": "新しいアイデアが浮かんだら、あなたは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "まず人の反応を聞いてみる",
+        "scores": [
+          {
+            "axis": "EMP",
+            "value": 1
+          },
+          {
+            "axis": "CUS",
+            "value": 1
+          },
+          {
+            "axis": "TEA",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "自分で細かく作り込んでみる",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 2
+          },
+          {
+            "axis": "CRE",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "実現方法を整理する",
+        "scores": [
+          {
+            "axis": "STA",
+            "value": 2
+          },
+          {
+            "axis": "BUS",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "とりあえず小さく試す",
+        "scores": [
+          {
+            "axis": "CHA",
+            "value": 2
+          },
+          {
+            "axis": "CRE",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q31",
+    "sceneId": 8,
+    "sceneTitle": "新メニュー会議、始まります",
+    "visualBrief": "試作品とメモが並び、全員が一口食べて真剣な顔。",
+    "displayOrder": 31,
+    "text": "自分は好きだけど売れない商品。どう考える？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "お客様が何を感じてるか知りたい",
+        "scores": [
+          {
+            "axis": "CUS",
+            "value": 2
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          },
+          {
+            "axis": "HOS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "もっと完成度を上げたい",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 3
+          },
+          {
+            "axis": "GRO",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "出し方や価格を見直したい",
+        "scores": [
+          {
+            "axis": "BUS",
+            "value": 2
+          },
+          {
+            "axis": "DAT",
+            "value": 1
+          },
+          {
+            "axis": "CRE",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "見せ方や市場を変えて再挑戦したい",
+        "scores": [
+          {
+            "axis": "CRE",
+            "value": 2
+          },
+          {
+            "axis": "CHA",
+            "value": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q32",
+    "sceneId": 8,
+    "sceneTitle": "新メニュー会議、始まります",
+    "visualBrief": "試作品とメモが並び、全員が一口食べて真剣な顔。",
+    "displayOrder": 32,
+    "text": "新しい挑戦に対する気持ちに近いのは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "お客様に喜ばれるならやってみたい",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 2
+          },
+          {
+            "axis": "CHA",
+            "value": 1
+          },
+          {
+            "axis": "CUS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "品質を出せる自信があればやりたい",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 2
+          },
+          {
+            "axis": "STA",
+            "value": 1
+          },
+          {
+            "axis": "CHA",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "チームで支え合えるならやりたい",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 2
+          },
+          {
+            "axis": "CHA",
+            "value": 1
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "面白そうならまず動いてみたい",
+        "scores": [
+          {
+            "axis": "CHA",
+            "value": 3
+          },
+          {
+            "axis": "CRE",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q33",
+    "sceneId": 9,
+    "sceneTitle": "数字の話、避けて通れない",
+    "visualBrief": "日報、売上表、原価表を囲んで全員がうなる。",
+    "displayOrder": 33,
+    "text": "売上が落ちてると聞いたとき、最初に考えるのは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "お客様満足に何か変化あったかな",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 1
+          },
+          {
+            "axis": "CUS",
+            "value": 2
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "品質が落ちてないかな",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 3
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "現場の空気や連携に問題ないかな",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 2
+          },
+          {
+            "axis": "LEA",
+            "value": 1
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "数字で何が落ちてるか見たい",
+        "scores": [
+          {
+            "axis": "BUS",
+            "value": 2
+          },
+          {
+            "axis": "DAT",
+            "value": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q34",
+    "sceneId": 9,
+    "sceneTitle": "数字の話、避けて通れない",
+    "visualBrief": "日報、売上表、原価表を囲んで全員がうなる。",
+    "displayOrder": 34,
+    "text": "値上げの話が出たとき、あなたの考えに近いのは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "お客様が納得できるならあり",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 2
+          },
+          {
+            "axis": "CUS",
+            "value": 1
+          },
+          {
+            "axis": "BUS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "品質を守るためなら必要なこともある",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 2
+          },
+          {
+            "axis": "BUS",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "現場が説明しやすいことが大事",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 2
+          },
+          {
+            "axis": "STA",
+            "value": 1
+          },
+          {
+            "axis": "HOS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "利益を守るためには合理的に判断すべき",
+        "scores": [
+          {
+            "axis": "BUS",
+            "value": 3
+          },
+          {
+            "axis": "DAT",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q35",
+    "sceneId": 9,
+    "sceneTitle": "数字の話、避けて通れない",
+    "visualBrief": "日報、売上表、原価表を囲んで全員がうなる。",
+    "displayOrder": 35,
+    "text": "店舗運営で一番興味がある数字は？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "リピート率や満足度",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 2
+          },
+          {
+            "axis": "CUS",
+            "value": 1
+          },
+          {
+            "axis": "DAT",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "ロスや品質に関わる数字",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 2
+          },
+          {
+            "axis": "DAT",
+            "value": 1
+          },
+          {
+            "axis": "BUS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "定着率や人員バランス",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 2
+          },
+          {
+            "axis": "LEA",
+            "value": 1
+          },
+          {
+            "axis": "DAT",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "売上・原価・利益率",
+        "scores": [
+          {
+            "axis": "BUS",
+            "value": 3
+          },
+          {
+            "axis": "DAT",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q36",
+    "sceneId": 9,
+    "sceneTitle": "数字の話、避けて通れない",
+    "visualBrief": "日報、売上表、原価表を囲んで全員がうなる。",
+    "displayOrder": 36,
+    "text": "効率化の話が出たとき、一番気になるのは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "お客様への体験が薄くならないか",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 2
+          },
+          {
+            "axis": "CUS",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "品質が下がらないか",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 3
+          },
+          {
+            "axis": "STA",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "現場のみんなが使いこなせるか",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 2
+          },
+          {
+            "axis": "STA",
+            "value": 1
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "ちゃんと利益改善につながるか",
+        "scores": [
+          {
+            "axis": "BUS",
+            "value": 3
+          },
+          {
+            "axis": "DAT",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q37",
+    "sceneId": 10,
+    "sceneTitle": "意見が割れました",
+    "visualBrief": "会議で『いや、でも…』が連続している場面。",
+    "displayOrder": 37,
+    "text": "メンバー同士で意見対立。あなたが一番大切にしたいのは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "まず互いの気持ちや背景を理解する",
+        "scores": [
+          {
+            "axis": "EMP",
+            "value": 3
+          },
+          {
+            "axis": "TEA",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "一番品質が高い結論を選ぶ",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 3
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "全員が納得できる形を探る",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 3
+          },
+          {
+            "axis": "LEA",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "店の目標に最も近い案を選ぶ",
+        "scores": [
+          {
+            "axis": "LEA",
+            "value": 2
+          },
+          {
+            "axis": "BUS",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q38",
+    "sceneId": 10,
+    "sceneTitle": "意見が割れました",
+    "visualBrief": "会議で『いや、でも…』が連続している場面。",
+    "displayOrder": 38,
+    "text": "自分の意見が通らなかったとき、近い反応は？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "相手の考えをちゃんと理解しようとする",
+        "scores": [
+          {
+            "axis": "EMP",
+            "value": 2
+          },
+          {
+            "axis": "TEA",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "根拠が足りなかったかなと考える",
+        "scores": [
+          {
+            "axis": "DAT",
+            "value": 2
+          },
+          {
+            "axis": "GRO",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "決まったならチーム方針を支える",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 2
+          },
+          {
+            "axis": "STA",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "結果を見て必要ならまた提案する",
+        "scores": [
+          {
+            "axis": "CHA",
+            "value": 2
+          },
+          {
+            "axis": "RES",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q39",
+    "sceneId": 10,
+    "sceneTitle": "意見が割れました",
+    "visualBrief": "会議で『いや、でも…』が連続している場面。",
+    "displayOrder": 39,
+    "text": "チームの中で自然にやりがちな役割は？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "気持ちをつなぐ人",
+        "scores": [
+          {
+            "axis": "EMP",
+            "value": 2
+          },
+          {
+            "axis": "TEA",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "基準や品質を守る人",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 2
+          },
+          {
+            "axis": "STA",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "まとめ役",
+        "scores": [
+          {
+            "axis": "LEA",
+            "value": 3
+          },
+          {
+            "axis": "TEA",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "新しい方向を出す人",
+        "scores": [
+          {
+            "axis": "CRE",
+            "value": 2
+          },
+          {
+            "axis": "CHA",
+            "value": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q40",
+    "sceneId": 10,
+    "sceneTitle": "意見が割れました",
+    "visualBrief": "会議で『いや、でも…』が連続している場面。",
+    "displayOrder": 40,
+    "text": "あなたにとって“いいチーム”とは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "思いやりがあるチーム",
+        "scores": [
+          {
+            "axis": "EMP",
+            "value": 2
+          },
+          {
+            "axis": "TEA",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "高い基準を追えるチーム",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 2
+          },
+          {
+            "axis": "GRO",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "助け合って動けるチーム",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 3
+          },
+          {
+            "axis": "HOS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "変化しながら成長できるチーム",
+        "scores": [
+          {
+            "axis": "GRO",
+            "value": 2
+          },
+          {
+            "axis": "CHA",
+            "value": 1
+          },
+          {
+            "axis": "LEA",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q41",
+    "sceneId": 11,
+    "sceneTitle": "営業後、ふぅ…",
+    "visualBrief": "閉店後の静かな店内。スタッフがようやく一息。",
+    "displayOrder": 41,
+    "text": "一日を振り返るとき、一番思い出すのは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "お客様の顔や言葉",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 2
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          },
+          {
+            "axis": "CUS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "うまくできた仕事と改善点",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 2
+          },
+          {
+            "axis": "GRO",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "誰とどう連携したか",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 3
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "新しく見えた課題やチャンス",
+        "scores": [
+          {
+            "axis": "CRE",
+            "value": 1
+          },
+          {
+            "axis": "CHA",
+            "value": 1
+          },
+          {
+            "axis": "BUS",
+            "value": 1
+          },
+          {
+            "axis": "GRO",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q42",
+    "sceneId": 11,
+    "sceneTitle": "営業後、ふぅ…",
+    "visualBrief": "閉店後の静かな店内。スタッフがようやく一息。",
+    "displayOrder": 42,
+    "text": "失敗したとき、一番近い反応は？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "相手にどう影響したか考える",
+        "scores": [
+          {
+            "axis": "EMP",
+            "value": 2
+          },
+          {
+            "axis": "HOS",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "原因を細かく振り返る",
+        "scores": [
+          {
+            "axis": "DAT",
+            "value": 2
+          },
+          {
+            "axis": "GRO",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "周囲と共有して改善したい",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 2
+          },
+          {
+            "axis": "GRO",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "次は別の方法を試したい",
+        "scores": [
+          {
+            "axis": "CHA",
+            "value": 2
+          },
+          {
+            "axis": "CRE",
+            "value": 1
+          },
+          {
+            "axis": "RES",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q43",
+    "sceneId": 11,
+    "sceneTitle": "営業後、ふぅ…",
+    "visualBrief": "閉店後の静かな店内。スタッフがようやく一息。",
+    "displayOrder": 43,
+    "text": "自分が成長したと感じるのはどんなとき？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "信頼や感謝をもらえたとき",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 2
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          },
+          {
+            "axis": "GRO",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "難しいことができるようになったとき",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 2
+          },
+          {
+            "axis": "GRO",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "周囲を支えて成果を出せたとき",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 2
+          },
+          {
+            "axis": "LEA",
+            "value": 1
+          },
+          {
+            "axis": "GRO",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "前はできなかった挑戦ができたとき",
+        "scores": [
+          {
+            "axis": "CHA",
+            "value": 2
+          },
+          {
+            "axis": "GRO",
+            "value": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q44",
+    "sceneId": 11,
+    "sceneTitle": "営業後、ふぅ…",
+    "visualBrief": "閉店後の静かな店内。スタッフがようやく一息。",
+    "displayOrder": 44,
+    "text": "「今日いい日だったな」と思うのは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "誰かを喜ばせられた日",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 3
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "納得できる仕事ができた日",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 3
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "チームでいい営業ができた日",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 3
+          },
+          {
+            "axis": "LEA",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "何か前進や発見があった日",
+        "scores": [
+          {
+            "axis": "GRO",
+            "value": 2
+          },
+          {
+            "axis": "CRE",
+            "value": 1
+          },
+          {
+            "axis": "CHA",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q45",
+    "sceneId": 12,
+    "sceneTitle": "これから先、どうなりたい？",
+    "visualBrief": "若手、店長、料理人がそれぞれ未来を思い描く。",
+    "displayOrder": 45,
+    "text": "将来、仕事を通じて一番叶えたいことは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "たくさんの人に良い時間を届けること",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 3
+          },
+          {
+            "axis": "CUS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "誰にも負けない専門性を持つこと",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 2
+          },
+          {
+            "axis": "GRO",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "人や組織を育てること",
+        "scores": [
+          {
+            "axis": "LEA",
+            "value": 2
+          },
+          {
+            "axis": "TEA",
+            "value": 1
+          },
+          {
+            "axis": "GRO",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "新しい店や事業を生み出すこと",
+        "scores": [
+          {
+            "axis": "BUS",
+            "value": 2
+          },
+          {
+            "axis": "CRE",
+            "value": 1
+          },
+          {
+            "axis": "CHA",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q46",
+    "sceneId": 12,
+    "sceneTitle": "これから先、どうなりたい？",
+    "visualBrief": "若手、店長、料理人がそれぞれ未来を思い描く。",
+    "displayOrder": 46,
+    "text": "理想の働き方に一番近いのは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "お客様と近い距離で信頼を積み上げる",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 2
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          },
+          {
+            "axis": "CUS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "一つの分野を深く極める",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 2
+          },
+          {
+            "axis": "GRO",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "仲間と組織を動かす",
+        "scores": [
+          {
+            "axis": "LEA",
+            "value": 2
+          },
+          {
+            "axis": "TEA",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "挑戦や変化の多い環境で走る",
+        "scores": [
+          {
+            "axis": "CHA",
+            "value": 3
+          },
+          {
+            "axis": "RES",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q47",
+    "sceneId": 12,
+    "sceneTitle": "これから先、どうなりたい？",
+    "visualBrief": "若手、店長、料理人がそれぞれ未来を思い描く。",
+    "displayOrder": 47,
+    "text": "新しい仕事を選ぶとき、一番重視するのは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "誰にどんな価値を届ける仕事か",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 2
+          },
+          {
+            "axis": "CUS",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "自分の腕や専門性が伸びるか",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 2
+          },
+          {
+            "axis": "GRO",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "一緒に働く人たちの雰囲気",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 2
+          },
+          {
+            "axis": "EMP",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "将来の可能性や成長機会",
+        "scores": [
+          {
+            "axis": "CHA",
+            "value": 2
+          },
+          {
+            "axis": "GRO",
+            "value": 1
+          },
+          {
+            "axis": "BUS",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q48",
+    "sceneId": 12,
+    "sceneTitle": "これから先、どうなりたい？",
+    "visualBrief": "若手、店長、料理人がそれぞれ未来を思い描く。",
+    "displayOrder": 48,
+    "text": "10年後、周囲からどう思われたい？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "人を喜ばせることに本気な人",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 3
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "本物の技術を持つ人",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 3
+          },
+          {
+            "axis": "GRO",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "人を育て支える人",
+        "scores": [
+          {
+            "axis": "LEA",
+            "value": 2
+          },
+          {
+            "axis": "TEA",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "新しい価値を生み出す人",
+        "scores": [
+          {
+            "axis": "CRE",
+            "value": 2
+          },
+          {
+            "axis": "CHA",
+            "value": 1
+          },
+          {
+            "axis": "BUS",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q49",
+    "sceneId": 13,
+    "sceneTitle": "店の財布、どう使う？",
+    "visualBrief": "限られた予算を前に、投資先を決める会議。",
+    "displayOrder": 49,
+    "text": "もし使える予算が限られていたら、最初にお金をかけたいのは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "お客様がもっと心地よくなること",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 2
+          },
+          {
+            "axis": "CUS",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "品質がもっと上がる食材や道具",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 3
+          },
+          {
+            "axis": "BUS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "スタッフがもっと働きやすくなること",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 2
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          },
+          {
+            "axis": "BUS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "売上を伸ばす仕組みや施策",
+        "scores": [
+          {
+            "axis": "BUS",
+            "value": 3
+          },
+          {
+            "axis": "DAT",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q50",
+    "sceneId": 13,
+    "sceneTitle": "店の財布、どう使う？",
+    "visualBrief": "限られた予算を前に、投資先を決める会議。",
+    "displayOrder": 50,
+    "text": "人気だけど全然もうからない商品。あなたの考えに近いのは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "愛されてるなら簡単には消したくない",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 2
+          },
+          {
+            "axis": "CUS",
+            "value": 1
+          },
+          {
+            "axis": "STA",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "品質そのままで見直せる方法を探したい",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 2
+          },
+          {
+            "axis": "CRE",
+            "value": 1
+          },
+          {
+            "axis": "BUS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "現場負担も含めてみんなで考えたい",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 2
+          },
+          {
+            "axis": "BUS",
+            "value": 1
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "利益が出る形へ変えるべきだ",
+        "scores": [
+          {
+            "axis": "BUS",
+            "value": 3
+          },
+          {
+            "axis": "DAT",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q51",
+    "sceneId": 14,
+    "sceneTitle": "未知の仕事、きた",
+    "visualBrief": "新店舗、新ポジション、やったことのないミッション。",
+    "displayOrder": 51,
+    "text": "やったことのない仕事を任された。一番近い気持ちは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "迷惑かけないよう、まずちゃんと確認したい",
+        "scores": [
+          {
+            "axis": "OWN",
+            "value": 2
+          },
+          {
+            "axis": "STA",
+            "value": 1
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "基礎を固めてから挑みたい",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 2
+          },
+          {
+            "axis": "GRO",
+            "value": 1
+          },
+          {
+            "axis": "STA",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "得意な人と組んで進めたい",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 2
+          },
+          {
+            "axis": "GRO",
+            "value": 1
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "まずやってみたい",
+        "scores": [
+          {
+            "axis": "CHA",
+            "value": 3
+          },
+          {
+            "axis": "RES",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q52",
+    "sceneId": 14,
+    "sceneTitle": "未知の仕事、きた",
+    "visualBrief": "新店舗、新ポジション、やったことのないミッション。",
+    "displayOrder": 52,
+    "text": "安定の今の店か、未知の新店か。どちらを選びやすい？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "人や理念で決める",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 1
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "技術が伸びる方を選ぶ",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 2
+          },
+          {
+            "axis": "GRO",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "安定して長く働ける方を選ぶ",
+        "scores": [
+          {
+            "axis": "STA",
+            "value": 3
+          },
+          {
+            "axis": "RES",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "可能性が大きい方を選ぶ",
+        "scores": [
+          {
+            "axis": "CHA",
+            "value": 3
+          },
+          {
+            "axis": "BUS",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q53",
+    "sceneId": 15,
+    "sceneTitle": "安定って大事？",
+    "visualBrief": "マニュアル、職人のこだわり、再現性が並ぶ分かれ道。",
+    "displayOrder": 53,
+    "text": "自分の仕事が評価された。次に一番考えるのは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "次のお客様にも同じ満足を届けたい",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 2
+          },
+          {
+            "axis": "STA",
+            "value": 1
+          },
+          {
+            "axis": "CUS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "もっと上を目指したい",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 2
+          },
+          {
+            "axis": "GRO",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "誰がやっても再現できる形にしたい",
+        "scores": [
+          {
+            "axis": "STA",
+            "value": 3
+          },
+          {
+            "axis": "LEA",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "これをきっかけに新しいこともやりたい",
+        "scores": [
+          {
+            "axis": "CHA",
+            "value": 2
+          },
+          {
+            "axis": "CRE",
+            "value": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q54",
+    "sceneId": 15,
+    "sceneTitle": "安定って大事？",
+    "visualBrief": "マニュアル、職人のこだわり、再現性が並ぶ分かれ道。",
+    "displayOrder": 54,
+    "text": "マニュアルってどう思う？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "柔軟さを邪魔しない程度に必要",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 1
+          },
+          {
+            "axis": "CRE",
+            "value": 1
+          },
+          {
+            "axis": "STA",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "品質を守るため細かい方がいい",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 2
+          },
+          {
+            "axis": "STA",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "新人が迷わないわかりやすさが大事",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 1
+          },
+          {
+            "axis": "LEA",
+            "value": 1
+          },
+          {
+            "axis": "STA",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "基本だけあって、あとは応用できる方がいい",
+        "scores": [
+          {
+            "axis": "CRE",
+            "value": 2
+          },
+          {
+            "axis": "CHA",
+            "value": 1
+          },
+          {
+            "axis": "STA",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q55",
+    "sceneId": 16,
+    "sceneTitle": "プレッシャーとの付き合い方",
+    "visualBrief": "連勤と繁忙。疲れていても営業は続く。",
+    "displayOrder": 55,
+    "text": "忙しい日が何日も続いたとき、一番つらくなりやすいのは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "お客様に十分向き合えてない気がすること",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 2
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          },
+          {
+            "axis": "RES",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "自分の精度が落ちること",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 2
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          },
+          {
+            "axis": "RES",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "チームの疲れや空気が悪くなること",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 2
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          },
+          {
+            "axis": "RES",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "うまく回せない状況そのもの",
+        "scores": [
+          {
+            "axis": "LEA",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          },
+          {
+            "axis": "RES",
+            "value": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q56",
+    "sceneId": 16,
+    "sceneTitle": "プレッシャーとの付き合い方",
+    "visualBrief": "連勤と繁忙。疲れていても営業は続く。",
+    "displayOrder": 56,
+    "text": "自分の仕事を厳しく否定された。一番近い反応は？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "相手がそう感じた理由を知りたい",
+        "scores": [
+          {
+            "axis": "EMP",
+            "value": 2
+          },
+          {
+            "axis": "GRO",
+            "value": 1
+          },
+          {
+            "axis": "RES",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "指摘が正しいか事実を確認したい",
+        "scores": [
+          {
+            "axis": "DAT",
+            "value": 2
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          },
+          {
+            "axis": "RES",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "誰かに相談して整理したい",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 2
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          },
+          {
+            "axis": "RES",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "悔しい、次で見返したい",
+        "scores": [
+          {
+            "axis": "CHA",
+            "value": 2
+          },
+          {
+            "axis": "GRO",
+            "value": 1
+          },
+          {
+            "axis": "RES",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q57",
+    "sceneId": 17,
+    "sceneTitle": "極める？率いる？",
+    "visualBrief": "職人道と店長道。二つの未来が見える分かれ道。",
+    "displayOrder": 57,
+    "text": "将来の姿として、より魅力を感じるのは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "お客様から信頼される存在",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 2
+          },
+          {
+            "axis": "CUS",
+            "value": 1
+          },
+          {
+            "axis": "GRO",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "一流の専門家",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 3
+          },
+          {
+            "axis": "GRO",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "チームを育てるリーダー",
+        "scores": [
+          {
+            "axis": "LEA",
+            "value": 2
+          },
+          {
+            "axis": "TEA",
+            "value": 1
+          },
+          {
+            "axis": "GRO",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "店や事業を動かす人",
+        "scores": [
+          {
+            "axis": "BUS",
+            "value": 2
+          },
+          {
+            "axis": "LEA",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q58",
+    "sceneId": 17,
+    "sceneTitle": "極める？率いる？",
+    "visualBrief": "職人道と店長道。二つの未来が見える分かれ道。",
+    "displayOrder": 58,
+    "text": "自分の力が一番活きるのはどんな場面？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "一人ひとりへ深く向き合う場面",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 2
+          },
+          {
+            "axis": "EMP",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "技術や品質が問われる場面",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 3
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "複数人をまとめる場面",
+        "scores": [
+          {
+            "axis": "LEA",
+            "value": 3
+          },
+          {
+            "axis": "TEA",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "方針や仕組みを決める場面",
+        "scores": [
+          {
+            "axis": "BUS",
+            "value": 2
+          },
+          {
+            "axis": "LEA",
+            "value": 1
+          },
+          {
+            "axis": "STA",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q59",
+    "sceneId": 18,
+    "sceneTitle": "高級路線？大衆路線？",
+    "visualBrief": "静かなカウンターの名店と、活気ある人気店。",
+    "displayOrder": 59,
+    "text": "よりワクワクする店づくりは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "一人ひとりに深く寄り添う店",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 2
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          },
+          {
+            "axis": "CUS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "特別感とこだわりを極めた店",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 2
+          },
+          {
+            "axis": "CRE",
+            "value": 1
+          },
+          {
+            "axis": "CHA",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "たくさんの人が楽しめる活気ある店",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 2
+          },
+          {
+            "axis": "HOS",
+            "value": 1
+          },
+          {
+            "axis": "BUS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "広く展開できる強い業態の店",
+        "scores": [
+          {
+            "axis": "BUS",
+            "value": 2
+          },
+          {
+            "axis": "STA",
+            "value": 1
+          },
+          {
+            "axis": "CHA",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q60",
+    "sceneId": 18,
+    "sceneTitle": "高級路線？大衆路線？",
+    "visualBrief": "静かなカウンターの名店と、活気ある人気店。",
+    "displayOrder": 60,
+    "text": "「この店、成功してるな」と感じるのは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "お客様との深い関係がある",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 2
+          },
+          {
+            "axis": "CUS",
+            "value": 1
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "業界でも認められる品質がある",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 3
+          },
+          {
+            "axis": "GRO",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "毎日にぎわっていて愛されている",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 1
+          },
+          {
+            "axis": "BUS",
+            "value": 1
+          },
+          {
+            "axis": "TEA",
+            "value": 1
+          },
+          {
+            "axis": "CUS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "仕組み化されて広がっている",
+        "scores": [
+          {
+            "axis": "BUS",
+            "value": 2
+          },
+          {
+            "axis": "STA",
+            "value": 1
+          },
+          {
+            "axis": "LEA",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q61",
+    "sceneId": 19,
+    "sceneTitle": "直感派？データ派？",
+    "visualBrief": "勘で決める店長と、表計算を見るマネージャー。",
+    "displayOrder": 61,
+    "text": "新メニューを採用するか。最後に一番頼るのは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "お客様の反応の“空気感”",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 1
+          },
+          {
+            "axis": "CUS",
+            "value": 2
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "自分や専門家の舌・技術的判断",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 3
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "現場スタッフの声",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 2
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "売上予測や原価などの数字",
+        "scores": [
+          {
+            "axis": "DAT",
+            "value": 3
+          },
+          {
+            "axis": "BUS",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q62",
+    "sceneId": 19,
+    "sceneTitle": "直感派？データ派？",
+    "visualBrief": "勘で決める店長と、表計算を見るマネージャー。",
+    "displayOrder": 62,
+    "text": "問題の原因がよくわからない。どう考えがち？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "人の感情や空気から探る",
+        "scores": [
+          {
+            "axis": "EMP",
+            "value": 3
+          },
+          {
+            "axis": "HOS",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "現場の違和感を細かく見る",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          },
+          {
+            "axis": "DAT",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "みんなで仮説を出す",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 2
+          },
+          {
+            "axis": "CRE",
+            "value": 1
+          },
+          {
+            "axis": "DAT",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "数字や記録を比較して絞る",
+        "scores": [
+          {
+            "axis": "DAT",
+            "value": 3
+          },
+          {
+            "axis": "STA",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q63",
+    "sceneId": 20,
+    "sceneTitle": "それ、自分ごと？",
+    "visualBrief": "担当外のトラブル発生。あなたは動く？",
+    "displayOrder": 63,
+    "text": "自分の担当外で問題発生。一番近い動きは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "困っている人やお客様にまず声をかける",
+        "scores": [
+          {
+            "axis": "HOS",
+            "value": 2
+          },
+          {
+            "axis": "EMP",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "自分にできることをすぐやる",
+        "scores": [
+          {
+            "axis": "OWN",
+            "value": 3
+          },
+          {
+            "axis": "CRA",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "関係者を巻き込んで解決する",
+        "scores": [
+          {
+            "axis": "LEA",
+            "value": 2
+          },
+          {
+            "axis": "TEA",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "担当関係なく最後まで自分ごとで動く",
+        "scores": [
+          {
+            "axis": "OWN",
+            "value": 3
+          },
+          {
+            "axis": "RES",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q64",
+    "sceneId": 20,
+    "sceneTitle": "それ、自分ごと？",
+    "visualBrief": "担当外のトラブル発生。あなたは動く？",
+    "displayOrder": 64,
+    "text": "結果がうまくいかなかったとき、一番近い考えは？",
+    "choices": [
+      {
+        "code": "A",
+        "text": "相手にどんな影響があったか振り返る",
+        "scores": [
+          {
+            "axis": "EMP",
+            "value": 2
+          },
+          {
+            "axis": "HOS",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "text": "自分の技術や判断を見直す",
+        "scores": [
+          {
+            "axis": "CRA",
+            "value": 2
+          },
+          {
+            "axis": "GRO",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "text": "チームや役割分担を見直す",
+        "scores": [
+          {
+            "axis": "TEA",
+            "value": 2
+          },
+          {
+            "axis": "LEA",
+            "value": 1
+          },
+          {
+            "axis": "OWN",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "text": "自分の責任として次の打ち手を決める",
+        "scores": [
+          {
+            "axis": "OWN",
+            "value": 3
+          },
+          {
+            "axis": "CHA",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  }
+]
