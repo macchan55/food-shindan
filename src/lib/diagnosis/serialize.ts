@@ -6,7 +6,7 @@ import type { DiagnosisResultView } from "./service";
 // respondent's strongest axis. This power curve fixes 0->0 and 100->100 and preserves
 // ordering, so it never touches type matching / industry fit / career ranking, which all
 // keep using the untransformed normalized score.
-const DISPLAY_SCORE_GAMMA = 0.6;
+const DISPLAY_SCORE_GAMMA = 0.53;
 function displayScore(normalized: number): number {
   const clamped = Math.max(0, Math.min(100, normalized));
   return Math.round(100 * Math.pow(clamped / 100, DISPLAY_SCORE_GAMMA));

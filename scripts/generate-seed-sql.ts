@@ -31,6 +31,7 @@ const typeDetailsFiles = fs
   .sort();
 let typeDetailsList: Array<{
   typeId: string;
+  typeOverview: string;
   personalityAnalysis: string;
   abilityAnalysis: string;
   growthAdvice: string;
@@ -118,7 +119,7 @@ for (const t of types) {
     `insert into diagnosis_types (id, type_code, name, catchcopy, description, family, primary_archetype, strengths, weaknesses, suited_jobs, suited_formats, suited_roles, tag_axis1, tag_axis2, tag_axis3, tag_axis4, tag_axis5, tag_axis6, image_url, personality_analysis, ability_analysis, growth_advice, career_path, type_moments, compatible_reason) values (${sqlStr(
       typeId
     )}, ${sqlStr(t.typeId)}, ${sqlStr(t.name)}, ${sqlStr(t.catchcopy)}, ${sqlStr(
-      t.description
+      detail.typeOverview
     )}, ${sqlStr(t.family)}, ${sqlStr(t.primaryArchetype)}, ${sqlTextArray(
       t.strengths
     )}, ${sqlTextArray(t.weaknesses)}, ${sqlTextArray(t.suitedJobs)}, ${sqlTextArray(
