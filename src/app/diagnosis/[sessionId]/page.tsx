@@ -6,8 +6,8 @@ import Image from "next/image";
 import { ProgressBar } from "@/components/ProgressBar";
 import type { QuestionForClient } from "@/lib/diagnosis/repository";
 
-function sceneImagePath(sceneId: number): string {
-  return `/scenes/scene-${String(sceneId).padStart(2, "0")}.webp`;
+function questionImagePath(questionCode: string): string {
+  return `/questions/${questionCode}.webp`;
 }
 
 const CHOICE_LABELS = ["A", "B", "C", "D"];
@@ -153,8 +153,8 @@ export default function DiagnosisFlowPage() {
       <div className="overflow-hidden rounded-2xl border border-border bg-brand-soft/60">
         <div className="relative aspect-[3/2] w-full">
           <Image
-            key={question.sceneId}
-            src={sceneImagePath(question.sceneId)}
+            key={question.id}
+            src={questionImagePath(question.questionCode)}
             alt={question.sceneTitle}
             fill
             className="object-cover"
