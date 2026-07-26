@@ -111,3 +111,79 @@ export type DiagnosisResultRow = {
   feedback_comment: string | null;
   created_at: string;
 };
+
+export type UserProfileRow = {
+  id: string;
+  full_name: string | null;
+  full_name_kana: string | null;
+  birthdate: string | null;
+  gender: string | null;
+  postal_code: string | null;
+  address: string | null;
+  phone: string | null;
+  photo_url: string | null;
+};
+
+export type EducationHistoryRow = {
+  id: string;
+  user_id: string;
+  school_type: string;
+  school_name: string;
+  department: string | null;
+  is_culinary_related: boolean;
+  is_study_abroad: boolean;
+  admission_date: string | null;
+  graduation_date: string | null;
+  status: "graduated" | "withdrew" | "enrolled";
+  display_order: number;
+};
+
+export type WorkExperienceRow = {
+  id: string;
+  user_id: string;
+  company_name: string;
+  brand_name: string | null;
+  store_name: string | null;
+  start_date: string | null;
+  end_date: string | null;
+  is_current: boolean;
+  employment_type: string | null;
+  business_format: string | null;
+  cuisine_genre: string | null;
+  job_type: string | null;
+  position: string | null;
+  store_size: string | null;
+  seat_count: number | null;
+  avg_spend: number | null;
+  managed_headcount: number | null;
+  main_duties: string | null;
+  achievements: string | null;
+  reason_for_leaving: string | null;
+  reason_visibility: "private" | "public";
+  display_order: number;
+};
+
+export type UserQualificationRow = {
+  id: string;
+  user_id: string;
+  name: string;
+  issuer: string | null;
+  obtained_date: string | null;
+  expiry_date: string | null;
+  certificate_number: string | null;
+  image_url: string | null;
+  display_order: number;
+};
+
+export type ResumeRow = {
+  id: string;
+  user_id: string;
+  diagnosis_session_id: string | null;
+  target_job: string | null;
+  work_summary: string | null;
+  self_pr: string | null;
+  strengths_text: string | null;
+  motivation: string | null;
+  career_direction: string | null;
+  updated_at: string;
+};

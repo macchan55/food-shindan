@@ -9,6 +9,7 @@ import { RankingList } from "@/components/RankingList";
 import { FeedbackForm } from "@/components/FeedbackForm";
 import { Sunburst } from "@/components/Sunburst";
 import { familyColor } from "@/lib/family-colors";
+import { setPendingResumeSession } from "@/lib/resume/pending-session";
 
 type TypeSummary = {
   typeCode: string;
@@ -327,14 +328,14 @@ export default function DiagnosisResultPage() {
 
       <FeedbackForm sessionId={data.sessionId} />
 
-      {/* Final CTA - resume builder ships in a later sprint */}
-      <button
-        disabled
-        className="w-full cursor-not-allowed rounded-full border border-border bg-surface px-6 py-3 text-center text-sm font-medium text-foreground/40"
-        title="履歴書作成機能は今後のアップデートで提供予定です"
+      {/* Final CTA */}
+      <a
+        href="/register"
+        onClick={() => setPendingResumeSession(data.sessionId)}
+        className="block w-full rounded-full bg-brand px-6 py-3 text-center text-sm font-bold text-white shadow-sm transition-opacity hover:opacity-90"
       >
-        あなたの診断結果を反映した履歴書を無料で作る（近日公開）
-      </button>
+        あなたの診断結果を反映した履歴書を無料で作る
+      </a>
     </main>
   );
 }
