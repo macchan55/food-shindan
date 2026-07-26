@@ -2,7 +2,7 @@ import { CORE_AXES, type CoreAxis } from "@/lib/axes";
 
 // Short, chart-friendly labels distinct from CORE_AXIS_SHORT_LABELS: those run up to
 // 7 characters ("リーダーシップ") which overflows a compact radar's label ring.
-const RADAR_LABELS: Record<CoreAxis, string> = {
+export const RADAR_LABELS: Record<CoreAxis, string> = {
   HOS: "接客",
   CRA: "技術",
   TEA: "協働",
@@ -38,18 +38,25 @@ function ringPoints(radius: number, total: number) {
   }).join(" ");
 }
 
+type AxisScores = Record<string, { display?: number; normalized: number }>;
+
+function valueFor(scores: AxisScores, axis: string): number {
+  const s = scores[axis];
+  const v = s?.display ?? s?.normalized ?? 0;
+  return Math.max(0, Math.min(100, v));
+}
+
 export function RadarChart({
   scores,
   color = "var(--brand)",
 }: {
-  scores: Record<string, { normalized: number }>;
+  scores: AxisScores;
   color?: string;
 }) {
   const total = CORE_AXES.length;
-  const dataPoints = CORE_AXES.map((axis, i) => {
-    const value = Math.max(0, Math.min(100, scores[axis]?.normalized ?? 0));
-    return pointOnAxis(i, total, (value / 100) * MAX_RADIUS);
-  });
+  const dataPoints = CORE_AXES.map((axis, i) =>
+    pointOnAxis(i, total, (valueFor(scores, axis) / 100) * MAX_RADIUS)
+  );
 
   return (
     <svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`} className="mx-auto w-full max-w-xs">
@@ -108,5 +115,19 @@ export function RadarChart({
         );
       })}
     </svg>
+  );
+}
+
+/** Compact numeric legend for the same 10 axes, shown alongside the radar shape. */
+export function RadarScoreLegend({ scores }: { scores: AxisScores }) {
+  return (
+    <dl className="grid grid-cols-2 gap-x-4 gap-y-1.5">
+      {CORE_AXES.map((axis) => (
+        <div key={axis} className="flex items-center justify-between gap-2 text-sm">
+          <dt className="text-foreground/60">{RADAR_LABELS[axis]}</dt>
+          <dd className="font-bold tabular-nums text-brand-dark">{valueFor(scores, axis)}</dd>
+        </div>
+      ))}
+    </dl>
   );
 }

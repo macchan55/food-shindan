@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import { IndustryFitBadge } from "@/components/IndustryFitBadge";
-import { RadarChart } from "@/components/RadarChart";
+import { RadarChart, RadarScoreLegend } from "@/components/RadarChart";
 import { RankingList } from "@/components/RankingList";
 import { FeedbackForm } from "@/components/FeedbackForm";
 import { Sunburst } from "@/components/Sunburst";
@@ -40,7 +40,7 @@ type ResultData = {
   careerRanking: { id: string; name: string; matchScore: number }[];
   formatRanking: { id: string; name: string; matchScore: number }[];
   roleRanking: { id: string; name: string; matchScore: number }[];
-  scores: Record<string, { raw: number; max: number; normalized: number }>;
+  scores: Record<string, { raw: number; max: number; normalized: number; display: number }>;
 };
 
 export default function DiagnosisResultPage() {
@@ -204,6 +204,7 @@ export default function DiagnosisResultPage() {
       <section className="space-y-3 rounded-3xl border border-border bg-surface p-5 shadow-sm">
         <h2 className="text-lg font-bold text-brand-dark">能力スコア</h2>
         <RadarChart scores={data.scores} color={colors.glow} />
+        <RadarScoreLegend scores={data.scores} />
       </section>
 
       {/* Block 4: career / format / role ranking */}

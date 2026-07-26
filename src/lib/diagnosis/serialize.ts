@@ -1,5 +1,17 @@
 import type { DiagnosisResultView } from "./service";
 
+// Display-only boost for the axis scores shown on the result screen (radar chart +
+// numeric legend). Most question choices split their 4 points across 2-3 axes, so the
+// "true" 0-100 normalized score (raw / theoretical max) clusters low-to-mid even for a
+// respondent's strongest axis. This power curve fixes 0->0 and 100->100 and preserves
+// ordering, so it never touches type matching / industry fit / career ranking, which all
+// keep using the untransformed normalized score.
+const DISPLAY_SCORE_GAMMA = 0.6;
+function displayScore(normalized: number): number {
+  const clamped = Math.max(0, Math.min(100, normalized));
+  return Math.round(100 * Math.pow(clamped / 100, DISPLAY_SCORE_GAMMA));
+}
+
 function characterImageUrl(
   t: DiagnosisResultView["primaryType"],
   gender: "male" | "female" | null
@@ -57,7 +69,12 @@ export function serializeResult(view: DiagnosisResultView) {
     careerRanking: view.result.career_ranking,
     formatRanking: view.result.format_ranking,
     roleRanking: view.result.role_ranking,
-    scores: view.scores,
+    scores: Object.fromEntries(
+      Object.entries(view.scores).map(([axis, s]) => [
+        axis,
+        { ...s, display: displayScore(s.normalized) },
+      ])
+    ),
     feedback: {
       rating: view.result.feedback_rating,
       comment: view.result.feedback_comment,
