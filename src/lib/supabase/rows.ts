@@ -68,6 +68,7 @@ export type DiagnosisSessionRow = {
   version_id: string;
   user_id: string | null;
   status: "in_progress" | "completed" | "abandoned";
+  gender: "male" | "female" | null;
   started_at: string;
   completed_at: string | null;
 };

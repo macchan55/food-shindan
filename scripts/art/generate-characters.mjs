@@ -1,11 +1,13 @@
-// Generates one chibi character-dex portrait per Restaurant DNA type via OpenAI's
-// gpt-image-2, using a shared style template + per-family color palette + a hand-written
-// per-type concept (prop/pose/expression) so all 64 read as one coherent collectible set
-// while staying visually distinct. Saves PNGs to OUT_DIR, named <typeCode>.png.
+// Generates a male AND female chibi character-dex portrait per Restaurant DNA type (128
+// images total) via OpenAI's gpt-image-2, using a shared vivid-saturated style template +
+// per-family color palette + a hand-written per-type concept (prop/pose/expression) so all
+// 64 types read as one coherent collectible set while staying visually distinct. Saves
+// PNGs to OUT_DIR, named <typeCode>-f.png / <typeCode>-m.png.
 //
-// Usage: node scripts/art/generate-characters.mjs [outDir] [typeCode...]
+// Usage: node scripts/art/generate-characters.mjs [outDir] [typeCode-or-outCode...]
 //   - outDir defaults to the shared scratchpad art-samples/all directory
-//   - optional typeCode args restrict the run to specific types (e.g. re-rolling one)
+//   - optional filter args restrict the run, matching either a bare type code (both
+//     genders, e.g. "T33") or a specific gendered code (e.g. "T33-m")
 import fs from "node:fs";
 import path from "node:path";
 import { setGlobalDispatcher, ProxyAgent } from "undici";
@@ -108,16 +110,29 @@ const CHARACTERS = [
   { code: "T64", family: "Food Business Innovators", concept: "a powerful visionary-CEO character standing confidently beside a glowing globe reshaping into a new symbol, epic transformative pose" },
 ];
 
-const targets = ONLY_CODES.length
-  ? CHARACTERS.filter((c) => ONLY_CODES.includes(c.code))
-  : CHARACTERS;
+// Each type gets a male and a female character-art variant so the result screen can match
+// the gender the user picks (src/app/diagnosis/StartButton.tsx). Same prop/pose/personality
+// and family palette either way - only the character's gender presentation changes.
+const GENDERS = [
+  { suffix: "f", label: "female", modifier: "the character is designed as female/feminine" },
+  { suffix: "m", label: "male", modifier: "the character is designed as male/masculine" },
+];
+
+function matchesFilter(outCode, baseCode) {
+  if (!ONLY_CODES.length) return true;
+  return ONLY_CODES.includes(outCode) || ONLY_CODES.includes(baseCode);
+}
+
+const targets = CHARACTERS.flatMap((char) =>
+  GENDERS.map((g) => ({ ...char, outCode: `${char.code}-${g.suffix}`, genderModifier: g.modifier }))
+).filter((t) => matchesFilter(t.outCode, t.code));
 
 async function generateOne(char) {
   const palette = FAMILY_PALETTES[char.family];
-  const prompt = `${STYLE_BASE} ${char.concept}. ${palette}.`;
-  const outFile = path.join(OUT_DIR, `${char.code}.png`);
+  const prompt = `${STYLE_BASE} ${char.concept}, ${char.genderModifier}. ${palette}.`;
+  const outFile = path.join(OUT_DIR, `${char.outCode}.png`);
 
-  for (let attempt = 1; attempt <= 3; attempt++) {
+  for (let attempt = 1; attempt <= 4; attempt++) {
     const res = await fetch("https://api.openai.com/v1/images/generations", {
       method: "POST",
       headers: {
@@ -129,14 +144,14 @@ async function generateOne(char) {
     if (res.ok) {
       const json = await res.json();
       fs.writeFileSync(outFile, Buffer.from(json.data[0].b64_json, "base64"));
-      console.log(char.code, "saved");
+      console.log(char.outCode, "saved");
       return;
     }
     const errText = await res.text();
-    console.error(char.code, `attempt ${attempt} FAILED`, res.status, errText.slice(0, 300));
-    if (attempt < 3) await new Promise((r) => setTimeout(r, 2000 * attempt));
+    console.error(char.outCode, `attempt ${attempt} FAILED`, res.status, errText.slice(0, 300));
+    if (attempt < 4) await new Promise((r) => setTimeout(r, 15000));
   }
-  console.error(char.code, "GAVE UP after 3 attempts");
+  console.error(char.outCode, "GAVE UP after 4 attempts");
 }
 
 async function pool(items, limit, fn) {
@@ -150,6 +165,6 @@ async function pool(items, limit, fn) {
   await Promise.all(Array.from({ length: limit }, worker));
 }
 
-console.log(`Generating ${targets.length} characters -> ${OUT_DIR}`);
-await pool(targets, 8, generateOne);
+console.log(`Generating ${targets.length} character images (male+female) -> ${OUT_DIR}`);
+await pool(targets, 4, generateOne);
 console.log("all done");

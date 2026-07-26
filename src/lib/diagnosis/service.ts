@@ -18,12 +18,12 @@ export class DiagnosisError extends Error {
   }
 }
 
-export async function createSession(): Promise<DiagnosisSessionRow> {
+export async function createSession(gender?: "male" | "female"): Promise<DiagnosisSessionRow> {
   const { versionId } = await getActiveQuestionSet();
   const db = supabaseAdmin();
   const { data, error } = await db
     .from("diagnosis_sessions")
-    .insert({ version_id: versionId })
+    .insert({ version_id: versionId, gender: gender ?? null })
     .select("*")
     .single();
   if (error || !data) {
