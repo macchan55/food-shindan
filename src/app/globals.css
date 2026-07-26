@@ -44,3 +44,45 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
 }
+
+/* Result-screen "reveal" moment: pop-in for the hero card, gentle rotation for the
+   sunburst rays behind the portrait, and a soft float for the sparkle accents. */
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.82);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes slow-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes sparkle-float {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(-6px) scale(1.15);
+    opacity: 1;
+  }
+}
+
+.animate-pop-in {
+  animation: pop-in 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.animate-slow-spin {
+  animation: slow-spin 18s linear infinite;
+}
+.animate-sparkle {
+  animation: sparkle-float 2.4s ease-in-out infinite;
+}

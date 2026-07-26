@@ -1,19 +1,27 @@
-// Per-family accent colors, matching the palettes used when generating the character
-// portraits (scripts/art/generate-characters.mjs) - keeps the result screen's "reveal" tint
-// consistent with the character art the user already approved.
-export const FAMILY_COLORS: Record<string, { from: string; to: string; text: string }> = {
-  "Hospitality Stars": { from: "#fff3e0", to: "#ffe3f0", text: "#a8752f" },
-  "Community Hosts": { from: "#fff0da", to: "#ffe0d6", text: "#c15a2c" },
-  "Luxury Leaders": { from: "#e9e6f7", to: "#f6e6ee", text: "#4b3b7a" },
-  "Scale Builders": { from: "#dff3f2", to: "#e3eefc", text: "#1f7a75" },
-  "Culinary Artists": { from: "#fbe3e0", to: "#ffe9d6", text: "#a13a2a" },
-  "Food Craftsmen": { from: "#f3e6d6", to: "#fbead9", text: "#8a5a2b" },
-  "Premium Producers": { from: "#efe3f7", to: "#fdeedd", text: "#6b3fa0" },
-  "Food Business Innovators": { from: "#e0f0ff", to: "#e3fbe9", text: "#1c6fa8" },
+// Per-family accent colors for the result screen's "reveal" hero, matching the palettes
+// used when generating the character portraits (scripts/art/generate-characters.mjs).
+// heroFrom/heroTo drive a rich background gradient (deeper/more saturated than the soft
+// pastel tints used elsewhere in the app - this section is meant to feel like a spotlight
+// moment, not a quiet card). glow drives the portrait's ring + sparkle accents.
+export type FamilyColor = { heroFrom: string; heroTo: string; glow: string };
+
+export const FAMILY_COLORS: Record<string, FamilyColor> = {
+  "Hospitality Stars": { heroFrom: "#f3b25c", heroTo: "#f28fb0", glow: "#ffe3a3" },
+  "Community Hosts": { heroFrom: "#ff9a56", heroTo: "#ff5f6d", glow: "#ffd18f" },
+  "Luxury Leaders": { heroFrom: "#463572", heroTo: "#9c3d5c", glow: "#e8b64f" },
+  "Scale Builders": { heroFrom: "#1f9e96", heroTo: "#2f7bc9", glow: "#9df0e6" },
+  "Culinary Artists": { heroFrom: "#b7391f", heroTo: "#e2711d", glow: "#ffb56b" },
+  "Food Craftsmen": { heroFrom: "#a85a1d", heroTo: "#d99a44", glow: "#ffd89a" },
+  "Premium Producers": { heroFrom: "#6f3a95", heroTo: "#c98f2e", glow: "#f0cf7a" },
+  "Food Business Innovators": { heroFrom: "#1f7ae0", heroTo: "#22b56f", glow: "#9be8ff" },
 };
 
-export const DEFAULT_FAMILY_COLOR = { from: "#ffe3ec", to: "#fff3d6", text: "#c9436a" };
+export const DEFAULT_FAMILY_COLOR: FamilyColor = {
+  heroFrom: "#e8547a",
+  heroTo: "#ff9a56",
+  glow: "#ffd18f",
+};
 
-export function familyColor(family: string) {
+export function familyColor(family: string): FamilyColor {
   return FAMILY_COLORS[family] ?? DEFAULT_FAMILY_COLOR;
 }

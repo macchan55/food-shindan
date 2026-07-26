@@ -86,34 +86,66 @@ export default function DiagnosisResultPage() {
 
   return (
     <main className="mx-auto flex w-full max-w-xl flex-1 flex-col gap-8 px-6 py-10">
-      {/* First view */}
+      {/* First view - a "reveal" moment, not just a header */}
       <section
-        className="-mx-6 space-y-3 rounded-b-[2.5rem] px-6 pt-10 pb-8 text-center sm:mx-0 sm:rounded-[2.5rem]"
-        style={{ background: `linear-gradient(160deg, ${colors.from}, ${colors.to})` }}
+        className="animate-pop-in relative -mx-6 space-y-3 overflow-hidden rounded-b-[2.5rem] px-6 pt-10 pb-8 text-center sm:mx-0 sm:rounded-[2.5rem]"
+        style={{
+          background: `radial-gradient(circle at 50% 8%, ${colors.glow}55, transparent 55%), linear-gradient(160deg, ${colors.heroFrom}, ${colors.heroTo})`,
+        }}
       >
+        {/* Sunburst rays behind the portrait */}
+        <div
+          className="animate-slow-spin pointer-events-none absolute top-6 left-1/2 h-72 w-72 -translate-x-1/2 opacity-40"
+          style={{
+            background: `repeating-conic-gradient(${colors.glow} 0deg 4deg, transparent 4deg 18deg)`,
+            borderRadius: "9999px",
+          }}
+        />
+
         {type.imageUrl && (
-          <div className="mx-auto h-48 w-48 overflow-hidden rounded-full border-4 border-white bg-white shadow-xl">
-            <Image
-              src={type.imageUrl}
-              alt={type.name}
-              width={192}
-              height={192}
-              className="h-full w-full object-cover"
-              priority
-            />
+          <div className="relative mx-auto h-52 w-52">
+            {/* Shimmering gradient ring */}
+            <div
+              className="absolute inset-0 rounded-full p-[5px] shadow-2xl"
+              style={{
+                background: `conic-gradient(from 0deg, ${colors.glow}, #ffffff, ${colors.heroTo}, ${colors.glow})`,
+              }}
+            >
+              <div className="h-full w-full overflow-hidden rounded-full border-4 border-white bg-white">
+                <Image
+                  src={type.imageUrl}
+                  alt={type.name}
+                  width={208}
+                  height={208}
+                  className="h-full w-full object-cover"
+                  priority
+                />
+              </div>
+            </div>
+            <span className="animate-sparkle absolute -top-1 -right-1 text-3xl drop-shadow">
+              ✨
+            </span>
+            <span
+              className="animate-sparkle absolute -bottom-1 -left-2 text-2xl drop-shadow"
+              style={{ animationDelay: "0.6s" }}
+            >
+              ⭐
+            </span>
           </div>
         )}
-        <p className="text-sm font-bold" style={{ color: colors.text }}>
+        <p className="relative text-sm font-bold tracking-wide text-white/90 drop-shadow">
           {type.family}
         </p>
-        <h1 className="text-3xl font-extrabold" style={{ color: colors.text }}>
+        <h1 className="relative text-4xl font-extrabold text-white drop-shadow-md">
           {type.name}
         </h1>
-        <p className="text-lg font-medium text-foreground/80">{type.catchcopy}</p>
-        <IndustryFitBadge score={data.industryFit.score} tier={data.industryFit.tier} />
+        <p className="relative text-lg font-bold text-white/95 drop-shadow">{type.catchcopy}</p>
+        <div className="relative">
+          <IndustryFitBadge score={data.industryFit.score} tier={data.industryFit.tier} />
+        </div>
         <button
           onClick={handleCopyLink}
-          className="mt-2 inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/70 px-4 py-2 text-sm font-medium backdrop-blur hover:bg-white"
+          className="relative mt-2 inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/90 px-4 py-2 text-sm font-bold text-foreground backdrop-blur hover:bg-white"
         >
           {copied ? "コピーしました！" : "結果のURLをコピーして共有"}
         </button>
