@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { supabaseBrowser } from "@/lib/supabase/browser";
+import { RESUME_FORMATS, FORMAT_LABELS, FORMAT_DESCRIPTIONS } from "@/lib/resume/pdf/theme";
+import type { ResumeFormat } from "@/lib/resume/pdf/types";
 
 const DOCS = [
   { type: "rirekisho", label: "履歴書" },
@@ -11,6 +13,7 @@ const DOCS = [
 
 export default function PreviewPage() {
   const [active, setActive] = useState<(typeof DOCS)[number]["type"]>("rirekisho");
+  const [format, setFormat] = useState<ResumeFormat>("standard");
   const [isAnonymous, setIsAnonymous] = useState<boolean | null>(null);
 
   useEffect(() => {
@@ -44,7 +47,7 @@ export default function PreviewPage() {
         ))}
         {isAnonymous === false && (
           <a
-            href={`/api/resume/pdf?type=${active}&download=1`}
+            href={`/api/resume/pdf?type=${active}&format=${format}&download=1`}
             className="ml-auto rounded-full bg-brand px-4 py-2 text-center text-sm font-bold text-white shadow-sm transition-opacity hover:opacity-90"
           >
             PDFをダウンロード
@@ -65,10 +68,30 @@ export default function PreviewPage() {
         </p>
       )}
 
+      <div>
+        <p className="mb-2 text-sm font-bold text-brand-dark">デザイン</p>
+        <div className="flex flex-wrap gap-2">
+          {RESUME_FORMATS.map((f) => (
+            <button
+              key={f}
+              onClick={() => setFormat(f)}
+              className={`rounded-2xl border px-4 py-2 text-left text-sm transition-colors ${
+                format === f
+                  ? "border-brand bg-brand-soft text-brand-dark"
+                  : "border-border text-foreground/60 hover:border-brand/60"
+              }`}
+            >
+              <span className="block font-bold">{FORMAT_LABELS[f]}</span>
+              <span className="block text-xs font-normal opacity-80">{FORMAT_DESCRIPTIONS[f]}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
       <div className="overflow-hidden rounded-2xl border border-border shadow-sm">
         <iframe
-          key={active}
-          src={`/api/resume/pdf?type=${active}`}
+          key={`${active}-${format}`}
+          src={`/api/resume/pdf?type=${active}&format=${format}`}
           title={DOCS.find((d) => d.type === active)?.label}
           className="h-[80vh] w-full"
         />

@@ -1,3 +1,5 @@
+export type ResumeFormat = "simple" | "standard" | "rich";
+
 export type ResumePdfData = {
   email: string;
   profile: {

@@ -10,7 +10,7 @@ import { handleApiError } from "@/lib/api/handle-error";
 import { registerJapaneseFont } from "@/lib/resume/pdf/font";
 import { RirekishoDocument } from "@/lib/resume/pdf/RirekishoDocument";
 import { ShokumuKeirekishoDocument } from "@/lib/resume/pdf/ShokumuKeirekishoDocument";
-import type { ResumePdfData } from "@/lib/resume/pdf/types";
+import type { ResumeFormat, ResumePdfData } from "@/lib/resume/pdf/types";
 import { renderToBuffer } from "@react-pdf/renderer";
 import { NextResponse } from "next/server";
 
@@ -18,11 +18,15 @@ import { NextResponse } from "next/server";
 // never mounts this tree through React's normal render/commit cycle (renderToBuffer walks
 // it independently to produce PDF bytes), so wrapping it here is just satisfying the
 // (otherwise-correct) react-hooks/error-boundaries lint rule, which assumes a DOM render.
-function renderResumeDocument(type: "rirekisho" | "shokumu", data: ResumePdfData) {
-  return type === "rirekisho" ? <RirekishoDocument data={data} /> : <ShokumuKeirekishoDocument data={data} />;
+function renderResumeDocument(type: "rirekisho" | "shokumu", format: ResumeFormat, data: ResumePdfData) {
+  return type === "rirekisho" ? (
+    <RirekishoDocument data={data} format={format} />
+  ) : (
+    <ShokumuKeirekishoDocument data={data} format={format} />
+  );
 }
 
-// GET /api/resume/pdf?type=rirekisho|shokumu
+// GET /api/resume/pdf?type=rirekisho|shokumu&format=simple|standard|rich
 export async function GET(req: Request) {
   try {
     const user = await getAuthUser();
@@ -32,6 +36,15 @@ export async function GET(req: Request) {
     if (type !== "rirekisho" && type !== "shokumu") {
       return NextResponse.json({ error: 'type must be "rirekisho" or "shokumu"' }, { status: 400 });
     }
+
+    const formatParam = new URL(req.url).searchParams.get("format") ?? "standard";
+    if (formatParam !== "simple" && formatParam !== "standard" && formatParam !== "rich") {
+      return NextResponse.json(
+        { error: 'format must be "simple", "standard", or "rich"' },
+        { status: 400 }
+      );
+    }
+    const format: ResumeFormat = formatParam;
 
     // Inline preview is open to anonymous (not-yet-registered) sessions; only the actual
     // file download is gated, enforced here too since the client-side gate on
@@ -98,7 +111,7 @@ export async function GET(req: Request) {
     };
 
     registerJapaneseFont();
-    const buffer = await renderToBuffer(renderResumeDocument(type, data));
+    const buffer = await renderToBuffer(renderResumeDocument(type, format, data));
 
     const filename = type === "rirekisho" ? "rirekisho.pdf" : "shokumu-keirekisho.pdf";
     return new Response(new Uint8Array(buffer), {

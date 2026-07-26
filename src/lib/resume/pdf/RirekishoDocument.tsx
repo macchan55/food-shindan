@@ -1,47 +1,101 @@
 import { Document, Page, View, Text, Image, StyleSheet } from "@react-pdf/renderer";
-import type { ResumePdfData } from "./types";
+import type { ResumePdfData, ResumeFormat } from "./types";
 import { formatYearMonth, today } from "./format";
+import { PALETTES } from "./theme";
 
-const styles = StyleSheet.create({
-  page: { fontFamily: "NotoSansJP", fontSize: 9, padding: 28, color: "#1a1a1a" },
-  title: { fontSize: 16, textAlign: "center", marginBottom: 4, fontWeight: 700 },
-  dateLine: { fontSize: 8, textAlign: "right", marginBottom: 8, color: "#555" },
-  headerRow: { flexDirection: "row", marginBottom: 10 },
-  headerLeft: { flex: 1 },
-  photoBox: {
-    width: 76,
-    height: 96,
-    border: "1pt solid #999",
-    marginLeft: 10,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  photo: { width: 76, height: 96, objectFit: "cover" },
-  photoPlaceholder: { fontSize: 7, color: "#999", textAlign: "center", padding: 4 },
-  kana: { fontSize: 7, color: "#666", marginBottom: 1 },
-  name: { fontSize: 15, fontWeight: 700, marginBottom: 6 },
-  metaLine: { fontSize: 8.5, marginBottom: 3, color: "#333" },
-  sectionTitle: {
-    fontSize: 10,
-    fontWeight: 700,
-    marginTop: 12,
-    marginBottom: 4,
-    borderBottom: "1pt solid #333",
-    paddingBottom: 2,
-  },
-  table: { border: "0.5pt solid #ccc" },
-  row: { flexDirection: "row", borderBottom: "0.5pt solid #ccc" },
-  cellDate: { width: 70, padding: 4, fontSize: 8.5, borderRight: "0.5pt solid #ccc" },
-  cellBody: { flex: 1, padding: 4, fontSize: 8.5 },
-  emptyNote: { fontSize: 8.5, color: "#999", padding: 4 },
-  paragraph: { fontSize: 9, lineHeight: 1.6, marginTop: 2 },
-});
+function buildStyles(format: ResumeFormat) {
+  const p = PALETTES[format];
+  const rich = format === "rich";
+  const simple = format === "simple";
+  const lineColor = simple ? "#999999" : p.border;
 
-function Table({
-  rows,
+  return StyleSheet.create({
+    page: { fontFamily: "NotoSansJP", fontSize: simple ? 8.5 : 9, padding: rich ? 30 : 28, color: "#1a1a1a" },
+    title: {
+      fontSize: rich ? 18 : 16,
+      textAlign: "center",
+      marginBottom: rich ? 3 : 4,
+      fontWeight: 700,
+      color: rich ? p.accent : "#1a1a1a",
+      letterSpacing: rich ? 3 : 0,
+    },
+    titleBar: { width: 50, height: 2, backgroundColor: p.accent, alignSelf: "center", marginBottom: 10 },
+    dateLine: { fontSize: 8, textAlign: "right", marginBottom: 8, color: "#555" },
+    headerRow: { flexDirection: "row", marginBottom: 10 },
+    headerLeft: { flex: 1 },
+    photoBox: {
+      width: 76,
+      height: 96,
+      border: `1pt solid ${lineColor}`,
+      marginLeft: 10,
+      alignItems: "center",
+      justifyContent: "center",
+      backgroundColor: rich ? p.soft : "transparent",
+    },
+    photo: { width: 76, height: 96, objectFit: "cover" },
+    photoPlaceholder: { fontSize: 7, color: "#999", textAlign: "center", padding: 4 },
+    kana: { fontSize: 7, color: "#666", marginBottom: 1 },
+    name: {
+      fontSize: rich ? 16 : 15,
+      fontWeight: 700,
+      marginBottom: 6,
+      color: rich ? p.accent : "#1a1a1a",
+    },
+    metaLine: { fontSize: 8.5, marginBottom: simple ? 2 : 3, color: "#333" },
+    sectionTitle: {
+      fontSize: 10,
+      fontWeight: 700,
+      marginTop: simple ? 9 : 12,
+      marginBottom: 4,
+      borderBottom: `1pt solid ${simple ? "#333" : p.accent}`,
+      paddingBottom: 2,
+    },
+    sectionBand: {
+      marginTop: 12,
+      marginBottom: 5,
+      backgroundColor: p.accent,
+      borderRadius: 3,
+      paddingVertical: 3,
+      paddingHorizontal: 8,
+    },
+    sectionBandText: { fontSize: 10, fontWeight: 700, color: p.onAccent },
+    table: { border: `0.5pt solid ${lineColor}` },
+    row: { flexDirection: "row", borderBottom: `0.5pt solid ${lineColor}` },
+    cellDate: {
+      width: 70,
+      padding: 4,
+      fontSize: 8.5,
+      borderRight: `0.5pt solid ${lineColor}`,
+      backgroundColor: rich ? p.soft : "transparent",
+    },
+    cellBody: { flex: 1, padding: 4, fontSize: 8.5 },
+    emptyNote: { fontSize: 8.5, color: "#999", padding: 4 },
+    paragraph: { fontSize: 9, lineHeight: 1.6, marginTop: 2 },
+  });
+}
+
+type Styles = ReturnType<typeof buildStyles>;
+
+function SectionTitle({
+  format,
+  styles,
+  children,
 }: {
-  rows: { date: string; body: string }[];
+  format: ResumeFormat;
+  styles: Styles;
+  children: string;
 }) {
+  if (format === "rich") {
+    return (
+      <View style={styles.sectionBand}>
+        <Text style={styles.sectionBandText}>{children}</Text>
+      </View>
+    );
+  }
+  return <Text style={styles.sectionTitle}>{children}</Text>;
+}
+
+function Table({ styles, rows }: { styles: Styles; rows: { date: string; body: string }[] }) {
   if (rows.length === 0) {
     return (
       <View style={styles.table}>
@@ -61,7 +115,8 @@ function Table({
   );
 }
 
-export function RirekishoDocument({ data }: { data: ResumePdfData }) {
+export function RirekishoDocument({ data, format }: { data: ResumePdfData; format: ResumeFormat }) {
+  const styles = buildStyles(format);
   const { profile, education, workExperiences, qualifications, resume } = data;
 
   const educationRows = education.map((e) => ({
@@ -89,6 +144,7 @@ export function RirekishoDocument({ data }: { data: ResumePdfData }) {
     <Document>
       <Page size="A4" style={styles.page}>
         <Text style={styles.title}>履歴書</Text>
+        {format === "rich" && <View style={styles.titleBar} />}
         <Text style={styles.dateLine}>{today()}現在</Text>
 
         <View style={styles.headerRow}>
@@ -113,19 +169,29 @@ export function RirekishoDocument({ data }: { data: ResumePdfData }) {
           </View>
         </View>
 
-        <Text style={styles.sectionTitle}>学歴</Text>
-        <Table rows={educationRows} />
+        <SectionTitle format={format} styles={styles}>
+          学歴
+        </SectionTitle>
+        <Table styles={styles} rows={educationRows} />
 
-        <Text style={styles.sectionTitle}>職歴</Text>
-        <Table rows={workRows} />
+        <SectionTitle format={format} styles={styles}>
+          職歴
+        </SectionTitle>
+        <Table styles={styles} rows={workRows} />
 
-        <Text style={styles.sectionTitle}>資格・免許</Text>
-        <Table rows={qualificationRows} />
+        <SectionTitle format={format} styles={styles}>
+          資格・免許
+        </SectionTitle>
+        <Table styles={styles} rows={qualificationRows} />
 
-        <Text style={styles.sectionTitle}>自己PR</Text>
+        <SectionTitle format={format} styles={styles}>
+          自己PR
+        </SectionTitle>
         <Text style={styles.paragraph}>{resume.selfPr || "（未入力）"}</Text>
 
-        <Text style={styles.sectionTitle}>志望動機</Text>
+        <SectionTitle format={format} styles={styles}>
+          志望動機
+        </SectionTitle>
         <Text style={styles.paragraph}>{resume.motivation || "（未入力）"}</Text>
       </Page>
     </Document>
