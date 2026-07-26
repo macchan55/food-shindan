@@ -8,9 +8,12 @@ const STEPS = [
 
 export default function DiagnosisIntroPage() {
   return (
-    <main className="mx-auto flex w-full max-w-xl flex-1 flex-col items-center gap-10 px-6 py-16 text-center">
+    <main className="mx-auto flex w-full max-w-xl flex-1 flex-col items-center gap-8 px-6 py-14 text-center sm:py-20">
       <div className="space-y-3">
-        <h1 className="text-2xl font-bold sm:text-3xl">診断をはじめる前に</h1>
+        <span className="rounded-full bg-accent-soft px-4 py-1 text-sm font-bold text-brand-dark">
+          あと少しで診断スタート
+        </span>
+        <h1 className="text-2xl font-extrabold sm:text-3xl">診断をはじめる前に</h1>
         <p className="text-foreground/70">
           所要時間は約8〜10分。会員登録は不要です。
         </p>
@@ -20,13 +23,13 @@ export default function DiagnosisIntroPage() {
         {STEPS.map((step, i) => (
           <li
             key={step.label}
-            className="flex gap-4 rounded-2xl border border-border bg-surface p-4"
+            className="flex gap-4 rounded-3xl border border-border bg-surface p-4 shadow-sm"
           >
-            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-soft font-semibold text-brand-dark">
+            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand text-white font-bold">
               {i + 1}
             </span>
             <div>
-              <p className="font-medium">{step.label}</p>
+              <p className="font-bold">{step.label}</p>
               <p className="mt-1 text-sm text-foreground/60">{step.detail}</p>
             </div>
           </li>

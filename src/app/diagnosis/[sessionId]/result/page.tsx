@@ -7,6 +7,7 @@ import { IndustryFitBadge } from "@/components/IndustryFitBadge";
 import { ScoreBars } from "@/components/ScoreBars";
 import { RankingList } from "@/components/RankingList";
 import { FeedbackForm } from "@/components/FeedbackForm";
+import { familyColor } from "@/lib/family-colors";
 
 type TypeSummary = {
   typeCode: string;
@@ -81,13 +82,17 @@ export default function DiagnosisResultPage() {
   }
 
   const { type } = data;
+  const colors = familyColor(type.family);
 
   return (
     <main className="mx-auto flex w-full max-w-xl flex-1 flex-col gap-8 px-6 py-10">
       {/* First view */}
-      <section className="space-y-3 text-center">
+      <section
+        className="-mx-6 space-y-3 rounded-b-[2.5rem] px-6 pt-10 pb-8 text-center sm:mx-0 sm:rounded-[2.5rem]"
+        style={{ background: `linear-gradient(160deg, ${colors.from}, ${colors.to})` }}
+      >
         {type.imageUrl && (
-          <div className="mx-auto h-48 w-48 overflow-hidden rounded-full border-4 border-brand-soft bg-brand-soft shadow-lg">
+          <div className="mx-auto h-48 w-48 overflow-hidden rounded-full border-4 border-white bg-white shadow-xl">
             <Image
               src={type.imageUrl}
               alt={type.name}
@@ -98,29 +103,36 @@ export default function DiagnosisResultPage() {
             />
           </div>
         )}
-        <p className="text-sm font-medium text-brand-dark">{type.family}</p>
-        <h1 className="text-3xl font-bold">{type.name}</h1>
-        <p className="text-lg text-foreground/80">{type.catchcopy}</p>
+        <p className="text-sm font-bold" style={{ color: colors.text }}>
+          {type.family}
+        </p>
+        <h1 className="text-3xl font-extrabold" style={{ color: colors.text }}>
+          {type.name}
+        </h1>
+        <p className="text-lg font-medium text-foreground/80">{type.catchcopy}</p>
         <IndustryFitBadge score={data.industryFit.score} tier={data.industryFit.tier} />
         <button
           onClick={handleCopyLink}
-          className="mt-2 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-sm hover:border-brand/60"
+          className="mt-2 inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/70 px-4 py-2 text-sm font-medium backdrop-blur hover:bg-white"
         >
           {copied ? "コピーしました！" : "結果のURLをコピーして共有"}
         </button>
       </section>
 
       {/* Block 2: description & strengths */}
-      <section className="space-y-3">
-        <h2 className="text-lg font-bold">あなたのタイプ</h2>
+      <section className="space-y-3 rounded-3xl border border-border bg-surface p-5 shadow-sm">
+        <h2 className="text-lg font-bold text-brand-dark">あなたのタイプ</h2>
         <p className="whitespace-pre-line text-sm leading-relaxed text-foreground/80">
           {type.description}
         </p>
         <div>
-          <h3 className="mb-1 text-sm font-semibold text-foreground/70">主な強み</h3>
+          <h3 className="mb-1 text-sm font-bold text-foreground/70">主な強み</h3>
           <ul className="flex flex-wrap gap-2">
             {type.strengths.map((s) => (
-              <li key={s} className="rounded-full bg-brand-soft px-3 py-1 text-xs text-brand-dark">
+              <li
+                key={s}
+                className="rounded-full bg-brand-soft px-3 py-1 text-xs font-medium text-brand-dark"
+              >
                 {s}
               </li>
             ))}
@@ -129,27 +141,27 @@ export default function DiagnosisResultPage() {
       </section>
 
       {/* Block 3: score breakdown */}
-      <section className="space-y-3">
-        <h2 className="text-lg font-bold">能力スコア</h2>
+      <section className="space-y-3 rounded-3xl border border-border bg-surface p-5 shadow-sm">
+        <h2 className="text-lg font-bold text-brand-dark">能力スコア</h2>
         <ScoreBars scores={data.scores} />
       </section>
 
       {/* Block 4: career / format / role ranking */}
-      <section className="space-y-4">
-        <h2 className="text-lg font-bold">適職・向いている環境</h2>
+      <section className="space-y-4 rounded-3xl border border-border bg-surface p-5 shadow-sm">
+        <h2 className="text-lg font-bold text-brand-dark">適職・向いている環境</h2>
         <RankingList title="向いている職種" items={data.careerRanking} />
         <RankingList title="向いている業態" items={data.formatRanking} />
         <RankingList title="向いている役職" items={data.roleRanking} />
       </section>
 
       {/* Block 5: weaknesses */}
-      <section className="space-y-3">
-        <h2 className="text-lg font-bold">注意点・苦手になりやすい環境</h2>
+      <section className="space-y-3 rounded-3xl border border-border bg-surface p-5 shadow-sm">
+        <h2 className="text-lg font-bold text-brand-dark">注意点・苦手になりやすい環境</h2>
         <ul className="flex flex-wrap gap-2">
           {type.weaknesses.map((w) => (
             <li
               key={w}
-              className="rounded-full border border-border px-3 py-1 text-xs text-foreground/70"
+              className="rounded-full border border-border px-3 py-1 text-xs font-medium text-foreground/70"
             >
               {w}
             </li>
@@ -159,9 +171,9 @@ export default function DiagnosisResultPage() {
 
       {/* Block 6: hidden type */}
       {data.hiddenType && (
-        <section className="flex items-center gap-4 rounded-2xl border border-dashed border-brand/40 bg-brand-soft/40 p-4">
+        <section className="flex items-center gap-4 rounded-3xl border border-dashed border-brand/40 bg-brand-soft/40 p-4">
           {data.hiddenType.imageUrl && (
-            <div className="h-16 w-16 shrink-0 overflow-hidden rounded-full border-2 border-brand-soft bg-surface">
+            <div className="h-16 w-16 shrink-0 overflow-hidden rounded-full border-2 border-white bg-surface shadow">
               <Image
                 src={data.hiddenType.imageUrl}
                 alt={data.hiddenType.name}
@@ -172,7 +184,7 @@ export default function DiagnosisResultPage() {
             </div>
           )}
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wide text-brand-dark">
+            <p className="text-xs font-bold uppercase tracking-wide text-brand-dark">
               隠れタイプ
             </p>
             <p className="font-bold">{data.hiddenType.name}</p>
@@ -186,7 +198,7 @@ export default function DiagnosisResultPage() {
       {/* Final CTA - resume builder ships in a later sprint */}
       <button
         disabled
-        className="w-full cursor-not-allowed rounded-full border border-border bg-surface px-6 py-3 text-center text-sm text-foreground/40"
+        className="w-full cursor-not-allowed rounded-full border border-border bg-surface px-6 py-3 text-center text-sm font-medium text-foreground/40"
         title="履歴書作成機能は今後のアップデートで提供予定です"
       >
         あなたの診断結果を反映した履歴書を無料で作る（近日公開）

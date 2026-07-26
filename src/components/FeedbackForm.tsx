@@ -33,15 +33,15 @@ export function FeedbackForm({ sessionId }: { sessionId: string }) {
 
   if (sent) {
     return (
-      <div className="rounded-2xl border border-border bg-surface p-4 text-center text-sm text-foreground/70">
+      <div className="rounded-3xl border border-border bg-surface p-4 text-center text-sm font-medium text-foreground/70 shadow-sm">
         フィードバックありがとうございました！
       </div>
     );
   }
 
   return (
-    <div className="rounded-2xl border border-border bg-surface p-4">
-      <p className="mb-3 text-sm font-semibold">今回の診断は自分に当たっていましたか？</p>
+    <div className="rounded-3xl border border-border bg-surface p-4 shadow-sm">
+      <p className="mb-3 text-sm font-bold">今回の診断は自分に当たっていましたか？</p>
       <div className="flex flex-wrap gap-2">
         {OPTIONS.map((opt) => (
           <button

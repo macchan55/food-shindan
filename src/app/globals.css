@@ -1,13 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fffaf3;
-  --foreground: #241c15;
-  --brand: #e8602c;
-  --brand-dark: #c44a1d;
-  --brand-soft: #fde8d8;
+  --background: #fff7f2;
+  --foreground: #3a2a2e;
+  --brand: #ff6f91;
+  --brand-dark: #e8547a;
+  --brand-soft: #ffe3ec;
+  --accent: #ffc857;
+  --accent-soft: #fff3d6;
   --surface: #ffffff;
-  --border: #ecdfd0;
+  --border: #f5dce3;
 }
 
 @theme inline {
@@ -16,26 +18,29 @@
   --color-brand: var(--brand);
   --color-brand-dark: var(--brand-dark);
   --color-brand-soft: var(--brand-soft);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
   --color-surface: var(--surface);
   --color-border: var(--border);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-rounded-sans);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #191410;
-    --foreground: #f5ede3;
-    --brand: #ff7a3d;
-    --brand-dark: #ffa066;
-    --brand-soft: #3a2416;
-    --surface: #241c15;
-    --border: #3a2c1e;
+    --background: #241a20;
+    --foreground: #fbeef2;
+    --brand: #ff8fae;
+    --brand-dark: #ffb4c6;
+    --brand-soft: #3d2530;
+    --accent: #ffd873;
+    --accent-soft: #3a2f18;
+    --surface: #2e2129;
+    --border: #4a2f3a;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
 }

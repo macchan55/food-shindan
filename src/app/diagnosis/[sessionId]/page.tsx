@@ -150,7 +150,7 @@ export default function DiagnosisFlowPage() {
         <ProgressBar current={currentIndex + 1} total={questions.length} />
       </div>
 
-      <div className="overflow-hidden rounded-2xl border border-border bg-brand-soft/60">
+      <div className="overflow-hidden rounded-3xl border border-border bg-brand-soft/60 shadow-sm">
         <div className="relative aspect-[3/2] w-full">
           <Image
             key={question.id}
@@ -162,7 +162,7 @@ export default function DiagnosisFlowPage() {
           />
         </div>
         <div className="px-4 py-3">
-          <p className="text-xs font-medium uppercase tracking-wide text-brand-dark">
+          <p className="text-xs font-bold uppercase tracking-wide text-brand-dark">
             {question.sceneTitle}
           </p>
           {question.visualBrief && (
@@ -180,20 +180,20 @@ export default function DiagnosisFlowPage() {
             <button
               key={choice.id}
               onClick={() => handleSelect(choice.id)}
-              className={`flex items-start gap-3 rounded-2xl border p-4 text-left transition-colors ${
+              className={`flex items-start gap-3 rounded-3xl border-2 p-4 text-left transition-all ${
                 selected
-                  ? "border-brand bg-brand-soft"
-                  : "border-border bg-surface hover:border-brand/60"
+                  ? "border-brand bg-brand-soft shadow-md"
+                  : "border-border bg-surface hover:border-brand/60 hover:shadow-sm"
               }`}
             >
               <span
-                className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm font-semibold ${
+                className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm font-bold transition-colors ${
                   selected ? "bg-brand text-white" : "bg-brand-soft text-brand-dark"
                 }`}
               >
                 {CHOICE_LABELS[i]}
               </span>
-              <span className="pt-0.5">{choice.text}</span>
+              <span className="pt-0.5 font-medium">{choice.text}</span>
             </button>
           );
         })}

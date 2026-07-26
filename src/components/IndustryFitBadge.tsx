@@ -7,10 +7,10 @@ const TIER_TEXT: Record<string, string> = {
 
 export function IndustryFitBadge({ score, tier }: { score: number; tier: string }) {
   return (
-    <div className="rounded-2xl border border-border bg-surface p-4">
+    <div className="rounded-3xl border border-white/60 bg-white/80 p-4 text-left shadow-sm backdrop-blur">
       <div className="flex items-center justify-between">
-        <span className="text-sm font-semibold text-foreground/70">飲食業界適性</span>
-        <span className="rounded-full bg-brand-soft px-3 py-1 text-sm font-semibold text-brand-dark">
+        <span className="text-sm font-bold text-foreground/70">飲食業界適性</span>
+        <span className="rounded-full bg-brand-soft px-3 py-1 text-sm font-bold text-brand-dark">
           {TIER_LABEL[tier] ?? tier}・{score}点
         </span>
       </div>
