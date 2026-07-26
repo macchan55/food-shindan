@@ -18,14 +18,20 @@ const FEATURES = [
   },
 ];
 
-// A mix of families and genders for visual variety in the hero cluster.
-const HERO_CHARACTERS = [
-  { code: "T13-f", rotate: "-rotate-6", size: "h-20 w-20 sm:h-24 sm:w-24", offset: "translate-y-2" },
-  { code: "T59-m", rotate: "rotate-3", size: "h-24 w-24 sm:h-28 sm:w-28", offset: "-translate-y-2" },
-  { code: "T01-f", rotate: "-rotate-2", size: "h-28 w-28 sm:h-32 sm:w-32", offset: "translate-y-0" },
-  { code: "T51-m", rotate: "rotate-6", size: "h-24 w-24 sm:h-28 sm:w-28", offset: "-translate-y-3" },
-  { code: "T33-f", rotate: "rotate-2", size: "h-20 w-20 sm:h-24 sm:w-24", offset: "translate-y-3" },
+// Three per family (mixed genders) for a marquee that shows real variety without shipping
+// all 128 portraits on the top page.
+const MARQUEE_CHARACTERS = [
+  "T01-f", "T03-m", "T05-f",
+  "T09-m", "T11-f", "T14-m",
+  "T17-f", "T19-m", "T23-f",
+  "T25-m", "T27-f", "T31-m",
+  "T33-f", "T35-m", "T37-f",
+  "T41-m", "T43-f", "T47-m",
+  "T49-f", "T51-m", "T55-f",
+  "T57-m", "T59-f", "T63-m",
 ];
+// Duplicated so the CSS animation can loop seamlessly at exactly -50%.
+const MARQUEE_TRACK = [...MARQUEE_CHARACTERS, ...MARQUEE_CHARACTERS];
 
 const colors = DEFAULT_FAMILY_COLOR;
 
@@ -51,27 +57,37 @@ export default function Home() {
               飲食業界特化のキャラ診断
             </span>
 
-            <div className="relative flex items-end justify-center gap-1 sm:gap-2">
-              {HERO_CHARACTERS.map((c) => (
-                <div
-                  key={c.code}
-                  className={`${c.size} ${c.rotate} ${c.offset} shrink-0 overflow-hidden rounded-full border-4 border-white bg-white shadow-lg transition-transform hover:scale-105 hover:rotate-0`}
-                >
-                  <Image
-                    src={`/characters/${c.code}.webp`}
-                    alt=""
-                    width={160}
-                    height={160}
-                    className="h-full w-full object-cover"
-                    priority
-                  />
-                </div>
-              ))}
-              <span className="animate-sparkle absolute -top-4 right-2 text-2xl drop-shadow">
+            <div
+              className="relative w-full overflow-hidden py-2"
+              style={{
+                maskImage:
+                  "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
+                WebkitMaskImage:
+                  "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
+              }}
+            >
+              <div className="animate-marquee flex w-max items-center gap-3">
+                {MARQUEE_TRACK.map((code, i) => (
+                  <div
+                    key={`${code}-${i}`}
+                    className="h-16 w-16 shrink-0 overflow-hidden rounded-full border-4 border-white bg-white shadow-lg sm:h-20 sm:w-20"
+                  >
+                    <Image
+                      src={`/characters/${code}.webp`}
+                      alt=""
+                      width={80}
+                      height={80}
+                      className="h-full w-full object-cover"
+                      priority={i < 6}
+                    />
+                  </div>
+                ))}
+              </div>
+              <span className="animate-sparkle absolute -top-2 right-2 text-2xl drop-shadow">
                 ✨
               </span>
               <span
-                className="animate-sparkle absolute -bottom-2 -left-2 text-xl drop-shadow"
+                className="animate-sparkle absolute -bottom-1 left-2 text-xl drop-shadow"
                 style={{ animationDelay: "0.5s" }}
               >
                 ⭐
