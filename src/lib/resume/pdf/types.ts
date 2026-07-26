@@ -1,4 +1,5 @@
-export type ResumeFormat = "simple" | "standard" | "rich";
+export type RirekishoTemplateId = "traditional" | "modern" | "sidebar";
+export type ShokumuTemplateId = "chronological" | "timeline" | "highlight";
 
 export type ResumePdfData = {
   email: string;
@@ -15,6 +16,7 @@ export type ResumePdfData = {
     schoolType: string;
     schoolName: string;
     department: string | null;
+    admissionDate: string | null;
     graduationDate: string | null;
     status: "graduated" | "withdrew" | "enrolled";
   }[];

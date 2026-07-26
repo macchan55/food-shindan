@@ -1,28 +1,24 @@
-import type { ResumeFormat } from "./types";
+import type { RirekishoTemplateId, ShokumuTemplateId } from "./types";
 
-export type ThemePalette = {
-  accent: string;
-  soft: string;
-  border: string;
-  onAccent: string;
+export const COLORS = {
+  ink: "#1a1a1a",
+  muted: "#666666",
+  faint: "#999999",
+  border: "#cccccc",
+  brand: "#e8547a",
+  brandSoft: "#ffe3ec",
+  brandBorder: "#f3b8c8",
+  sidebarBg: "#3a2c33",
 };
 
-export const PALETTES: Record<ResumeFormat, ThemePalette> = {
-  simple: { accent: "#1a1a1a", soft: "#ffffff", border: "#999999", onAccent: "#1a1a1a" },
-  standard: { accent: "#333333", soft: "#f0f0f0", border: "#cccccc", onAccent: "#1a1a1a" },
-  rich: { accent: "#e8547a", soft: "#ffe3ec", border: "#f6c9d6", onAccent: "#ffffff" },
-};
+export const RIREKISHO_TEMPLATES: { id: RirekishoTemplateId; label: string; description: string }[] = [
+  { id: "traditional", label: "トラディショナル", description: "学歴・職歴を一つの年表にまとめた王道フォーマット" },
+  { id: "modern", label: "モダン", description: "余白を活かした、線の少ない読みやすいレイアウト" },
+  { id: "sidebar", label: "プロフィール", description: "サイドバーに人物情報を配置したデザイン重視レイアウト" },
+];
 
-export const RESUME_FORMATS: ResumeFormat[] = ["simple", "standard", "rich"];
-
-export const FORMAT_LABELS: Record<ResumeFormat, string> = {
-  simple: "シンプル",
-  standard: "スタンダード",
-  rich: "リッチ",
-};
-
-export const FORMAT_DESCRIPTIONS: Record<ResumeFormat, string> = {
-  simple: "白黒・省スペースの実用的なレイアウト",
-  standard: "バランス重視の標準レイアウト",
-  rich: "カラーで見出しを強調した華やかなレイアウト",
-};
+export const SHOKUMU_TEMPLATES: { id: ShokumuTemplateId; label: string; description: string }[] = [
+  { id: "chronological", label: "編年体", description: "経歴を時系列順に丁寧に伝える王道フォーマット" },
+  { id: "timeline", label: "タイムライン", description: "直近の経歴から振り返るキャリア型レイアウト" },
+  { id: "highlight", label: "アピール型", description: "強み・実績を前面に押し出すレイアウト" },
+];
