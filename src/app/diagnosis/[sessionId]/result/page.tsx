@@ -22,12 +22,20 @@ type TypeSummary = {
   suitedFormats: string[];
   suitedRoles: string[];
   imageUrl: string | null;
+  personalityAnalysis: string | null;
+  abilityAnalysis: string | null;
+  growthAdvice: string | null;
+  careerPath: string | null;
+  typeMoments: string[];
 };
+
+type CompatibleType = TypeSummary & { compatibleReason: string | null };
 
 type ResultData = {
   sessionId: string;
   type: TypeSummary;
   hiddenType: TypeSummary | null;
+  compatibleType: CompatibleType | null;
   industryFit: { score: number; tier: string };
   careerRanking: { id: string; name: string; matchScore: number }[];
   formatRanking: { id: string; name: string; matchScore: number }[];
@@ -170,6 +178,28 @@ export default function DiagnosisResultPage() {
         </div>
       </section>
 
+      {/* Block 2.5: personality & ability deep-dive */}
+      {(type.personalityAnalysis || type.abilityAnalysis) && (
+        <section className="space-y-4 rounded-3xl border border-border bg-surface p-5 shadow-sm">
+          {type.personalityAnalysis && (
+            <div>
+              <h2 className="mb-1 text-lg font-bold text-brand-dark">性格分析</h2>
+              <p className="whitespace-pre-line text-sm leading-relaxed text-foreground/80">
+                {type.personalityAnalysis}
+              </p>
+            </div>
+          )}
+          {type.abilityAnalysis && (
+            <div>
+              <h2 className="mb-1 text-lg font-bold text-brand-dark">能力分析</h2>
+              <p className="whitespace-pre-line text-sm leading-relaxed text-foreground/80">
+                {type.abilityAnalysis}
+              </p>
+            </div>
+          )}
+        </section>
+      )}
+
       {/* Block 3: score breakdown */}
       <section className="space-y-3 rounded-3xl border border-border bg-surface p-5 shadow-sm">
         <h2 className="text-lg font-bold text-brand-dark">能力スコア</h2>
@@ -183,6 +213,28 @@ export default function DiagnosisResultPage() {
         <RankingList title="向いている業態" items={data.formatRanking} />
         <RankingList title="向いている役職" items={data.roleRanking} />
       </section>
+
+      {/* Block 4.5: career path & growth advice */}
+      {(type.careerPath || type.growthAdvice) && (
+        <section className="space-y-4 rounded-3xl border border-border bg-surface p-5 shadow-sm">
+          {type.careerPath && (
+            <div>
+              <h2 className="mb-1 text-lg font-bold text-brand-dark">キャリア提案</h2>
+              <p className="whitespace-pre-line text-sm leading-relaxed text-foreground/80">
+                {type.careerPath}
+              </p>
+            </div>
+          )}
+          {type.growthAdvice && (
+            <div>
+              <h2 className="mb-1 text-lg font-bold text-brand-dark">成長アドバイス</h2>
+              <p className="whitespace-pre-line text-sm leading-relaxed text-foreground/80">
+                {type.growthAdvice}
+              </p>
+            </div>
+          )}
+        </section>
+      )}
 
       {/* Block 5: weaknesses */}
       <section className="space-y-3 rounded-3xl border border-border bg-surface p-5 shadow-sm">
@@ -198,6 +250,55 @@ export default function DiagnosisResultPage() {
           ))}
         </ul>
       </section>
+
+      {/* Block 5.5: type moments ("あるある") */}
+      {type.typeMoments.length > 0 && (
+        <section
+          className="space-y-3 rounded-3xl p-5 shadow-sm"
+          style={{ background: `linear-gradient(160deg, ${colors.heroFrom}14, ${colors.heroTo}14)` }}
+        >
+          <h2 className="text-lg font-bold text-brand-dark">{type.name}あるある</h2>
+          <ul className="space-y-2">
+            {type.typeMoments.map((m) => (
+              <li key={m} className="flex items-start gap-2 text-sm leading-relaxed text-foreground/80">
+                <span aria-hidden className="mt-0.5 text-brand">
+                  💬
+                </span>
+                <span>{m}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {/* Block 5.7: compatible type */}
+      {data.compatibleType && (
+        <section className="space-y-3 rounded-3xl border border-border bg-surface p-5 shadow-sm">
+          <h2 className="text-lg font-bold text-brand-dark">相性の良いタイプ</h2>
+          <div className="flex items-center gap-4">
+            {data.compatibleType.imageUrl && (
+              <div className="h-20 w-20 shrink-0 overflow-hidden rounded-full border-2 border-white bg-surface shadow">
+                <Image
+                  src={data.compatibleType.imageUrl}
+                  alt={data.compatibleType.name}
+                  width={80}
+                  height={80}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            )}
+            <div>
+              <p className="font-bold">{data.compatibleType.name}</p>
+              <p className="text-sm text-foreground/70">{data.compatibleType.catchcopy}</p>
+            </div>
+          </div>
+          {data.compatibleType.compatibleReason && (
+            <p className="whitespace-pre-line text-sm leading-relaxed text-foreground/80">
+              {data.compatibleType.compatibleReason}
+            </p>
+          )}
+        </section>
+      )}
 
       {/* Block 6: hidden type */}
       {data.hiddenType && (

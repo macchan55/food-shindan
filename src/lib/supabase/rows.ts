@@ -54,6 +54,13 @@ export type DiagnosisTypeRow = {
   tag_axis5: string;
   tag_axis6: string;
   image_url: string | null;
+  personality_analysis: string | null;
+  ability_analysis: string | null;
+  growth_advice: string | null;
+  career_path: string | null;
+  type_moments: string[];
+  compatible_type_id: string | null;
+  compatible_reason: string | null;
 };
 
 export type JobFormatRoleMasterRow = {

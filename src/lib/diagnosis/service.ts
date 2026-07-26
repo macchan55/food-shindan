@@ -161,6 +161,7 @@ export type DiagnosisResultView = {
   result: DiagnosisResultRow;
   primaryType: DiagnosisTypeRow;
   hiddenType: DiagnosisTypeRow | null;
+  compatibleType: DiagnosisTypeRow | null;
   scores: Record<AxisCode, { raw: number; max: number; normalized: number }>;
 };
 
@@ -181,6 +182,8 @@ export async function getResult(sessionId: string): Promise<DiagnosisResultView>
   if (!resultRow) throw new DiagnosisError("Result not found for session", 404);
   const result = resultRow as DiagnosisResultRow;
 
+  // Fetch the primary/hidden types first: the compatible type id lives on the
+  // primary type row, so it's only known after this query resolves.
   const typeIds = [result.type_id, result.hidden_type_id].filter(Boolean) as string[];
   const { data: typeRows, error: tErr } = await db
     .from("diagnosis_types")
@@ -191,6 +194,17 @@ export async function getResult(sessionId: string): Promise<DiagnosisResultView>
   const primaryType = typesById.get(result.type_id);
   if (!primaryType) throw new DiagnosisError("Primary type not found", 500);
   const hiddenType = result.hidden_type_id ? typesById.get(result.hidden_type_id) ?? null : null;
+
+  let compatibleType: DiagnosisTypeRow | null = null;
+  if (primaryType.compatible_type_id) {
+    const { data: compatibleRow, error: cErr } = await db
+      .from("diagnosis_types")
+      .select("*")
+      .eq("id", primaryType.compatible_type_id)
+      .maybeSingle();
+    if (cErr) throw new DiagnosisError(`Failed to load compatible type: ${cErr.message}`, 500);
+    compatibleType = (compatibleRow as DiagnosisTypeRow | null) ?? null;
+  }
 
   const { data: scoreRows, error: sErr } = await db
     .from("diagnosis_scores")
@@ -206,7 +220,7 @@ export async function getResult(sessionId: string): Promise<DiagnosisResultView>
     };
   }
 
-  return { session, result, primaryType, hiddenType, scores };
+  return { session, result, primaryType, hiddenType, compatibleType, scores };
 }
 
 export async function saveFeedback(

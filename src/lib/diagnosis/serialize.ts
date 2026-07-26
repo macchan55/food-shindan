@@ -26,6 +26,11 @@ function typeSummary(
     suitedJobs: t.suited_jobs,
     suitedFormats: t.suited_formats,
     suitedRoles: t.suited_roles,
+    personalityAnalysis: t.personality_analysis,
+    abilityAnalysis: t.ability_analysis,
+    growthAdvice: t.growth_advice,
+    careerPath: t.career_path,
+    typeMoments: t.type_moments,
   };
 }
 
@@ -38,6 +43,12 @@ export function serializeResult(view: DiagnosisResultView) {
     completedAt: view.session.completed_at,
     type: typeSummary(view.primaryType, gender),
     hiddenType: view.hiddenType ? typeSummary(view.hiddenType, gender) : null,
+    compatibleType: view.compatibleType
+      ? {
+          ...typeSummary(view.compatibleType, gender),
+          compatibleReason: view.primaryType.compatible_reason,
+        }
+      : null,
     industryFit: {
       score: view.result.industry_fit_score,
       tier: view.result.industry_fit_tier,

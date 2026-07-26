@@ -24,6 +24,28 @@ const master = JSON.parse(
   fs.readFileSync(path.join(__dirname, "seed-data", "master.json"), "utf-8")
 );
 
+const typeDetailsDir = path.join(__dirname, "content", "type-details");
+const typeDetailsFiles = fs
+  .readdirSync(typeDetailsDir)
+  .filter((f) => f.endsWith(".json"))
+  .sort();
+let typeDetailsList: Array<{
+  typeId: string;
+  personalityAnalysis: string;
+  abilityAnalysis: string;
+  growthAdvice: string;
+  careerPath: string;
+  typeMoments: string[];
+  compatibleTypeId: string;
+  compatibleReason: string;
+}> = [];
+for (const f of typeDetailsFiles) {
+  typeDetailsList = typeDetailsList.concat(
+    JSON.parse(fs.readFileSync(path.join(typeDetailsDir, f), "utf-8"))
+  );
+}
+const typeDetailsById = new Map(typeDetailsList.map((d) => [d.typeId, d]));
+
 const VERSION_ID = idFor("version", "v2.0");
 
 function sqlStr(s: string | null | undefined): string {
@@ -90,8 +112,10 @@ lines.push("");
 lines.push("-- Diagnosis types (64)");
 for (const t of types) {
   const typeId = idFor("type", t.typeId);
+  const detail = typeDetailsById.get(t.typeId);
+  if (!detail) throw new Error(`Missing type-details content for ${t.typeId}`);
   lines.push(
-    `insert into diagnosis_types (id, type_code, name, catchcopy, description, family, primary_archetype, strengths, weaknesses, suited_jobs, suited_formats, suited_roles, tag_axis1, tag_axis2, tag_axis3, tag_axis4, tag_axis5, tag_axis6, image_url) values (${sqlStr(
+    `insert into diagnosis_types (id, type_code, name, catchcopy, description, family, primary_archetype, strengths, weaknesses, suited_jobs, suited_formats, suited_roles, tag_axis1, tag_axis2, tag_axis3, tag_axis4, tag_axis5, tag_axis6, image_url, personality_analysis, ability_analysis, growth_advice, career_path, type_moments, compatible_reason) values (${sqlStr(
       typeId
     )}, ${sqlStr(t.typeId)}, ${sqlStr(t.name)}, ${sqlStr(t.catchcopy)}, ${sqlStr(
       t.description
@@ -103,7 +127,24 @@ for (const t of types) {
       t.tags.axis2
     )}, ${sqlStr(t.tags.axis3)}, ${sqlStr(t.tags.axis4)}, ${sqlStr(t.tags.axis5)}, ${sqlStr(
       t.tags.axis6
-    )}, ${sqlStr(`/characters/${t.typeId}.webp`)});`
+    )}, ${sqlStr(`/characters/${t.typeId}.webp`)}, ${sqlStr(detail.personalityAnalysis)}, ${sqlStr(
+      detail.abilityAnalysis
+    )}, ${sqlStr(detail.growthAdvice)}, ${sqlStr(detail.careerPath)}, ${sqlTextArray(
+      detail.typeMoments
+    )}, ${sqlStr(detail.compatibleReason)});`
+  );
+}
+lines.push("");
+// compatible_type_id needs every row to exist first (self-referencing FK), so it's
+// backfilled in a second pass after all 64 types are inserted above.
+lines.push("-- Compatible-type pairings (second pass; self-referencing FK needs all rows to exist first)");
+for (const t of types) {
+  const detail = typeDetailsById.get(t.typeId);
+  if (!detail) throw new Error(`Missing type-details content for ${t.typeId}`);
+  lines.push(
+    `update diagnosis_types set compatible_type_id = ${sqlStr(
+      idFor("type", detail.compatibleTypeId)
+    )} where id = ${sqlStr(idFor("type", t.typeId))};`
   );
 }
 lines.push("");
