@@ -1,13 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { supabaseBrowser } from "@/lib/supabase/browser";
 import { linkPendingResumeSessionIfAny } from "@/lib/resume/pending-session";
 
-export default function RegisterPage() {
+function RegisterForm() {
   const router = useRouter();
+  const next = useSearchParams().get("next") || "/resume";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -19,17 +20,36 @@ export default function RegisterPage() {
     setError(null);
     setSubmitting(true);
     try {
-      const { data, error: signUpError } = await supabaseBrowser().auth.signUp({
-        email,
-        password,
-      });
+      const supabase = supabaseBrowser();
+      const {
+        data: { user: currentUser },
+      } = await supabase.auth.getUser();
+
+      // Coming from the resume builder means an anonymous session already exists with the
+      // user's entered data attached to it — upgrade that session in place (same user id,
+      // same rows) instead of creating a brand new account.
+      if (currentUser?.is_anonymous) {
+        const { data, error: updateError } = await supabase.auth.updateUser({ email, password });
+        if (updateError) {
+          setError(updateError.message);
+          return;
+        }
+        if (data.user && !data.user.is_anonymous) {
+          router.push(next);
+        } else {
+          setNeedsConfirmation(true);
+        }
+        return;
+      }
+
+      const { data, error: signUpError } = await supabase.auth.signUp({ email, password });
       if (signUpError) {
         setError(signUpError.message);
         return;
       }
       if (data.session) {
         await linkPendingResumeSessionIfAny();
-        router.push("/resume");
+        router.push(next);
       } else {
         setNeedsConfirmation(true);
       }
@@ -43,11 +63,7 @@ export default function RegisterPage() {
       <main className="mx-auto flex w-full max-w-md flex-1 flex-col items-center justify-center gap-4 px-6 py-16 text-center">
         <h1 className="text-xl font-bold text-brand-dark">確認メールを送りました</h1>
         <p className="text-sm text-foreground/70">
-          {email} 宛に届いたメールのリンクを開いて登録を完了してください。完了後、こちらから
-          <Link href="/login" className="mx-1 font-bold text-brand-dark underline">
-            ログイン
-          </Link>
-          できます。
+          {email} 宛に届いたメールのリンクを開いて登録を完了してください。入力していただいた内容はそのまま引き継がれます。
         </p>
       </main>
     );
@@ -58,7 +74,7 @@ export default function RegisterPage() {
       <div className="text-center">
         <h1 className="text-2xl font-bold text-brand-dark">会員登録</h1>
         <p className="mt-1 text-sm text-foreground/60">
-          診断結果を反映した履歴書を作成できます
+          ここまで入力した内容はそのまま引き継がれます。ダウンロードにはメールアドレスの登録が必要です。
         </p>
       </div>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -99,5 +115,13 @@ export default function RegisterPage() {
         </Link>
       </p>
     </main>
+  );
+}
+
+export default function RegisterPage() {
+  return (
+    <Suspense>
+      <RegisterForm />
+    </Suspense>
   );
 }

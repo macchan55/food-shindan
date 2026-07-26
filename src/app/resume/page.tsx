@@ -1,16 +1,7 @@
-import Link from "next/link";
-import { redirect } from "next/navigation";
-import { getAuthUser } from "@/lib/supabase/server";
+"use client";
 
-// Depends on the caller's cookies (auth session), so it can never be statically prerendered.
-export const dynamic = "force-dynamic";
-import {
-  getProfile,
-  listEducation,
-  listQualifications,
-  listWorkExperiences,
-  getOrCreateResume,
-} from "@/lib/resume/service";
+import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const STEPS = [
   { href: "/resume/profile", label: "基本情報", key: "profile" as const },
@@ -20,32 +11,35 @@ const STEPS = [
   { href: "/resume/self-pr", label: "自己PR・職務要約（AI作成）", key: "selfPr" as const },
 ];
 
-export default async function ResumeDashboardPage() {
-  const user = await getAuthUser();
-  if (!user) redirect("/login");
+type Done = Record<(typeof STEPS)[number]["key"], boolean>;
 
-  const [profile, education, workExperiences, qualifications, resume] = await Promise.all([
-    getProfile(user.id),
-    listEducation(user.id),
-    listWorkExperiences(user.id),
-    listQualifications(user.id),
-    getOrCreateResume(user.id),
-  ]);
+export default function ResumeDashboardPage() {
+  const [done, setDone] = useState<Done | null>(null);
 
-  const done: Record<(typeof STEPS)[number]["key"], boolean> = {
-    profile: Boolean(profile?.full_name && profile?.address),
-    education: education.length > 0,
-    work: workExperiences.length > 0,
-    qualifications: qualifications.length > 0,
-    selfPr: Boolean(resume.self_pr),
-  };
+  useEffect(() => {
+    Promise.all([
+      fetch("/api/resume/profile").then((r) => r.json()),
+      fetch("/api/resume/education").then((r) => r.json()),
+      fetch("/api/resume/work-experiences").then((r) => r.json()),
+      fetch("/api/resume/qualifications").then((r) => r.json()),
+      fetch("/api/resume").then((r) => r.json()),
+    ]).then(([p, e, w, q, r]) => {
+      setDone({
+        profile: Boolean(p.profile?.full_name && p.profile?.address),
+        education: (e.education ?? []).length > 0,
+        work: (w.workExperiences ?? []).length > 0,
+        qualifications: (q.qualifications ?? []).length > 0,
+        selfPr: Boolean(r.resume?.self_pr),
+      });
+    });
+  }, []);
 
   return (
     <main className="mx-auto flex w-full max-w-xl flex-1 flex-col gap-6 px-6 py-10">
       <div>
         <h1 className="text-2xl font-bold text-brand-dark">履歴書を作成</h1>
         <p className="mt-1 text-sm text-foreground/60">
-          各項目を入力すると、履歴書と職務経歴書がいつでもプレビュー・PDF出力できます。
+          各項目を入力すると、履歴書と職務経歴書をいつでもプレビューできます。ダウンロード時のみ会員登録が必要です。
         </p>
       </div>
 
@@ -59,10 +53,10 @@ export default async function ResumeDashboardPage() {
               <span className="font-medium">{step.label}</span>
               <span
                 className={`text-xs font-bold ${
-                  done[step.key] ? "text-brand-dark" : "text-foreground/40"
+                  done?.[step.key] ? "text-brand-dark" : "text-foreground/40"
                 }`}
               >
-                {done[step.key] ? "入力済み" : "未入力"}
+                {done ? (done[step.key] ? "入力済み" : "未入力") : "…"}
               </span>
             </Link>
           </li>

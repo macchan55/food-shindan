@@ -33,6 +33,17 @@ export async function GET(req: Request) {
       return NextResponse.json({ error: 'type must be "rirekisho" or "shokumu"' }, { status: 400 });
     }
 
+    // Inline preview is open to anonymous (not-yet-registered) sessions; only the actual
+    // file download is gated, enforced here too since the client-side gate on
+    // /resume/preview is just UX, not security.
+    const download = new URL(req.url).searchParams.get("download") === "1";
+    if (download && user.is_anonymous) {
+      return NextResponse.json(
+        { error: "ダウンロードには会員登録が必要です" },
+        { status: 403 }
+      );
+    }
+
     const [profile, education, workExperiences, qualifications, resume] = await Promise.all([
       getProfile(user.id),
       listEducation(user.id),
@@ -89,7 +100,6 @@ export async function GET(req: Request) {
     registerJapaneseFont();
     const buffer = await renderToBuffer(renderResumeDocument(type, data));
 
-    const download = new URL(req.url).searchParams.get("download") === "1";
     const filename = type === "rirekisho" ? "rirekisho.pdf" : "shokumu-keirekisho.pdf";
     return new Response(new Uint8Array(buffer), {
       headers: {

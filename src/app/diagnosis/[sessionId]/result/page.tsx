@@ -328,9 +328,10 @@ export default function DiagnosisResultPage() {
 
       <FeedbackForm sessionId={data.sessionId} />
 
-      {/* Final CTA */}
+      {/* Final CTA - no account needed yet; /resume starts an anonymous session and only
+          asks to register when the user actually downloads a PDF. */}
       <a
-        href="/register"
+        href="/resume"
         onClick={() => setPendingResumeSession(data.sessionId)}
         className="block w-full rounded-full bg-brand px-6 py-3 text-center text-sm font-bold text-white shadow-sm transition-opacity hover:opacity-90"
       >
