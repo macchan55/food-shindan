@@ -279,14 +279,14 @@ function Field({
   required?: boolean;
 }) {
   return (
-    <label className="flex min-w-0 flex-1 flex-col gap-1 text-sm font-bold text-foreground/70">
-      {label}
+    <label className="block min-w-0 flex-1 text-sm font-bold text-foreground/70">
+      <span className="mb-1 block">{label}</span>
       <input
         type={type}
         required={required}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full min-w-0 rounded-xl border border-border bg-background px-3 py-2 text-base font-normal outline-none focus:border-brand"
+        className="block w-full min-w-0 max-w-full rounded-xl border border-border bg-background px-3 py-2 text-base font-normal outline-none focus:border-brand"
       />
     </label>
   );
