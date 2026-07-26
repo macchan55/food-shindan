@@ -149,6 +149,13 @@ export default function QualificationsPage() {
           {saving ? "追加中…" : "追加する"}
         </button>
       </form>
+
+      <Link
+        href="/resume/self-pr"
+        className="block w-full rounded-full border border-brand bg-brand-soft px-6 py-3 text-center text-sm font-bold text-brand-dark transition-opacity hover:opacity-90"
+      >
+        自己PR・職務要約を作成する →
+      </Link>
     </main>
   );
 }

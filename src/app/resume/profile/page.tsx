@@ -140,6 +140,13 @@ export default function ProfilePage() {
           {saving ? "保存中…" : saved ? "保存しました" : "保存する"}
         </button>
       </form>
+
+      <Link
+        href="/resume/education"
+        className="block w-full rounded-full border border-brand bg-brand-soft px-6 py-3 text-center text-sm font-bold text-brand-dark transition-opacity hover:opacity-90"
+      >
+        学歴を入力する →
+      </Link>
     </main>
   );
 }

@@ -146,6 +146,13 @@ export default function SelfPrPage() {
       >
         {saving ? "保存中…" : saved ? "保存しました" : "保存する"}
       </button>
+
+      <Link
+        href="/resume/preview"
+        className="block w-full rounded-full border border-brand bg-brand-soft px-6 py-3 text-center text-sm font-bold text-brand-dark transition-opacity hover:opacity-90"
+      >
+        プレビューを見る →
+      </Link>
     </main>
   );
 }

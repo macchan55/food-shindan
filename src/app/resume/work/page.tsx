@@ -254,6 +254,13 @@ export default function WorkExperiencePage() {
           {saving ? "追加中…" : "追加する"}
         </button>
       </form>
+
+      <Link
+        href="/resume/qualifications"
+        className="block w-full rounded-full border border-brand bg-brand-soft px-6 py-3 text-center text-sm font-bold text-brand-dark transition-opacity hover:opacity-90"
+      >
+        資格を入力する →
+      </Link>
     </main>
   );
 }
