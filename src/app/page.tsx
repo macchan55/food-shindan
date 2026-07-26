@@ -1,7 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Sunburst } from "@/components/Sunburst";
-import { DEFAULT_FAMILY_COLOR } from "@/lib/family-colors";
 
 const FEATURES = [
   {
@@ -28,26 +26,22 @@ const ARC_DURATION_S = 9;
 // fixed pixel space, so it's centered/scaled reasonably on wider screens but not pixel-perfect.
 const ARC_PATH = "path('M -40 210 Q 210 -70 460 210')";
 
-const colors = DEFAULT_FAMILY_COLOR;
-
 export default function Home() {
   return (
     <div className="relative flex flex-1 flex-col overflow-hidden">
       <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col items-center gap-8 px-6 py-8 text-center sm:py-12">
-        {/* Hero banner - same dramatic "reveal" energy as the result screen: rich gradient,
-            rotating sunburst, sparkles - matching the character art's own warrior-like flair. */}
-        <div
-          className="animate-pop-in relative -mx-6 w-[calc(100%+3rem)] overflow-hidden rounded-b-[2.5rem] px-6 py-10 sm:mx-0 sm:w-full sm:rounded-[2.5rem]"
-          style={{
-            background: `radial-gradient(circle at 50% 15%, ${colors.glow}66, transparent 55%), linear-gradient(160deg, ${colors.heroFrom}, ${colors.heroTo})`,
-          }}
-        >
-          <Sunburst
-            glowColor={colors.glow}
-            className="top-0 left-1/2 h-96 w-96 -translate-x-1/2 opacity-30"
+        {/* Hero banner - dramatic epic-reveal illustration matching the characters' own
+            action-pose energy. */}
+        <div className="animate-pop-in relative -mx-6 w-[calc(100%+3rem)] overflow-hidden rounded-b-[2.5rem] sm:mx-0 sm:w-full sm:rounded-[2.5rem]">
+          <Image
+            src="/images/hero-bg.webp"
+            alt=""
+            fill
+            className="object-cover"
+            priority
           />
 
-          <div className="relative flex flex-col items-center gap-6">
+          <div className="relative flex flex-col items-center gap-6 px-6 py-10">
             <span className="rounded-full bg-white/90 px-4 py-1 text-sm font-bold text-brand-dark shadow backdrop-blur">
               飲食業界特化のキャラ診断
             </span>
