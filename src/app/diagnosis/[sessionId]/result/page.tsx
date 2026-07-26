@@ -7,6 +7,7 @@ import { IndustryFitBadge } from "@/components/IndustryFitBadge";
 import { ScoreBars } from "@/components/ScoreBars";
 import { RankingList } from "@/components/RankingList";
 import { FeedbackForm } from "@/components/FeedbackForm";
+import { Sunburst } from "@/components/Sunburst";
 import { familyColor } from "@/lib/family-colors";
 
 type TypeSummary = {
@@ -94,12 +95,9 @@ export default function DiagnosisResultPage() {
         }}
       >
         {/* Sunburst rays behind the portrait */}
-        <div
-          className="animate-slow-spin pointer-events-none absolute top-6 left-1/2 h-72 w-72 -translate-x-1/2 opacity-40"
-          style={{
-            background: `repeating-conic-gradient(${colors.glow} 0deg 4deg, transparent 4deg 18deg)`,
-            borderRadius: "9999px",
-          }}
+        <Sunburst
+          glowColor={colors.glow}
+          className="top-6 left-1/2 h-72 w-72 -translate-x-1/2 opacity-40"
         />
 
         {type.imageUrl && (

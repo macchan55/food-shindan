@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Sunburst } from "@/components/Sunburst";
+import { DEFAULT_FAMILY_COLOR } from "@/lib/family-colors";
 
 const FEATURES = [
   {
@@ -25,51 +27,64 @@ const HERO_CHARACTERS = [
   { code: "T33-f", rotate: "rotate-2", size: "h-20 w-20 sm:h-24 sm:w-24", offset: "translate-y-3" },
 ];
 
+const colors = DEFAULT_FAMILY_COLOR;
+
 export default function Home() {
   return (
     <div className="relative flex flex-1 flex-col overflow-hidden">
       <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col items-center gap-8 px-6 py-8 text-center sm:py-12">
-        {/* Hero banner - vivid restaurant-themed illustrated background */}
-        <div className="relative -mx-6 w-[calc(100%+3rem)] overflow-hidden rounded-b-[2.5rem] sm:mx-0 sm:w-full sm:rounded-[2.5rem]">
-          <div className="relative aspect-[3/4] w-full sm:aspect-[3/2]">
-            <Image
-              src="/images/hero-bg.webp"
-              alt=""
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 px-6 py-10 text-center">
-              <span className="rounded-full bg-white/90 px-4 py-1 text-sm font-bold text-brand-dark shadow backdrop-blur">
-                飲食業界特化のキャラ診断
+        {/* Hero banner - same dramatic "reveal" energy as the result screen: rich gradient,
+            rotating sunburst, sparkles - matching the character art's own warrior-like flair. */}
+        <div
+          className="animate-pop-in relative -mx-6 w-[calc(100%+3rem)] overflow-hidden rounded-b-[2.5rem] px-6 py-10 sm:mx-0 sm:w-full sm:rounded-[2.5rem]"
+          style={{
+            background: `radial-gradient(circle at 50% 15%, ${colors.glow}66, transparent 55%), linear-gradient(160deg, ${colors.heroFrom}, ${colors.heroTo})`,
+          }}
+        >
+          <Sunburst
+            glowColor={colors.glow}
+            className="top-0 left-1/2 h-96 w-96 -translate-x-1/2 opacity-30"
+          />
+
+          <div className="relative flex flex-col items-center gap-6">
+            <span className="rounded-full bg-white/90 px-4 py-1 text-sm font-bold text-brand-dark shadow backdrop-blur">
+              飲食業界特化のキャラ診断
+            </span>
+
+            <div className="relative flex items-end justify-center gap-1 sm:gap-2">
+              {HERO_CHARACTERS.map((c) => (
+                <div
+                  key={c.code}
+                  className={`${c.size} ${c.rotate} ${c.offset} shrink-0 overflow-hidden rounded-full border-4 border-white bg-white shadow-lg transition-transform hover:scale-105 hover:rotate-0`}
+                >
+                  <Image
+                    src={`/characters/${c.code}.webp`}
+                    alt=""
+                    width={160}
+                    height={160}
+                    className="h-full w-full object-cover"
+                    priority
+                  />
+                </div>
+              ))}
+              <span className="animate-sparkle absolute -top-4 right-2 text-2xl drop-shadow">
+                ✨
               </span>
+              <span
+                className="animate-sparkle absolute -bottom-2 -left-2 text-xl drop-shadow"
+                style={{ animationDelay: "0.5s" }}
+              >
+                ⭐
+              </span>
+            </div>
 
-              <div className="flex items-end justify-center gap-1 sm:gap-2">
-                {HERO_CHARACTERS.map((c) => (
-                  <div
-                    key={c.code}
-                    className={`${c.size} ${c.rotate} ${c.offset} shrink-0 overflow-hidden rounded-full border-4 border-white bg-white shadow-lg transition-transform hover:scale-105 hover:rotate-0`}
-                  >
-                    <Image
-                      src={`/characters/${c.code}.webp`}
-                      alt=""
-                      width={160}
-                      height={160}
-                      className="h-full w-full object-cover"
-                      priority
-                    />
-                  </div>
-                ))}
-              </div>
-
-              <div className="space-y-2">
-                <h1 className="text-4xl font-extrabold tracking-tight text-white drop-shadow-md sm:text-5xl">
-                  Restaurant DNA
-                </h1>
-                <p className="text-lg leading-relaxed font-bold text-white drop-shadow">
-                  あなたは、64タイプの中の誰？
-                </p>
-              </div>
+            <div className="space-y-2">
+              <h1 className="text-4xl font-extrabold tracking-tight text-white drop-shadow-md sm:text-5xl">
+                Restaurant DNA
+              </h1>
+              <p className="text-lg leading-relaxed font-bold text-white drop-shadow">
+                あなたは、64タイプの中の誰？
+              </p>
             </div>
           </div>
         </div>
