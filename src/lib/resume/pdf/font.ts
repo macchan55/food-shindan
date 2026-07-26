@@ -7,7 +7,9 @@ let registered = false;
 /** Registers the bundled Japanese font once per server process (idempotent). */
 export function registerJapaneseFont() {
   if (registered) return;
-  const fontPath = path.join(process.cwd(), "assets", "fonts", "NotoSansJP-Variable.ttf");
+  // A static (non-variable) font on purpose: the variable NotoSansJP instance produced
+  // subtly wrong glyphs for some common kanji (e.g. 調 rendered as 誂) under fontkit.
+  const fontPath = path.join(process.cwd(), "assets", "fonts", "NotoSansJP-Static.otf");
   Font.register({
     family: "NotoSansJP",
     fonts: [{ src: fontPath }],
