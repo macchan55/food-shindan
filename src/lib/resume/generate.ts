@@ -3,6 +3,7 @@ import { ResumeError } from "./service";
 
 export type ResumeGenerationInput = {
   targetJob: string | null;
+  userNotes: string | null;
   diagnosis: {
     strengths: string[];
     personalityAnalysis: string | null;
@@ -27,18 +28,29 @@ export type ResumeDraft = {
   careerDirection: string;
 };
 
-const SYSTEM_PROMPT = `あなたは飲食業界に詳しいプロのキャリアアドバイザーです。ユーザーの職歴データと性格・能力診断の結果をもとに、履歴書・職務経歴書に使う文章を日本語で作成します。
+const SYSTEM_PROMPT = `あなたは飲食業界に詳しいプロのキャリアアドバイザー・編集者です。ユーザーの職歴データ、性格・能力診断の結果、そしてユーザー自身が書いた下書きやメモをもとに、履歴書・職務経歴書に使う文章を日本語で作成します。
 
-厳守するルール:
+最優先ルール（ユーザーの下書き・メモがある場合）:
+- ユーザーが書いた下書き・メモは、書き直すのではなく「編集して仕上げる」対象として扱う。伝えたい内容や言い回し、エピソードはできる限りそのまま活かす。
+- 文法や表現を自然なビジネス文章に整え、診断結果や職歴データから裏付けとなる具体性を補って加筆し、より説得力のある文章に仕上げる。
+- ユーザーが書いていない事実を、職歴データにもない内容まで新しく作り出さない。加筆はあくまで、ユーザーが書いた内容や職歴データに書かれている事実を自然な文章として補強・整理する範囲にとどめる。
+
+その他の厳守ルール:
 - 職歴データに書かれていない実績や経験を勝手に作らない。
 - 診断結果は断定しすぎず、あくまで傾向として自然な文章に変換する。
 - 「あなたは〇〇タイプです」のような診断タイプ名を、文章に直接含めない。
-- 職歴が一件もない場合は、診断結果の強みを中心に、意欲や適性を伝える汎用的な文章にする。
+- 下書き・メモも職歴もない場合は、診断結果の強みを中心に、意欲や適性を伝える汎用的な文章にする。
 - 志望する職種が指定されていない場合、motivationは特定の会社名や店名を使わない汎用的な内容にする。
 - 出力は必ず日本語、かつ指定されたJSON形式のみで返す。前後に説明文を付けない。`;
 
 function buildUserPrompt(input: ResumeGenerationInput): string {
   const lines: string[] = [];
+
+  if (input.userNotes) {
+    lines.push("## ユーザーが書いた下書き・伝えたいこと（最優先。これを編集・加筆して仕上げる）");
+    lines.push(input.userNotes);
+    lines.push("");
+  }
 
   if (input.diagnosis) {
     lines.push("## 診断結果（性格・能力の傾向。参考情報として利用し、断定的に書かない）");
@@ -79,7 +91,11 @@ function buildUserPrompt(input: ResumeGenerationInput): string {
   lines.push(`## 志望職種\n${input.targetJob ?? "未指定（汎用的な内容にする）"}`);
 
   lines.push("");
-  lines.push(`以下のJSON形式で出力してください。各値は日本語の文章（改行なし、200〜400文字程度）です。
+  lines.push(`以下のJSON形式で出力してください。各値は日本語の文章（改行なし、200〜400文字程度）です。${
+    input.userNotes
+      ? "ユーザーの下書き・メモがある場合、selfPrは特にその内容を土台にして編集・加筆してください。"
+      : ""
+  }
 {
   "workSummary": "職務要約。これまでの経歴を簡潔にまとめる。",
   "selfPr": "自己PR。強みと具体的なエピソードを結びつけて書く。",

@@ -23,6 +23,7 @@ const EMPTY: ResumeText = {
 
 export default function SelfPrPage() {
   const [text, setText] = useState<ResumeText>(EMPTY);
+  const [draftNotes, setDraftNotes] = useState("");
   const [loading, setLoading] = useState(true);
   const [generating, setGenerating] = useState(false);
   const [saving, setSaving] = useState(false);
@@ -50,7 +51,10 @@ export default function SelfPrPage() {
       const res = await fetch("/api/resume/generate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ targetJob: text.target_job || undefined }),
+        body: JSON.stringify({
+          targetJob: text.target_job || undefined,
+          userNotes: draftNotes || undefined,
+        }),
       });
       if (!res.ok) {
         const d = await res.json().catch(() => null);
@@ -114,6 +118,20 @@ export default function SelfPrPage() {
           placeholder="例：ホールスタッフ、料理長 など"
           className="rounded-xl border border-border bg-surface px-3 py-2 text-base font-normal outline-none focus:border-brand"
         />
+      </label>
+
+      <label className="flex flex-col gap-1 text-sm font-bold text-foreground/70">
+        書きたいこと・下書き（任意）
+        <textarea
+          rows={4}
+          value={draftNotes}
+          onChange={(e) => setDraftNotes(e.target.value)}
+          placeholder="伝えたいエピソードや言い回しを箇条書き・文章どちらでもOK。AIがこの内容を土台に編集・加筆します。"
+          className="rounded-xl border border-border bg-surface px-3 py-2 text-base font-normal leading-relaxed outline-none focus:border-brand"
+        />
+        <span className="text-xs font-normal text-foreground/50">
+          入力すると、AIはこの下書きを書き直すのではなく編集・加筆して仕上げます。空欄なら診断結果と職歴からAIが作成します。
+        </span>
       </label>
 
       <button

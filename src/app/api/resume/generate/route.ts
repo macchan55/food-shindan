@@ -12,6 +12,7 @@ export async function POST(req: Request) {
     const userId = await requireUserId();
     const body = await req.json().catch(() => ({}));
     const targetJob = typeof body?.targetJob === "string" ? body.targetJob : null;
+    const userNotes = typeof body?.userNotes === "string" && body.userNotes.trim() ? body.userNotes : null;
 
     const [diagnosis, workExperiences] = await Promise.all([
       getDiagnosisContext(userId),
@@ -20,6 +21,7 @@ export async function POST(req: Request) {
 
     const draft = await generateResumeDraft({
       targetJob,
+      userNotes,
       diagnosis,
       workExperiences: workExperiences.map((w) => ({
         companyName: w.company_name,
