@@ -2,7 +2,6 @@ import sharp from "sharp";
 import path from "node:path";
 
 const DIR = "/tmp/claude-0/-home-user-food-shindan/91101eff-5626-5fdf-973c-2733dd4cf0b0/scratchpad/art-samples/all-gendered";
-const FAMILY1_FALLBACK = "/tmp/claude-0/-home-user-food-shindan/91101eff-5626-5fdf-973c-2733dd4cf0b0/scratchpad/art-samples/all-gendered";
 
 const W = 130, H = 130;
 
