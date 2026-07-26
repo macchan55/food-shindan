@@ -33,10 +33,24 @@ export async function getProfile(userId: string): Promise<UserProfileRow | null>
 
 export type ProfileInput = Partial<Omit<UserProfileRow, "id">>;
 
+// The profile form's uncontrolled-input default is "", not null — harmless for text columns
+// but Postgres rejects "" for `date` (birthdate), so blank optional fields need normalizing
+// to null before they reach the database.
+function normalizeProfileInput(input: ProfileInput): ProfileInput {
+  const normalized = { ...input };
+  for (const key of Object.keys(normalized) as (keyof ProfileInput)[]) {
+    if (normalized[key] === "") normalized[key] = null;
+  }
+  return normalized;
+}
+
 export async function upsertProfile(userId: string, input: ProfileInput): Promise<UserProfileRow> {
   const { data, error } = await supabaseAdmin()
     .from("user_profiles")
-    .upsert({ id: userId, ...input, updated_at: new Date().toISOString() }, { onConflict: "id" })
+    .upsert(
+      { id: userId, ...normalizeProfileInput(input), updated_at: new Date().toISOString() },
+      { onConflict: "id" }
+    )
     .select("*")
     .single();
   if (error || !data) throw new ResumeError(`Failed to save profile: ${error?.message}`, 500);
