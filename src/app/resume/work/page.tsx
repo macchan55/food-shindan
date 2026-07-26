@@ -279,14 +279,14 @@ function Field({
   required?: boolean;
 }) {
   return (
-    <label className="flex flex-1 flex-col gap-1 text-sm font-bold text-foreground/70">
+    <label className="flex min-w-0 flex-1 flex-col gap-1 text-sm font-bold text-foreground/70">
       {label}
       <input
         type={type}
         required={required}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="rounded-xl border border-border bg-background px-3 py-2 text-base font-normal outline-none focus:border-brand"
+        className="w-full min-w-0 rounded-xl border border-border bg-background px-3 py-2 text-base font-normal outline-none focus:border-brand"
       />
     </label>
   );
