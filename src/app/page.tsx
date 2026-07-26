@@ -18,20 +18,15 @@ const FEATURES = [
   },
 ];
 
-// Three per family (mixed genders) for a marquee that shows real variety without shipping
-// all 128 portraits on the top page.
-const MARQUEE_CHARACTERS = [
-  "T01-f", "T03-m", "T05-f",
-  "T09-m", "T11-f", "T14-m",
-  "T17-f", "T19-m", "T23-f",
-  "T25-m", "T27-f", "T31-m",
-  "T33-f", "T35-m", "T37-f",
-  "T41-m", "T43-f", "T47-m",
-  "T49-f", "T51-m", "T55-f",
-  "T57-m", "T59-f", "T63-m",
+// One per family (mixed genders) flowing along the arc - fewer, bigger avatars read better
+// on a curved path than a dense flat row does.
+const ARC_CHARACTERS = [
+  "T01-f", "T11-m", "T19-f", "T27-m", "T35-f", "T43-m", "T51-f", "T59-m",
 ];
-// Duplicated so the CSS animation can loop seamlessly at exactly -50%.
-const MARQUEE_TRACK = [...MARQUEE_CHARACTERS, ...MARQUEE_CHARACTERS];
+const ARC_DURATION_S = 9;
+// A wide, shallow-ish bezier arc calibrated for a ~420px-wide mobile hero; the path is in
+// fixed pixel space, so it's centered/scaled reasonably on wider screens but not pixel-perfect.
+const ARC_PATH = "path('M -40 210 Q 210 -70 460 210')";
 
 const colors = DEFAULT_FAMILY_COLOR;
 
@@ -57,37 +52,33 @@ export default function Home() {
               飲食業界特化のキャラ診断
             </span>
 
-            <div
-              className="relative w-full overflow-hidden py-2"
-              style={{
-                maskImage:
-                  "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
-                WebkitMaskImage:
-                  "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
-              }}
-            >
-              <div className="animate-marquee flex w-max items-center gap-3">
-                {MARQUEE_TRACK.map((code, i) => (
-                  <div
-                    key={`${code}-${i}`}
-                    className="h-16 w-16 shrink-0 overflow-hidden rounded-full border-4 border-white bg-white shadow-lg sm:h-20 sm:w-20"
-                  >
-                    <Image
-                      src={`/characters/${code}.webp`}
-                      alt=""
-                      width={80}
-                      height={80}
-                      className="h-full w-full object-cover"
-                      priority={i < 6}
-                    />
-                  </div>
-                ))}
-              </div>
-              <span className="animate-sparkle absolute -top-2 right-2 text-2xl drop-shadow">
+            <div className="relative h-56 w-full sm:h-64">
+              {ARC_CHARACTERS.map((code, i) => (
+                <div
+                  key={code}
+                  className="animate-arc-flow absolute top-0 left-0 h-24 w-24 overflow-hidden rounded-full border-4 border-white bg-white shadow-lg sm:h-28 sm:w-28"
+                  style={{
+                    offsetPath: ARC_PATH,
+                    offsetRotate: "0deg",
+                    animationDuration: `${ARC_DURATION_S}s`,
+                    animationDelay: `${-(i / ARC_CHARACTERS.length) * ARC_DURATION_S}s`,
+                  }}
+                >
+                  <Image
+                    src={`/characters/${code}.webp`}
+                    alt=""
+                    width={112}
+                    height={112}
+                    className="h-full w-full object-cover"
+                    priority={i < 3}
+                  />
+                </div>
+              ))}
+              <span className="animate-sparkle absolute top-0 right-6 text-2xl drop-shadow">
                 ✨
               </span>
               <span
-                className="animate-sparkle absolute -bottom-1 left-2 text-xl drop-shadow"
+                className="animate-sparkle absolute bottom-8 left-4 text-xl drop-shadow"
                 style={{ animationDelay: "0.5s" }}
               >
                 ⭐
