@@ -21,20 +21,29 @@ const ONLY_CODES = process.argv.slice(3);
 fs.mkdirSync(OUT_DIR, { recursive: true });
 
 const STYLE_BASE =
-  "An original chibi mascot character design for a collectible character-dex app, inspired by the general genre conventions of cute collectible-creature games (NOT copying any existing franchise): chunky rounded 2.5-head-tall proportions, bold clean black outlines, big expressive eyes, dynamic confident pose, simple flat-color background with a soft radial glow, clean vector illustration style, crisp linework, professional character design sheet quality, no text, no logos, designed as one entry in a large collectible set of 64 unique characters.";
+  "An original chibi mascot character design for a collectible character-dex app, inspired by the general genre conventions of cute collectible-creature games and gacha-style character reveal art (NOT copying any existing franchise): chunky rounded 2.5-head-tall proportions, bold thick black outlines, glossy cel-shaded rendering with crisp specular highlights on hair/props, big expressive eyes, dynamic confident action pose, HIGHLY SATURATED VIVID colors with strong punchy contrast - NOT muted, NOT pastel, NOT desaturated, NOT washed out. Background: a bright warm golden-yellow to orange radial glow, consistent across the whole collection, clean vector illustration style, crisp linework, professional character design sheet quality, no text, no logos, designed as one vivid, eye-catching entry in a large collectible set of 64 unique characters.";
 
 const FAMILY_PALETTES = {
-  "Hospitality Stars": "warm elegant color palette of gold, cream, and soft blush pink, refined and upscale mood",
-  "Community Hosts": "warm cheerful color palette of orange, red, and sunny yellow, friendly neighborhood mood",
-  "Luxury Leaders": "deep sophisticated color palette of navy, burgundy, and gold, opulent refined mood",
-  "Scale Builders": "confident modern color palette of teal, blue, and silver, business-driven energetic mood",
-  "Culinary Artists": "intense artisanal color palette of deep red, charcoal black, and ember orange, focused passionate mood",
-  "Food Craftsmen": "earthy sturdy color palette of brown, mustard, and terracotta, reliable homey mood",
-  "Premium Producers": "luxe innovative color palette of royal purple, gold, and champagne, refined creative mood",
-  "Food Business Innovators": "futuristic energetic color palette of electric blue, neon green, and white, tech-forward mood",
+  "Hospitality Stars": "vivid saturated costume palette of rich gold, crimson red accents, and crisp white, glossy upscale look",
+  "Community Hosts": "vivid saturated costume palette of bright orange, hot red, and sunflower yellow, high-energy look",
+  "Luxury Leaders": "vivid saturated costume palette of deep royal navy, rich burgundy red, and bright gold trim, opulent high-contrast look",
+  "Scale Builders": "vivid saturated costume palette of bright teal, electric blue, and silver-white accents, confident energetic look",
+  "Culinary Artists": "vivid saturated costume palette of fiery red, charcoal black, and bright ember orange, intense passionate look",
+  "Food Craftsmen": "vivid saturated costume palette of rich terracotta orange, deep brown, and warm mustard yellow, sturdy energetic look",
+  "Premium Producers": "vivid saturated costume palette of rich royal purple, bright gold, and crisp white accents, luxe high-contrast look",
+  "Food Business Innovators": "vivid saturated costume palette of electric blue, bright emerald green, and white accents, futuristic energetic look",
 };
 
 const CHARACTERS = [
+  { code: "T01", family: "Hospitality Stars", concept: "an elegant hotel concierge character with white gloves and a silver serving tray, calm and composed expression, subtle anticipatory pose" },
+  { code: "T02", family: "Hospitality Stars", concept: "a sharp service-analyst character holding a clipboard and a magnifying glass, observant and thoughtful expression" },
+  { code: "T03", family: "Hospitality Stars", concept: "a playful service-innovator character holding a megaphone and a smartphone, energetic and creative pose" },
+  { code: "T04", family: "Hospitality Stars", concept: "a stylish CX-strategist character holding a tablet showing a brand chart, confident and analytical expression" },
+  { code: "T05", family: "Hospitality Stars", concept: "an authoritative restaurant maitre-d character holding a leather reservation book, commanding and composed pose" },
+  { code: "T06", family: "Hospitality Stars", concept: "a professional training-officer character wearing a headset and holding a training binder, organized and instructive pose" },
+  { code: "T07", family: "Hospitality Stars", concept: "an adventurous hospitality-pioneer character holding a suitcase and a passport, excited exploring pose" },
+  { code: "T08", family: "Hospitality Stars", concept: "a visionary hospitality-executive character in an elegant suit holding a small blueprint scroll of a restaurant, confident leadership pose" },
+
   { code: "T09", family: "Community Hosts", concept: "a warm friendly waiter character holding a drink tray, big welcoming smile, cheerful waving pose" },
   { code: "T10", family: "Community Hosts", concept: "a meticulous service-trainer character holding a stopwatch and a service manual, precise confident pose" },
   { code: "T11", family: "Community Hosts", concept: "a cheerful neighborhood-star character holding a flyer, surrounded by tiny heart sparkles, super friendly pose" },
