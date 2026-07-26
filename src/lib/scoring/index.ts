@@ -59,9 +59,9 @@ export function computeDiagnosisResult<T extends DiagnosisTypeRow>(params: {
     return acc;
   }, {} as CoreScoreMap);
 
-  const careerRanking = rankMasterRecords(coreScores, master, "job");
-  const formatRanking = rankMasterRecords(coreScores, master, "format");
-  const roleRanking = rankMasterRecords(coreScores, master, "role");
+  const careerRanking = rankMasterRecords(coreScores, master, "job", 10);
+  const formatRanking = rankMasterRecords(coreScores, master, "format", 10);
+  const roleRanking = rankMasterRecords(coreScores, master, "role", 10);
 
   return {
     rawScores,

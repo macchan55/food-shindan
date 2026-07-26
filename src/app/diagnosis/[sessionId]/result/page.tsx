@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import { IndustryFitBadge } from "@/components/IndustryFitBadge";
-import { ScoreBars } from "@/components/ScoreBars";
+import { RadarChart } from "@/components/RadarChart";
 import { RankingList } from "@/components/RankingList";
 import { FeedbackForm } from "@/components/FeedbackForm";
 import { Sunburst } from "@/components/Sunburst";
@@ -203,7 +203,7 @@ export default function DiagnosisResultPage() {
       {/* Block 3: score breakdown */}
       <section className="space-y-3 rounded-3xl border border-border bg-surface p-5 shadow-sm">
         <h2 className="text-lg font-bold text-brand-dark">能力スコア</h2>
-        <ScoreBars scores={data.scores} />
+        <RadarChart scores={data.scores} color={colors.glow} />
       </section>
 
       {/* Block 4: career / format / role ranking */}
