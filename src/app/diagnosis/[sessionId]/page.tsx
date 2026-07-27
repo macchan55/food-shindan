@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import { ProgressBar } from "@/components/ProgressBar";
+import { DiagnosisLoading } from "@/components/DiagnosisLoading";
 import type { QuestionForClient } from "@/lib/diagnosis/repository";
 
 function questionImagePath(questionCode: string): string {
@@ -126,12 +127,7 @@ export default function DiagnosisFlowPage() {
   }
 
   if (submitting) {
-    return (
-      <main className="mx-auto flex w-full max-w-xl flex-1 flex-col items-center justify-center gap-4 px-6 py-16 text-center">
-        <div className="h-10 w-10 animate-spin rounded-full border-4 border-brand-soft border-t-brand" />
-        <p className="text-foreground/70">診断結果を計算しています…</p>
-      </main>
-    );
+    return <DiagnosisLoading />;
   }
 
   return (
