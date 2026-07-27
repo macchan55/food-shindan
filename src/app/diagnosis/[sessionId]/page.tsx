@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import { ProgressBar } from "@/components/ProgressBar";
@@ -13,17 +13,107 @@ function questionImagePath(questionCode: string): string {
 
 const CHOICE_LABELS = ["A", "B", "C", "D"];
 
+type Scene = {
+  sceneId: number;
+  sceneTitle: string;
+  questions: QuestionForClient[];
+};
+
+function groupIntoScenes(questions: QuestionForClient[]): Scene[] {
+  const scenes: Scene[] = [];
+  for (const q of questions) {
+    const last = scenes[scenes.length - 1];
+    if (last && last.sceneId === q.sceneId) {
+      last.questions.push(q);
+    } else {
+      scenes.push({ sceneId: q.sceneId, sceneTitle: q.sceneTitle, questions: [q] });
+    }
+  }
+  return scenes;
+}
+
+function QuestionCard({
+  question,
+  index,
+  selectedChoiceId,
+  onSelect,
+  priority,
+  cardRef,
+}: {
+  question: QuestionForClient;
+  index: number;
+  selectedChoiceId: string | undefined;
+  onSelect: (choiceId: string) => void;
+  priority: boolean;
+  cardRef: (el: HTMLDivElement | null) => void;
+}) {
+  return (
+    <div ref={cardRef} className="flex scroll-mt-6 flex-col gap-4">
+      {index > 0 && <div className="h-px w-full bg-border" />}
+      <div className="overflow-hidden rounded-3xl border border-border bg-brand-soft/60 shadow-sm">
+        <div className="relative aspect-[3/2] w-full">
+          <Image
+            src={questionImagePath(question.questionCode)}
+            alt={question.sceneTitle}
+            fill
+            className="object-cover"
+            priority={priority}
+          />
+        </div>
+        {question.visualBrief && (
+          <div className="px-4 py-3">
+            <p className="text-sm italic text-foreground/60">{question.visualBrief}</p>
+          </div>
+        )}
+      </div>
+
+      <h2 className="text-xl font-bold leading-relaxed">{question.text}</h2>
+
+      <div className="flex flex-col gap-3">
+        {question.choices.map((choice, i) => {
+          const selected = selectedChoiceId === choice.id;
+          return (
+            <button
+              key={choice.id}
+              onClick={() => onSelect(choice.id)}
+              className={`flex items-start gap-3 rounded-3xl border-2 p-4 text-left transition-all ${
+                selected
+                  ? "border-brand bg-brand-soft shadow-md"
+                  : "border-border bg-surface hover:border-brand/60 hover:shadow-sm"
+              }`}
+            >
+              <span
+                className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm font-bold transition-colors ${
+                  selected ? "bg-brand text-white" : "bg-brand-soft text-brand-dark"
+                }`}
+              >
+                {CHOICE_LABELS[i]}
+              </span>
+              <span className="pt-0.5 font-medium">{choice.text}</span>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 export default function DiagnosisFlowPage() {
   const { sessionId } = useParams<{ sessionId: string }>();
   const router = useRouter();
 
   const [questions, setQuestions] = useState<QuestionForClient[] | null>(null);
   const [answers, setAnswers] = useState<Record<string, string>>({});
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [sceneIndex, setSceneIndex] = useState(0);
+  const [subIndex, setSubIndex] = useState(0);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const storageKey = `restaurant-dna:${sessionId}`;
+  const cardRefs = useRef<Record<string, HTMLDivElement | null>>({});
+
+  const scenes = useMemo(() => (questions ? groupIntoScenes(questions) : []), [questions]);
+  const currentScene = scenes[sceneIndex];
 
   useEffect(() => {
     let cancelled = false;
@@ -33,13 +123,21 @@ export default function DiagnosisFlowPage() {
         if (!res.ok) throw new Error("質問の取得に失敗しました");
         const data = await res.json();
         if (cancelled) return;
+        const loadedScenes = groupIntoScenes(data.questions as QuestionForClient[]);
         setQuestions(data.questions);
 
         const saved = localStorage.getItem(storageKey);
         if (saved) {
           const parsed = JSON.parse(saved);
-          setAnswers(parsed.answers ?? {});
-          setCurrentIndex(Math.min(parsed.currentIndex ?? 0, data.questions.length - 1));
+          const savedAnswers = parsed.answers ?? {};
+          setAnswers(savedAnswers);
+          const restoredScene = Math.min(
+            Math.max(parsed.sceneIndex ?? 0, 0),
+            loadedScenes.length - 1
+          );
+          const sceneQuestionCount = loadedScenes[restoredScene]?.questions.length ?? 1;
+          setSceneIndex(restoredScene);
+          setSubIndex(Math.min(Math.max(parsed.subIndex ?? 0, 0), sceneQuestionCount - 1));
         }
       } catch (e) {
         if (!cancelled) setError(e instanceof Error ? e.message : "エラーが発生しました");
@@ -52,28 +150,42 @@ export default function DiagnosisFlowPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sessionId]);
 
-  const question = questions?.[currentIndex];
-  const totalScenes = useMemo(
-    () => (questions ? new Set(questions.map((q) => q.sceneId)).size : 0),
-    [questions]
-  );
+  // Auto-scroll to the newly revealed question within the current scene.
+  useEffect(() => {
+    const q = currentScene?.questions[subIndex];
+    if (!q) return;
+    cardRefs.current[q.id]?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [subIndex, currentScene]);
 
-  function persist(nextAnswers: Record<string, string>, nextIndex: number) {
+  // New scene = new "page": jump to the top instead of a long smooth scroll.
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [sceneIndex]);
+
+  function persist(
+    nextAnswers: Record<string, string>,
+    nextSceneIndex: number,
+    nextSubIndex: number
+  ) {
     localStorage.setItem(
       storageKey,
-      JSON.stringify({ answers: nextAnswers, currentIndex: nextIndex })
+      JSON.stringify({ answers: nextAnswers, sceneIndex: nextSceneIndex, subIndex: nextSubIndex })
     );
   }
 
   async function handleSelect(choiceId: string) {
-    if (!question || submitting) return;
+    if (!currentScene || submitting) return;
+    const question = currentScene.questions[subIndex];
+    if (!question) return;
     setError(null);
     const nextAnswers = { ...answers, [question.id]: choiceId };
     setAnswers(nextAnswers);
 
-    const isLast = questions && currentIndex === questions.length - 1;
-    if (isLast) {
-      persist(nextAnswers, currentIndex);
+    const isLastQuestionInScene = subIndex === currentScene.questions.length - 1;
+    const isLastScene = sceneIndex === scenes.length - 1;
+
+    if (isLastQuestionInScene && isLastScene) {
+      persist(nextAnswers, sceneIndex, subIndex);
       setSubmitting(true);
       try {
         const res = await fetch(`/api/diagnosis/sessions/${sessionId}/complete`, {
@@ -93,21 +205,33 @@ export default function DiagnosisFlowPage() {
         setSubmitting(false);
         setError(e instanceof Error ? e.message : "エラーが発生しました");
       }
-    } else {
+    } else if (isLastQuestionInScene) {
       // Answers are only buffered in localStorage while the quiz is in progress; all 64
       // are written to the DB in one batch on the /complete call above, instead of one
       // DB round trip per question (which made the quiz feel sluggish).
-      const nextIndex = currentIndex + 1;
-      setCurrentIndex(nextIndex);
-      persist(nextAnswers, nextIndex);
+      const nextScene = sceneIndex + 1;
+      setSceneIndex(nextScene);
+      setSubIndex(0);
+      persist(nextAnswers, nextScene, 0);
+    } else {
+      const nextSub = subIndex + 1;
+      setSubIndex(nextSub);
+      persist(nextAnswers, sceneIndex, nextSub);
     }
   }
 
   function handleBack() {
-    if (currentIndex === 0) return;
-    const nextIndex = currentIndex - 1;
-    setCurrentIndex(nextIndex);
-    persist(answers, nextIndex);
+    if (subIndex > 0) {
+      const prevSub = subIndex - 1;
+      setSubIndex(prevSub);
+      persist(answers, sceneIndex, prevSub);
+    } else if (sceneIndex > 0) {
+      const prevScene = sceneIndex - 1;
+      const prevSub = scenes[prevScene].questions.length - 1;
+      setSceneIndex(prevScene);
+      setSubIndex(prevSub);
+      persist(answers, prevScene, prevSub);
+    }
   }
 
   if (error && !questions) {
@@ -118,7 +242,7 @@ export default function DiagnosisFlowPage() {
     );
   }
 
-  if (!questions || !question) {
+  if (!questions || !currentScene) {
     return (
       <main className="mx-auto flex w-full max-w-xl flex-1 flex-col items-center justify-center px-6 py-16 text-center text-foreground/60">
         読み込み中…
@@ -130,79 +254,54 @@ export default function DiagnosisFlowPage() {
     return <DiagnosisLoading />;
   }
 
+  const totalAnswered = Object.keys(answers).length;
+  const visibleQuestions = currentScene.questions.slice(0, subIndex + 1);
+
   return (
     <main className="mx-auto flex w-full max-w-xl flex-1 flex-col gap-6 px-6 py-10">
-      <div className="space-y-2">
-        <div className="flex items-center justify-between text-sm text-foreground/60">
-          <span>
-            Scene {question.sceneId} / {totalScenes}
-          </span>
-          <span>
-            質問 {currentIndex + 1} / {questions.length}
-          </span>
-        </div>
-        <ProgressBar current={currentIndex + 1} total={questions.length} />
-      </div>
-
-      <div className="overflow-hidden rounded-3xl border border-border bg-brand-soft/60 shadow-sm">
-        <div className="relative aspect-[3/2] w-full">
-          <Image
-            key={question.id}
-            src={questionImagePath(question.questionCode)}
-            alt={question.sceneTitle}
-            fill
-            className="object-cover"
-            priority={currentIndex === 0}
-          />
-        </div>
-        <div className="px-4 py-3">
+      <div key={sceneIndex} className="animate-pop-in space-y-6">
+        <div className="space-y-2">
+          <div className="flex items-center justify-between text-sm text-foreground/60">
+            <span>
+              Scene {currentScene.sceneId} / {scenes.length}
+            </span>
+            <span>
+              {totalAnswered} / {questions.length} 問回答済み
+            </span>
+          </div>
+          <ProgressBar current={totalAnswered} total={questions.length} />
           <p className="text-xs font-bold uppercase tracking-wide text-brand-dark">
-            {question.sceneTitle}
+            {currentScene.sceneTitle}
           </p>
-          {question.visualBrief && (
-            <p className="mt-1 text-sm italic text-foreground/60">{question.visualBrief}</p>
-          )}
         </div>
+
+        <div className="flex flex-col gap-8">
+          {visibleQuestions.map((q, i) => (
+            <QuestionCard
+              key={q.id}
+              question={q}
+              index={i}
+              selectedChoiceId={answers[q.id]}
+              onSelect={handleSelect}
+              priority={sceneIndex === 0 && i === 0}
+              cardRef={(el) => {
+                cardRefs.current[q.id] = el;
+              }}
+            />
+          ))}
+        </div>
+
+        {error && <p className="text-sm text-red-600">{error}</p>}
+
+        {(sceneIndex > 0 || subIndex > 0) && (
+          <button
+            onClick={handleBack}
+            className="self-start text-sm text-foreground/50 underline underline-offset-4"
+          >
+            前の質問に戻る
+          </button>
+        )}
       </div>
-
-      <h1 className="text-xl font-bold leading-relaxed">{question.text}</h1>
-
-      <div className="flex flex-col gap-3">
-        {question.choices.map((choice, i) => {
-          const selected = answers[question.id] === choice.id;
-          return (
-            <button
-              key={choice.id}
-              onClick={() => handleSelect(choice.id)}
-              className={`flex items-start gap-3 rounded-3xl border-2 p-4 text-left transition-all ${
-                selected
-                  ? "border-brand bg-brand-soft shadow-md"
-                  : "border-border bg-surface hover:border-brand/60 hover:shadow-sm"
-              }`}
-            >
-              <span
-                className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm font-bold transition-colors ${
-                  selected ? "bg-brand text-white" : "bg-brand-soft text-brand-dark"
-                }`}
-              >
-                {CHOICE_LABELS[i]}
-              </span>
-              <span className="pt-0.5 font-medium">{choice.text}</span>
-            </button>
-          );
-        })}
-      </div>
-
-      {error && <p className="text-sm text-red-600">{error}</p>}
-
-      {currentIndex > 0 && (
-        <button
-          onClick={handleBack}
-          className="self-start text-sm text-foreground/50 underline underline-offset-4"
-        >
-          前の質問に戻る
-        </button>
-      )}
     </main>
   );
 }
