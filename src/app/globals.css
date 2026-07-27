@@ -25,19 +25,10 @@
   --font-sans: var(--font-rounded-sans);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #241a20;
-    --foreground: #fbeef2;
-    --brand: #ff8fae;
-    --brand-dark: #ffb4c6;
-    --brand-soft: #3d2530;
-    --accent: #ffd873;
-    --accent-soft: #3a2f18;
-    --surface: #2e2129;
-    --border: #4a2f3a;
-  }
-}
+/* Intentionally no @media (prefers-color-scheme: dark) override: several cards use a
+   hardcoded white/frosted-glass background over photo art (e.g. IndustryFitBadge, the
+   top-page hero avatars) so the site always renders the light theme instead of flipping
+   --foreground to a near-white color that becomes invisible on those cards. */
 
 body {
   background: var(--background);
