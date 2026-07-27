@@ -1,7 +1,7 @@
 import "server-only";
 import { supabaseAdmin } from "@/lib/supabase/admin";
 import { getActiveQuestionSet, getAllDiagnosisTypes, getAllMasterRecords } from "./repository";
-import { computeDiagnosisResult } from "@/lib/scoring";
+import { computeDiagnosisResult, type AnswerInput } from "@/lib/scoring";
 import { ALL_AXES, type AxisCode } from "@/lib/axes";
 import type {
   DiagnosisResultRow,
@@ -44,39 +44,11 @@ export async function getSessionOrThrow(sessionId: string): Promise<DiagnosisSes
   return data as DiagnosisSessionRow;
 }
 
-export async function saveAnswer(
-  sessionId: string,
-  questionId: string,
-  choiceId: string
-): Promise<void> {
-  const session = await getSessionOrThrow(sessionId);
-  if (session.status !== "in_progress") {
-    throw new DiagnosisError("Session is not in progress", 409);
-  }
-  const db = supabaseAdmin();
-  const { error } = await db.from("diagnosis_answers").upsert(
-    {
-      session_id: sessionId,
-      question_id: questionId,
-      choice_id: choiceId,
-      answered_at: new Date().toISOString(),
-    },
-    { onConflict: "session_id,question_id" }
-  );
-  if (error) throw new DiagnosisError(`Failed to save answer: ${error.message}`, 500);
-}
-
-export async function getAnsweredCount(sessionId: string): Promise<number> {
-  const db = supabaseAdmin();
-  const { count, error } = await db
-    .from("diagnosis_answers")
-    .select("id", { count: "exact", head: true })
-    .eq("session_id", sessionId);
-  if (error) throw new DiagnosisError(`Failed to count answers: ${error.message}`, 500);
-  return count ?? 0;
-}
-
-export async function completeSession(sessionId: string) {
+// Answers are buffered client-side (localStorage) for the full 64-question flow and only
+// written here, all at once, when the user finishes — this replaces the previous
+// one-DB-write-per-answer flow, which added a network+DB round trip to every question
+// and made the quiz feel sluggish.
+export async function completeSession(sessionId: string, answers: AnswerInput[]) {
   const session = await getSessionOrThrow(sessionId);
   if (session.status === "completed") {
     return getResult(sessionId);
@@ -88,22 +60,25 @@ export async function completeSession(sessionId: string) {
   const db = supabaseAdmin();
   const { questions: clientQuestions, scoringQuestions } = await getActiveQuestionSet();
 
-  const { data: answerRows, error: aErr } = await db
-    .from("diagnosis_answers")
-    .select("question_id, choice_id")
-    .eq("session_id", sessionId);
-  if (aErr) throw new DiagnosisError(`Failed to load answers: ${aErr.message}`, 500);
-
-  const answers = (answerRows ?? []).map((a) => ({
-    questionId: a.question_id as string,
-    choiceId: a.choice_id as string,
-  }));
-  if (answers.length < clientQuestions.length) {
+  const answeredQuestionIds = new Set(answers.map((a) => a.questionId));
+  const missing = clientQuestions.filter((q) => !answeredQuestionIds.has(q.id));
+  if (missing.length > 0) {
     throw new DiagnosisError(
-      `All ${clientQuestions.length} questions must be answered before completing (got ${answers.length})`,
+      `All ${clientQuestions.length} questions must be answered before completing (missing ${missing.length})`,
       400
     );
   }
+
+  const answerRows = answers.map((a) => ({
+    session_id: sessionId,
+    question_id: a.questionId,
+    choice_id: a.choiceId,
+    answered_at: new Date().toISOString(),
+  }));
+  const { error: answersErr } = await db
+    .from("diagnosis_answers")
+    .upsert(answerRows, { onConflict: "session_id,question_id" });
+  if (answersErr) throw new DiagnosisError(`Failed to save answers: ${answersErr.message}`, 500);
 
   const types = await getAllDiagnosisTypes();
   const master = await getAllMasterRecords();

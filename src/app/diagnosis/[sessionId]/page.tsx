@@ -70,18 +70,6 @@ export default function DiagnosisFlowPage() {
     const nextAnswers = { ...answers, [question.id]: choiceId };
     setAnswers(nextAnswers);
 
-    try {
-      const res = await fetch(`/api/diagnosis/sessions/${sessionId}/answers`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ questionId: question.id, choiceId }),
-      });
-      if (!res.ok) throw new Error("回答の保存に失敗しました");
-    } catch (e) {
-      setError(e instanceof Error ? e.message : "エラーが発生しました");
-      return;
-    }
-
     const isLast = questions && currentIndex === questions.length - 1;
     if (isLast) {
       persist(nextAnswers, currentIndex);
@@ -89,6 +77,13 @@ export default function DiagnosisFlowPage() {
       try {
         const res = await fetch(`/api/diagnosis/sessions/${sessionId}/complete`, {
           method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            answers: Object.entries(nextAnswers).map(([questionId, choiceId]) => ({
+              questionId,
+              choiceId,
+            })),
+          }),
         });
         if (!res.ok) throw new Error("結果の計算に失敗しました");
         localStorage.removeItem(storageKey);
@@ -98,6 +93,9 @@ export default function DiagnosisFlowPage() {
         setError(e instanceof Error ? e.message : "エラーが発生しました");
       }
     } else {
+      // Answers are only buffered in localStorage while the quiz is in progress; all 64
+      // are written to the DB in one batch on the /complete call above, instead of one
+      // DB round trip per question (which made the quiz feel sluggish).
       const nextIndex = currentIndex + 1;
       setCurrentIndex(nextIndex);
       persist(nextAnswers, nextIndex);
