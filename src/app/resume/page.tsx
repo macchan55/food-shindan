@@ -2,13 +2,21 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { ProgressBar } from "@/components/ProgressBar";
+import { ResumeTemplateThumb } from "@/components/ResumeTemplateThumb";
+import { RIREKISHO_TEMPLATES } from "@/lib/resume/pdf/theme";
 
 const STEPS = [
-  { href: "/resume/profile", label: "基本情報", key: "profile" as const },
-  { href: "/resume/education", label: "学歴", key: "education" as const },
-  { href: "/resume/work", label: "職歴", key: "work" as const },
-  { href: "/resume/qualifications", label: "資格", key: "qualifications" as const },
-  { href: "/resume/self-pr", label: "自己PR・職務要約（AI作成）", key: "selfPr" as const },
+  { href: "/resume/profile", label: "基本情報", icon: "👤", key: "profile" as const },
+  { href: "/resume/education", label: "学歴", icon: "🎓", key: "education" as const },
+  { href: "/resume/work", label: "職歴", icon: "💼", key: "work" as const },
+  { href: "/resume/qualifications", label: "資格", icon: "📜", key: "qualifications" as const },
+  {
+    href: "/resume/self-pr",
+    label: "自己PR・職務要約（AI作成）",
+    icon: "✍️",
+    key: "selfPr" as const,
+  },
 ];
 
 type Done = Record<(typeof STEPS)[number]["key"], boolean>;
@@ -34,41 +42,81 @@ export default function ResumeDashboardPage() {
     });
   }, []);
 
+  const completedCount = done ? Object.values(done).filter(Boolean).length : 0;
+  const started = completedCount > 0;
+  const nextStep = STEPS.find((s) => !done?.[s.key]) ?? STEPS[0];
+
   return (
-    <main className="mx-auto flex w-full max-w-xl flex-1 flex-col gap-6 px-6 py-10">
-      <div>
-        <h1 className="text-2xl font-bold text-brand-dark">履歴書を作成</h1>
-        <p className="mt-1 text-sm text-foreground/60">
-          各項目を入力すると、履歴書と職務経歴書をいつでもプレビューできます。ダウンロード時のみ会員登録が必要です。
+    <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-10 px-6 py-10">
+      <section className="flex flex-col items-center gap-5 text-center">
+        <span className="rounded-full bg-brand-soft px-4 py-1 text-xs font-bold text-brand-dark">
+          飲食業界特化の履歴書作成
+        </span>
+        <h1 className="text-2xl font-bold leading-snug text-brand-dark sm:text-3xl">
+          AIがあなたの強みを言語化。
+          <br />
+          3分でプロ品質の履歴書が完成
+        </h1>
+        <p className="max-w-md text-sm leading-relaxed text-foreground/60">
+          診断結果と職歴から、AIが自己PR・職務要約を下書き。お好みのデザインを選ぶだけで、そのまま履歴書・職務経歴書のPDFになります。
         </p>
-      </div>
 
-      <ul className="flex flex-col gap-3">
-        {STEPS.map((step) => (
-          <li key={step.key}>
-            <Link
-              href={step.href}
-              className="flex items-center justify-between rounded-2xl border border-border bg-surface px-4 py-3 shadow-sm transition-colors hover:border-brand/60"
-            >
-              <span className="font-medium">{step.label}</span>
-              <span
-                className={`text-xs font-bold ${
-                  done?.[step.key] ? "text-brand-dark" : "text-foreground/40"
-                }`}
+        <div className="flex w-full justify-center gap-4 overflow-x-auto px-1 py-2">
+          {RIREKISHO_TEMPLATES.map((t) => (
+            <ResumeTemplateThumb key={t.id} id={t.id} label={t.label} />
+          ))}
+        </div>
+
+        <div className="flex w-full flex-col items-center gap-2">
+          <Link
+            href={nextStep.href}
+            className="w-full rounded-full bg-brand px-6 py-3.5 text-center text-base font-bold text-white shadow-md transition-opacity hover:opacity-90 sm:w-auto sm:px-10"
+          >
+            {started ? "続きから入力する" : "履歴書を作りはじめる ✨"}
+          </Link>
+          <Link
+            href="/resume/preview"
+            className="text-xs font-bold text-foreground/50 underline underline-offset-4"
+          >
+            サンプルをプレビューで見る
+          </Link>
+        </div>
+      </section>
+
+      <section className="flex flex-col gap-3">
+        <div className="flex items-center justify-between">
+          <p className="text-sm font-bold text-foreground/70">入力状況</p>
+          <p className="text-xs font-bold text-brand-dark">
+            {done ? `${completedCount} / ${STEPS.length} 完了` : "…"}
+          </p>
+        </div>
+        <ProgressBar current={completedCount} total={STEPS.length} />
+
+        <ul className="mt-1 flex flex-col gap-3">
+          {STEPS.map((step) => (
+            <li key={step.key}>
+              <Link
+                href={step.href}
+                className="flex items-center gap-3 rounded-2xl border border-border bg-surface px-4 py-3 shadow-sm transition-colors hover:border-brand/60"
               >
-                {done ? (done[step.key] ? "入力済み" : "未入力") : "…"}
-              </span>
-            </Link>
-          </li>
-        ))}
-      </ul>
-
-      <Link
-        href="/resume/preview"
-        className="block w-full rounded-full bg-brand px-6 py-3 text-center text-sm font-bold text-white shadow-sm transition-opacity hover:opacity-90"
-      >
-        履歴書・職務経歴書をプレビュー
-      </Link>
+                <span className="text-lg" aria-hidden>
+                  {step.icon}
+                </span>
+                <span className="flex-1 font-medium">{step.label}</span>
+                {done?.[step.key] ? (
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand text-xs font-bold text-white">
+                    ✓
+                  </span>
+                ) : (
+                  <span className="text-xs font-bold text-foreground/40">
+                    {done ? "未入力" : "…"}
+                  </span>
+                )}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
     </main>
   );
 }
