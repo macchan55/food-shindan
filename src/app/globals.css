@@ -78,23 +78,43 @@ body {
   animation: sparkle-float 2.4s ease-in-out infinite;
 }
 
-/* Top page hero: characters flow along an arc (offset-path, set inline per element) rather
-   than a flat line. Each avatar runs this same keyframe with a staggered negative
-   animation-delay (set inline) so they're spread evenly around the arc instead of bunched
-   at the start. Fades in/out at the ends so entry/exit isn't an abrupt pop. */
+/* Top page hero: characters flow along an arc. Built with percentage left/top (not
+   offset-path/offset-distance - CSS motion path support and rendering is inconsistent on
+   WebKit/iPadOS, and a path() is defined in fixed pixel space so it doesn't scale to
+   wider containers) so the arc's shape scales with the actual hero width/height on any
+   screen size. Points are a quadratic-bezier sampling of the original arc, expressed as a
+   percentage of a 420x224 reference box; the element itself is shifted -50%/-50% via a
+   constant (non-animated) transform so left/top land on its center, not its corner. Each
+   avatar runs this same keyframe with a staggered negative animation-delay (set inline) so
+   they're spread evenly around the arc instead of bunched at the start. Fades in/out at
+   the ends so entry/exit isn't an abrupt pop. */
 @keyframes arc-flow {
   0% {
-    offset-distance: 0%;
+    left: -9.52%;
+    top: 93.75%;
     opacity: 0;
   }
   8% {
     opacity: 1;
   }
+  25% {
+    left: 20.24%;
+    top: 46.88%;
+  }
+  50% {
+    left: 50%;
+    top: 31.25%;
+  }
+  75% {
+    left: 79.76%;
+    top: 46.88%;
+  }
   92% {
     opacity: 1;
   }
   100% {
-    offset-distance: 100%;
+    left: 109.52%;
+    top: 93.75%;
     opacity: 0;
   }
 }

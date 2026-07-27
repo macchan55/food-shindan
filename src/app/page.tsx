@@ -22,9 +22,6 @@ const ARC_CHARACTERS = [
   "T01-f", "T11-m", "T19-f", "T27-m", "T35-f", "T43-m", "T51-f", "T59-m",
 ];
 const ARC_DURATION_S = 9;
-// A wide, shallow-ish bezier arc calibrated for a ~420px-wide mobile hero; the path is in
-// fixed pixel space, so it's centered/scaled reasonably on wider screens but not pixel-perfect.
-const ARC_PATH = "path('M -40 210 Q 210 -70 460 210')";
 
 export default function Home() {
   return (
@@ -52,8 +49,7 @@ export default function Home() {
                   key={code}
                   className="animate-arc-flow absolute top-0 left-0 h-24 w-24 overflow-hidden rounded-full border-4 border-white bg-white shadow-lg sm:h-28 sm:w-28"
                   style={{
-                    offsetPath: ARC_PATH,
-                    offsetRotate: "0deg",
+                    transform: "translate(-50%, -50%)",
                     animationDuration: `${ARC_DURATION_S}s`,
                     animationDelay: `${-(i / ARC_CHARACTERS.length) * ARC_DURATION_S}s`,
                   }}
