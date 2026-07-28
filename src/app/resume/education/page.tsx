@@ -15,14 +15,22 @@ type Education = {
   status: "graduated" | "withdrew" | "enrolled";
 };
 
+const SCHOOL_TYPES = ["高校", "専門学校", "大学", "大学院", "その他"];
+
+function yearsAgoISODate(years: number): string {
+  const d = new Date();
+  d.setFullYear(d.getFullYear() - years);
+  return d.toISOString().slice(0, 10);
+}
+
 const EMPTY_FORM = {
   school_type: "",
   school_name: "",
   department: "",
   is_culinary_related: false,
   is_study_abroad: false,
-  admission_date: "",
-  graduation_date: "",
+  admission_date: yearsAgoISODate(7),
+  graduation_date: yearsAgoISODate(5),
   status: "graduated" as Education["status"],
 };
 
@@ -86,7 +94,7 @@ export default function EducationPage() {
             >
               <div className="text-sm">
                 <p className="font-bold">
-                  {ed.school_type} {ed.school_name}
+                  {ed.school_name} （{ed.school_type}）
                 </p>
                 <p className="text-foreground/60">
                   {ed.department} ・{" "}
@@ -110,23 +118,35 @@ export default function EducationPage() {
       >
         <p className="text-sm font-bold text-brand-dark">学歴を追加</p>
         <Field
-          label="学校種別（高校・専門学校・大学など）"
-          value={form.school_type}
-          onChange={(v) => setForm((f) => ({ ...f, school_type: v }))}
-          required
-        />
-        <Field
           label="学校名"
           value={form.school_name}
           onChange={(v) => setForm((f) => ({ ...f, school_name: v }))}
           required
         />
+        <label className="block text-sm font-bold text-foreground/70">
+          <span className="mb-1 block">学校種別</span>
+          <select
+            required
+            value={form.school_type}
+            onChange={(e) => setForm((f) => ({ ...f, school_type: e.target.value }))}
+            className="block w-full rounded-xl border border-border bg-background px-3 py-2 text-base font-normal outline-none focus:border-brand"
+          >
+            <option value="" disabled>
+              選択してください
+            </option>
+            {SCHOOL_TYPES.map((t) => (
+              <option key={t} value={t}>
+                {t}
+              </option>
+            ))}
+          </select>
+        </label>
         <Field
           label="学部・学科・コース"
           value={form.department}
           onChange={(v) => setForm((f) => ({ ...f, department: v }))}
         />
-        <div className="flex gap-3">
+        <div className="flex flex-col gap-3 sm:flex-row">
           <Field
             label="入学年月"
             type="date"

@@ -6,13 +6,11 @@ import Link from "next/link";
 type WorkExperience = {
   id: string;
   company_name: string;
-  brand_name: string | null;
   store_name: string | null;
   start_date: string | null;
   end_date: string | null;
   is_current: boolean;
   employment_type: string | null;
-  business_format: string | null;
   cuisine_genre: string | null;
   job_type: string | null;
   position: string | null;
@@ -24,15 +22,27 @@ type WorkExperience = {
   achievements: string | null;
 };
 
+const EMPLOYMENT_TYPES = ["正社員", "派遣社員", "パート", "アルバイト", "業務委託", "その他"];
+
+const JOB_TYPES = [
+  "調理",
+  "キッチン補助",
+  "ホールスタッフ",
+  "店長・店舗マネジメント",
+  "エリアマネージャー・SV",
+  "商品開発",
+  "仕入れ・バイヤー",
+  "本部・管理部門",
+  "その他",
+];
+
 const EMPTY_FORM = {
   company_name: "",
-  brand_name: "",
   store_name: "",
   start_date: "",
   end_date: "",
   is_current: false,
   employment_type: "",
-  business_format: "",
   cuisine_genre: "",
   job_type: "",
   position: "",
@@ -69,12 +79,10 @@ export default function WorkExperiencePage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...form,
-          brand_name: form.brand_name || null,
           store_name: form.store_name || null,
           start_date: form.start_date || null,
           end_date: form.is_current ? null : form.end_date || null,
           employment_type: form.employment_type || null,
-          business_format: form.business_format || null,
           cuisine_genre: form.cuisine_genre || null,
           job_type: form.job_type || null,
           position: form.position || null,
@@ -118,7 +126,7 @@ export default function WorkExperiencePage() {
             >
               <div className="text-sm">
                 <p className="font-bold">
-                  {w.company_name} {w.brand_name} {w.store_name}
+                  {w.company_name} {w.store_name}
                 </p>
                 <p className="text-foreground/60">
                   {w.job_type} {w.position}
@@ -146,19 +154,12 @@ export default function WorkExperiencePage() {
           onChange={(v) => setForm((f) => ({ ...f, company_name: v }))}
           required
         />
-        <div className="flex gap-3">
-          <Field
-            label="ブランド名"
-            value={form.brand_name}
-            onChange={(v) => setForm((f) => ({ ...f, brand_name: v }))}
-          />
-          <Field
-            label="店舗名"
-            value={form.store_name}
-            onChange={(v) => setForm((f) => ({ ...f, store_name: v }))}
-          />
-        </div>
-        <div className="flex gap-3">
+        <Field
+          label="店舗名"
+          value={form.store_name}
+          onChange={(v) => setForm((f) => ({ ...f, store_name: v }))}
+        />
+        <div className="flex flex-col gap-3 sm:flex-row">
           <Field
             label="入社年月"
             type="date"
@@ -181,29 +182,24 @@ export default function WorkExperiencePage() {
           現在も勤務中
         </label>
         <div className="flex gap-3">
-          <Field
+          <Select
             label="雇用形態"
             value={form.employment_type}
+            options={EMPLOYMENT_TYPES}
             onChange={(v) => setForm((f) => ({ ...f, employment_type: v }))}
           />
-          <Field
+          <Select
             label="職種"
             value={form.job_type}
+            options={JOB_TYPES}
             onChange={(v) => setForm((f) => ({ ...f, job_type: v }))}
           />
         </div>
-        <div className="flex gap-3">
-          <Field
-            label="役職"
-            value={form.position}
-            onChange={(v) => setForm((f) => ({ ...f, position: v }))}
-          />
-          <Field
-            label="業態"
-            value={form.business_format}
-            onChange={(v) => setForm((f) => ({ ...f, business_format: v }))}
-          />
-        </div>
+        <Field
+          label="役職"
+          value={form.position}
+          onChange={(v) => setForm((f) => ({ ...f, position: v }))}
+        />
         <Field
           label="料理ジャンル"
           value={form.cuisine_genre}
@@ -288,6 +284,36 @@ function Field({
         onChange={(e) => onChange(e.target.value)}
         className="block w-full min-w-0 max-w-full rounded-xl border border-border bg-background px-3 py-2 text-base font-normal outline-none focus:border-brand"
       />
+    </label>
+  );
+}
+
+function Select({
+  label,
+  value,
+  options,
+  onChange,
+}: {
+  label: string;
+  value: string;
+  options: string[];
+  onChange: (v: string) => void;
+}) {
+  return (
+    <label className="block min-w-0 flex-1 text-sm font-bold text-foreground/70">
+      <span className="mb-1 block">{label}</span>
+      <select
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className="block w-full min-w-0 max-w-full rounded-xl border border-border bg-background px-3 py-2 text-base font-normal outline-none focus:border-brand"
+      >
+        <option value="">選択してください</option>
+        {options.map((o) => (
+          <option key={o} value={o}>
+            {o}
+          </option>
+        ))}
+      </select>
     </label>
   );
 }

@@ -14,11 +14,13 @@ type Profile = {
   photo_url: string | null;
 };
 
+const GENDER_OPTIONS = ["男性", "女性", "その他"] as const;
+
 const EMPTY: Profile = {
   full_name: "",
   full_name_kana: "",
   birthdate: "",
-  gender: "",
+  gender: "その他",
   postal_code: "",
   address: "",
   phone: "",
@@ -31,15 +33,48 @@ export default function ProfilePage() {
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [postalLookupError, setPostalLookupError] = useState<string | null>(null);
 
   useEffect(() => {
     fetch("/api/resume/profile")
       .then((r) => r.json())
       .then((d) => {
-        if (d.profile) setProfile({ ...EMPTY, ...d.profile });
+        if (d.profile) {
+          setProfile({ ...EMPTY, ...d.profile, gender: d.profile.gender || "その他" });
+        }
       })
       .finally(() => setLoading(false));
   }, []);
+
+  // Postal code -> address autofill. Japan zip codes only resolve down to prefecture/city/
+  // town (not the exact 番地/building), so the user still fills in the street number and
+  // building name themselves in the address field below.
+  useEffect(() => {
+    const digits = (profile.postal_code ?? "").replace(/[^0-9]/g, "");
+    if (digits.length !== 7) return;
+    let cancelled = false;
+    fetch(`https://zipcloud.ibsnet.co.jp/api/search?zipcode=${digits}`)
+      .then((r) => r.json())
+      .then((data) => {
+        if (cancelled) return;
+        const result = data?.results?.[0];
+        if (result) {
+          setProfile((p) => ({
+            ...p,
+            address: `${result.address1}${result.address2}${result.address3}`,
+          }));
+          setPostalLookupError(null);
+        } else {
+          setPostalLookupError("該当する住所が見つかりませんでした。番地までご自身で入力してください。");
+        }
+      })
+      .catch(() => {
+        if (!cancelled) setPostalLookupError("住所の自動取得に失敗しました。手入力してください。");
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [profile.postal_code]);
 
   function set<K extends keyof Profile>(key: K, value: Profile[K]) {
     setProfile((p) => ({ ...p, [key]: value }));
@@ -123,14 +158,45 @@ export default function ProfilePage() {
           value={profile.birthdate}
           onChange={(v) => set("birthdate", v)}
         />
-        <Field label="性別（任意）" value={profile.gender} onChange={(v) => set("gender", v)} />
-        <Field
-          label="郵便番号"
-          value={profile.postal_code}
-          onChange={(v) => set("postal_code", v)}
-        />
+
+        <label className="flex flex-col gap-1 text-sm font-bold text-foreground/70">
+          性別
+          <div className="flex flex-wrap gap-4 pt-1">
+            {GENDER_OPTIONS.map((opt) => (
+              <label key={opt} className="flex items-center gap-1.5 font-normal text-foreground">
+                <input
+                  type="radio"
+                  name="gender"
+                  checked={profile.gender === opt}
+                  onChange={() => set("gender", opt)}
+                />
+                {opt}
+              </label>
+            ))}
+          </div>
+        </label>
+
+        <div className="flex flex-col gap-1">
+          <Field
+            label="郵便番号（ハイフンなし）"
+            value={profile.postal_code}
+            onChange={(v) => {
+              setPostalLookupError(null);
+              set("postal_code", v.replace(/[^0-9]/g, ""));
+            }}
+          />
+          <p className="text-xs text-foreground/50">
+            入力すると住所が自動入力されます（番地・建物名は住所欄に追記してください）。
+          </p>
+          {postalLookupError && <p className="text-xs text-red-600">{postalLookupError}</p>}
+        </div>
         <Field label="住所" value={profile.address} onChange={(v) => set("address", v)} required />
-        <Field label="電話番号" value={profile.phone} onChange={(v) => set("phone", v)} required />
+        <Field
+          label="電話番号（ハイフンなしで記入）"
+          value={profile.phone}
+          onChange={(v) => set("phone", v.replace(/[^0-9]/g, ""))}
+          required
+        />
 
         <button
           type="submit"
