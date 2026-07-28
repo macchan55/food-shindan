@@ -153,9 +153,9 @@ export type WorkExperienceRow = {
   job_type: string | null;
   position: string | null;
   store_size: string | null;
-  seat_count: number | null;
-  avg_spend: number | null;
-  managed_headcount: number | null;
+  seat_count: string | null;
+  avg_spend: string | null;
+  managed_headcount: string | null;
   main_duties: string | null;
   achievements: string | null;
   reason_for_leaving: string | null;

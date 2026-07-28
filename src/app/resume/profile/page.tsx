@@ -16,10 +16,16 @@ type Profile = {
 
 const GENDER_OPTIONS = ["男性", "女性", "その他"] as const;
 
+function yearsAgoISODate(years: number): string {
+  const d = new Date();
+  d.setFullYear(d.getFullYear() - years);
+  return d.toISOString().slice(0, 10);
+}
+
 const EMPTY: Profile = {
   full_name: "",
   full_name_kana: "",
-  birthdate: "",
+  birthdate: yearsAgoISODate(23),
   gender: "その他",
   postal_code: "",
   address: "",
@@ -40,7 +46,12 @@ export default function ProfilePage() {
       .then((r) => r.json())
       .then((d) => {
         if (d.profile) {
-          setProfile({ ...EMPTY, ...d.profile, gender: d.profile.gender || "その他" });
+          setProfile({
+            ...EMPTY,
+            ...d.profile,
+            gender: d.profile.gender || "その他",
+            birthdate: d.profile.birthdate || EMPTY.birthdate,
+          });
         }
       })
       .finally(() => setLoading(false));

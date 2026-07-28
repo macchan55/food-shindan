@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { YearMonthField } from "@/components/YearMonthField";
 
 type WorkExperience = {
   id: string;
@@ -15,9 +16,9 @@ type WorkExperience = {
   job_type: string | null;
   position: string | null;
   store_size: string | null;
-  seat_count: number | null;
-  avg_spend: number | null;
-  managed_headcount: number | null;
+  seat_count: string | null;
+  avg_spend: string | null;
+  managed_headcount: string | null;
   main_duties: string | null;
   achievements: string | null;
 };
@@ -35,6 +36,22 @@ const JOB_TYPES = [
   "本部・管理部門",
   "その他",
 ];
+
+const SEAT_COUNT_OPTIONS = ["1席〜10席", "11席〜20席", "21席〜40席", "41席〜80席", "81席以上"];
+
+const MANAGED_HEADCOUNT_OPTIONS = ["0人", "1人〜3人", "4人〜9人", "10人〜20人", "21人以上"];
+
+const AVG_SPEND_OPTIONS = [
+  "〜3000円",
+  "3001円〜5000円",
+  "5001円〜8000円",
+  "8001円〜12000円",
+  "12001円〜18000円",
+  "18001円〜25000円",
+  "25001円以上",
+];
+
+const CURRENT_YEAR = new Date().getFullYear();
 
 const EMPTY_FORM = {
   company_name: "",
@@ -59,6 +76,9 @@ export default function WorkExperiencePage() {
   const [loading, setLoading] = useState(true);
   const [form, setForm] = useState(EMPTY_FORM);
   const [saving, setSaving] = useState(false);
+  // Bumped on every successful add so the YearMonthFields below remount (resetting their
+  // internal year/month selection state) instead of trying to sync from a changing value.
+  const [formKey, setFormKey] = useState(0);
 
   function load() {
     return fetch("/api/resume/work-experiences")
@@ -87,9 +107,9 @@ export default function WorkExperiencePage() {
           job_type: form.job_type || null,
           position: form.position || null,
           store_size: form.store_size || null,
-          seat_count: form.seat_count ? Number(form.seat_count) : null,
-          avg_spend: form.avg_spend ? Number(form.avg_spend) : null,
-          managed_headcount: form.managed_headcount ? Number(form.managed_headcount) : null,
+          seat_count: form.seat_count || null,
+          avg_spend: form.avg_spend || null,
+          managed_headcount: form.managed_headcount || null,
           main_duties: form.main_duties || null,
           achievements: form.achievements || null,
           reason_for_leaving: null,
@@ -97,6 +117,7 @@ export default function WorkExperiencePage() {
         }),
       });
       setForm(EMPTY_FORM);
+      setFormKey((k) => k + 1);
       await load();
     } finally {
       setSaving(false);
@@ -159,20 +180,22 @@ export default function WorkExperiencePage() {
           value={form.store_name}
           onChange={(v) => setForm((f) => ({ ...f, store_name: v }))}
         />
-        <div className="flex flex-col gap-3 sm:flex-row">
-          <Field
-            label="入社年月"
-            type="date"
-            value={form.start_date}
-            onChange={(v) => setForm((f) => ({ ...f, start_date: v }))}
-          />
-          <Field
-            label="退社年月"
-            type="date"
-            value={form.end_date}
-            onChange={(v) => setForm((f) => ({ ...f, end_date: v }))}
-          />
-        </div>
+        <YearMonthField
+          key={`start-${formKey}`}
+          label="入社年月"
+          value={form.start_date}
+          onChange={(v) => setForm((f) => ({ ...f, start_date: v }))}
+          yearFrom={CURRENT_YEAR - 60}
+          yearTo={CURRENT_YEAR + 2}
+        />
+        <YearMonthField
+          key={`end-${formKey}`}
+          label="退社年月"
+          value={form.end_date}
+          onChange={(v) => setForm((f) => ({ ...f, end_date: v }))}
+          yearFrom={CURRENT_YEAR - 60}
+          yearTo={CURRENT_YEAR + 2}
+        />
         <label className="flex items-center gap-2 text-sm">
           <input
             type="checkbox"
@@ -211,24 +234,24 @@ export default function WorkExperiencePage() {
             value={form.store_size}
             onChange={(v) => setForm((f) => ({ ...f, store_size: v }))}
           />
-          <Field
+          <Select
             label="席数"
-            type="number"
             value={form.seat_count}
+            options={SEAT_COUNT_OPTIONS}
             onChange={(v) => setForm((f) => ({ ...f, seat_count: v }))}
           />
         </div>
         <div className="flex gap-3">
-          <Field
-            label="客単価（円）"
-            type="number"
+          <Select
+            label="顧客単価"
             value={form.avg_spend}
+            options={AVG_SPEND_OPTIONS}
             onChange={(v) => setForm((f) => ({ ...f, avg_spend: v }))}
           />
-          <Field
+          <Select
             label="管理人数"
-            type="number"
             value={form.managed_headcount}
+            options={MANAGED_HEADCOUNT_OPTIONS}
             onChange={(v) => setForm((f) => ({ ...f, managed_headcount: v }))}
           />
         </div>

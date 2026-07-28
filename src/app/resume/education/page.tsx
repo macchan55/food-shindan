@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { YearMonthField } from "@/components/YearMonthField";
 
 type Education = {
   id: string;
@@ -17,11 +18,13 @@ type Education = {
 
 const SCHOOL_TYPES = ["高校", "専門学校", "大学", "大学院", "その他"];
 
-function yearsAgoISODate(years: number): string {
+function yearsAgoYearMonth(years: number): string {
   const d = new Date();
   d.setFullYear(d.getFullYear() - years);
-  return d.toISOString().slice(0, 10);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-01`;
 }
+
+const CURRENT_YEAR = new Date().getFullYear();
 
 const EMPTY_FORM = {
   school_type: "",
@@ -29,8 +32,8 @@ const EMPTY_FORM = {
   department: "",
   is_culinary_related: false,
   is_study_abroad: false,
-  admission_date: yearsAgoISODate(7),
-  graduation_date: yearsAgoISODate(5),
+  admission_date: yearsAgoYearMonth(7),
+  graduation_date: yearsAgoYearMonth(5),
   status: "graduated" as Education["status"],
 };
 
@@ -39,6 +42,9 @@ export default function EducationPage() {
   const [loading, setLoading] = useState(true);
   const [form, setForm] = useState(EMPTY_FORM);
   const [saving, setSaving] = useState(false);
+  // Bumped on every successful add so the YearMonthFields below remount (resetting their
+  // internal year/month selection state) instead of trying to sync from a changing value.
+  const [formKey, setFormKey] = useState(0);
 
   function load() {
     return fetch("/api/resume/education")
@@ -65,6 +71,7 @@ export default function EducationPage() {
         }),
       });
       setForm(EMPTY_FORM);
+      setFormKey((k) => k + 1);
       await load();
     } finally {
       setSaving(false);
@@ -146,20 +153,22 @@ export default function EducationPage() {
           value={form.department}
           onChange={(v) => setForm((f) => ({ ...f, department: v }))}
         />
-        <div className="flex flex-col gap-3 sm:flex-row">
-          <Field
-            label="入学年月"
-            type="date"
-            value={form.admission_date}
-            onChange={(v) => setForm((f) => ({ ...f, admission_date: v }))}
-          />
-          <Field
-            label="卒業年月"
-            type="date"
-            value={form.graduation_date}
-            onChange={(v) => setForm((f) => ({ ...f, graduation_date: v }))}
-          />
-        </div>
+        <YearMonthField
+          key={`admission-${formKey}`}
+          label="入学年月"
+          value={form.admission_date}
+          onChange={(v) => setForm((f) => ({ ...f, admission_date: v }))}
+          yearFrom={CURRENT_YEAR - 60}
+          yearTo={CURRENT_YEAR + 2}
+        />
+        <YearMonthField
+          key={`graduation-${formKey}`}
+          label="卒業年月"
+          value={form.graduation_date}
+          onChange={(v) => setForm((f) => ({ ...f, graduation_date: v }))}
+          yearFrom={CURRENT_YEAR - 60}
+          yearTo={CURRENT_YEAR + 2}
+        />
         <label className="flex flex-col gap-1 text-sm font-bold text-foreground/70">
           状況
           <select
