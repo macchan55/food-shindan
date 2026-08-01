@@ -1,4 +1,4 @@
-import type { RirekishoTemplateId, ShokumuTemplateId } from "./types";
+import type { ResumeStyleId, RirekishoTemplateId, ShokumuTemplateId } from "./types";
 
 export const COLORS = {
   ink: "#1a1a1a",
@@ -21,4 +21,34 @@ export const SHOKUMU_TEMPLATES: { id: ShokumuTemplateId; label: string; descript
   { id: "chronological", label: "編年体", description: "経歴を時系列順に丁寧に伝える王道フォーマット" },
   { id: "timeline", label: "タイムライン", description: "直近の経歴から振り返るキャリア型レイアウト" },
   { id: "highlight", label: "アピール型", description: "強み・実績を前面に押し出すレイアウト" },
+];
+
+export const RESUME_STYLES: {
+  id: ResumeStyleId;
+  label: string;
+  description: string;
+  rirekishoTemplate: RirekishoTemplateId;
+  shokumuTemplate: ShokumuTemplateId;
+}[] = [
+  {
+    id: "traditional",
+    label: "トラディショナル",
+    description: "王道の書式で丁寧にまとめる、信頼感のあるスタイル",
+    rirekishoTemplate: "traditional",
+    shokumuTemplate: "chronological",
+  },
+  {
+    id: "modern",
+    label: "モダン",
+    description: "余白を活かして読みやすい、今どきのシンプルなスタイル",
+    rirekishoTemplate: "modern",
+    shokumuTemplate: "timeline",
+  },
+  {
+    id: "rich",
+    label: "リッチ",
+    description: "カラーとレイアウトで魅せる、デザイン重視のスタイル",
+    rirekishoTemplate: "sidebar",
+    shokumuTemplate: "highlight",
+  },
 ];

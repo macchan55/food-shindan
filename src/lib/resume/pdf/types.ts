@@ -1,6 +1,11 @@
 export type RirekishoTemplateId = "traditional" | "modern" | "sidebar";
 export type ShokumuTemplateId = "chronological" | "timeline" | "highlight";
 
+// A single "design" choice the user picks once, pairing one rirekisho template with the
+// shokumu template that matches its visual style, so 履歴書/職務経歴書 always look like a
+// coherent set instead of being styled independently.
+export type ResumeStyleId = "traditional" | "modern" | "rich";
+
 export type ResumePdfData = {
   email: string;
   profile: {
