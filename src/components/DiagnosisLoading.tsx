@@ -11,32 +11,30 @@ const MESSAGES = [
   "診断結果をまとめています…",
 ];
 
-// A fixed pool of type codes used only to animate a "narrowing down" portrait shuffle
-// while the real result is computed server-side — has no relation to the actual type.
-const SHUFFLE_CODES = [
-  "T05",
-  "T14",
-  "T22",
-  "T31",
-  "T38",
-  "T44",
-  "T51",
-  "T09",
-  "T27",
-  "T60",
-  "T17",
-  "T35",
-];
+// All 64 types, alternating gendered art (the newer vivid-style portraits - the bare
+// T##.webp files predate that art pass and read as flat/outdated next to these) for
+// variety in the grid below. Has no relation to the actual diagnosed type.
+const GRID_CODES = Array.from({ length: 64 }, (_, i) => {
+  const code = `T${String(i + 1).padStart(2, "0")}`;
+  return `${code}-${i % 2 === 0 ? "m" : "f"}`;
+});
+
+const PULSE_LIFETIME_MS = 650;
+const PULSE_INTERVAL_MS = 130;
 
 export function DiagnosisLoading() {
-  const [frame, setFrame] = useState(0);
+  const [pulses, setPulses] = useState<{ index: number; at: number }[]>([]);
   const [messageIndex, setMessageIndex] = useState(0);
   const [progress, setProgress] = useState(6);
 
   useEffect(() => {
-    const shuffleTimer = setInterval(() => {
-      setFrame((f) => f + 1);
-    }, 220);
+    const pulseTimer = setInterval(() => {
+      const now = Date.now();
+      setPulses((prev) => [
+        ...prev.filter((p) => now - p.at < PULSE_LIFETIME_MS),
+        { index: Math.floor(Math.random() * GRID_CODES.length), at: now },
+      ]);
+    }, PULSE_INTERVAL_MS);
     const messageTimer = setInterval(() => {
       setMessageIndex((i) => (i + 1) % MESSAGES.length);
     }, 1700);
@@ -44,42 +42,45 @@ export function DiagnosisLoading() {
       setProgress((p) => (p < 92 ? Math.min(92, p + Math.max(1, (92 - p) * 0.08)) : p));
     }, 260);
     return () => {
-      clearInterval(shuffleTimer);
+      clearInterval(pulseTimer);
       clearInterval(messageTimer);
       clearInterval(progressTimer);
     };
   }, []);
 
-  const code = SHUFFLE_CODES[frame % SHUFFLE_CODES.length];
+  const highlighted = new Set(pulses.map((p) => p.index));
 
   return (
-    <main className="mx-auto flex w-full max-w-xl flex-1 flex-col items-center justify-center gap-7 px-6 py-16 text-center">
-      <div className="relative flex h-40 w-40 items-center justify-center">
-        <div
-          className="absolute inset-0 rounded-full border-4 border-brand-soft border-t-brand"
-          style={{ animation: "spin 1.4s linear infinite" }}
-        />
-        <div className="absolute inset-3 overflow-hidden rounded-full border-2 border-brand-soft bg-brand-soft/40">
-          <Image key={code} src={`/characters/${code}.webp`} alt="" fill className="object-cover" />
-        </div>
-        <span className="absolute -right-1 -top-1 animate-pulse text-xl">✨</span>
-        <span
-          className="absolute -bottom-1 -left-1 animate-pulse text-lg"
-          style={{ animationDelay: "0.4s" }}
-        >
-          ✨
-        </span>
-        <span
-          className="absolute -left-2 top-3 animate-pulse text-sm"
-          style={{ animationDelay: "0.8s" }}
-        >
-          ✨
-        </span>
+    <main className="mx-auto flex w-full max-w-xl flex-1 flex-col items-center justify-center gap-6 px-6 py-16 text-center">
+      <div className="space-y-2">
+        <p className="text-xl font-bold text-brand-dark">
+          診断鑑定中・・・ <span className="animate-pulse">✨</span>
+        </p>
+        <p className="text-sm text-foreground/60">{MESSAGES[messageIndex]}</p>
       </div>
 
-      <div className="space-y-2">
-        <p className="text-xl font-bold text-brand-dark">診断鑑定中・・・</p>
-        <p className="text-sm text-foreground/60">{MESSAGES[messageIndex]}</p>
+      <div className="grid w-full max-w-sm grid-cols-8 gap-1.5 sm:gap-2">
+        {GRID_CODES.map((code, i) => {
+          const isHot = highlighted.has(i);
+          return (
+            <div
+              key={code}
+              className={`relative aspect-square overflow-hidden rounded-md transition-all duration-200 ease-out ${
+                isHot
+                  ? "z-10 scale-125 opacity-100 shadow-lg ring-2 ring-brand"
+                  : "scale-100 opacity-60 ring-1 ring-border"
+              }`}
+            >
+              <Image
+                src={`/characters/${code}.webp`}
+                alt=""
+                fill
+                sizes="40px"
+                className="object-cover"
+              />
+            </div>
+          );
+        })}
       </div>
 
       <div className="h-2 w-full max-w-xs overflow-hidden rounded-full bg-brand-soft">
