@@ -69,14 +69,14 @@ function QuestionCard({
 
       <h2 className="text-xl font-bold leading-relaxed">{question.text}</h2>
 
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-2">
         {question.choices.map((choice, i) => {
           const selected = selectedChoiceId === choice.id;
           return (
             <button
               key={choice.id}
               onClick={() => onSelect(choice.id)}
-              className={`flex items-start gap-3 rounded-3xl border-2 p-4 text-left transition-all ${
+              className={`flex items-start gap-3 rounded-3xl border-2 p-3 text-left transition-all ${
                 selected
                   ? "border-brand bg-brand-soft shadow-md"
                   : "border-border bg-surface hover:border-brand/60 hover:shadow-sm"
