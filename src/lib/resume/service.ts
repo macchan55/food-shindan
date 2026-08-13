@@ -254,6 +254,8 @@ export async function linkDiagnosisSession(userId: string, sessionId: string): P
 }
 
 export type DiagnosisContext = {
+  typeName: string;
+  catchcopy: string;
   strengths: string[];
   personalityAnalysis: string | null;
   abilityAnalysis: string | null;
@@ -261,13 +263,20 @@ export type DiagnosisContext = {
   suitedJobs: string[];
 };
 
-/** The linked diagnosis session's primary-type content, shaped for AI generation. */
+/**
+ * The linked diagnosis session's primary-type content. Used both as AI generation context
+ * (silently, in every /api/resume/generate call) and — via typeName/catchcopy — for the
+ * self-PR page's explicit "診断結果の特性を反映する" button, so the "診断結果を反映した
+ * 履歴書" pitch on the diagnosis result page has something visible/tangible on this side.
+ */
 export async function getDiagnosisContext(userId: string): Promise<DiagnosisContext | null> {
   const resume = await getOrCreateResume(userId);
   if (!resume.diagnosis_session_id) return null;
   const view = await getResult(resume.diagnosis_session_id);
   const t = view.primaryType;
   return {
+    typeName: t.name,
+    catchcopy: t.catchcopy,
     strengths: t.strengths,
     personalityAnalysis: t.personality_analysis,
     abilityAnalysis: t.ability_analysis,

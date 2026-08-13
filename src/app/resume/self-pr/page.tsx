@@ -3,6 +3,18 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
+type DiagnosisContext = {
+  typeName: string;
+  catchcopy: string;
+  strengths: string[];
+  personalityAnalysis: string | null;
+};
+
+function buildStrengthsText(ctx: DiagnosisContext): string {
+  const lead = `${ctx.strengths.join("、")}を強みとしています。`;
+  return ctx.personalityAnalysis ? `${lead}\n${ctx.personalityAnalysis}` : lead;
+}
+
 type ResumeText = {
   target_job: string | null;
   work_summary: string | null;
@@ -29,6 +41,8 @@ export default function SelfPrPage() {
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  // undefined = still loading, null = confirmed no diagnosis linked
+  const [diagnosis, setDiagnosis] = useState<DiagnosisContext | null | undefined>(undefined);
 
   useEffect(() => {
     fetch("/api/resume")
@@ -37,7 +51,16 @@ export default function SelfPrPage() {
         if (d.resume) setText({ ...EMPTY, ...d.resume });
       })
       .finally(() => setLoading(false));
+    fetch("/api/resume/diagnosis-context")
+      .then((r) => r.json())
+      .then((d) => setDiagnosis(d.context ?? null))
+      .catch(() => setDiagnosis(null));
   }, []);
+
+  function handleApplyDiagnosisStrengths() {
+    if (!diagnosis) return;
+    set("strengths_text", buildStrengthsText(diagnosis));
+  }
 
   function set<K extends keyof ResumeText>(key: K, value: ResumeText[K]) {
     setText((t) => ({ ...t, [key]: value }));
@@ -109,6 +132,42 @@ export default function SelfPrPage() {
           診断結果と職歴をもとに、AIが文章の下書きを作成します。内容は自由に編集できます。
         </p>
       </div>
+
+      {diagnosis && (
+        <div className="space-y-3 rounded-2xl border border-brand/40 bg-brand-soft/50 p-4">
+          <div>
+            <p className="text-xs font-bold text-brand-dark">あなたの診断結果</p>
+            <p className="text-sm font-bold">
+              {diagnosis.typeName}「{diagnosis.catchcopy}」
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-1.5">
+            {diagnosis.strengths.map((s) => (
+              <span
+                key={s}
+                className="rounded-full bg-white px-2.5 py-1 text-xs font-medium text-brand-dark"
+              >
+                {s}
+              </span>
+            ))}
+          </div>
+          <button
+            type="button"
+            onClick={handleApplyDiagnosisStrengths}
+            className="w-full rounded-full bg-brand px-4 py-2.5 text-center text-sm font-bold text-white shadow-sm transition-opacity hover:opacity-90"
+          >
+            この特性を「強み」欄に反映する
+          </button>
+        </div>
+      )}
+      {diagnosis === null && (
+        <p className="rounded-2xl border border-dashed border-border bg-surface p-3 text-xs text-foreground/50">
+          <Link href="/diagnosis" className="font-bold text-brand-dark underline underline-offset-2">
+            性格・強み診断
+          </Link>
+          を受けると、その結果の特性をここに反映できるようになります（任意）。
+        </p>
+      )}
 
       <label className="flex flex-col gap-1 text-sm font-bold text-foreground/70">
         志望職種（任意・空欄でも作成できます）
