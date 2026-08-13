@@ -199,7 +199,13 @@ export async function getOrCreateResume(userId: string): Promise<ResumeRow> {
 export type ResumeInput = Partial<
   Pick<
     ResumeRow,
-    "target_job" | "work_summary" | "self_pr" | "strengths_text" | "motivation" | "career_direction"
+    | "target_job"
+    | "work_summary"
+    | "self_pr"
+    | "strengths_text"
+    | "motivation"
+    | "career_direction"
+    | "entry_order"
   >
 >;
 

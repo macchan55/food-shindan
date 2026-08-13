@@ -15,6 +15,13 @@ function RegisterForm() {
   const [submitting, setSubmitting] = useState(false);
   const [needsConfirmation, setNeedsConfirmation] = useState(false);
 
+  // Scores the registration event (⑤) then routes through the mandatory 5-item
+  // preferences step (②③) before continuing on to wherever the caller wanted to go.
+  async function goToPreferences() {
+    await fetch("/api/account/register-complete", { method: "POST" }).catch(() => {});
+    router.push(`/register/preferences?next=${encodeURIComponent(next)}`);
+  }
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
@@ -35,7 +42,7 @@ function RegisterForm() {
           return;
         }
         if (data.user && !data.user.is_anonymous) {
-          router.push(next);
+          await goToPreferences();
         } else {
           setNeedsConfirmation(true);
         }
@@ -49,7 +56,7 @@ function RegisterForm() {
       }
       if (data.session) {
         await linkPendingResumeSessionIfAny();
-        router.push(next);
+        await goToPreferences();
       } else {
         setNeedsConfirmation(true);
       }
@@ -75,6 +82,9 @@ function RegisterForm() {
         <h1 className="text-2xl font-bold text-brand-dark">会員登録</h1>
         <p className="mt-1 text-sm text-foreground/60">
           ここまで入力した内容はそのまま引き継がれます。ダウンロードにはメールアドレスの登録が必要です。
+        </p>
+        <p className="mt-3 rounded-2xl bg-brand-soft/60 px-4 py-2.5 text-xs leading-relaxed text-brand-dark">
+          登録しただけで企業への推薦・応募が行われることはありません。営業電話もありません。すべてあなたの操作が起点です。
         </p>
       </div>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">

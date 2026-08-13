@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { requireUserId } from "@/lib/api/require-user";
 import { getDiagnosisContext, listWorkExperiences } from "@/lib/resume/service";
 import { generateResumeDraft } from "@/lib/resume/generate";
+import { synthesizeAchievementsText, synthesizeDutiesText } from "@/lib/resume/workTags";
 import { handleApiError } from "@/lib/api/handle-error";
 
 // POST /api/resume/generate { targetJob? } - returns an AI-drafted set of resume text
@@ -27,8 +28,8 @@ export async function POST(req: Request) {
         companyName: w.company_name,
         jobType: w.job_type,
         position: w.position,
-        mainDuties: w.main_duties,
-        achievements: w.achievements,
+        mainDuties: w.main_duties || synthesizeDutiesText(w.station_tags),
+        achievements: w.achievements || synthesizeAchievementsText(w.skill_tags),
       })),
     });
 

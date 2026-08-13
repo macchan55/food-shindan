@@ -8,6 +8,7 @@ import {
 } from "@/lib/resume/service";
 import { handleApiError } from "@/lib/api/handle-error";
 import { registerJapaneseFont } from "@/lib/resume/pdf/font";
+import { synthesizeAchievementsText, synthesizeDutiesText } from "@/lib/resume/workTags";
 import { RirekishoDocument } from "@/lib/resume/pdf/RirekishoDocument";
 import { ShokumuKeirekishoDocument } from "@/lib/resume/pdf/ShokumuKeirekishoDocument";
 import type { ResumePdfData, RirekishoTemplateId, ShokumuTemplateId } from "@/lib/resume/pdf/types";
@@ -102,8 +103,8 @@ export async function GET(req: Request) {
         employmentType: w.employment_type,
         jobType: w.job_type,
         position: w.position,
-        mainDuties: w.main_duties,
-        achievements: w.achievements,
+        mainDuties: w.main_duties || synthesizeDutiesText(w.station_tags),
+        achievements: w.achievements || synthesizeAchievementsText(w.skill_tags),
       })),
       qualifications: qualifications.map((q) => ({
         name: q.name,

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { YearMonthField } from "@/components/YearMonthField";
+import { WORK_BUSINESS_FORMATS, tagsForBusinessFormat } from "@/lib/resume/workTags";
 
 type WorkExperience = {
   id: string;
@@ -12,6 +13,7 @@ type WorkExperience = {
   end_date: string | null;
   is_current: boolean;
   employment_type: string | null;
+  business_format: string | null;
   cuisine_genre: string | null;
   job_type: string | null;
   position: string | null;
@@ -21,6 +23,8 @@ type WorkExperience = {
   managed_headcount: string | null;
   main_duties: string | null;
   achievements: string | null;
+  station_tags: string[];
+  skill_tags: string[];
 };
 
 const EMPLOYMENT_TYPES = ["正社員", "派遣社員", "パート", "アルバイト", "業務委託", "その他"];
@@ -60,6 +64,7 @@ const EMPTY_FORM = {
   end_date: "",
   is_current: false,
   employment_type: "",
+  business_format: "",
   cuisine_genre: "",
   job_type: "",
   position: "",
@@ -69,6 +74,8 @@ const EMPTY_FORM = {
   managed_headcount: "",
   main_duties: "",
   achievements: "",
+  station_tags: [] as string[],
+  skill_tags: [] as string[],
 };
 
 export default function WorkExperiencePage() {
@@ -103,6 +110,7 @@ export default function WorkExperiencePage() {
           start_date: form.start_date || null,
           end_date: form.is_current ? null : form.end_date || null,
           employment_type: form.employment_type || null,
+          business_format: form.business_format || null,
           cuisine_genre: form.cuisine_genre || null,
           job_type: form.job_type || null,
           position: form.position || null,
@@ -112,6 +120,8 @@ export default function WorkExperiencePage() {
           managed_headcount: form.managed_headcount || null,
           main_duties: form.main_duties || null,
           achievements: form.achievements || null,
+          station_tags: form.station_tags,
+          skill_tags: form.skill_tags,
           reason_for_leaving: null,
           reason_visibility: "private",
         }),
@@ -223,10 +233,23 @@ export default function WorkExperiencePage() {
           value={form.position}
           onChange={(v) => setForm((f) => ({ ...f, position: v }))}
         />
+        <Select
+          label="業態"
+          value={form.business_format}
+          options={[...WORK_BUSINESS_FORMATS]}
+          onChange={(v) => setForm((f) => ({ ...f, business_format: v, station_tags: [], skill_tags: [] }))}
+        />
         <Field
           label="料理ジャンル"
           value={form.cuisine_genre}
           onChange={(v) => setForm((f) => ({ ...f, cuisine_genre: v }))}
+        />
+        <WorkTagPicker
+          businessFormat={form.business_format || null}
+          stationTags={form.station_tags}
+          skillTags={form.skill_tags}
+          onChangeStations={(tags) => setForm((f) => ({ ...f, station_tags: tags }))}
+          onChangeSkills={(tags) => setForm((f) => ({ ...f, skill_tags: tags }))}
         />
         <div className="flex gap-3">
           <Field
@@ -256,12 +279,18 @@ export default function WorkExperiencePage() {
           />
         </div>
         <TextArea
-          label="主な業務"
+          label={
+            tagsForBusinessFormat(form.business_format || null)
+              ? "主な業務（補足・任意）"
+              : "主な業務"
+          }
           value={form.main_duties}
           onChange={(v) => setForm((f) => ({ ...f, main_duties: v }))}
         />
         <TextArea
-          label="実績"
+          label={
+            tagsForBusinessFormat(form.business_format || null) ? "実績（補足・任意）" : "実績"
+          }
           value={form.achievements}
           onChange={(v) => setForm((f) => ({ ...f, achievements: v }))}
         />
@@ -338,6 +367,85 @@ function Select({
         ))}
       </select>
     </label>
+  );
+}
+
+// ⑥⑦ persona×skill tag picker: business_format decides the tag catalog (see
+// src/lib/resume/workTags.ts). Renders nothing for formats without a curated tag set
+// ('その他' etc.), leaving main_duties/achievements as the only entry method there.
+function WorkTagPicker({
+  businessFormat,
+  stationTags,
+  skillTags,
+  onChangeStations,
+  onChangeSkills,
+}: {
+  businessFormat: string | null;
+  stationTags: string[];
+  skillTags: string[];
+  onChangeStations: (tags: string[]) => void;
+  onChangeSkills: (tags: string[]) => void;
+}) {
+  const tagSet = tagsForBusinessFormat(businessFormat);
+  if (!tagSet) return null;
+
+  function toggle(list: string[], value: string, onChange: (tags: string[]) => void) {
+    onChange(list.includes(value) ? list.filter((v) => v !== value) : [...list, value]);
+  }
+
+  return (
+    <div className="flex flex-col gap-3 rounded-xl border border-border bg-background p-3">
+      <div>
+        <p className="mb-1.5 text-xs font-bold text-foreground/70">持ち場（複数選択可）</p>
+        <div className="flex flex-wrap gap-1.5">
+          {tagSet.stations.map((tag) => (
+            <TagChip
+              key={tag}
+              label={tag}
+              selected={stationTags.includes(tag)}
+              onClick={() => toggle(stationTags, tag, onChangeStations)}
+            />
+          ))}
+        </div>
+      </div>
+      <div>
+        <p className="mb-1.5 text-xs font-bold text-foreground/70">技術タグ（複数選択可）</p>
+        <div className="flex flex-wrap gap-1.5">
+          {tagSet.skills.map((tag) => (
+            <TagChip
+              key={tag}
+              label={tag}
+              selected={skillTags.includes(tag)}
+              onClick={() => toggle(skillTags, tag, onChangeSkills)}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function TagChip({
+  label,
+  selected,
+  onClick,
+}: {
+  label: string;
+  selected: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`rounded-full border px-3 py-1 text-xs font-bold transition-colors ${
+        selected
+          ? "border-brand bg-brand-soft text-brand-dark"
+          : "border-border text-foreground/60 hover:border-brand/60"
+      }`}
+    >
+      {label}
+    </button>
   );
 }
 

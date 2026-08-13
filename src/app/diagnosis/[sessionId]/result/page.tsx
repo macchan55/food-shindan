@@ -8,6 +8,7 @@ import { RadarChart, RadarScoreLegend } from "@/components/RadarChart";
 import { RankingList } from "@/components/RankingList";
 import { FeedbackForm } from "@/components/FeedbackForm";
 import { Sunburst } from "@/components/Sunburst";
+import { JobTeaser } from "@/components/JobTeaser";
 import { familyColor } from "@/lib/family-colors";
 import { setPendingResumeSession } from "@/lib/resume/pending-session";
 
@@ -157,6 +158,8 @@ export default function DiagnosisResultPage() {
           {copied ? "コピーしました！" : "結果のURLをコピーして共有"}
         </button>
       </section>
+
+      <JobTeaser />
 
       {/* Block 2: description & strengths */}
       <section className="space-y-3 rounded-3xl border border-border bg-surface p-5 shadow-sm">

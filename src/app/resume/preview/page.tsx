@@ -5,6 +5,7 @@ import Link from "next/link";
 import { supabaseBrowser } from "@/lib/supabase/browser";
 import { RESUME_STYLES } from "@/lib/resume/pdf/theme";
 import { ResumeTemplateThumb } from "@/components/ResumeTemplateThumb";
+import { AddonPanel } from "@/components/AddonPanel";
 import type { ResumeStyleId } from "@/lib/resume/pdf/types";
 
 const DOCS = [
@@ -102,6 +103,8 @@ export default function PreviewPage() {
           className="h-[80vh] w-full"
         />
       </div>
+
+      {isAnonymous === false && <AddonPanel />}
     </main>
   );
 }

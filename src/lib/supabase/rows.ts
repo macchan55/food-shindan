@@ -160,6 +160,8 @@ export type WorkExperienceRow = {
   achievements: string | null;
   reason_for_leaving: string | null;
   reason_visibility: "private" | "public";
+  station_tags: string[];
+  skill_tags: string[];
   display_order: number;
 };
 
@@ -185,5 +187,66 @@ export type ResumeRow = {
   strengths_text: string | null;
   motivation: string | null;
   career_direction: string | null;
+  entry_order: "education_first" | "work_first";
   updated_at: string;
+};
+
+export type CareerTiming =
+  | "immediately"
+  | "within_3_months"
+  | "within_6_months"
+  | "if_good_offer"
+  | "not_yet";
+
+export type CareerPreferencesRow = {
+  id: string;
+  user_id: string;
+  timing: CareerTiming;
+  desired_income: string | null;
+  desired_area: string | null;
+  desired_format: string | null;
+  desired_role: string | null;
+  change_reasons: string[];
+  updated_at: string;
+};
+
+export type JobPostingRow = {
+  id: string;
+  partner: string;
+  store_name: string;
+  is_michelin: boolean;
+  area: string | null;
+  business_format: string | null;
+  role: string | null;
+  annual_income_min: number | null;
+  annual_income_max: number | null;
+  summary: string;
+  is_confidential: boolean;
+  status: "open" | "closed";
+  display_order: number;
+};
+
+export type JobInterviewRequestRow = {
+  id: string;
+  user_id: string;
+  job_posting_id: string;
+  status: "requested" | "scheduled" | "done" | "cancelled";
+  created_at: string;
+};
+
+export type IntentScoreEventType =
+  | "registered"
+  | "preferences_submitted"
+  | "interview_requested"
+  | "addon_requested";
+
+export type AddonType = "resume_review" | "interview_prep" | "translation";
+
+export type AddonRequestRow = {
+  id: string;
+  user_id: string;
+  addon_type: AddonType;
+  note: string | null;
+  status: "requested" | "contacted" | "done";
+  created_at: string;
 };

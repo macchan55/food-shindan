@@ -6,23 +6,36 @@ import { ProgressBar } from "@/components/ProgressBar";
 import { ResumeTemplateThumb } from "@/components/ResumeTemplateThumb";
 import { RIREKISHO_TEMPLATES } from "@/lib/resume/pdf/theme";
 
-const STEPS = [
-  { href: "/resume/profile", label: "基本情報", icon: "👤", key: "profile" as const },
-  { href: "/resume/education", label: "学歴", icon: "🎓", key: "education" as const },
-  { href: "/resume/work", label: "職歴", icon: "💼", key: "work" as const },
-  { href: "/resume/qualifications", label: "資格", icon: "📜", key: "qualifications" as const },
-  {
-    href: "/resume/self-pr",
-    label: "自己PR・職務要約（AI作成）",
-    icon: "✍️",
-    key: "selfPr" as const,
-  },
-];
+const PROFILE_STEP = { href: "/resume/profile", label: "基本情報", icon: "👤", key: "profile" as const };
+const EDUCATION_STEP = { href: "/resume/education", label: "学歴", icon: "🎓", key: "education" as const };
+const WORK_STEP = { href: "/resume/work", label: "職歴", icon: "💼", key: "work" as const };
+const QUALIFICATIONS_STEP = {
+  href: "/resume/qualifications",
+  label: "資格",
+  icon: "📜",
+  key: "qualifications" as const,
+};
+const SELF_PR_STEP = {
+  href: "/resume/self-pr",
+  label: "自己PR・職務要約（AI作成）",
+  icon: "✍️",
+  key: "selfPr" as const,
+};
 
-type Done = Record<(typeof STEPS)[number]["key"], boolean>;
+type StepKey = "profile" | "education" | "work" | "qualifications" | "selfPr";
+type Done = Record<StepKey, boolean>;
+type EntryOrder = "education_first" | "work_first";
+
+// ⑧ 飲食業界は学歴の重みが軽いので、職歴から先に埋めたい人向けに順序を選べるようにする。
+// 入力するフィールド自体は変えず、ダッシュボードの提示順だけ切り替える。
+function stepsFor(entryOrder: EntryOrder) {
+  const historySteps = entryOrder === "work_first" ? [WORK_STEP, EDUCATION_STEP] : [EDUCATION_STEP, WORK_STEP];
+  return [PROFILE_STEP, ...historySteps, QUALIFICATIONS_STEP, SELF_PR_STEP];
+}
 
 export default function ResumeDashboardPage() {
   const [done, setDone] = useState<Done | null>(null);
+  const [entryOrder, setEntryOrder] = useState<EntryOrder>("education_first");
 
   useEffect(() => {
     Promise.all([
@@ -39,9 +52,20 @@ export default function ResumeDashboardPage() {
         qualifications: (q.qualifications ?? []).length > 0,
         selfPr: Boolean(r.resume?.self_pr),
       });
+      if (r.resume?.entry_order) setEntryOrder(r.resume.entry_order);
     });
   }, []);
 
+  async function handleEntryOrderChange(next: EntryOrder) {
+    setEntryOrder(next);
+    await fetch("/api/resume", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ entry_order: next }),
+    });
+  }
+
+  const STEPS = stepsFor(entryOrder);
   const completedCount = done ? Object.values(done).filter(Boolean).length : 0;
   const started = completedCount > 0;
   const nextStep = STEPS.find((s) => !done?.[s.key]) ?? STEPS[0];
@@ -91,6 +115,30 @@ export default function ResumeDashboardPage() {
           </p>
         </div>
         <ProgressBar current={completedCount} total={STEPS.length} />
+
+        <div className="flex items-center gap-2 text-xs">
+          <span className="font-bold text-foreground/50">入力の順番：</span>
+          <button
+            onClick={() => handleEntryOrderChange("education_first")}
+            className={`rounded-full border px-3 py-1 font-bold transition-colors ${
+              entryOrder === "education_first"
+                ? "border-brand bg-brand-soft text-brand-dark"
+                : "border-border text-foreground/60"
+            }`}
+          >
+            学歴から
+          </button>
+          <button
+            onClick={() => handleEntryOrderChange("work_first")}
+            className={`rounded-full border px-3 py-1 font-bold transition-colors ${
+              entryOrder === "work_first"
+                ? "border-brand bg-brand-soft text-brand-dark"
+                : "border-border text-foreground/60"
+            }`}
+          >
+            職歴から
+          </button>
+        </div>
 
         <ul className="mt-1 flex flex-col gap-3">
           {STEPS.map((step) => (
