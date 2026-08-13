@@ -108,6 +108,9 @@ export default function DiagnosisFlowPage() {
   const [subIndex, setSubIndex] = useState(0);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  // Scene N's title-card interstitial (see below) has been dismissed for these scene
+  // indices — cleared per page load, not persisted, so reloading mid-scene shows it again.
+  const [dismissedIntros, setDismissedIntros] = useState<Set<number>>(new Set());
 
   const storageKey = `restaurant-dna:${sessionId}`;
   const cardRefs = useRef<Record<string, HTMLDivElement | null>>({});
@@ -252,6 +255,54 @@ export default function DiagnosisFlowPage() {
 
   if (submitting) {
     return <DiagnosisLoading />;
+  }
+
+  // A quiz that just chains 64 questions in one long scroll reads as monotonous — this
+  // title card marks each new scene as its own "chapter" before revealing its questions,
+  // shown only when arriving at a scene's first question (not on 前の質問に戻る into the
+  // middle/end of a scene, and not again after it's been dismissed once this page load).
+  if (subIndex === 0 && !dismissedIntros.has(sceneIndex)) {
+    const firstQuestion = currentScene.questions[0];
+    return (
+      <main className="mx-auto flex w-full max-w-xl flex-1 flex-col items-center justify-center gap-6 px-6 py-10 text-center">
+        <div key={sceneIndex} className="animate-pop-in flex w-full flex-col items-center gap-6">
+          <span className="rounded-full bg-accent-soft px-4 py-1 text-sm font-bold text-brand-dark">
+            Scene {currentScene.sceneId} / {scenes.length}
+          </span>
+          <div className="w-full overflow-hidden rounded-3xl border border-border bg-brand-soft/60 shadow-lg">
+            <div className="relative aspect-[3/2] w-full">
+              <Image
+                src={questionImagePath(firstQuestion.questionCode)}
+                alt={currentScene.sceneTitle}
+                fill
+                className="object-cover"
+                priority={sceneIndex === 0}
+              />
+            </div>
+          </div>
+          <div className="space-y-1">
+            <h2 className="text-2xl font-bold text-brand-dark">{currentScene.sceneTitle}</h2>
+            <p className="text-sm text-foreground/60">
+              この場面は{currentScene.questions.length}問
+            </p>
+          </div>
+          <button
+            onClick={() => setDismissedIntros((prev) => new Set(prev).add(sceneIndex))}
+            className="w-full rounded-full bg-brand px-6 py-3.5 text-center text-base font-bold text-white shadow-md transition-opacity hover:opacity-90 sm:w-auto sm:px-10"
+          >
+            このシーンをはじめる →
+          </button>
+          {(sceneIndex > 0 || subIndex > 0) && (
+            <button
+              onClick={handleBack}
+              className="text-sm text-foreground/50 underline underline-offset-4"
+            >
+              前の質問に戻る
+            </button>
+          )}
+        </div>
+      </main>
+    );
   }
 
   const totalAnswered = Object.keys(answers).length;
