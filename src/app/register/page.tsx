@@ -32,11 +32,20 @@ function RegisterForm() {
         data: { user: currentUser },
       } = await supabase.auth.getUser();
 
+      // Where Supabase sends the user after clicking the email confirmation link. Passed
+      // explicitly (rather than relying on the Supabase dashboard's Site URL) so it always
+      // matches wherever this app is actually running — the dashboard's Site URL still has
+      // to allow-list this origin under Authentication > URL Configuration, though.
+      const emailRedirectTo = `${window.location.origin}/register/preferences?next=${encodeURIComponent(next)}`;
+
       // Coming from the resume builder means an anonymous session already exists with the
       // user's entered data attached to it — upgrade that session in place (same user id,
       // same rows) instead of creating a brand new account.
       if (currentUser?.is_anonymous) {
-        const { data, error: updateError } = await supabase.auth.updateUser({ email, password });
+        const { data, error: updateError } = await supabase.auth.updateUser(
+          { email, password },
+          { emailRedirectTo }
+        );
         if (updateError) {
           setError(updateError.message);
           return;
@@ -49,7 +58,11 @@ function RegisterForm() {
         return;
       }
 
-      const { data, error: signUpError } = await supabase.auth.signUp({ email, password });
+      const { data, error: signUpError } = await supabase.auth.signUp({
+        email,
+        password,
+        options: { emailRedirectTo },
+      });
       if (signUpError) {
         setError(signUpError.message);
         return;

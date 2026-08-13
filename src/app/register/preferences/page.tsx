@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import {
   TIMING_OPTIONS,
@@ -26,6 +26,13 @@ function PreferencesForm() {
   const [reasons, setReasons] = useState<string[]>([]);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  // The register page normally calls this before routing here, but the email-confirmation
+  // link lands here directly (see emailRedirectTo in /register) without ever running that
+  // client-side code — mark it here too. Idempotent server-side, so calling it twice is safe.
+  useEffect(() => {
+    fetch("/api/account/register-complete", { method: "POST" }).catch(() => {});
+  }, []);
 
   function toggleReason(reason: string) {
     setReasons((prev) =>
