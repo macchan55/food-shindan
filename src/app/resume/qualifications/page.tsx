@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 type Qualification = {
   id: string;
@@ -33,6 +34,7 @@ const COMMON_QUALIFICATIONS = [
 const EMPTY_FORM = { name: "", issuer: "", obtained_date: "" };
 
 export default function QualificationsPage() {
+  const router = useRouter();
   const [items, setItems] = useState<Qualification[]>([]);
   const [loading, setLoading] = useState(true);
   const [form, setForm] = useState(EMPTY_FORM);
@@ -48,22 +50,26 @@ export default function QualificationsPage() {
     load().finally(() => setLoading(false));
   }, []);
 
+  function postCurrentForm() {
+    return fetch("/api/resume/qualifications", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        ...form,
+        issuer: form.issuer || null,
+        obtained_date: form.obtained_date || null,
+        expiry_date: null,
+        certificate_number: null,
+        image_url: null,
+      }),
+    });
+  }
+
   async function handleAdd(e: React.FormEvent) {
     e.preventDefault();
     setSaving(true);
     try {
-      await fetch("/api/resume/qualifications", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...form,
-          issuer: form.issuer || null,
-          obtained_date: form.obtained_date || null,
-          expiry_date: null,
-          certificate_number: null,
-          image_url: null,
-        }),
-      });
+      await postCurrentForm();
       setForm(EMPTY_FORM);
       await load();
     } finally {
@@ -74,6 +80,21 @@ export default function QualificationsPage() {
   async function handleDelete(id: string) {
     await fetch(`/api/resume/qualifications/${id}`, { method: "DELETE" });
     await load();
+  }
+
+  // "自己PR・職務要約を作成する" used to be a plain Link: filling in the add-資格 form
+  // without pressing 追加する first meant that entry was silently discarded on navigation.
+  // If there's an unsaved entry (資格名 filled in, the one required field), add it first.
+  async function handleNext() {
+    if (form.name.trim()) {
+      setSaving(true);
+      try {
+        await postCurrentForm();
+      } finally {
+        setSaving(false);
+      }
+    }
+    router.push("/resume/self-pr");
   }
 
   return (
@@ -150,12 +171,14 @@ export default function QualificationsPage() {
         </button>
       </form>
 
-      <Link
-        href="/resume/self-pr"
-        className="block w-full rounded-full border border-brand bg-brand-soft px-6 py-3 text-center text-sm font-bold text-brand-dark transition-opacity hover:opacity-90"
+      <button
+        type="button"
+        onClick={handleNext}
+        disabled={saving}
+        className="block w-full rounded-full border border-brand bg-brand-soft px-6 py-3 text-center text-sm font-bold text-brand-dark transition-opacity hover:opacity-90 disabled:opacity-60"
       >
-        自己PR・職務要約を作成する →
-      </Link>
+        {saving ? "保存中…" : "自己PR・職務要約を作成する →"}
+      </button>
     </main>
   );
 }

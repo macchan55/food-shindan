@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { YearMonthField } from "@/components/YearMonthField";
 import { WORK_BUSINESS_FORMATS, tagsForBusinessFormat } from "@/lib/resume/workTags";
 
@@ -79,6 +80,7 @@ const EMPTY_FORM = {
 };
 
 export default function WorkExperiencePage() {
+  const router = useRouter();
   const [items, setItems] = useState<WorkExperience[]>([]);
   const [loading, setLoading] = useState(true);
   const [form, setForm] = useState(EMPTY_FORM);
@@ -97,35 +99,39 @@ export default function WorkExperiencePage() {
     load().finally(() => setLoading(false));
   }, []);
 
+  function postCurrentForm() {
+    return fetch("/api/resume/work-experiences", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        ...form,
+        store_name: form.store_name || null,
+        start_date: form.start_date || null,
+        end_date: form.is_current ? null : form.end_date || null,
+        employment_type: form.employment_type || null,
+        business_format: form.business_format || null,
+        cuisine_genre: form.cuisine_genre || null,
+        job_type: form.job_type || null,
+        position: form.position || null,
+        store_size: form.store_size || null,
+        seat_count: form.seat_count || null,
+        avg_spend: form.avg_spend || null,
+        managed_headcount: form.managed_headcount || null,
+        main_duties: form.main_duties || null,
+        achievements: form.achievements || null,
+        station_tags: form.station_tags,
+        skill_tags: form.skill_tags,
+        reason_for_leaving: null,
+        reason_visibility: "private",
+      }),
+    });
+  }
+
   async function handleAdd(e: React.FormEvent) {
     e.preventDefault();
     setSaving(true);
     try {
-      await fetch("/api/resume/work-experiences", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...form,
-          store_name: form.store_name || null,
-          start_date: form.start_date || null,
-          end_date: form.is_current ? null : form.end_date || null,
-          employment_type: form.employment_type || null,
-          business_format: form.business_format || null,
-          cuisine_genre: form.cuisine_genre || null,
-          job_type: form.job_type || null,
-          position: form.position || null,
-          store_size: form.store_size || null,
-          seat_count: form.seat_count || null,
-          avg_spend: form.avg_spend || null,
-          managed_headcount: form.managed_headcount || null,
-          main_duties: form.main_duties || null,
-          achievements: form.achievements || null,
-          station_tags: form.station_tags,
-          skill_tags: form.skill_tags,
-          reason_for_leaving: null,
-          reason_visibility: "private",
-        }),
-      });
+      await postCurrentForm();
       setForm(EMPTY_FORM);
       setFormKey((k) => k + 1);
       await load();
@@ -137,6 +143,22 @@ export default function WorkExperiencePage() {
   async function handleDelete(id: string) {
     await fetch(`/api/resume/work-experiences/${id}`, { method: "DELETE" });
     await load();
+  }
+
+  // "資格を入力する" used to be a plain Link: filling in the add-職歴 form without pressing
+  // 追加する first meant that entry was silently discarded on navigation (same bug as the
+  // profile page). If there's an unsaved entry (会社名 filled in, the one required field),
+  // add it before moving on.
+  async function handleNext() {
+    if (form.company_name.trim()) {
+      setSaving(true);
+      try {
+        await postCurrentForm();
+      } finally {
+        setSaving(false);
+      }
+    }
+    router.push("/resume/qualifications");
   }
 
   return (
@@ -303,12 +325,14 @@ export default function WorkExperiencePage() {
         </button>
       </form>
 
-      <Link
-        href="/resume/qualifications"
-        className="block w-full rounded-full border border-brand bg-brand-soft px-6 py-3 text-center text-sm font-bold text-brand-dark transition-opacity hover:opacity-90"
+      <button
+        type="button"
+        onClick={handleNext}
+        disabled={saving}
+        className="block w-full rounded-full border border-brand bg-brand-soft px-6 py-3 text-center text-sm font-bold text-brand-dark transition-opacity hover:opacity-90 disabled:opacity-60"
       >
-        資格を入力する →
-      </Link>
+        {saving ? "保存中…" : "資格を入力する →"}
+      </button>
     </main>
   );
 }

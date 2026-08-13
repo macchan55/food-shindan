@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { YearMonthField } from "@/components/YearMonthField";
 
 type Education = {
@@ -38,6 +39,7 @@ const EMPTY_FORM = {
 };
 
 export default function EducationPage() {
+  const router = useRouter();
   const [items, setItems] = useState<Education[]>([]);
   const [loading, setLoading] = useState(true);
   const [form, setForm] = useState(EMPTY_FORM);
@@ -56,20 +58,24 @@ export default function EducationPage() {
     load().finally(() => setLoading(false));
   }, []);
 
+  function postCurrentForm() {
+    return fetch("/api/resume/education", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        ...form,
+        department: form.department || null,
+        admission_date: form.admission_date || null,
+        graduation_date: form.graduation_date || null,
+      }),
+    });
+  }
+
   async function handleAdd(e: React.FormEvent) {
     e.preventDefault();
     setSaving(true);
     try {
-      await fetch("/api/resume/education", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...form,
-          department: form.department || null,
-          admission_date: form.admission_date || null,
-          graduation_date: form.graduation_date || null,
-        }),
-      });
+      await postCurrentForm();
       setForm(EMPTY_FORM);
       setFormKey((k) => k + 1);
       await load();
@@ -81,6 +87,21 @@ export default function EducationPage() {
   async function handleDelete(id: string) {
     await fetch(`/api/resume/education/${id}`, { method: "DELETE" });
     await load();
+  }
+
+  // "職歴を入力する" used to be a plain Link: filling in the add-学歴 form without pressing
+  // 追加する first meant that entry was silently discarded on navigation. If there's an
+  // unsaved entry (required fields filled), add it before moving on.
+  async function handleNext() {
+    if (form.school_name.trim() && form.school_type) {
+      setSaving(true);
+      try {
+        await postCurrentForm();
+      } finally {
+        setSaving(false);
+      }
+    }
+    router.push("/resume/work");
   }
 
   return (
@@ -200,12 +221,14 @@ export default function EducationPage() {
         </button>
       </form>
 
-      <Link
-        href="/resume/work"
-        className="block w-full rounded-full border border-brand bg-brand-soft px-6 py-3 text-center text-sm font-bold text-brand-dark transition-opacity hover:opacity-90"
+      <button
+        type="button"
+        onClick={handleNext}
+        disabled={saving}
+        className="block w-full rounded-full border border-brand bg-brand-soft px-6 py-3 text-center text-sm font-bold text-brand-dark transition-opacity hover:opacity-90 disabled:opacity-60"
       >
-        職歴を入力する →
-      </Link>
+        {saving ? "保存中…" : "職歴を入力する →"}
+      </button>
     </main>
   );
 }
