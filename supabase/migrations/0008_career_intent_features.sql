@@ -74,11 +74,12 @@ create view user_intent_scores as
   from intent_score_events
   group by user_id;
 
--- ⑥⑦ tag-based work history entry. business_format drives which tag set/granularity the
--- UI renders (see src/lib/resume/workTags.ts); station/skill tags replace prose for anyone
--- who picks a format with a curated tag catalog, and free text (main_duties/achievements,
--- already present) remains the fallback for 'その他' / freeform formats.
-alter table work_experiences add column business_format text;
+-- ⑥⑦ tag-based work history entry. business_format (already a column since 0006's
+-- work_experiences table — dropped from the UI at the time, but never from the schema)
+-- drives which tag set/granularity the UI renders (see src/lib/resume/workTags.ts);
+-- station/skill tags replace prose for anyone who picks a format with a curated tag
+-- catalog, and free text (main_duties/achievements, already present) remains the
+-- fallback for 'その他' / freeform formats.
 alter table work_experiences add column station_tags text[] not null default '{}';
 alter table work_experiences add column skill_tags text[] not null default '{}';
 
