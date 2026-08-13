@@ -713,7 +713,7 @@ insert into choices (id, question_id, choice_code, choice_text, display_order) v
 insert into choice_scores (choice_id, axis_code, score_value) values ('f9a4094d-9367-5775-be8f-b7eb7bb6ede0', 'CRE', 2);
 insert into choice_scores (choice_id, axis_code, score_value) values ('f9a4094d-9367-5775-be8f-b7eb7bb6ede0', 'CHA', 1);
 insert into choice_scores (choice_id, axis_code, score_value) values ('f9a4094d-9367-5775-be8f-b7eb7bb6ede0', 'BUS', 1);
-insert into questions (id, version_id, question_code, scene_id, scene_title, visual_brief, display_order, question_text) values ('f4ff42ab-6f8b-5621-bae2-1f0cec241630', '3dc047b9-dd5a-56fd-a5a2-b3c7cd225c4d', 'Q49', 13, '店の財布、どう使う？', '限られた予算を前に、投資先を決める会議。', 49, 'もし使える予算が限られていたら、最初にお金をかけたいのは？');
+insert into questions (id, version_id, question_code, scene_id, scene_title, visual_brief, display_order, question_text) values ('f4ff42ab-6f8b-5621-bae2-1f0cec241630', '3dc047b9-dd5a-56fd-a5a2-b3c7cd225c4d', 'Q49', 13, 'どこに賭ける？', '限られた予算を前に、投資先を決める会議。', 49, 'もし使える予算が限られていたら、最初にお金をかけたいのは？');
 insert into choices (id, question_id, choice_code, choice_text, display_order) values ('ab6e1975-9dd6-5da7-8311-e81c8f245454', 'f4ff42ab-6f8b-5621-bae2-1f0cec241630', 'A', 'お客様がもっと心地よくなること', 1);
 insert into choice_scores (choice_id, axis_code, score_value) values ('ab6e1975-9dd6-5da7-8311-e81c8f245454', 'HOS', 2);
 insert into choice_scores (choice_id, axis_code, score_value) values ('ab6e1975-9dd6-5da7-8311-e81c8f245454', 'CUS', 2);
@@ -727,7 +727,7 @@ insert into choice_scores (choice_id, axis_code, score_value) values ('eb1a99fd-
 insert into choices (id, question_id, choice_code, choice_text, display_order) values ('ca4905ad-2d0a-5c4b-8431-ea48a429f921', 'f4ff42ab-6f8b-5621-bae2-1f0cec241630', 'D', '売上を伸ばす仕組みや施策', 4);
 insert into choice_scores (choice_id, axis_code, score_value) values ('ca4905ad-2d0a-5c4b-8431-ea48a429f921', 'BUS', 3);
 insert into choice_scores (choice_id, axis_code, score_value) values ('ca4905ad-2d0a-5c4b-8431-ea48a429f921', 'DAT', 1);
-insert into questions (id, version_id, question_code, scene_id, scene_title, visual_brief, display_order, question_text) values ('01c71554-351a-512b-a07f-e5f5482e1c43', '3dc047b9-dd5a-56fd-a5a2-b3c7cd225c4d', 'Q50', 13, '店の財布、どう使う？', '限られた予算を前に、投資先を決める会議。', 50, '人気だけど全然もうからない商品。あなたの考えに近いのは？');
+insert into questions (id, version_id, question_code, scene_id, scene_title, visual_brief, display_order, question_text) values ('01c71554-351a-512b-a07f-e5f5482e1c43', '3dc047b9-dd5a-56fd-a5a2-b3c7cd225c4d', 'Q50', 13, 'どこに賭ける？', '限られた予算を前に、投資先を決める会議。', 50, '人気だけど全然もうからない商品。あなたの考えに近いのは？');
 insert into choices (id, question_id, choice_code, choice_text, display_order) values ('aff1616f-986d-5fb0-a3c8-705a978db016', '01c71554-351a-512b-a07f-e5f5482e1c43', 'A', '愛されてるなら簡単には消したくない', 1);
 insert into choice_scores (choice_id, axis_code, score_value) values ('aff1616f-986d-5fb0-a3c8-705a978db016', 'HOS', 2);
 insert into choice_scores (choice_id, axis_code, score_value) values ('aff1616f-986d-5fb0-a3c8-705a978db016', 'CUS', 1);
@@ -743,7 +743,7 @@ insert into choice_scores (choice_id, axis_code, score_value) values ('8a644d78-
 insert into choices (id, question_id, choice_code, choice_text, display_order) values ('70e3e915-e6c0-50c1-b6e8-5348b665c51c', '01c71554-351a-512b-a07f-e5f5482e1c43', 'D', '利益が出る形へ変えるべきだ', 4);
 insert into choice_scores (choice_id, axis_code, score_value) values ('70e3e915-e6c0-50c1-b6e8-5348b665c51c', 'BUS', 3);
 insert into choice_scores (choice_id, axis_code, score_value) values ('70e3e915-e6c0-50c1-b6e8-5348b665c51c', 'DAT', 1);
-insert into questions (id, version_id, question_code, scene_id, scene_title, visual_brief, display_order, question_text) values ('580685c0-60dd-5411-a6c5-c411496bac0a', '3dc047b9-dd5a-56fd-a5a2-b3c7cd225c4d', 'Q51', 14, '未知の仕事、きた', '新店舗、新ポジション、やったことのないミッション。', 51, 'やったことのない仕事を任された。一番近い気持ちは？');
+insert into questions (id, version_id, question_code, scene_id, scene_title, visual_brief, display_order, question_text) values ('580685c0-60dd-5411-a6c5-c411496bac0a', '3dc047b9-dd5a-56fd-a5a2-b3c7cd225c4d', 'Q51', 13, 'どこに賭ける？', '新店舗、新ポジション、やったことのないミッション。', 51, 'やったことのない仕事を任された。一番近い気持ちは？');
 insert into choices (id, question_id, choice_code, choice_text, display_order) values ('632d3107-85c8-5246-92e0-dee445b3fcbd', '580685c0-60dd-5411-a6c5-c411496bac0a', 'A', '迷惑かけないよう、まずちゃんと確認したい', 1);
 insert into choice_scores (choice_id, axis_code, score_value) values ('632d3107-85c8-5246-92e0-dee445b3fcbd', 'OWN', 2);
 insert into choice_scores (choice_id, axis_code, score_value) values ('632d3107-85c8-5246-92e0-dee445b3fcbd', 'STA', 1);
@@ -759,7 +759,7 @@ insert into choice_scores (choice_id, axis_code, score_value) values ('62943eb6-
 insert into choices (id, question_id, choice_code, choice_text, display_order) values ('75deb454-5855-5e2e-bdc7-e2569a4dfefe', '580685c0-60dd-5411-a6c5-c411496bac0a', 'D', 'まずやってみたい', 4);
 insert into choice_scores (choice_id, axis_code, score_value) values ('75deb454-5855-5e2e-bdc7-e2569a4dfefe', 'CHA', 3);
 insert into choice_scores (choice_id, axis_code, score_value) values ('75deb454-5855-5e2e-bdc7-e2569a4dfefe', 'RES', 1);
-insert into questions (id, version_id, question_code, scene_id, scene_title, visual_brief, display_order, question_text) values ('6327880f-c69b-5053-9b3c-7d61a2a3f8be', '3dc047b9-dd5a-56fd-a5a2-b3c7cd225c4d', 'Q52', 14, '未知の仕事、きた', '新店舗、新ポジション、やったことのないミッション。', 52, '安定の今の店か、未知の新店か。どちらを選びやすい？');
+insert into questions (id, version_id, question_code, scene_id, scene_title, visual_brief, display_order, question_text) values ('6327880f-c69b-5053-9b3c-7d61a2a3f8be', '3dc047b9-dd5a-56fd-a5a2-b3c7cd225c4d', 'Q52', 13, 'どこに賭ける？', '新店舗、新ポジション、やったことのないミッション。', 52, '安定の今の店か、未知の新店か。どちらを選びやすい？');
 insert into choices (id, question_id, choice_code, choice_text, display_order) values ('aa39a75d-5688-5d16-bed7-75dfa3524c0f', '6327880f-c69b-5053-9b3c-7d61a2a3f8be', 'A', '人や理念で決める', 1);
 insert into choice_scores (choice_id, axis_code, score_value) values ('aa39a75d-5688-5d16-bed7-75dfa3524c0f', 'HOS', 1);
 insert into choice_scores (choice_id, axis_code, score_value) values ('aa39a75d-5688-5d16-bed7-75dfa3524c0f', 'EMP', 1);
@@ -773,7 +773,7 @@ insert into choice_scores (choice_id, axis_code, score_value) values ('774e3356-
 insert into choices (id, question_id, choice_code, choice_text, display_order) values ('f6a7f629-c5e4-5cc6-b915-9cecd5bd6af4', '6327880f-c69b-5053-9b3c-7d61a2a3f8be', 'D', '可能性が大きい方を選ぶ', 4);
 insert into choice_scores (choice_id, axis_code, score_value) values ('f6a7f629-c5e4-5cc6-b915-9cecd5bd6af4', 'CHA', 3);
 insert into choice_scores (choice_id, axis_code, score_value) values ('f6a7f629-c5e4-5cc6-b915-9cecd5bd6af4', 'BUS', 1);
-insert into questions (id, version_id, question_code, scene_id, scene_title, visual_brief, display_order, question_text) values ('4d8d94b2-2795-58c7-ab31-fc3416486015', '3dc047b9-dd5a-56fd-a5a2-b3c7cd225c4d', 'Q53', 15, '安定って大事？', 'マニュアル、職人のこだわり、再現性が並ぶ分かれ道。', 53, '自分の仕事が評価された。次に一番考えるのは？');
+insert into questions (id, version_id, question_code, scene_id, scene_title, visual_brief, display_order, question_text) values ('4d8d94b2-2795-58c7-ab31-fc3416486015', '3dc047b9-dd5a-56fd-a5a2-b3c7cd225c4d', 'Q53', 14, '評価とプレッシャー、どう受け止める？', 'マニュアル、職人のこだわり、再現性が並ぶ分かれ道。', 53, '自分の仕事が評価された。次に一番考えるのは？');
 insert into choices (id, question_id, choice_code, choice_text, display_order) values ('4a2c4314-757f-5666-9ae2-477a3d32882f', '4d8d94b2-2795-58c7-ab31-fc3416486015', 'A', '次のお客様にも同じ満足を届けたい', 1);
 insert into choice_scores (choice_id, axis_code, score_value) values ('4a2c4314-757f-5666-9ae2-477a3d32882f', 'HOS', 2);
 insert into choice_scores (choice_id, axis_code, score_value) values ('4a2c4314-757f-5666-9ae2-477a3d32882f', 'STA', 1);
@@ -787,7 +787,7 @@ insert into choice_scores (choice_id, axis_code, score_value) values ('9184bb4f-
 insert into choices (id, question_id, choice_code, choice_text, display_order) values ('dc1f01b7-870e-58fb-b466-720433d2b346', '4d8d94b2-2795-58c7-ab31-fc3416486015', 'D', 'これをきっかけに新しいこともやりたい', 4);
 insert into choice_scores (choice_id, axis_code, score_value) values ('dc1f01b7-870e-58fb-b466-720433d2b346', 'CHA', 2);
 insert into choice_scores (choice_id, axis_code, score_value) values ('dc1f01b7-870e-58fb-b466-720433d2b346', 'CRE', 2);
-insert into questions (id, version_id, question_code, scene_id, scene_title, visual_brief, display_order, question_text) values ('c02c86d2-1635-5141-a629-1d9afab78002', '3dc047b9-dd5a-56fd-a5a2-b3c7cd225c4d', 'Q54', 15, '安定って大事？', 'マニュアル、職人のこだわり、再現性が並ぶ分かれ道。', 54, 'マニュアルってどう思う？');
+insert into questions (id, version_id, question_code, scene_id, scene_title, visual_brief, display_order, question_text) values ('c02c86d2-1635-5141-a629-1d9afab78002', '3dc047b9-dd5a-56fd-a5a2-b3c7cd225c4d', 'Q54', 14, '評価とプレッシャー、どう受け止める？', 'マニュアル、職人のこだわり、再現性が並ぶ分かれ道。', 54, 'マニュアルってどう思う？');
 insert into choices (id, question_id, choice_code, choice_text, display_order) values ('4f871f1e-a563-510d-8819-ece074753b59', 'c02c86d2-1635-5141-a629-1d9afab78002', 'A', '柔軟さを邪魔しない程度に必要', 1);
 insert into choice_scores (choice_id, axis_code, score_value) values ('4f871f1e-a563-510d-8819-ece074753b59', 'HOS', 1);
 insert into choice_scores (choice_id, axis_code, score_value) values ('4f871f1e-a563-510d-8819-ece074753b59', 'CRE', 1);
@@ -803,7 +803,7 @@ insert into choices (id, question_id, choice_code, choice_text, display_order) v
 insert into choice_scores (choice_id, axis_code, score_value) values ('64bcd7f2-5521-5be9-aa86-03969e9d78ec', 'CRE', 2);
 insert into choice_scores (choice_id, axis_code, score_value) values ('64bcd7f2-5521-5be9-aa86-03969e9d78ec', 'CHA', 1);
 insert into choice_scores (choice_id, axis_code, score_value) values ('64bcd7f2-5521-5be9-aa86-03969e9d78ec', 'STA', 1);
-insert into questions (id, version_id, question_code, scene_id, scene_title, visual_brief, display_order, question_text) values ('0355a371-7633-578e-a3a1-7908f5abfea9', '3dc047b9-dd5a-56fd-a5a2-b3c7cd225c4d', 'Q55', 16, 'プレッシャーとの付き合い方', '連勤と繁忙。疲れていても営業は続く。', 55, '忙しい日が何日も続いたとき、一番つらくなりやすいのは？');
+insert into questions (id, version_id, question_code, scene_id, scene_title, visual_brief, display_order, question_text) values ('0355a371-7633-578e-a3a1-7908f5abfea9', '3dc047b9-dd5a-56fd-a5a2-b3c7cd225c4d', 'Q55', 14, '評価とプレッシャー、どう受け止める？', '連勤と繁忙。疲れていても営業は続く。', 55, '忙しい日が何日も続いたとき、一番つらくなりやすいのは？');
 insert into choices (id, question_id, choice_code, choice_text, display_order) values ('0f8d2b40-3692-51ef-bca1-bb8824a66214', '0355a371-7633-578e-a3a1-7908f5abfea9', 'A', 'お客様に十分向き合えてない気がすること', 1);
 insert into choice_scores (choice_id, axis_code, score_value) values ('0f8d2b40-3692-51ef-bca1-bb8824a66214', 'HOS', 2);
 insert into choice_scores (choice_id, axis_code, score_value) values ('0f8d2b40-3692-51ef-bca1-bb8824a66214', 'EMP', 1);
@@ -820,7 +820,7 @@ insert into choices (id, question_id, choice_code, choice_text, display_order) v
 insert into choice_scores (choice_id, axis_code, score_value) values ('28b915f4-d30e-5ef2-a3d3-75ca4d30f227', 'LEA', 1);
 insert into choice_scores (choice_id, axis_code, score_value) values ('28b915f4-d30e-5ef2-a3d3-75ca4d30f227', 'OWN', 1);
 insert into choice_scores (choice_id, axis_code, score_value) values ('28b915f4-d30e-5ef2-a3d3-75ca4d30f227', 'RES', 2);
-insert into questions (id, version_id, question_code, scene_id, scene_title, visual_brief, display_order, question_text) values ('c91623f7-108a-53f5-9384-73814919dd0c', '3dc047b9-dd5a-56fd-a5a2-b3c7cd225c4d', 'Q56', 16, 'プレッシャーとの付き合い方', '連勤と繁忙。疲れていても営業は続く。', 56, '自分の仕事を厳しく否定された。一番近い反応は？');
+insert into questions (id, version_id, question_code, scene_id, scene_title, visual_brief, display_order, question_text) values ('c91623f7-108a-53f5-9384-73814919dd0c', '3dc047b9-dd5a-56fd-a5a2-b3c7cd225c4d', 'Q56', 14, '評価とプレッシャー、どう受け止める？', '連勤と繁忙。疲れていても営業は続く。', 56, '自分の仕事を厳しく否定された。一番近い反応は？');
 insert into choices (id, question_id, choice_code, choice_text, display_order) values ('6f4532c3-fb3c-570c-9bad-d434ba45c836', 'c91623f7-108a-53f5-9384-73814919dd0c', 'A', '相手がそう感じた理由を知りたい', 1);
 insert into choice_scores (choice_id, axis_code, score_value) values ('6f4532c3-fb3c-570c-9bad-d434ba45c836', 'EMP', 2);
 insert into choice_scores (choice_id, axis_code, score_value) values ('6f4532c3-fb3c-570c-9bad-d434ba45c836', 'GRO', 1);
@@ -837,7 +837,7 @@ insert into choices (id, question_id, choice_code, choice_text, display_order) v
 insert into choice_scores (choice_id, axis_code, score_value) values ('43f7520b-7fe5-5c94-bd4e-8bf8aea69030', 'CHA', 2);
 insert into choice_scores (choice_id, axis_code, score_value) values ('43f7520b-7fe5-5c94-bd4e-8bf8aea69030', 'GRO', 1);
 insert into choice_scores (choice_id, axis_code, score_value) values ('43f7520b-7fe5-5c94-bd4e-8bf8aea69030', 'RES', 1);
-insert into questions (id, version_id, question_code, scene_id, scene_title, visual_brief, display_order, question_text) values ('8a51f1cb-7fbe-5b65-85e4-a358acf6cd26', '3dc047b9-dd5a-56fd-a5a2-b3c7cd225c4d', 'Q57', 17, '極める？率いる？', '職人道と店長道。二つの未来が見える分かれ道。', 57, '将来の姿として、より魅力を感じるのは？');
+insert into questions (id, version_id, question_code, scene_id, scene_title, visual_brief, display_order, question_text) values ('8a51f1cb-7fbe-5b65-85e4-a358acf6cd26', '3dc047b9-dd5a-56fd-a5a2-b3c7cd225c4d', 'Q57', 15, '目指す景色はどっち？', '職人道と店長道。二つの未来が見える分かれ道。', 57, '将来の姿として、より魅力を感じるのは？');
 insert into choices (id, question_id, choice_code, choice_text, display_order) values ('549607cd-59c2-55fc-8903-b28464f7d365', '8a51f1cb-7fbe-5b65-85e4-a358acf6cd26', 'A', 'お客様から信頼される存在', 1);
 insert into choice_scores (choice_id, axis_code, score_value) values ('549607cd-59c2-55fc-8903-b28464f7d365', 'HOS', 2);
 insert into choice_scores (choice_id, axis_code, score_value) values ('549607cd-59c2-55fc-8903-b28464f7d365', 'CUS', 1);
@@ -853,7 +853,7 @@ insert into choices (id, question_id, choice_code, choice_text, display_order) v
 insert into choice_scores (choice_id, axis_code, score_value) values ('49c06785-9ee8-5faf-96dd-21e77702b834', 'BUS', 2);
 insert into choice_scores (choice_id, axis_code, score_value) values ('49c06785-9ee8-5faf-96dd-21e77702b834', 'LEA', 1);
 insert into choice_scores (choice_id, axis_code, score_value) values ('49c06785-9ee8-5faf-96dd-21e77702b834', 'OWN', 1);
-insert into questions (id, version_id, question_code, scene_id, scene_title, visual_brief, display_order, question_text) values ('3be61448-bc25-5457-ac10-a845e7fd91d9', '3dc047b9-dd5a-56fd-a5a2-b3c7cd225c4d', 'Q58', 17, '極める？率いる？', '職人道と店長道。二つの未来が見える分かれ道。', 58, '自分の力が一番活きるのはどんな場面？');
+insert into questions (id, version_id, question_code, scene_id, scene_title, visual_brief, display_order, question_text) values ('3be61448-bc25-5457-ac10-a845e7fd91d9', '3dc047b9-dd5a-56fd-a5a2-b3c7cd225c4d', 'Q58', 15, '目指す景色はどっち？', '職人道と店長道。二つの未来が見える分かれ道。', 58, '自分の力が一番活きるのはどんな場面？');
 insert into choices (id, question_id, choice_code, choice_text, display_order) values ('5967398e-0b36-5cc5-9d06-bb42ad418769', '3be61448-bc25-5457-ac10-a845e7fd91d9', 'A', '一人ひとりへ深く向き合う場面', 1);
 insert into choice_scores (choice_id, axis_code, score_value) values ('5967398e-0b36-5cc5-9d06-bb42ad418769', 'HOS', 2);
 insert into choice_scores (choice_id, axis_code, score_value) values ('5967398e-0b36-5cc5-9d06-bb42ad418769', 'EMP', 2);
@@ -867,7 +867,7 @@ insert into choices (id, question_id, choice_code, choice_text, display_order) v
 insert into choice_scores (choice_id, axis_code, score_value) values ('9f21e3d9-667e-58dd-9672-08babb3ee20f', 'BUS', 2);
 insert into choice_scores (choice_id, axis_code, score_value) values ('9f21e3d9-667e-58dd-9672-08babb3ee20f', 'LEA', 1);
 insert into choice_scores (choice_id, axis_code, score_value) values ('9f21e3d9-667e-58dd-9672-08babb3ee20f', 'STA', 1);
-insert into questions (id, version_id, question_code, scene_id, scene_title, visual_brief, display_order, question_text) values ('59903c45-e0e7-5b2c-ad25-7e13daca4c4f', '3dc047b9-dd5a-56fd-a5a2-b3c7cd225c4d', 'Q59', 18, '高級路線？大衆路線？', '静かなカウンターの名店と、活気ある人気店。', 59, 'よりワクワクする店づくりは？');
+insert into questions (id, version_id, question_code, scene_id, scene_title, visual_brief, display_order, question_text) values ('59903c45-e0e7-5b2c-ad25-7e13daca4c4f', '3dc047b9-dd5a-56fd-a5a2-b3c7cd225c4d', 'Q59', 15, '目指す景色はどっち？', '静かなカウンターの名店と、活気ある人気店。', 59, 'よりワクワクする店づくりは？');
 insert into choices (id, question_id, choice_code, choice_text, display_order) values ('34590650-f7a4-5077-96a1-40a4b21908d5', '59903c45-e0e7-5b2c-ad25-7e13daca4c4f', 'A', '一人ひとりに深く寄り添う店', 1);
 insert into choice_scores (choice_id, axis_code, score_value) values ('34590650-f7a4-5077-96a1-40a4b21908d5', 'HOS', 2);
 insert into choice_scores (choice_id, axis_code, score_value) values ('34590650-f7a4-5077-96a1-40a4b21908d5', 'EMP', 1);
@@ -884,7 +884,7 @@ insert into choices (id, question_id, choice_code, choice_text, display_order) v
 insert into choice_scores (choice_id, axis_code, score_value) values ('3a90bfc7-8488-5b3c-847b-1d553f897782', 'BUS', 2);
 insert into choice_scores (choice_id, axis_code, score_value) values ('3a90bfc7-8488-5b3c-847b-1d553f897782', 'STA', 1);
 insert into choice_scores (choice_id, axis_code, score_value) values ('3a90bfc7-8488-5b3c-847b-1d553f897782', 'CHA', 1);
-insert into questions (id, version_id, question_code, scene_id, scene_title, visual_brief, display_order, question_text) values ('e6bb6b35-2e5e-532d-aa5a-847b26a3f6ce', '3dc047b9-dd5a-56fd-a5a2-b3c7cd225c4d', 'Q60', 18, '高級路線？大衆路線？', '静かなカウンターの名店と、活気ある人気店。', 60, '「この店、成功してるな」と感じるのは？');
+insert into questions (id, version_id, question_code, scene_id, scene_title, visual_brief, display_order, question_text) values ('e6bb6b35-2e5e-532d-aa5a-847b26a3f6ce', '3dc047b9-dd5a-56fd-a5a2-b3c7cd225c4d', 'Q60', 15, '目指す景色はどっち？', '静かなカウンターの名店と、活気ある人気店。', 60, '「この店、成功してるな」と感じるのは？');
 insert into choices (id, question_id, choice_code, choice_text, display_order) values ('78e49b48-59c9-5d40-9835-757d11598489', 'e6bb6b35-2e5e-532d-aa5a-847b26a3f6ce', 'A', 'お客様との深い関係がある', 1);
 insert into choice_scores (choice_id, axis_code, score_value) values ('78e49b48-59c9-5d40-9835-757d11598489', 'HOS', 2);
 insert into choice_scores (choice_id, axis_code, score_value) values ('78e49b48-59c9-5d40-9835-757d11598489', 'CUS', 1);
@@ -901,7 +901,7 @@ insert into choices (id, question_id, choice_code, choice_text, display_order) v
 insert into choice_scores (choice_id, axis_code, score_value) values ('13edb066-b0a2-52d3-8f84-695800f7f5e9', 'BUS', 2);
 insert into choice_scores (choice_id, axis_code, score_value) values ('13edb066-b0a2-52d3-8f84-695800f7f5e9', 'STA', 1);
 insert into choice_scores (choice_id, axis_code, score_value) values ('13edb066-b0a2-52d3-8f84-695800f7f5e9', 'LEA', 1);
-insert into questions (id, version_id, question_code, scene_id, scene_title, visual_brief, display_order, question_text) values ('80ee7ef1-2526-5c0d-b920-a193d1fcf2f8', '3dc047b9-dd5a-56fd-a5a2-b3c7cd225c4d', 'Q61', 19, '直感派？データ派？', '勘で決める店長と、表計算を見るマネージャー。', 61, '新メニューを採用するか。最後に一番頼るのは？');
+insert into questions (id, version_id, question_code, scene_id, scene_title, visual_brief, display_order, question_text) values ('80ee7ef1-2526-5c0d-b920-a193d1fcf2f8', '3dc047b9-dd5a-56fd-a5a2-b3c7cd225c4d', 'Q61', 16, '問題が起きたとき、どう動く？', '勘で決める店長と、表計算を見るマネージャー。', 61, '新メニューを採用するか。最後に一番頼るのは？');
 insert into choices (id, question_id, choice_code, choice_text, display_order) values ('e3d8d035-4e3c-5277-ad63-1daa0ed8f9d9', '80ee7ef1-2526-5c0d-b920-a193d1fcf2f8', 'A', 'お客様の反応の“空気感”', 1);
 insert into choice_scores (choice_id, axis_code, score_value) values ('e3d8d035-4e3c-5277-ad63-1daa0ed8f9d9', 'HOS', 1);
 insert into choice_scores (choice_id, axis_code, score_value) values ('e3d8d035-4e3c-5277-ad63-1daa0ed8f9d9', 'CUS', 2);
@@ -916,7 +916,7 @@ insert into choice_scores (choice_id, axis_code, score_value) values ('b873be45-
 insert into choices (id, question_id, choice_code, choice_text, display_order) values ('afd42c33-8495-5a46-9994-44ff648657db', '80ee7ef1-2526-5c0d-b920-a193d1fcf2f8', 'D', '売上予測や原価などの数字', 4);
 insert into choice_scores (choice_id, axis_code, score_value) values ('afd42c33-8495-5a46-9994-44ff648657db', 'DAT', 3);
 insert into choice_scores (choice_id, axis_code, score_value) values ('afd42c33-8495-5a46-9994-44ff648657db', 'BUS', 1);
-insert into questions (id, version_id, question_code, scene_id, scene_title, visual_brief, display_order, question_text) values ('f3ebec1a-6501-5fa4-afb3-9bdb7158ccc2', '3dc047b9-dd5a-56fd-a5a2-b3c7cd225c4d', 'Q62', 19, '直感派？データ派？', '勘で決める店長と、表計算を見るマネージャー。', 62, '問題の原因がよくわからない。どう考えがち？');
+insert into questions (id, version_id, question_code, scene_id, scene_title, visual_brief, display_order, question_text) values ('f3ebec1a-6501-5fa4-afb3-9bdb7158ccc2', '3dc047b9-dd5a-56fd-a5a2-b3c7cd225c4d', 'Q62', 16, '問題が起きたとき、どう動く？', '勘で決める店長と、表計算を見るマネージャー。', 62, '問題の原因がよくわからない。どう考えがち？');
 insert into choices (id, question_id, choice_code, choice_text, display_order) values ('2dd3377d-bec6-5cec-ad8a-f566399b9964', 'f3ebec1a-6501-5fa4-afb3-9bdb7158ccc2', 'A', '人の感情や空気から探る', 1);
 insert into choice_scores (choice_id, axis_code, score_value) values ('2dd3377d-bec6-5cec-ad8a-f566399b9964', 'EMP', 3);
 insert into choice_scores (choice_id, axis_code, score_value) values ('2dd3377d-bec6-5cec-ad8a-f566399b9964', 'HOS', 1);
@@ -931,7 +931,7 @@ insert into choice_scores (choice_id, axis_code, score_value) values ('05cdb6cf-
 insert into choices (id, question_id, choice_code, choice_text, display_order) values ('264e8546-f718-5428-9aae-0c4cdc99b510', 'f3ebec1a-6501-5fa4-afb3-9bdb7158ccc2', 'D', '数字や記録を比較して絞る', 4);
 insert into choice_scores (choice_id, axis_code, score_value) values ('264e8546-f718-5428-9aae-0c4cdc99b510', 'DAT', 3);
 insert into choice_scores (choice_id, axis_code, score_value) values ('264e8546-f718-5428-9aae-0c4cdc99b510', 'STA', 1);
-insert into questions (id, version_id, question_code, scene_id, scene_title, visual_brief, display_order, question_text) values ('f6313652-0a1d-5e97-9873-7e17326b80ec', '3dc047b9-dd5a-56fd-a5a2-b3c7cd225c4d', 'Q63', 20, 'それ、自分ごと？', '担当外のトラブル発生。あなたは動く？', 63, '自分の担当外で問題発生。一番近い動きは？');
+insert into questions (id, version_id, question_code, scene_id, scene_title, visual_brief, display_order, question_text) values ('f6313652-0a1d-5e97-9873-7e17326b80ec', '3dc047b9-dd5a-56fd-a5a2-b3c7cd225c4d', 'Q63', 16, '問題が起きたとき、どう動く？', '担当外のトラブル発生。あなたは動く？', 63, '自分の担当外で問題発生。一番近い動きは？');
 insert into choices (id, question_id, choice_code, choice_text, display_order) values ('e7520e79-16a9-5133-9a00-89488b598d2e', 'f6313652-0a1d-5e97-9873-7e17326b80ec', 'A', '困っている人やお客様にまず声をかける', 1);
 insert into choice_scores (choice_id, axis_code, score_value) values ('e7520e79-16a9-5133-9a00-89488b598d2e', 'HOS', 2);
 insert into choice_scores (choice_id, axis_code, score_value) values ('e7520e79-16a9-5133-9a00-89488b598d2e', 'EMP', 1);
@@ -946,7 +946,7 @@ insert into choice_scores (choice_id, axis_code, score_value) values ('377b83e4-
 insert into choices (id, question_id, choice_code, choice_text, display_order) values ('41b9ad7a-5785-5694-b64d-67ca1e6c309e', 'f6313652-0a1d-5e97-9873-7e17326b80ec', 'D', '担当関係なく最後まで自分ごとで動く', 4);
 insert into choice_scores (choice_id, axis_code, score_value) values ('41b9ad7a-5785-5694-b64d-67ca1e6c309e', 'OWN', 3);
 insert into choice_scores (choice_id, axis_code, score_value) values ('41b9ad7a-5785-5694-b64d-67ca1e6c309e', 'RES', 1);
-insert into questions (id, version_id, question_code, scene_id, scene_title, visual_brief, display_order, question_text) values ('91d3fb7d-3a7a-5ecf-a225-7ec516219115', '3dc047b9-dd5a-56fd-a5a2-b3c7cd225c4d', 'Q64', 20, 'それ、自分ごと？', '担当外のトラブル発生。あなたは動く？', 64, '結果がうまくいかなかったとき、一番近い考えは？');
+insert into questions (id, version_id, question_code, scene_id, scene_title, visual_brief, display_order, question_text) values ('91d3fb7d-3a7a-5ecf-a225-7ec516219115', '3dc047b9-dd5a-56fd-a5a2-b3c7cd225c4d', 'Q64', 16, '問題が起きたとき、どう動く？', '担当外のトラブル発生。あなたは動く？', 64, '結果がうまくいかなかったとき、一番近い考えは？');
 insert into choices (id, question_id, choice_code, choice_text, display_order) values ('3602fd37-3945-55c7-b6cb-596e12815944', '91d3fb7d-3a7a-5ecf-a225-7ec516219115', 'A', '相手にどんな影響があったか振り返る', 1);
 insert into choice_scores (choice_id, axis_code, score_value) values ('3602fd37-3945-55c7-b6cb-596e12815944', 'EMP', 2);
 insert into choice_scores (choice_id, axis_code, score_value) values ('3602fd37-3945-55c7-b6cb-596e12815944', 'HOS', 1);

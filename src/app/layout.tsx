@@ -15,7 +15,7 @@ const roundedSans = M_PLUS_Rounded_1c({
 export const metadata: Metadata = {
   title: "Restaurant DNA｜飲食業界キャリア診断",
   description:
-    "20の飲食シーンに答えるだけで、あなたの飲食業界での適職・強み・向いている業態がわかるエンタメ型キャリア診断。",
+    "16の飲食シーンに答えるだけで、あなたの飲食業界での適職・強み・向いている業態がわかるエンタメ型キャリア診断。",
 };
 
 export default function RootLayout({

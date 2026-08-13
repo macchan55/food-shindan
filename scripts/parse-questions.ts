@@ -42,6 +42,41 @@ function parseScoreCell(cell: string): ChoiceScore[] {
     });
 }
 
+// docs/spec/04-64-questions-scoring.md still lays scenes out as its original 20 (13-20
+// with 2 questions each). Production was migrated to 16 scenes (supabase/migrations/
+// 0009_merge_short_scenes.sql) because the 2-question scenes made the per-scene title-card
+// interstitial fire too often. Re-applied here so re-running this parser doesn't regress
+// scripts/seed-data/questions.json back to the original 20-scene grouping. Purely a
+// scene_id/scene_title relabel of adjacent pairs — no question content changes.
+const SCENE_MERGES: Record<string, { sceneId: number; sceneTitle: string }> = {
+  Q49: { sceneId: 13, sceneTitle: "どこに賭ける？" },
+  Q50: { sceneId: 13, sceneTitle: "どこに賭ける？" },
+  Q51: { sceneId: 13, sceneTitle: "どこに賭ける？" },
+  Q52: { sceneId: 13, sceneTitle: "どこに賭ける？" },
+  Q53: { sceneId: 14, sceneTitle: "評価とプレッシャー、どう受け止める？" },
+  Q54: { sceneId: 14, sceneTitle: "評価とプレッシャー、どう受け止める？" },
+  Q55: { sceneId: 14, sceneTitle: "評価とプレッシャー、どう受け止める？" },
+  Q56: { sceneId: 14, sceneTitle: "評価とプレッシャー、どう受け止める？" },
+  Q57: { sceneId: 15, sceneTitle: "目指す景色はどっち？" },
+  Q58: { sceneId: 15, sceneTitle: "目指す景色はどっち？" },
+  Q59: { sceneId: 15, sceneTitle: "目指す景色はどっち？" },
+  Q60: { sceneId: 15, sceneTitle: "目指す景色はどっち？" },
+  Q61: { sceneId: 16, sceneTitle: "問題が起きたとき、どう動く？" },
+  Q62: { sceneId: 16, sceneTitle: "問題が起きたとき、どう動く？" },
+  Q63: { sceneId: 16, sceneTitle: "問題が起きたとき、どう動く？" },
+  Q64: { sceneId: 16, sceneTitle: "問題が起きたとき、どう動く？" },
+};
+
+function applySceneMerges(questions: Question[]): void {
+  for (const q of questions) {
+    const override = SCENE_MERGES[q.questionId];
+    if (override) {
+      q.sceneId = override.sceneId;
+      q.sceneTitle = override.sceneTitle;
+    }
+  }
+}
+
 function main() {
   const raw = fs.readFileSync(SRC, "utf-8");
   const lines = raw.split("\n");
@@ -112,6 +147,9 @@ function main() {
   if (questions.length !== 64) {
     throw new Error(`Expected 64 questions, parsed ${questions.length}`);
   }
+
+  applySceneMerges(questions);
+
   for (const q of questions) {
     if (q.choices.length !== 4) {
       throw new Error(`Question ${q.questionId} does not have 4 choices`);

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const FEATURES = [
   {
-    title: "20の飲食あるあるシーン",
+    title: "16の飲食あるあるシーン",
     body: "開店前のバタバタ、まさかのクレーム、常連さんとの一幕…現場で本当にありそうな場面に答えるだけ。",
   },
   {
