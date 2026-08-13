@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { M_PLUS_Rounded_1c } from "next/font/google";
+import { AuthStatus } from "@/components/AuthStatus";
 import "./globals.css";
 
 // A rounded, friendly Japanese-first typeface for the whole app - matches the soft chibi
@@ -25,6 +26,7 @@ export default function RootLayout({
   return (
     <html lang="ja" className={`${roundedSans.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-[var(--background)] text-[var(--foreground)]">
+        <AuthStatus />
         {children}
       </body>
     </html>
