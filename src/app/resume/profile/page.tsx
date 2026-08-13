@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 type Profile = {
   full_name: string | null;
@@ -34,6 +35,7 @@ const EMPTY: Profile = {
 };
 
 export default function ProfilePage() {
+  const router = useRouter();
   const [profile, setProfile] = useState<Profile>(EMPTY);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -92,19 +94,36 @@ export default function ProfilePage() {
     setSaved(false);
   }
 
+  function saveProfile() {
+    return fetch("/api/resume/profile", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(profile),
+    });
+  }
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setSaving(true);
     try {
-      await fetch("/api/resume/profile", {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(profile),
-      });
+      await saveProfile();
       setSaved(true);
     } finally {
       setSaving(false);
     }
+  }
+
+  // "学歴を入力する" used to be a plain Link, which meant leaving the page without hitting
+  // 保存する first silently dropped everything typed here — nothing was ever written until
+  // the explicit save. Save on the way out too, same as the submit button.
+  async function handleNext() {
+    setSaving(true);
+    try {
+      await saveProfile();
+    } finally {
+      setSaving(false);
+    }
+    router.push("/resume/education");
   }
 
   async function handlePhoto(e: React.ChangeEvent<HTMLInputElement>) {
@@ -218,12 +237,14 @@ export default function ProfilePage() {
         </button>
       </form>
 
-      <Link
-        href="/resume/education"
-        className="block w-full rounded-full border border-brand bg-brand-soft px-6 py-3 text-center text-sm font-bold text-brand-dark transition-opacity hover:opacity-90"
+      <button
+        type="button"
+        onClick={handleNext}
+        disabled={saving}
+        className="block w-full rounded-full border border-brand bg-brand-soft px-6 py-3 text-center text-sm font-bold text-brand-dark transition-opacity hover:opacity-90 disabled:opacity-60"
       >
-        学歴を入力する →
-      </Link>
+        {saving ? "保存中…" : "学歴を入力する →"}
+      </button>
     </main>
   );
 }
