@@ -36,6 +36,9 @@ function stepsFor(entryOrder: EntryOrder) {
 export default function ResumeDashboardPage() {
   const [done, setDone] = useState<Done | null>(null);
   const [entryOrder, setEntryOrder] = useState<EntryOrder>("education_first");
+  // Resume-building works fully on its own — the diagnosis just makes the AI-drafted
+  // self-PR sharper when it's there. Copy below adapts instead of presuming it exists.
+  const [hasDiagnosis, setHasDiagnosis] = useState<boolean | null>(null);
 
   useEffect(() => {
     Promise.all([
@@ -53,6 +56,7 @@ export default function ResumeDashboardPage() {
         selfPr: Boolean(r.resume?.self_pr),
       });
       if (r.resume?.entry_order) setEntryOrder(r.resume.entry_order);
+      setHasDiagnosis(Boolean(r.resume?.diagnosis_session_id));
     });
   }, []);
 
@@ -82,8 +86,18 @@ export default function ResumeDashboardPage() {
           3分でプロ品質の履歴書が完成
         </h1>
         <p className="max-w-md text-sm leading-relaxed text-foreground/60">
-          診断結果と職歴から、AIが自己PR・職務要約を下書き。お好みのデザインを選ぶだけで、そのまま履歴書・職務経歴書のPDFになります。
+          {hasDiagnosis
+            ? "診断結果と職歴から、AIが自己PR・職務要約を下書き。お好みのデザインを選ぶだけで、そのまま履歴書・職務経歴書のPDFになります。"
+            : "職歴を入力するだけで、AIが飲食業界向けの自己PR・職務要約を下書き。お好みのデザインを選ぶだけで、そのまま履歴書・職務経歴書のPDFになります。"}
         </p>
+        {hasDiagnosis === false && (
+          <p className="text-xs text-foreground/50">
+            <Link href="/diagnosis" className="font-bold text-brand-dark underline underline-offset-2">
+              性格・強み診断
+            </Link>
+            を受けると、その結果もAIの自己PRに反映できます（任意）。
+          </p>
+        )}
 
         <div className="flex w-full justify-center gap-4 overflow-x-auto px-1 py-2">
           {RIREKISHO_TEMPLATES.map((t) => (

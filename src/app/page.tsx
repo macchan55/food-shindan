@@ -113,6 +113,15 @@ export default function Home() {
             </div>
           ))}
         </div>
+
+        {/* Resume-building works fully on its own, without taking the diagnosis first —
+            this is its entry point for people who just want that. */}
+        <Link
+          href="/resume"
+          className="mt-2 text-sm font-bold text-foreground/60 underline underline-offset-4 hover:text-brand-dark"
+        >
+          診断なしで、飲食業界特化の履歴書だけ作る →
+        </Link>
       </main>
 
       <footer className="relative border-t border-border px-6 py-6 text-center text-xs text-foreground/50">

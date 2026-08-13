@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { supabaseBrowser } from "@/lib/supabase/browser";
 
 type AuthState =
@@ -15,6 +15,7 @@ type AuthState =
 // logged in as a real account right now" at a glance, not to be a full nav bar.
 export function AuthStatus() {
   const router = useRouter();
+  const pathname = usePathname();
   const [state, setState] = useState<AuthState>({ kind: "loading" });
   const [signingOut, setSigningOut] = useState(false);
 
@@ -50,7 +51,12 @@ export function AuthStatus() {
     }
   }
 
-  if (state.kind === "loading" || state.kind === "signed_out") return null;
+  // /resume/* has its own richer account banner (ResumeAccountBanner in
+  // src/app/resume/layout.tsx) with the same info plus resume-specific actions — showing
+  // both there would just be duplicate chrome.
+  if (state.kind === "loading" || state.kind === "signed_out" || pathname?.startsWith("/resume")) {
+    return null;
+  }
 
   return (
     <div className="flex items-center justify-end gap-3 border-b border-border bg-surface/80 px-4 py-1.5 text-xs backdrop-blur">
