@@ -32,7 +32,17 @@ async function getActiveVersionId(): Promise<string> {
   return data.id as string;
 }
 
-/** All published questions + choices + per-choice axis scores for the active version. */
+type QuestionWithNested = QuestionRow & {
+  choices: (ChoiceRow & { choice_scores: ChoiceScoreRow[] })[];
+};
+
+/**
+ * All published questions + choices + per-choice axis scores for the active version, in a
+ * single nested-select query (Postgrest embeds choices/choice_scores directly) instead of
+ * three sequential round trips chained by `.in(...)` on growing ID lists — the previous
+ * shape was the main latency cost on "診断をはじめる" (questions→64 choice_ids→256+
+ * choice_score rows, each awaited one after another).
+ */
 export async function getActiveQuestionSet(): Promise<{
   versionId: string;
   questions: QuestionForClient[];
@@ -41,45 +51,15 @@ export async function getActiveQuestionSet(): Promise<{
   const versionId = await getActiveVersionId();
   const db = supabaseAdmin();
 
-  const { data: questionRows, error: qErr } = await db
+  const { data, error } = await db
     .from("questions")
-    .select("*")
+    .select("*, choices(*, choice_scores(*))")
     .eq("version_id", versionId)
     .eq("status", "published")
-    .order("display_order", { ascending: true });
-  if (qErr) throw new Error(`Failed to load questions: ${qErr.message}`);
-  const questions = (questionRows ?? []) as QuestionRow[];
-
-  const questionIds = questions.map((q) => q.id);
-  const { data: choiceRows, error: cErr } = await db
-    .from("choices")
-    .select("*")
-    .in("question_id", questionIds)
-    .order("display_order", { ascending: true });
-  if (cErr) throw new Error(`Failed to load choices: ${cErr.message}`);
-  const choices = (choiceRows ?? []) as ChoiceRow[];
-
-  const choiceIds = choices.map((c) => c.id);
-  const { data: scoreRows, error: sErr } = await db
-    .from("choice_scores")
-    .select("*")
-    .in("choice_id", choiceIds);
-  if (sErr) throw new Error(`Failed to load choice scores: ${sErr.message}`);
-  const scores = (scoreRows ?? []) as ChoiceScoreRow[];
-
-  const scoresByChoice = new Map<string, ChoiceScoreRow[]>();
-  for (const s of scores) {
-    const arr = scoresByChoice.get(s.choice_id) ?? [];
-    arr.push(s);
-    scoresByChoice.set(s.choice_id, arr);
-  }
-
-  const choicesByQuestion = new Map<string, ChoiceRow[]>();
-  for (const c of choices) {
-    const arr = choicesByQuestion.get(c.question_id) ?? [];
-    arr.push(c);
-    choicesByQuestion.set(c.question_id, arr);
-  }
+    .order("display_order", { ascending: true })
+    .order("display_order", { ascending: true, referencedTable: "choices" });
+  if (error) throw new Error(`Failed to load question set: ${error.message}`);
+  const questions = (data ?? []) as QuestionWithNested[];
 
   const questionsForClient: QuestionForClient[] = questions.map((q) => ({
     id: q.id,
@@ -89,7 +69,7 @@ export async function getActiveQuestionSet(): Promise<{
     visualBrief: q.visual_brief,
     displayOrder: q.display_order,
     text: q.question_text,
-    choices: (choicesByQuestion.get(q.id) ?? []).map((c) => ({
+    choices: q.choices.map((c) => ({
       id: c.id,
       code: c.choice_code,
       text: c.choice_text,
@@ -99,9 +79,9 @@ export async function getActiveQuestionSet(): Promise<{
 
   const scoringQuestions: QuestionWithChoices[] = questions.map((q) => ({
     id: q.id,
-    choices: (choicesByQuestion.get(q.id) ?? []).map((c) => ({
+    choices: q.choices.map((c) => ({
       id: c.id,
-      scores: (scoresByChoice.get(c.id) ?? []).map((s) => ({
+      scores: c.choice_scores.map((s) => ({
         axis: s.axis_code,
         value: s.score_value,
       })),

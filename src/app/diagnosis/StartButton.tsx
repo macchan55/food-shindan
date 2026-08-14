@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { prefetchQuestions } from "@/lib/diagnosis/questionsCache";
 
 type Gender = "male" | "female";
 
@@ -15,6 +16,13 @@ export function StartButton() {
   const [gender, setGender] = useState<Gender | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  // Kicks off the question-bank fetch the moment this page is on screen — well before the
+  // user finishes reading the intro and taps 診断をはじめる — so handleStart below usually
+  // finds it already resolved instead of paying for it after session creation too.
+  useEffect(() => {
+    prefetchQuestions().catch(() => {});
+  }, []);
 
   async function handleStart(selected: Gender | null) {
     setLoading(true);

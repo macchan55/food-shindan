@@ -5,6 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import { ProgressBar } from "@/components/ProgressBar";
 import { DiagnosisLoading } from "@/components/DiagnosisLoading";
+import { prefetchQuestions } from "@/lib/diagnosis/questionsCache";
 import type { QuestionForClient } from "@/lib/diagnosis/repository";
 
 function questionImagePath(questionCode: string): string {
@@ -122,12 +123,12 @@ export default function DiagnosisFlowPage() {
     let cancelled = false;
     async function load() {
       try {
-        const res = await fetch(`/api/diagnosis/sessions/${sessionId}/questions`);
-        if (!res.ok) throw new Error("質問の取得に失敗しました");
-        const data = await res.json();
+        // Usually already resolved: StartButton on the intro page kicks this same fetch
+        // off well before the user reaches this screen (see questionsCache.ts).
+        const questions = await prefetchQuestions();
         if (cancelled) return;
-        const loadedScenes = groupIntoScenes(data.questions as QuestionForClient[]);
-        setQuestions(data.questions);
+        const loadedScenes = groupIntoScenes(questions);
+        setQuestions(questions);
 
         const saved = localStorage.getItem(storageKey);
         if (saved) {
