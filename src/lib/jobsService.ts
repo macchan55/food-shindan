@@ -2,6 +2,7 @@ import "server-only";
 import { supabaseAdmin } from "@/lib/supabase/admin";
 import { recordIntentEvent } from "@/lib/intentScore";
 import type { JobPostingRow } from "@/lib/supabase/rows";
+import type { JobPostingView } from "@/lib/jobsFormatting";
 
 export class JobsError extends Error {
   status: number;
@@ -14,21 +15,6 @@ export class JobsError extends Error {
 // Everyone (including anonymous visitors) can see this many teaser postings, store name
 // always hidden — ④'s "ミシュラン店の求人を1〜3件チラ見せ".
 const TEASER_LIMIT = 3;
-
-export type JobPostingView = {
-  id: string;
-  storeName: string;
-  storeNameRevealed: boolean;
-  isMichelin: boolean;
-  area: string | null;
-  businessFormat: string | null;
-  role: string | null;
-  annualIncomeMin: number | null;
-  annualIncomeMax: number | null;
-  summary: string;
-  isConfidential: boolean;
-  interviewRequested: boolean;
-};
 
 async function fetchOpenPostings(): Promise<JobPostingRow[]> {
   const { data, error } = await supabaseAdmin()

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { YearMonthField } from "@/components/YearMonthField";
+import { TextField, SelectField, TextAreaField } from "@/components/FormFields";
 import { WORK_BUSINESS_FORMATS, tagsForBusinessFormat } from "@/lib/resume/workTags";
 
 type WorkExperience = {
@@ -201,13 +202,13 @@ export default function WorkExperiencePage() {
         className="flex flex-col gap-3 rounded-2xl border border-border bg-surface p-4 shadow-sm"
       >
         <p className="text-sm font-bold text-brand-dark">職歴を追加</p>
-        <Field
+        <TextField
           label="会社名"
           value={form.company_name}
           onChange={(v) => setForm((f) => ({ ...f, company_name: v }))}
           required
         />
-        <Field
+        <TextField
           label="店舗名"
           value={form.store_name}
           onChange={(v) => setForm((f) => ({ ...f, store_name: v }))}
@@ -237,31 +238,31 @@ export default function WorkExperiencePage() {
           現在も勤務中
         </label>
         <div className="flex gap-3">
-          <Select
+          <SelectField
             label="雇用形態"
             value={form.employment_type}
             options={EMPLOYMENT_TYPES}
             onChange={(v) => setForm((f) => ({ ...f, employment_type: v }))}
           />
-          <Select
+          <SelectField
             label="職種"
             value={form.job_type}
             options={JOB_TYPES}
             onChange={(v) => setForm((f) => ({ ...f, job_type: v }))}
           />
         </div>
-        <Field
+        <TextField
           label="役職"
           value={form.position}
           onChange={(v) => setForm((f) => ({ ...f, position: v }))}
         />
-        <Select
+        <SelectField
           label="業態"
           value={form.business_format}
           options={[...WORK_BUSINESS_FORMATS]}
           onChange={(v) => setForm((f) => ({ ...f, business_format: v, station_tags: [], skill_tags: [] }))}
         />
-        <Field
+        <TextField
           label="料理ジャンル"
           value={form.cuisine_genre}
           onChange={(v) => setForm((f) => ({ ...f, cuisine_genre: v }))}
@@ -274,12 +275,12 @@ export default function WorkExperiencePage() {
           onChangeSkills={(tags) => setForm((f) => ({ ...f, skill_tags: tags }))}
         />
         <div className="flex gap-3">
-          <Field
+          <TextField
             label="店舗規模"
             value={form.store_size}
             onChange={(v) => setForm((f) => ({ ...f, store_size: v }))}
           />
-          <Select
+          <SelectField
             label="席数"
             value={form.seat_count}
             options={SEAT_COUNT_OPTIONS}
@@ -287,20 +288,20 @@ export default function WorkExperiencePage() {
           />
         </div>
         <div className="flex gap-3">
-          <Select
+          <SelectField
             label="顧客単価"
             value={form.avg_spend}
             options={AVG_SPEND_OPTIONS}
             onChange={(v) => setForm((f) => ({ ...f, avg_spend: v }))}
           />
-          <Select
+          <SelectField
             label="管理人数"
             value={form.managed_headcount}
             options={MANAGED_HEADCOUNT_OPTIONS}
             onChange={(v) => setForm((f) => ({ ...f, managed_headcount: v }))}
           />
         </div>
-        <TextArea
+        <TextAreaField
           label={
             tagsForBusinessFormat(form.business_format || null)
               ? "主な業務（補足・任意）"
@@ -309,7 +310,7 @@ export default function WorkExperiencePage() {
           value={form.main_duties}
           onChange={(v) => setForm((f) => ({ ...f, main_duties: v }))}
         />
-        <TextArea
+        <TextAreaField
           label={
             tagsForBusinessFormat(form.business_format || null) ? "実績（補足・任意）" : "実績"
           }
@@ -334,63 +335,6 @@ export default function WorkExperiencePage() {
         {saving ? "保存中…" : "資格を入力する →"}
       </button>
     </main>
-  );
-}
-
-function Field({
-  label,
-  value,
-  onChange,
-  type = "text",
-  required = false,
-}: {
-  label: string;
-  value: string;
-  onChange: (v: string) => void;
-  type?: string;
-  required?: boolean;
-}) {
-  return (
-    <label className="block min-w-0 flex-1 text-sm font-bold text-foreground/70">
-      <span className="mb-1 block">{label}</span>
-      <input
-        type={type}
-        required={required}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="block w-full min-w-0 max-w-full rounded-xl border border-border bg-background px-3 py-2 text-base font-normal outline-none focus:border-brand"
-      />
-    </label>
-  );
-}
-
-function Select({
-  label,
-  value,
-  options,
-  onChange,
-}: {
-  label: string;
-  value: string;
-  options: string[];
-  onChange: (v: string) => void;
-}) {
-  return (
-    <label className="block min-w-0 flex-1 text-sm font-bold text-foreground/70">
-      <span className="mb-1 block">{label}</span>
-      <select
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="block w-full min-w-0 max-w-full rounded-xl border border-border bg-background px-3 py-2 text-base font-normal outline-none focus:border-brand"
-      >
-        <option value="">選択してください</option>
-        {options.map((o) => (
-          <option key={o} value={o}>
-            {o}
-          </option>
-        ))}
-      </select>
-    </label>
   );
 }
 
@@ -470,27 +414,5 @@ function TagChip({
     >
       {label}
     </button>
-  );
-}
-
-function TextArea({
-  label,
-  value,
-  onChange,
-}: {
-  label: string;
-  value: string;
-  onChange: (v: string) => void;
-}) {
-  return (
-    <label className="flex flex-col gap-1 text-sm font-bold text-foreground/70">
-      {label}
-      <textarea
-        rows={3}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="rounded-xl border border-border bg-background px-3 py-2 text-base font-normal outline-none focus:border-brand"
-      />
-    </label>
   );
 }

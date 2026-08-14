@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { YearMonthField } from "@/components/YearMonthField";
+import { TextField, SelectField } from "@/components/FormFields";
 
 type Education = {
   id: string;
@@ -18,6 +19,12 @@ type Education = {
 };
 
 const SCHOOL_TYPES = ["高校", "専門学校", "大学", "大学院", "その他"];
+
+const STATUS_OPTIONS = [
+  { value: "graduated", label: "卒業" },
+  { value: "withdrew", label: "中退" },
+  { value: "enrolled", label: "在学中" },
+];
 
 function yearsAgoYearMonth(years: number): string {
   const d = new Date();
@@ -145,31 +152,20 @@ export default function EducationPage() {
         className="flex flex-col gap-3 rounded-2xl border border-border bg-surface p-4 shadow-sm"
       >
         <p className="text-sm font-bold text-brand-dark">学歴を追加</p>
-        <Field
+        <TextField
           label="学校名"
           value={form.school_name}
           onChange={(v) => setForm((f) => ({ ...f, school_name: v }))}
           required
         />
-        <label className="block text-sm font-bold text-foreground/70">
-          <span className="mb-1 block">学校種別</span>
-          <select
-            required
-            value={form.school_type}
-            onChange={(e) => setForm((f) => ({ ...f, school_type: e.target.value }))}
-            className="block w-full rounded-xl border border-border bg-background px-3 py-2 text-base font-normal outline-none focus:border-brand"
-          >
-            <option value="" disabled>
-              選択してください
-            </option>
-            {SCHOOL_TYPES.map((t) => (
-              <option key={t} value={t}>
-                {t}
-              </option>
-            ))}
-          </select>
-        </label>
-        <Field
+        <SelectField
+          label="学校種別"
+          value={form.school_type}
+          options={SCHOOL_TYPES}
+          onChange={(v) => setForm((f) => ({ ...f, school_type: v }))}
+          required
+        />
+        <TextField
           label="学部・学科・コース"
           value={form.department}
           onChange={(v) => setForm((f) => ({ ...f, department: v }))}
@@ -190,20 +186,13 @@ export default function EducationPage() {
           yearFrom={CURRENT_YEAR - 60}
           yearTo={CURRENT_YEAR + 2}
         />
-        <label className="flex flex-col gap-1 text-sm font-bold text-foreground/70">
-          状況
-          <select
-            value={form.status}
-            onChange={(e) =>
-              setForm((f) => ({ ...f, status: e.target.value as Education["status"] }))
-            }
-            className="rounded-xl border border-border bg-background px-3 py-2 text-base font-normal outline-none focus:border-brand"
-          >
-            <option value="graduated">卒業</option>
-            <option value="withdrew">中退</option>
-            <option value="enrolled">在学中</option>
-          </select>
-        </label>
+        <SelectField
+          label="状況"
+          value={form.status}
+          options={STATUS_OPTIONS}
+          onChange={(v) => setForm((f) => ({ ...f, status: v as Education["status"] }))}
+          includeBlankOption={false}
+        />
         <label className="flex items-center gap-2 text-sm">
           <input
             type="checkbox"
@@ -230,32 +219,5 @@ export default function EducationPage() {
         {saving ? "保存中…" : "職歴を入力する →"}
       </button>
     </main>
-  );
-}
-
-function Field({
-  label,
-  value,
-  onChange,
-  type = "text",
-  required = false,
-}: {
-  label: string;
-  value: string;
-  onChange: (v: string) => void;
-  type?: string;
-  required?: boolean;
-}) {
-  return (
-    <label className="block min-w-0 flex-1 text-sm font-bold text-foreground/70">
-      <span className="mb-1 block">{label}</span>
-      <input
-        type={type}
-        required={required}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="block w-full min-w-0 max-w-full rounded-xl border border-border bg-background px-3 py-2 text-base font-normal outline-none focus:border-brand"
-      />
-    </label>
   );
 }

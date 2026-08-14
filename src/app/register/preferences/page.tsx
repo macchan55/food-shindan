@@ -2,6 +2,7 @@
 
 import { Suspense, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { SelectField } from "@/components/FormFields";
 import {
   TIMING_OPTIONS,
   INCOME_OPTIONS,
@@ -80,36 +81,41 @@ function PreferencesForm() {
       </div>
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-        <Select
+        <SelectField
           label="転職時期"
           value={timing}
-          options={TIMING_OPTIONS.map((o) => ({ value: o.value, label: o.label }))}
+          options={TIMING_OPTIONS}
           onChange={(v) => setTiming(v as CareerTiming)}
           required
+          inputClassName="bg-surface"
         />
-        <Select
+        <SelectField
           label="希望年収"
           value={income}
-          options={INCOME_OPTIONS.map((o) => ({ value: o, label: o }))}
+          options={INCOME_OPTIONS}
           onChange={setIncome}
+          inputClassName="bg-surface"
         />
-        <Select
+        <SelectField
           label="希望エリア"
           value={area}
-          options={AREA_OPTIONS.map((o) => ({ value: o, label: o }))}
+          options={AREA_OPTIONS}
           onChange={setArea}
+          inputClassName="bg-surface"
         />
-        <Select
+        <SelectField
           label="希望業態"
           value={format}
-          options={FORMAT_OPTIONS.map((o) => ({ value: o, label: o }))}
+          options={FORMAT_OPTIONS}
           onChange={setFormat}
+          inputClassName="bg-surface"
         />
-        <Select
+        <SelectField
           label="希望職種・役職"
           value={role}
-          options={ROLE_OPTIONS.map((o) => ({ value: o, label: o }))}
+          options={ROLE_OPTIONS}
           onChange={setRole}
+          inputClassName="bg-surface"
         />
 
         <div>
@@ -145,39 +151,6 @@ function PreferencesForm() {
         </button>
       </form>
     </main>
-  );
-}
-
-function Select({
-  label,
-  value,
-  options,
-  onChange,
-  required = false,
-}: {
-  label: string;
-  value: string;
-  options: { value: string; label: string }[];
-  onChange: (v: string) => void;
-  required?: boolean;
-}) {
-  return (
-    <label className="flex flex-col gap-1 text-sm font-bold text-foreground/70">
-      {label}
-      <select
-        required={required}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="rounded-xl border border-border bg-surface px-3 py-2 text-base font-normal outline-none focus:border-brand"
-      >
-        <option value="">選択してください</option>
-        {options.map((o) => (
-          <option key={o.value} value={o.value}>
-            {o.label}
-          </option>
-        ))}
-      </select>
-    </label>
   );
 }
 

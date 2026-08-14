@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { TextField } from "@/components/FormFields";
 
 type Qualification = {
   id: string;
@@ -130,38 +131,29 @@ export default function QualificationsPage() {
         className="flex flex-col gap-3 rounded-2xl border border-border bg-surface p-4 shadow-sm"
       >
         <p className="text-sm font-bold text-brand-dark">資格を追加</p>
-        <label className="flex flex-col gap-1 text-sm font-bold text-foreground/70">
-          資格名
-          <input
-            list="qualification-options"
-            required
-            value={form.name}
-            onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
-            className="rounded-xl border border-border bg-background px-3 py-2 text-base font-normal outline-none focus:border-brand"
-          />
-          <datalist id="qualification-options">
-            {COMMON_QUALIFICATIONS.map((q) => (
-              <option key={q} value={q} />
-            ))}
-          </datalist>
-        </label>
-        <label className="flex flex-col gap-1 text-sm font-bold text-foreground/70">
-          発行団体
-          <input
-            value={form.issuer}
-            onChange={(e) => setForm((f) => ({ ...f, issuer: e.target.value }))}
-            className="rounded-xl border border-border bg-background px-3 py-2 text-base font-normal outline-none focus:border-brand"
-          />
-        </label>
-        <label className="flex flex-col gap-1 text-sm font-bold text-foreground/70">
-          取得年月
-          <input
-            type="date"
-            value={form.obtained_date}
-            onChange={(e) => setForm((f) => ({ ...f, obtained_date: e.target.value }))}
-            className="rounded-xl border border-border bg-background px-3 py-2 text-base font-normal outline-none focus:border-brand"
-          />
-        </label>
+        <TextField
+          label="資格名"
+          value={form.name}
+          onChange={(v) => setForm((f) => ({ ...f, name: v }))}
+          required
+          listId="qualification-options"
+        />
+        <datalist id="qualification-options">
+          {COMMON_QUALIFICATIONS.map((q) => (
+            <option key={q} value={q} />
+          ))}
+        </datalist>
+        <TextField
+          label="発行団体"
+          value={form.issuer}
+          onChange={(v) => setForm((f) => ({ ...f, issuer: v }))}
+        />
+        <TextField
+          label="取得年月"
+          type="date"
+          value={form.obtained_date}
+          onChange={(v) => setForm((f) => ({ ...f, obtained_date: v }))}
+        />
         <button
           type="submit"
           disabled={saving}

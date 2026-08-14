@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { TextField } from "@/components/FormFields";
 
 type Profile = {
   full_name: string | null;
@@ -176,17 +177,25 @@ export default function ProfilePage() {
           </label>
         </div>
 
-        <Field label="氏名" value={profile.full_name} onChange={(v) => set("full_name", v)} required />
-        <Field
+        <TextField
+          label="氏名"
+          value={profile.full_name}
+          onChange={(v) => set("full_name", v)}
+          required
+          inputClassName="bg-surface"
+        />
+        <TextField
           label="ふりがな"
           value={profile.full_name_kana}
           onChange={(v) => set("full_name_kana", v)}
+          inputClassName="bg-surface"
         />
-        <Field
+        <TextField
           label="生年月日"
           type="date"
           value={profile.birthdate}
           onChange={(v) => set("birthdate", v)}
+          inputClassName="bg-surface"
         />
 
         <label className="flex flex-col gap-1 text-sm font-bold text-foreground/70">
@@ -207,25 +216,33 @@ export default function ProfilePage() {
         </label>
 
         <div className="flex flex-col gap-1">
-          <Field
+          <TextField
             label="郵便番号（ハイフンなし）"
             value={profile.postal_code}
             onChange={(v) => {
               setPostalLookupError(null);
               set("postal_code", v.replace(/[^0-9]/g, ""));
             }}
+            inputClassName="bg-surface"
           />
           <p className="text-xs text-foreground/50">
             入力すると住所が自動入力されます（番地・建物名は住所欄に追記してください）。
           </p>
           {postalLookupError && <p className="text-xs text-red-600">{postalLookupError}</p>}
         </div>
-        <Field label="住所" value={profile.address} onChange={(v) => set("address", v)} required />
-        <Field
+        <TextField
+          label="住所"
+          value={profile.address}
+          onChange={(v) => set("address", v)}
+          required
+          inputClassName="bg-surface"
+        />
+        <TextField
           label="電話番号（ハイフンなしで記入）"
           value={profile.phone}
           onChange={(v) => set("phone", v.replace(/[^0-9]/g, ""))}
           required
+          inputClassName="bg-surface"
         />
 
         <button
@@ -246,32 +263,5 @@ export default function ProfilePage() {
         {saving ? "保存中…" : "学歴を入力する →"}
       </button>
     </main>
-  );
-}
-
-function Field({
-  label,
-  value,
-  onChange,
-  type = "text",
-  required = false,
-}: {
-  label: string;
-  value: string | null;
-  onChange: (v: string) => void;
-  type?: string;
-  required?: boolean;
-}) {
-  return (
-    <label className="flex flex-col gap-1 text-sm font-bold text-foreground/70">
-      {label}
-      <input
-        type={type}
-        required={required}
-        value={value ?? ""}
-        onChange={(e) => onChange(e.target.value)}
-        className="rounded-xl border border-border bg-surface px-3 py-2 text-base font-normal outline-none focus:border-brand"
-      />
-    </label>
   );
 }

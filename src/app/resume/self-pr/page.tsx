@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { TextField, TextAreaField } from "@/components/FormFields";
 
 type DiagnosisContext = {
   typeName: string;
@@ -169,29 +170,23 @@ export default function SelfPrPage() {
         </p>
       )}
 
-      <label className="flex flex-col gap-1 text-sm font-bold text-foreground/70">
-        志望職種（任意・空欄でも作成できます）
-        <input
-          value={text.target_job ?? ""}
-          onChange={(e) => set("target_job", e.target.value)}
-          placeholder="例：ホールスタッフ、料理長 など"
-          className="rounded-xl border border-border bg-surface px-3 py-2 text-base font-normal outline-none focus:border-brand"
-        />
-      </label>
+      <TextField
+        label="志望職種（任意・空欄でも作成できます）"
+        value={text.target_job}
+        onChange={(v) => set("target_job", v)}
+        placeholder="例：ホールスタッフ、料理長 など"
+        inputClassName="bg-surface"
+      />
 
-      <label className="flex flex-col gap-1 text-sm font-bold text-foreground/70">
-        書きたいこと・下書き（任意）
-        <textarea
-          rows={4}
-          value={draftNotes}
-          onChange={(e) => setDraftNotes(e.target.value)}
-          placeholder="伝えたいエピソードや言い回しを箇条書き・文章どちらでもOK。AIがこの内容を土台に編集・加筆します。"
-          className="rounded-xl border border-border bg-surface px-3 py-2 text-base font-normal leading-relaxed outline-none focus:border-brand"
-        />
-        <span className="text-xs font-normal text-foreground/50">
-          入力すると、AIはこの下書きを書き直すのではなく編集・加筆して仕上げます。空欄なら診断結果と職歴からAIが作成します。
-        </span>
-      </label>
+      <TextAreaField
+        label="書きたいこと・下書き（任意）"
+        value={draftNotes}
+        onChange={setDraftNotes}
+        rows={4}
+        placeholder="伝えたいエピソードや言い回しを箇条書き・文章どちらでもOK。AIがこの内容を土台に編集・加筆します。"
+        helperText="入力すると、AIはこの下書きを書き直すのではなく編集・加筆して仕上げます。空欄なら診断結果と職歴からAIが作成します。"
+        inputClassName="bg-surface"
+      />
 
       <button
         onClick={handleGenerate}
@@ -202,18 +197,40 @@ export default function SelfPrPage() {
       </button>
       {error && <p className="text-sm text-red-600">{error}</p>}
 
-      <TextArea label="職務要約" value={text.work_summary} onChange={(v) => set("work_summary", v)} />
-      <TextArea label="自己PR" value={text.self_pr} onChange={(v) => set("self_pr", v)} />
-      <TextArea
+      <TextAreaField
+        label="職務要約"
+        value={text.work_summary}
+        onChange={(v) => set("work_summary", v)}
+        rows={5}
+        inputClassName="bg-surface"
+      />
+      <TextAreaField
+        label="自己PR"
+        value={text.self_pr}
+        onChange={(v) => set("self_pr", v)}
+        rows={5}
+        inputClassName="bg-surface"
+      />
+      <TextAreaField
         label="強み"
         value={text.strengths_text}
         onChange={(v) => set("strengths_text", v)}
+        rows={5}
+        inputClassName="bg-surface"
       />
-      <TextArea label="志望動機" value={text.motivation} onChange={(v) => set("motivation", v)} />
-      <TextArea
+      <TextAreaField
+        label="志望動機"
+        value={text.motivation}
+        onChange={(v) => set("motivation", v)}
+        rows={5}
+        inputClassName="bg-surface"
+      />
+      <TextAreaField
         label="今後のキャリアの方向性"
         value={text.career_direction}
         onChange={(v) => set("career_direction", v)}
+        rows={5}
+        inputClassName="bg-surface"
       />
 
       <button
@@ -231,27 +248,5 @@ export default function SelfPrPage() {
         プレビューを見る →
       </Link>
     </main>
-  );
-}
-
-function TextArea({
-  label,
-  value,
-  onChange,
-}: {
-  label: string;
-  value: string | null;
-  onChange: (v: string) => void;
-}) {
-  return (
-    <label className="flex flex-col gap-1 text-sm font-bold text-foreground/70">
-      {label}
-      <textarea
-        rows={5}
-        value={value ?? ""}
-        onChange={(e) => onChange(e.target.value)}
-        className="rounded-xl border border-border bg-surface px-3 py-2 text-base font-normal leading-relaxed outline-none focus:border-brand"
-      />
-    </label>
   );
 }

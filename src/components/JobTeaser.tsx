@@ -2,28 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-
-type JobPostingView = {
-  id: string;
-  storeName: string;
-  storeNameRevealed: boolean;
-  isMichelin: boolean;
-  area: string | null;
-  businessFormat: string | null;
-  role: string | null;
-  annualIncomeMin: number | null;
-  annualIncomeMax: number | null;
-  summary: string;
-  isConfidential: boolean;
-};
-
-function incomeLabel(min: number | null, max: number | null): string | null {
-  if (!min && !max) return null;
-  const fmt = (n: number) => `${Math.round(n / 10000)}万円`;
-  if (min && max) return `年収 ${fmt(min)}〜${fmt(max)}`;
-  if (min) return `年収 ${fmt(min)}〜`;
-  return `〜年収 ${fmt(max as number)}`;
-}
+import { type JobPostingView, incomeLabel } from "@/lib/jobsFormatting";
 
 // ④ shown right below the diagnosis result: a few Michelin-leaning postings, store name
 // hidden, to make "この診断、転職にも使えるかも" concrete before asking for anything.
